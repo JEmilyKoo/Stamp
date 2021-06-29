@@ -111,6 +111,9 @@
 															type="text" required autocomplete="off"
 															style="font-size: 14px">
 													</div>
+													<p class="help-block" id="error" style="color: red;">
+														<small>필수 항목입니다.</small>
+													</p>
 												</div>
 											</div>
 										</div>
@@ -125,6 +128,9 @@
 															class="_3rh7f has-custom-focus" type="text" required
 															autocomplete="off" style="font-size: 14px">
 													</div>
+													<p class="help-block" style="color: red;">
+														<small>필수 항목입니다.</small>
+													</p>
 												</div>
 											</div>
 										</div>
@@ -142,6 +148,9 @@
 															style="font-size: 14px">
 													</div>
 
+													<p class="help-block" style="color: red;">
+														<small>필수 항목입니다.</small>
+													</p>
 												</div>
 											</div>
 										</div>
