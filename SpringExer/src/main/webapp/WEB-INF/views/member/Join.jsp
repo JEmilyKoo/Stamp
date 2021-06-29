@@ -1,96 +1,197 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"
+	id="wixDesktopViewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
-<title>Membership.jsp</title>
+<!--내가 추가한 코드-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/css.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/common-site-members-dialogs.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+	rel="stylesheet">
+
+
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/common-site-members-dialogs.css">
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-<!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
-<!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
+<title>가입하기 | 찍GO</title>
+
+
+<style>
+#마스터페이지 { -
+	-pinned-layers-in-page: 0
+}
+
+#pageBackground_ldtv2 { -
+	-bg-position: absolute; -
+	-bg-overlay-color: rgb(var(- -color_11)); -
+	-fill-layer-background-overlay-color: transparent; -
+	-fill-layer-background-overlay-position: absolute
+}
+</style>
 </head>
-<body>
-	<!-- 네비게이션 시작 -->
-	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
-	<!-- 네비게이션 끝 -->
-	<!-- 실제 내용 시작 -->
-	<div class="container">
-	
-		<div class="jumbotron">
-			<h1>회원가입<small>회원 가입 하세요</small></h1>
-		</div>
-		<div class="row">
-			<div class="col-md-offset-1 col-md-10">
-				<form id="myform" method="post" class="form-horizontal" action="<c:url value="/Member/Join.do"/>">
-					
-					<div class="form-group"><!-- <div class="row">와 같다 -->
-						<!--  label에 control-label도 함께:가운데 수직 정렬 -->
-						<label class="col-sm-2 control-label" >아이디</label>
-						<div class="col-sm-4">
-							<input type="text" id="id" name="id" class="form-control" placeholder="아이디">
+<body class="blockSiteScrolling"
+	style="-blocked-site-scroll-margin-top: 0.5px;">
+
+	<div id="SITE_CONTAINER">
+		<div id="main_MF">
+			<div id="site-root">
+				<div class="_11F4V" data-testid="siteMembersDialogLayout"
+					data-layout="fullscreen">
+					<div class="WmezM" data-testid="siteMembersDialogBlockingLayer"></div>
+					<div role="dialog" tabindex="-1"
+						aria-labelledby="signUpHeadline_SM_ROOT_COMP12" class="akXcv"
+						data-dialogposition="start">
+						<button onclick="goBack()" class="_8vZ-e" data-testid="xButton"
+							aria-label="닫기" type="button">
+							<svg width="24" height="24" viewBox="0 0 24 24">
+							 
+								<defs>
+								
+								<filter id="close_svg__a" width="136.7%" height="135.5%"
+									x="-18.3%" y="-17.8%" filterUnits="objectBoundingBox">
+
+<feMorphology in="SourceAlpha" operator="dilate" radius="9"
+									result="shadowSpreadOuter1"></feMorphology>
+
+<feOffset dx="2" dy="12" in="shadowSpreadOuter1"
+									result="shadowOffsetOuter1"></feOffset>
+								<feGaussianBlur in="shadowOffsetOuter1"
+									result="shadowBlurOuter1" stdDeviation="14"></feGaussianBlur>
+
+<feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1"
+									values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"></feColorMatrix>
+<feMerge>
+								<feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+								<feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+								
+								</filter> </defs>
+								
+								<g fill-rule="evenodd" filter="url(#close_svg__a)"
+									transform="translate(-421 -24)">
+								<path
+									d="M439.77 28l1.23 1.23-6.77 6.77 6.77 6.77-1.23 1.23-6.77-6.77-6.77 6.77-1.23-1.23 6.769-6.77L425 29.23l1.23-1.23 6.77 6.769L439.77 28z"></path></g></svg>
+
+						</button>
+
+						<div id="SM_ROOT_COMP12" class="_2nKSe">
+							<h1 id="signUpHeadline_SM_ROOT_COMP12" class="_15DDX"
+								data-testid="signUp.headline">가입하기</h1>
+							<div class="_6UDPd _14jSF _2QSEv">
+								<div class="_1axeK">
+									
+								</div>
+
+								<form data-testid="emailAuth" id="myform" method="post"
+									class="form-horizontal"
+									action="<c:url value="/Member/Join.do"/>">
+
+
+									<div class="aonqC">
+
+										<div class="MQAj0">
+											<div id="idDiv" class="_1ggNP">
+												<div id="idInput" class="_1FsS0 _36G3j _19QH-">
+													<label for="id" class="_1qrSw">아이디</label>
+													<div class="ABx0f">
+														<input id="id" name="id" class="_3rh7f has-custom-focus"
+															type="text" required autocomplete="off"
+															style="font-size: 14px">
+													</div>
+													<p class="help-block" id="error" style="color: red;">
+														<small>필수 항목입니다.</small>
+													</p>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="MQAj0">
+											<div id="nameDiv" class="_1ggNP">
+												<div id="nameInput" class="_1FsS0 _36G3j _19QH-">
+													<label for="name" class="_1qrSw">이름</label>
+													<div class="ABx0f">
+														<input id="name" name="name"
+															class="_3rh7f has-custom-focus" type="text" required
+															autocomplete="off" style="font-size: 14px">
+													</div>
+													<p class="help-block" style="color: red;">
+														<small>필수 항목입니다.</small>
+													</p>
+												</div>
+											</div>
+										</div>
+
+
+
+										<div class="_1RlXb">
+											<div id="pwdDiv" class="_1ggNP"
+												data-testid="siteMembers.container">
+												<div id="pwdInput" class="_1FsS0 _36G3j _19QH-">
+													<label for="pwd" class="_1qrSw">비밀번호</label>
+													<div class="ABx0f">
+														<input id="pwd" class="_3rh7f has-custom-focus"
+															type="password" required autocomplete="off" value=""
+															style="font-size: 14px">
+													</div>
+
+													<p class="help-block" style="color: red;">
+														<small>필수 항목입니다.</small>
+													</p>
+												</div>
+											</div>
+										</div>
+
+
+									</div>
+
+									<div class=" _2KYMK">
+										<div id="okButton_SM_ROOT_COMP12" aria-disabled="false"
+											class="oneButton">
+											<button type="submit" class="oneButtonLinkClass boxButton">
+												<span class="oneButtonSpanClass">가입하기</span>
+											</button>
+										</div>
+									</div>
+
+
+								</form>
+								<!-- 새 폼 끝-->
+
+								<div>
+									<div class="_1q-e7 _3fqFH">
+										<span>다음 계정으로 가입하기</span>
+									</div>
+								</div>
+							</div>
 						</div>
-							<p class="help-block" style="color:red;"><small>필수 항목입니다.</small></p>
 					</div>
-					
-					<div class="form-group"><!-- <div class="row">와 같다 -->
-						<!--  label에 control-label도 함께:가운데 수직 정렬 -->
-						<label class="col-sm-2 control-label" >비밀번호</label>
-						<div class="col-sm-4">
-							<input type="password" name="pwd" class="form-control" placeholder="비밀번호">
-						</div>
-						<p class="help-block" style="color:red;"><small>필수 항목입니다.</small></p>
-						
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" >이름</label>
-						<div class="col-sm-4">
-							<input type="text" name="name" class="form-control" placeholder="이름">
-						</div>
-							<p class="help-block" style="color:red;"><small>필수 항목입니다.</small></p>
-					</div>
-					
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-4">
-							<button type="submit" class="btn btn-primary">확인</button>
-						</div>
-					</div>
-				</form>
+					<div></div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<!-- 실제 내용 끝 -->
-	<!--  푸터 시작 -->
-	<!-- 실제 내용 끝 -->
-	<div class="modal fade" id="small-modal" data-backdrop="static">
-   		<div class="modal-dialog modal-sm">
-   			<div class="modal-content">    				
-   				<div class="modal-body">
-   					<button class="close" data-dismiss="modal">
-   						<span>&times;</span>
-   					</button>
-   					<h5 class="modal-title"><span class="glyphicon glyphicon-bullhorn"></span>회원 가입</h5>
-   					<h4 id="warningMessage" style="color:red"></h4>
-   				</div>    			
-   			</div>    		
-   		</div>    	
-   	</div>
-	<jsp:include page="/WEB-INF/views/templates/Footer.jsp" />
-</body>
 
+	<script>
+		function goBack() {
+			window.history.back();
+		}
+	</script>
+
+
+
+</body>
 </html>
