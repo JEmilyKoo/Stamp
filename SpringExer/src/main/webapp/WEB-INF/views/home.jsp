@@ -28,11 +28,6 @@
 <script>
 
 
-console.log("${list.size()}");
-
-
-
-
 var mapContainer = document.getElementById('map'),  
     mapOption = { 
 		center: new kakao.maps.LatLng(37.56681519680827, 126.97867489950377), 
@@ -51,22 +46,18 @@ var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
 var positions = [
 	<c:forEach items="${list}" var="item">
 	    {
-	        title: '${item.sno}', 
-	        latlng: new kakao.maps.LatLng(${item.lat}, ${item.lng}),
+	        title: '${item.stNo}', 
+	        latlng: new kakao.maps.LatLng(${item.rvLat}, ${item.rvLng}),
 	        content : '<div class="customoverlay">' +
-	        '  <a href="<c:url value="/BBS/View.do?no=${item.no }"/>">' +
-	        '    <span class="title">${item.title}</span>' +
+	        '  <a href="<c:url value="/Review/View.do?rvNo=${item.rvNo }"/>">' +
+	        '    <span class="title">${item.rvTitle}</span>' +
 	        '  </a>' +
 	        '</div>'
 	    },
 	</c:forEach>
 ];
 
-
-	 
-	 
 for (var i = 0; i < positions.length; i ++) {
-	
     var marker = new kakao.maps.Marker({
         position: positions[i].latlng, 
         image : markerImage,

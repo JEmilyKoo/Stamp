@@ -11,11 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StampDTO {
-	String no;
-	String lat;
-	String lng;
-	String sno;
-	Date stampDate;
-	String title;
-
+	String rvNo;
+	String rvLat;
+	String rvLng;
+	String stNo;
+	Date stDate;
+	String rvTitle;
 }
