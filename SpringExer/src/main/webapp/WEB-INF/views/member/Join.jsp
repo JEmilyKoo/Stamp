@@ -129,7 +129,7 @@
 											</div>
 										</div>
 
-<div id="emailDiv" class="_1ggNP">
+<div id="emailDiv" class="_1ggNP"><!-- yttt -->
 												<div id="emailInput" class="_1FsS0 _36G3j _19QH-">
 													<label for="email" class="_1qrSw">이메일</label>
 													<div class="ABx0f">
