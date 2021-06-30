@@ -77,7 +77,6 @@ public class MemberController {
 	
 	@RequestMapping(value="KakaoLogin.do",produces="application/json;charset=UTF-8")
 	public String KakaoLogin(String code,HttpSession session) {
-		
 		///POST방식으로 key=value 데이터를 요청 (카카오쪽으로)
 		//a태그라 무조건 get방식인데 아래 라이브러리 사용하면 post가능
 		RestTemplate rt = new RestTemplate();
@@ -285,8 +284,6 @@ public class MemberController {
 				map.put("name", naverProfile.getResponse().name);
 				map.put("pwd","1234");
 				
-				System.out.println("aaaaaaaaaaaaaaaaaaaa"+map.get("id"));
-				System.out.println("bbbbbbbbbbbbbbbbbbbb"+map.get("name"));
 				//가입자 혹은 비가입자 체크 해서 처리
 				//비가입자면 회원가입 처리 
 				boolean flag = memberService.joinCheck(map);
@@ -305,10 +302,7 @@ public class MemberController {
 					return "forward:/Review/List.do";
 				}
 	}
-	
-	
-	
-	
+
 	
 	@RequestMapping("Logout.do")
 	public String Logout(HttpSession session) {
