@@ -52,14 +52,14 @@ pageEncoding="UTF-8"%>
   </script>
 
 
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/modalcss.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/modalcss.css" >
 
 
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/memberPagesVendor.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/memberPagesVendor.css" >
   
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/memberPagesCommons.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/memberPagesCommons.css" >
   
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/member-comments-page.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/member-comments-page.css" >
   
   
 

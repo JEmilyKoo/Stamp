@@ -25,7 +25,7 @@ import com.company.exer.service.BBSService;
 
 @SessionAttributes({"id"})
 @Controller
-@RequestMapping("/BBS")
+@RequestMapping("/BBS/")
 public class BBSController {
 
 	@Resource(name="bbsService")
@@ -37,7 +37,7 @@ public class BBSController {
 		List<BBSDTO> list = bbsService.selectList();
 		model.addAttribute("list",list);
 		System.out.println(list);
-		return "bbs/List";
+		return "review/List";
 	}
 	
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)

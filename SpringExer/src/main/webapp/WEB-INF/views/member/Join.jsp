@@ -9,9 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!--내가 추가한 코드-->
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/css.css">
+	href="${pageContext.request.contextPath}/css/css.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/common-site-members-dialogs.css">
+	href="${pageContext.request.contextPath}/css/common-site-members-dialogs.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
@@ -20,7 +20,7 @@
 
 
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/common-site-members-dialogs.css">
+	href="${pageContext.request.contextPath}/css/common-site-members-dialogs.css">
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet"

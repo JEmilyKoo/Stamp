@@ -26,7 +26,7 @@
 <!--내가 추가한 코드-->
 
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/css.css">
+	href="${pageContext.request.contextPath}/css/css.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -115,93 +115,70 @@
 	src="${pageContext.request.contextPath}/stampGO_files/HtmlComponent.js"></script>
 </head>
 <body>
-	<div class="meshContainer">
-	<section id="comp-kpzke0rf" class="확인용6">
-						<div data-testid="columns" class="확인용8">
-							<div id="comp-kpzke0rf1" class="릴레이티브비지블">
-								
-							 <div data-mesh-id="comp-kpzke0rf1inlineContent"
-									data-testid="inline-content">
-									<div data-mesh-id="comp-kpzke0rf1inlineContent-gridContainer"
-										data-testid="mesh-container-content">
-										<div id="comp-kpzke0rf2" class="_1Ci6i">
-											<div data-testid="linkElement" class="-qfs1">
-												
+	<div class="meshContainer" style="height: 300px">
+		<section id="comp-kpzke0rf" class="확인용6">
+			<div data-testid="columns" class="확인용8">
+				<div id="comp-kpzke0rf1" class="릴레이티브비지블">
 
-<img src="${pageContext.request.contextPath}/images/profile/icon.webp"
-													alt="프사"
-													style="width: 220px; height: 220px; object-fit: cover; object-position: 50% 50%;">
-											</div>
-										</div>
-										<div id="comp-kpzke0rf3" class="숲많이감클래스"
-											data-testid="리치텍스트엘리먼트">
-											<h1 class="font_0"
-												style="line-height: 1.41em; font-size: 22px">
-												<span class="color_32">👑구정은<span
-													style="font-weight: bold"> LV.10</span><br></span>
-											</h1>
-										</div>
-										<div id="comp-kpzke0rf4" class="숲많이감클래스"
-											data-testid="리치텍스트엘리먼트">
-											<p class="font_8"
-												style="text-align: left; line-height: 1.75em; font-size: 18px">
-												<span>한소인 8기 프로젝트 1팀</span>
-											</p>
-										</div>
-										<div id="comp-kpzke0rf5" aria-disabled="false"
-											class="oneButton">
-											<a data-testid="linkElement"
-												href="mailto:jemilykoo@gmail.com" target="_self"
-												class="oneButtonLinkClass"><span
-												class="oneButtonSpanClass">✉️</span></a>
-										</div>
-									</div>
+					<div data-mesh-id="comp-kpzke0rf1inlineContent"
+						data-testid="inline-content">
+						<div data-mesh-id="comp-kpzke0rf1inlineContent-gridContainer"
+							data-testid="mesh-container-content">
+							<div id="comp-kpzke0rf2" class="_1Ci6i">
+								<div data-testid="linkElement" class="-qfs1">
+
+									<img
+										src="${pageContext.request.contextPath}/images/profile/icon/icon1.webp"
+										alt="프사"
+										style="width: 220px; height: 220px; object-fit: cover; object-position: 50% 50%;">
 								</div>
 							</div>
+							<div id="comp-kpzke0rf3" class="숲많이감클래스" data-testid="리치텍스트엘리먼트">
+								<h1 class="font_0" style="line-height: 1.41em; font-size: 22px">
+									<span class="color_32">👑구정은<span
+										style="font-weight: bold"> LV.10</span><br></span>
+								</h1>
+							</div>
+							<div id="comp-kpzke0rf4" class="숲많이감클래스" data-testid="리치텍스트엘리먼트">
+								<p class="font_8"
+									style="text-align: left; line-height: 1.75em; font-size: 18px">
+									<span>한소인 8기 프로젝트 1팀</span>
+								</p>
+							</div>
+							<div id="comp-kpzke0rf5" aria-disabled="false" class="oneButton">
+								<a data-testid="linkElement" href="mailto:jemilykoo@gmail.com"
+									target="_self" class="oneButtonLinkClass"><span
+									class="oneButtonSpanClass">✉️</span></a>
+							</div>
 						</div>
-					</section>
-	<!-- 
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- 
 		<div id="comp-kpzke0re1" class="릴레이티브비지블">
 			<div data-mesh-id="comp-kpzke0re1inlineContent"
 				data-testid="inline-content">
 				
 					 -->
-				<div data-mesh-id="comp-kpzke0re1inlineContent-gridContainer"
-					data-testid="mesh-container-content">
-					
-					<div id="comp-kpzke0rg" aria-disabled="false" class="oneButton">
-						<a data-testid="linkElement"
-							href="https://jemilykoo.wixsite.com/website/profile/%7BuserName%7D/profile"
-							target="_self" class="oneButtonLinkClass"><span
-							class="oneButtonSpanClass">게시글</span></a>
-					</div>
-					<div id="comp-kpzkekds" aria-disabled="false" class="oneButton">
-						<a data-testid="linkElement"
-							data-anchor-comp-id="adi_page1017_1_154"
-							href="https://jemilykoo.wixsite.com/website/%ED%94%84%EB%A1%9C%ED%95%84"
-							target="_self" class="oneButtonLinkClass"><span
-							class="oneButtonSpanClass">뱃지</span></a>
-					</div>
-					<div data-mesh-id="comp-kpzke0re1inlineContent-wedge-3"></div>
-				</div>
+		<div data-mesh-id="comp-kpzke0re1inlineContent-gridContainer"
+			data-testid="mesh-container-content" style="">
+
+			<div id="comp-kpzke0rg" aria-disabled="false" class="oneButton">
+				<a data-testid="linkElement"
+					href="https://jemilykoo.wixsite.com/website/profile/%7BuserName%7D/profile"
+					target="_self" class="oneButtonLinkClass"><span
+					class="oneButtonSpanClass">게시글</span></a>
+			</div>
+			<div id="comp-kpzkekds" aria-disabled="false" class="oneButton">
+				<a data-testid="linkElement"
+					data-anchor-comp-id="adi_page1017_1_154"
+					href="https://jemilykoo.wixsite.com/website/%ED%94%84%EB%A1%9C%ED%95%84"
+					target="_self" class="oneButtonLinkClass"><span
+					class="oneButtonSpanClass">뱃지</span></a>
 			</div>
 		</div>
 	</div>
-	</section>
-	<section id="comp-kpzkayjc" class="확인용6">
-		<div data-testid="columns" class="확인용8">
-			<div id="comp-kpzkayjd" class="릴레이티브비지블">
-				<div data-mesh-id="comp-kpzkayjdinlineContent"
-					data-testid="inline-content">
-					<div data-mesh-id="comp-kpzkayjdinlineContent-gridContainer"
-						data-testid="mesh-container-content">
-						<div id="comp-kpzkayjf" class="_2JOHk"
-							style="overflow: hidden; height: 690px;"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 	<section id="comp-kpqg9ea77" class="확인용6">
 		<div data-testid="columns" class="확인용8">
 			<div id="comp-kpqg9ea9" class="릴레이티브비지블">
@@ -232,7 +209,10 @@
 											<div id="comp-kpqg9ea95" class="Ued3M">
 												<div data-testid="linkElement" class="_2edl5">
 
-													<img src="${pageContext.request.contextPath}/images/profile/badge/badge1.png" alt="숲뱃지" style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
+													<img
+														src="${pageContext.request.contextPath}/images/profile/badge/badge1.png"
+														alt="숲뱃지"
+														style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
 
 												</div>
 											</div>
@@ -268,8 +248,11 @@
 											data-testid="mesh-container-content">
 											<div id="comp-kpqg9ea910" class="Ued3M">
 												<div data-testid="linkElement" class="_2edl5">
-													
-												<img src="${pageContext.request.contextPath}/images/profile/badge/badge2.png" alt="바다뱃지" style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
+
+													<img
+														src="${pageContext.request.contextPath}/images/profile/badge/badge2.png"
+														alt="바다뱃지"
+														style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
 												</div>
 											</div>
 											<div id="comp-kpqg9ea911" class="숲많이감클래스"
@@ -307,7 +290,10 @@
 											data-testid="mesh-container-content">
 											<div id="comp-kpqg9eaa" class="Ued3M">
 												<div data-testid="linkElement" class="_2edl5">
-													<img src="${pageContext.request.contextPath}/images/profile/badge/badge2.png" alt="산뱃지" style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
+													<img
+														src="${pageContext.request.contextPath}/images/profile/badge/badge2.png"
+														alt="산뱃지"
+														style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
 												</div>
 											</div>
 											<div id="comp-kpqg9eab" class="숲많이감클래스"
@@ -337,14 +323,12 @@
 								</div>
 							</div>
 						</section>
-						<div data-mesh-id="comp-kpqg9ea9inlineContent-wedge-4"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<div id="adi_page1017_1_154" class="GFY_- ignore-focus" tabindex="-1"
-		role="region" aria-label="프로필: 팀원">&nbsp;</div>
+	
 	<section id="comp-kpzknxzk" class="확인용6">
 		<div data-testid="columns" class="확인용8">
 			<div id="comp-kpzknxzl" class="릴레이티브비지블">
@@ -388,10 +372,10 @@
 											data-testid="mesh-container-content">
 											<div id="comp-kpzko8uv1" class="Ued3M">
 												<div data-testid="linkElement" class="_2edl5">
-													<img src="${pageContext.request.contextPath}/images/stamp/stamp5.png"
+													<img
+														src="${pageContext.request.contextPath}/images/stamp/stamp5.png"
 														alt="Client 5"
-														style="width: 220px; height: 280px; object-fit: contain; object-position: center center;
-														">
+														style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
 												</div>
 											</div>
 											<div id="comp-kpzko8uu2" class="숲많이감클래스"
@@ -766,11 +750,7 @@
 										<div data-mesh-id="comp-kpzm8ync4inlineContent-gridContainer"
 											data-testid="mesh-container-content">
 											<div id="comp-kpzm8ync5" class="_26QaB">
-												<div class="_16FUt">
-
-													<jsp:include
-														page="/WEB-INF/views/templates/get_draft_002.jsp" />
-												</div>
+												<div class="_16FUt"></div>
 
 											</div>
 											<div id="comp-kpzm8ynd" class="숲많이감클래스"
@@ -812,15 +792,7 @@
 										data-testid="inline-content">
 										<div data-mesh-id="comp-kpzm8wnk3inlineContent-gridContainer"
 											data-testid="mesh-container-content">
-											<div id="comp-kpzm8wnk4" class="_26QaB">
-												<wix-iframe data-src="">
-												<div class="_16FUt">
-
-													<jsp:include
-														page="/WEB-INF/views/templates/get_draft_003.jsp" />
-												</div>
-												</wix-iframe>
-											</div>
+											<div id="comp-kpzm8wnk4" class="_26QaB"></div>
 											<div id="comp-kpzm8wnl" class="숲많이감클래스"
 												data-testid="리치텍스트엘리먼트">
 												<h2 class="font_6"
@@ -848,18 +820,5 @@
 	</section>
 
 
-	</div>
-	</div>
-	</div>
-	
-	</div>
-	</div>
-	</div>
-	</div>
-	</main>
-
-	</div>
-	</div>
-	</div>
 </body>
 </html>

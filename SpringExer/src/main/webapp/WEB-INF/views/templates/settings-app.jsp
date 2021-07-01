@@ -25,8 +25,8 @@ pageEncoding="UTF-8"%>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link type="image/png" href="https://www.wix.com/favicon.ico" rel="shortcut icon">
   
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/settings-app.css" >
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/settings-app.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/commons.css" >
 
   
 

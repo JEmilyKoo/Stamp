@@ -5,7 +5,6 @@
 <html class="enable-scroll" lang="ko">
 
 <head>
-</head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"
 	id="wixDesktopViewport">
@@ -28,9 +27,9 @@
 <meta name="generator" content="Wix\.com Website Builder">
 <!--내가 추가한 코드-->
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/css.css">
+	href="${pageContext.request.contextPath}/css/css.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/Stamp.css">
+	href="${pageContext.request.contextPath}/css/Stamp.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -80,6 +79,8 @@
 </head>
 
 <body class="">
+
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 	<div id="SITE_CONTAINER">
 		<div id="main_MF">
 			<div id="site-root">

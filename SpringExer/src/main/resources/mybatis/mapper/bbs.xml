@@ -8,9 +8,9 @@
 <mapper namespace="mybatis.mapper.bbs">
 
 	<select id="bbsSelectList" resultType="bbsDTO">
-		select b.*,m.name
-		from bbs b Join member m  ON b.id=m.id
-		order by no desc
+		select r.*,m.name
+		from review r Join member m ON r.id=m.id
+		order by rvno desc
 	</select>
 	
 	<insert id="bbsInsert" parameterType="Map">

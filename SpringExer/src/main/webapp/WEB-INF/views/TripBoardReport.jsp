@@ -15,7 +15,7 @@ pageEncoding="UTF-8"%>
 		<!-- base href="https://jemilykoo.wixsite.com/website/" -->
 		<meta name="generator" content="Wix\.com Website Builder">
 		<!--내가 추가한 코드-->
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/css.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -112,6 +112,9 @@ pageEncoding="UTF-8"%>
 		</head>
 
 		<body>
+		
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
+		
 			<div style="position: absolute; top: 200px; left:500px">
 				<!-- 잘 보이기 위한 위치-->이 버튼을 실행하면 아래 목록이 뜨게 설정하세요
 				<!--설명-->

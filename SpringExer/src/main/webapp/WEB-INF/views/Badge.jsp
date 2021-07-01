@@ -32,7 +32,7 @@ bgDate : 획득 날짜 -> ${BADGELIST.bgDate}
 		<meta name="viewport" content="width=device-width, initial-scale=1" id="wixDesktopViewport">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<!-- css 설정  -->
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/css.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css">
 		<!-- 폰트 설정 -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -46,6 +46,8 @@ bgDate : 획득 날짜 -> ${BADGELIST.bgDate}
 	</head>
 	<!-- body 시작 -->
 	<body>
+	
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 	<!-- MeshContainer는 Mesh방식으로 보여주는 컨테이너 -->
 	<div class="meshContainer">
 		<!------ 뱃지 로고 시작 ------>

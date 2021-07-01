@@ -11,11 +11,11 @@ pageEncoding="UTF-8"%>
   <script src="${pageContext.request.contextPath}/stampGO_files/bundle.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/profile-card-tpa-ooi/1.277.0/ProfileCardViewerWidget.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/ProfileCardViewerWidget.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/pro-gallery-santa-wrapper/1.1612.0/viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/viewer.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/communities-forum-client/1.432.0/forum-app-viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/forum-app-viewer.js"></script><!-- base href="https://jemilykoo.wixsite.com/website/" -->
   <meta name="generator" content="Wix\.com Website Builder"><!--내가 추가한 코드-->
   
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/css.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css" >
 
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/profileSetting.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/profileSetting.css" >
   
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/ProfileAlarmSetting.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/ProfileAlarmSetting.css" >
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -77,6 +77,7 @@ pageEncoding="UTF-8"%>
     </style></head>
 <body class="_1Arx3 _1Fqrx _1vwX8" style="">
 
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 <script type="text/javascript">
     var bodyCacheable = true;
     

@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
   <script src="${pageContext.request.contextPath}/stampGO_files/bundle.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/profile-card-tpa-ooi/1.277.0/ProfileCardViewerWidget.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/ProfileCardViewerWidget.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/pro-gallery-santa-wrapper/1.1612.0/viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/viewer.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/communities-forum-client/1.432.0/forum-app-viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/forum-app-viewer.js"></script><!-- base href="https://jemilykoo.wixsite.com/website/" -->
   <meta name="generator" content="Wix\.com Website Builder"><!--내가 추가한 코드-->
   
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/css.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css" >
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -31,6 +31,7 @@ pageEncoding="UTF-8"%>
 </head>
 <body class='' >
 
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 <div id="SITE_CONTAINER"><div id="main_MF"></div></div><div id="site-root"><div id="마스터페이지" class="메시레이아웃"><header ></header><main id="PAGES_CONTAINER" tabindex="-1"><div id="SITE_PAGES"><div class="스트레치"><div id="가이드아이디" class="확인용2"><div class="확인용3"></div><div class="확인용4"><div id="Container가이드아이디" class="확인용5"><div data-mesh-id="Container가이드아이디inlineContent" data-testid="inline-content" ><div data-mesh-id="Container가이드아이디inlineContent-gridContainer" data-testid="mesh-container-content"><section id="comp-kpnfe02s" class="확인용6"><div data-testid="columns" class="확인용8"><div id="comp-kpnfe02s1" class="릴레이티브비지블"><div data-mesh-id="comp-kpnfe02s1inlineContent" data-testid="inline-content" ><div data-mesh-id="comp-kpnfe02s1inlineContent-gridContainer" data-testid="mesh-container-content"><div id="comp-kpnfe02s2" class="숲많이감클래스" data-testid="리치텍스트엘리먼트"><h1 class="font_6" style="text-align:center;line-height:1.35em;font-size:40px"><span class="color_32"><span style="text-transform: uppercase;">가이드</span></span></h1></div><div id="comp-kpnfe02s3" class="숲많이감클래스" data-testid="리치텍스트엘리먼트"><p class="font_8" style="text-align:center;line-height:1.75em;font-size:18px"><span>스탬프를 따라 여행하기</span></p></div><div id="comp-kpngmzdp" ><div data-testid="svgRoot-comp-kpngmzdp" class="TG-Zk _1UnNA"><svg preserveAspectRatio="xMidYMid meet" data-bbox="-0.052 0 200.052 200" xmlns="http://www.w3.org/2000/svg" viewBox="-0.052 0 200.052 200" role="img">
     <g >
         <path d="M95.4 137.7c-5.1 0-9.1 4-9.1 9.1 0 5 4.1 9.1 9.1 9.1 5.1 0 9.3-4.1 9.3-9.1 0-5.1-4.1-9.1-9.3-9.1z"/>
