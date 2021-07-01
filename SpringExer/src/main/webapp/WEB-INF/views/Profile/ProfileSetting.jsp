@@ -11,26 +11,15 @@ pageEncoding="UTF-8"%>
   <script src="${pageContext.request.contextPath}/stampGO_files/bundle.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/profile-card-tpa-ooi/1.277.0/ProfileCardViewerWidget.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/ProfileCardViewerWidget.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/pro-gallery-santa-wrapper/1.1612.0/viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/viewer.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/communities-forum-client/1.432.0/forum-app-viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/forum-app-viewer.js"></script><!-- base href="https://jemilykoo.wixsite.com/website/" -->
   <meta name="generator" content="Wix\.com Website Builder"><!--내가 추가한 코드-->
   
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/css.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css" >
 
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/profileSetting.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/profileSetting.css" >
   
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
   
-
-
-  
-
-  
-
-<!-- render-head end -->
-
-
-
-
 
 
 
@@ -46,6 +35,7 @@ pageEncoding="UTF-8"%>
 <script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-common.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-classic.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/Container_RectangleArea.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/VerticalMenu_VerticalMenuSolidColorSkin.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/LoginSocialBar.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-responsive.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/MeshGroup.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/FreemiumBannerDesktop.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/SkipToContentButton.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/WPhoto_CirclePhoto.js"></script><script src="${pageContext.request.contextPath}/stampGO_files/requirejs.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/HtmlComponent.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/HtmlComponent.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/proGallery_videoScrollHelper.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/ItemActions.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/proGallery_videoItem.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/AsyncEventHandler.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/ProGalleryInfoElement.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/proGallery_reactPlayer.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/HlsPlayer.js"></script><style data-emotion=""></style><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/common-site-members-dialogs.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/common-site-members-dialogs.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/forum-rce-frameless.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/forum-rce-frameless.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/0.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/73.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/53.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/member-card-async-frameless.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/member-card-async-frameless.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/report-post-modal.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/report-post-modal.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/TPAPopup.css" crossorigin="anonymous"></head>
 <body class="_1Arx3 _1Fqrx">
 
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 
 <div id="SITE_CONTAINER" class="focus-ring-active"><div id="main_MF"><div id="BACKGROUND_GROUP"><div><div id="pageBackground_내계정아이디" data-media-height-override-type="" data-media-position-override="false" class="_2AO2a"><div id="bgLayers_pageBackground_내계정아이디" class="확인용7"></div></div></div></div><div id="site-root"><div id="마스터페이지" class="메시레이아웃">
   

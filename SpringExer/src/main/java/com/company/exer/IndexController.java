@@ -24,11 +24,11 @@ public class IndexController {
 		return "/Badge";
 	}///////////////////Badge()
 	
-	@RequestMapping("/Stamp/CatagoryEdit.do")
-	public String CatagoryEdit() {
+	@RequestMapping("/Stamp/CategoryEdit.do")
+	public String CategoryEdit() {
 		//뷰정보 반환]
-		return "/CatagoryEdit";
-	}///////////////////CatagoryEdit()
+		return "/CategoryEdit";
+	}///////////////////CategoryEdit()
 	
 	@RequestMapping("/Stamp/Category.do")
 	public String Category() {

@@ -4,7 +4,7 @@ pageEncoding="UTF-8"%>
 		<!DOCTYPE html>
 		<html class="enable-scroll" lang="ko">
 
-		<head> </head>
+		<head> 
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" id="wixDesktopViewport">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,8 +16,8 @@ pageEncoding="UTF-8"%>
 		<!-- base href="https://jemilykoo.wixsite.com/website/" -->
 		<meta name="generator" content="Wix\.com Website Builder">
 		<!--내가 추가한 코드-->
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/css.css">
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/TripBoardEdit.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/TripBoardEdit.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -52,11 +52,14 @@ pageEncoding="UTF-8"%>
 		<script charset="utf-8" src="./stampGO_files/53.chunk.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/member-card-async-frameless.chunk.min.css">
 		<script charset="utf-8" src="./stampGO_files/member-card-async-frameless.chunk.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/categories-manager-modal.chunk.min.css">
+		
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/categories-manager-modal.chunk.min.css">
 		<script charset="utf-8" src="./stampGO_files/categories-manager-modal.chunk.min.js"></script>
 		</head>
 
 		<body class="vsc-initialized _1Arx3 _1vwX8 _1Fqrx al-active" style="">
+		
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 			<script type="text/javascript">
 			var bodyCacheable = true;
 			var exclusionReason = {

@@ -16,7 +16,7 @@ pageEncoding="UTF-8"%>
 			<!-- base href="https://jemilykoo.wixsite.com/website/" -->
 			<meta name="generator" content="Wix\.com Website Builder">
 			<!--내가 추가한 코드-->
-			<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/css.css">
+			<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css">
 			<link rel="preconnect" href="https://fonts.googleapis.com">
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 			<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -83,6 +83,8 @@ pageEncoding="UTF-8"%>
 		</head>
 
 		<body>
+		
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 			<script type="text/javascript">
 			var bodyCacheable = true;
 			var exclusionReason = {

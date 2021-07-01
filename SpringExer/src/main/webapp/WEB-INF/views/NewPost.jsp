@@ -1,23 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-		<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 		<html class="enable-scroll" lang="ko">
 		<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<!--내가 추가한 코드-->
 		
 		<!--내가 추가한 코드-->
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/css.css">
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/NewPost.css">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+		
 		<title>자유게시판 | 찍GO</title>
 
 		</head>
 
-		<body class="_1Arx3 _1Fqrx al-active">
+		<body>
+		
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
+	
+	<div class="_1Arx3 _1Fqrx al-active">
 			<div id="SITE_CONTAINER">
 				<div id="main_MF">
 					<div id="site-root">
@@ -133,5 +132,6 @@ pageEncoding="UTF-8"%>
 						</div>
 					</div>
 				</div>
+				</div></div>
 		</body>
 		</html>

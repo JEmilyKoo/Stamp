@@ -5,7 +5,7 @@ pageEncoding="UTF-8"%>
 		<html lang="ko">
 
 		<head>
-			<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/css.css">
+			<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css">
 			<meta name="viewport" content="width=device-width, initial-scale=1" id="wixDesktopViewport" />
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<base>
@@ -6620,6 +6620,8 @@ pageEncoding="UTF-8"%>
 			<meta name="twitter:title" content="가이드 | 찍GO" /> </head>
 
 		<body class=''>
+		
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 			<script type="text/javascript">
 			var bodyCacheable = true;
 			var exclusionReason = {

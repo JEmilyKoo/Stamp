@@ -2,7 +2,8 @@
 pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html class="enable-scroll" lang="ko"><head>
+<html class="enable-scroll" lang="ko">
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1" id="wixDesktopViewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!--내가 추가한 코드-->
@@ -15,12 +16,12 @@ pageEncoding="UTF-8"%>
   <!-- 
   
   
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/Post.css" >
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/ForumPost.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Post.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/ForumPost.css" >
    -->
    
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/css.css" >
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/ForumPostCreate.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/ForumPostCreate.css" >
    
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -57,8 +58,11 @@ pageEncoding="UTF-8"%>
 
 <body>
 
+<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
+
   <div id="contentWrapper" class=" md lt-lg lt-xl gt-xs gt-sm sidebar-on boxSize">
-   <div class="header">
+   <div class="header" style="
+	padding-top: 30px;">
      <div class="headerBox">
        <nav aria-label="Breadcrumbs" class="_3xObj 클래식폰트 breadcrumbs-text-color">
          <ol class="_18QAN">
