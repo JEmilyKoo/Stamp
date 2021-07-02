@@ -23,7 +23,7 @@ CREATE TABLE MEMBER
 	id varchar2(50) primary key,
 	pwd varchar2(10) NOT NULL,
 	name nvarchar2(10) NOT NULL,
-	regiDate date DEFAULT SYSDATE,
+	regiDate date DEFAULT SYSDATE
 );
 
 CREATE TABLE PROFILE
