@@ -39,7 +39,7 @@ public class ReviewController {
 		model.addAttribute("list",list);
 		return "review/List";
 	}
-	
+	/*
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
 	public String Write() {
 		return "review/Write";
@@ -51,7 +51,7 @@ public class ReviewController {
 		reviewService.insert(map);
 		return "forward:/Review/List.do";
 	}
-	/*
+
 	@RequestMapping("View.do")
 	public String View(Model model,
 			HttpServletRequest req,

@@ -8,8 +8,8 @@
 <mapper namespace="mybatis.mapper.review">
 
 	<select id="reviewSelectList" resultType="reviewDTO">
-		select r.*,m.name
-		from review r Join member m  ON r.id=m.id
+		select r.*,p.nickname
+		from review r Join profile p  ON r.nickname=p.nickname
 		order by rvNo desc
 	</select>
 	
