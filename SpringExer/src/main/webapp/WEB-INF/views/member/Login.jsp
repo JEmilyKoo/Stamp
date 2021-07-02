@@ -175,7 +175,7 @@
 							</div>
 							<!-- 카카오 로그인 창 -->
 							<div>
-								<a href="https://kauth.kakao.com/oauth/authorize?client_id=2e146e4170e9378e12b5438929a05c2f&redirect_uri=http://localhost:9090/exer/Member/KakaoLogin.do
+								<a href="https://kauth.kakao.com/oauth/authorize?client_id=0e3ca3b3a449e6e1a12a17795f6d775b&redirect_uri=http://localhost:9090/exer/Member/KakaoLogin.do
 									&response_type=code">
 									<img
 									src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
