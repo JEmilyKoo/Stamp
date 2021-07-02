@@ -28,55 +28,6 @@
 	<jsp:include page="/WEB-INF/views/templates/TopMain.jsp"/>
 	<div id="map" style="width:100%;height:700px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
-<script>
-
-
-var mapContainer = document.getElementById('map'),  
-    mapOption = { 
-		center: new kakao.maps.LatLng(37.56681519680827, 126.97867489950377), 
-        level: 9
-        };
-        
-var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png'
-	 imageSize = new kakao.maps.Size(50, 50),
-	 imageOption = {offset: new kakao.maps.Point(27, 69)};
-
-var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
-
-
-var positions = [
-	<c:forEach items="${list}" var="item">
-	    {
-	        title: '${item.stNo}', 
-	        latlng: new kakao.maps.LatLng(${item.rvLat}, ${item.rvLng}),
-	        content : '<div class="customoverlay">' +
-	        '  <a href="<c:url value="/Review/View.do?rvNo=${item.rvNo }"/>">' +
-	        '    <span class="title">${item.rvTitle}</span>' +
-	        '  </a>' +
-	        '</div>'
-	    },
-	</c:forEach>
-];
-
-for (var i = 0; i < positions.length; i ++) {
-    var marker = new kakao.maps.Marker({
-        position: positions[i].latlng, 
-        image : markerImage,
-    });
-    marker.setMap(map);  
-
-    var customOverlay = new kakao.maps.CustomOverlay({
-        map: map,
-        position: positions[i].latlng,
-        content: positions[i].content,
-        yAnchor: 1 
-    });
-
-}
-
-</script>
 
 
 </body>

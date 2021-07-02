@@ -21,13 +21,13 @@ public class StampController {
 	private StampService stampService;
 	
 	
-	@RequestMapping("Home.do")
+	@RequestMapping("MapSearch.do")
 	public String stampInsert(Model model) {
 		
 		//stampService.stampUp();
 		List<StampDTO> list= stampService.stampList();
 		model.addAttribute("list",list);
-		return "home";
+		return "MapSearch";
 	}
 	
 }

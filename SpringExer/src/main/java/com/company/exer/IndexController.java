@@ -59,11 +59,7 @@ public class IndexController {
 		//뷰정보 반환]
 		return "/guide";
 	}///////////////////guide()
-	@RequestMapping("/Stamp/MapSearch.do")
-	public String MapSearch() {
-		//뷰정보 반환]
-		return "/MapSearch";
-	}///////////////////MapSearch()
+
 	@RequestMapping("/Stamp/NewPost.do")
 	public String NewPost() {
 		//뷰정보 반환]

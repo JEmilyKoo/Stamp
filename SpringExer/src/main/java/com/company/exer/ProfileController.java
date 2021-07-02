@@ -59,8 +59,5 @@ public class ProfileController {
 		//뷰정보 반환]
 		return "/Profile/ProfileAlarmSetting";
 	}///////////////////ProfileAlarmSetting()
-	
-
-
 
 }
