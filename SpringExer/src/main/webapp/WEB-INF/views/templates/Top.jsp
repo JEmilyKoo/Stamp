@@ -80,7 +80,7 @@
                         class="icon-bar"></span>
                 </button>
                 <!-- CI표시 -->
-                <a class="navbar-brand">
+                <a class="navbar-brand" href="<c:url value="/"/>">
                     <span class="glyphicon glyphicon-map-marker"></span>
                     <span class="fontTitle">찍GO</span>
                     <br/>
