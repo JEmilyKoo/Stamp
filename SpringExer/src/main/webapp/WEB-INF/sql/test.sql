@@ -34,6 +34,8 @@ CREATE TABLE BADGELIST
 (
 	bgId nvarchar2(20) primary key,
 	nickname nvarchar2(15) references PROFILE(nickname) on delete cascade,
+	bgTitle nvarchar2(20),
+	bgContent nvarchar2(100),
 	bgDate date DEFAULT SYSDATE
 );
 
