@@ -76,7 +76,7 @@ public class MemberController {
 	
 	
 	@RequestMapping(value="KakaoLogin.do",produces="application/json;charset=UTF-8")
-	public String KakaoLogin(String code,HttpSession session) {
+	public @ResponseBody String KakaoLogin(String code,HttpSession session) {
 		///POST방식으로 key=value 데이터를 요청 (카카오쪽으로)
 		//a태그라 무조건 get방식인데 아래 라이브러리 사용하면 post가능
 		RestTemplate rt = new RestTemplate();
@@ -89,7 +89,7 @@ public class MemberController {
 		//HttpBody 오브젝트 생성
 		MultiValueMap<String,String> params = new LinkedMultiValueMap<String, String>();
 		params.add("grant_type", "authorization_code");
-		params.add("client_id", "2e146e4170e9378e12b5438929a05c2f");
+		params.add("client_id", "0e3ca3b3a449e6e1a12a17795f6d775b");
 		params.add("redirect_uri", "http://localhost:9090/exer/Member/KakaoLogin.do");
 		params.add("code", code);
 		
@@ -140,7 +140,6 @@ public class MemberController {
 				kakaoProfileRequest2,
 				String.class
 			);
-
 		
 		ObjectMapper objectMapper2 = new ObjectMapper();
 		KakaoProfile kakaoProfile = null;
