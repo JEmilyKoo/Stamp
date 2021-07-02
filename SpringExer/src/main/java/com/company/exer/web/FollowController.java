@@ -19,9 +19,11 @@ import com.company.exer.service.ReviewService;
 @RequestMapping("/Follow/")
 public class FollowController {
 	
+	
 	@Resource(name="followService")
 	private FollowService followService;
-
+	
+	/*
 	@RequestMapping(value="follow.do",produces = "application/json;charset=UTF-8")
 	public @ResponseBody String follow(@RequestParam Map map) {
 		int check = followService.followCheck(map);
@@ -51,5 +53,5 @@ public class FollowController {
 
 		return followList;
 	}
-	
+	*/
 }

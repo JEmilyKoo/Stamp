@@ -36,7 +36,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Controller
 @RequestMapping("/Member/")
 public class MemberController {
-
+	
 	@Resource(name="memberService")
 	private MemberService memberService;
 	

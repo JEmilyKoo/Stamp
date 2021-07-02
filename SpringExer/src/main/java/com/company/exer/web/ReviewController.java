@@ -51,7 +51,7 @@ public class ReviewController {
 		reviewService.insert(map);
 		return "forward:/Review/List.do";
 	}
-	
+	/*
 	@RequestMapping("View.do")
 	public String View(Model model,
 			HttpServletRequest req,
@@ -111,5 +111,5 @@ public class ReviewController {
 		return check+"";
 	}
 	
-	
+	*/
 }

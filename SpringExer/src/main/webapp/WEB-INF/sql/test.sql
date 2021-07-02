@@ -1,7 +1,3 @@
-
-
-
-
 /* Drop Tables 
 DROP TABLE ACHLIST CASCADE CONSTRAINTS;
 DROP TABLE BADGELIST CASCADE CONSTRAINTS;
@@ -28,22 +24,22 @@ CREATE TABLE MEMBER
 	pwd varchar2(10) NOT NULL,
 	name nvarchar2(10) NOT NULL,
 	regiDate date DEFAULT SYSDATE,
-	mail nvarchar2(100)
 );
 
 CREATE TABLE PROFILE
 (
 	nickname nvarchar2(15) primary key,
 	id varchar2(50) references MEMBER(id) on delete cascade,
+	mail nvarchar2(100),
 	trvPrpns nvarchar2(20),
-	exp number DEFAULT 0,
-	lev number DEFAULT 0,
 	pr nvarchar2(100),
-	openPrf number DEFAULT 1,
 	prfImage clob,
 	gender nvarchar2(8),
 	birth nvarchar2(15),
-	phone nvarchar2(15)
+	phone nvarchar2(15),
+	lev number DEFAULT 0,
+	exp number DEFAULT 0,
+	openPrf number DEFAULT 1
 );
 
 CREATE TABLE ACHLIST

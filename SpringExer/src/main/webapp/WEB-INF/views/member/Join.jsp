@@ -128,17 +128,7 @@
 												</div>
 											</div>
 										</div>
-
-<div id="emailDiv" class="_1ggNP"><!-- yttt -->
-												<div id="emailInput" class="_1FsS0 _36G3j _19QH-">
-													<label for="email" class="_1qrSw">이메일</label>
-													<div class="ABx0f">
-														<input id="email" name="email" class="_3rh7f has-custom-focus"
-															type="email" required autocomplete="off"
-															style="font-size: 14px">
-													</div>
-												</div>
-											</div>
+										
 										</div>
 
 
