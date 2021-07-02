@@ -9,7 +9,7 @@
 	
 	<insert id="memberJoin" parameterType="Map">
 		Insert into member 
-		values(#{id}, #{pwd}, #{name})
+		values(#{id}, #{pwd}, #{name},default)
 	</insert>
 	
 	<select id="memberLogin" parameterType="Map" resultType="Boolean">
