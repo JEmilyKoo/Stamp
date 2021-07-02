@@ -157,16 +157,10 @@ public class MemberController {
 			e.printStackTrace();
 		}
 		
-		//UserObject username,password
-		
-//		MemberDTO dto = MemberDTO.builder()
-//				.id(kakaoProfile.getId().toString())
-//				.pwd(garbagePassword.toString())
-//				.name(kakaoProfile.properties.getNickname())
-//				.build();
 		Map map = new HashMap();
 		map.put("id", kakaoProfile.getId().toString());
 		map.put("name", kakaoProfile.properties.getNickname());
+		System.out.println("이름!!"+map.get("name"));
 		map.put("pwd","1234");
 		
 		
@@ -307,7 +301,7 @@ public class MemberController {
 	@RequestMapping("Logout.do")
 	public String Logout(HttpSession session) {
 		session.invalidate();
-		return "forward:/Stamp/Home.do";
+		return "/";
 	}
 	
 	
