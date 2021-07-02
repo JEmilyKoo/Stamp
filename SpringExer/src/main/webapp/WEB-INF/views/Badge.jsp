@@ -3,7 +3,7 @@ pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <!-- badge.jsp는 개개별 뱃지의 상세를 보여주는 view
-돌아가기 버튼을 누르면 프로필 메인으로 이동한다
+돌아가기 버튼을 누르면 프로필 메인으로 이동한다 123
 
 BADGELIST라는 테이블에서 
 bgid : 뱃지 아이디 -> ${BADGELIST.bgid}
