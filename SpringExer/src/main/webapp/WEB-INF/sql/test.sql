@@ -71,6 +71,31 @@ CREATE TABLE DM
 );
 
 
+CREATE TABLE REVIEW
+(
+	rvNo number primary key,
+	nickname nvarchar2(15) references PROFILE(nickname) on delete cascade,
+	rvTitle nvarchar2(20) NOT NULL,
+	rvCtt clob,
+	rvLikeCnt number DEFAULT 0,
+	rvDate date DEFAULT SYSDATE,
+	rvCategory1 nvarchar2(20),
+	rvCategory2 nvarchar2(20),
+	rvLat number,
+	rvLng number,
+	rvVisitCnt number DEFAULT 0,
+	rvFile clob,
+	rvLikeCheck number DEFAULT 0
+);
+
+CREATE TABLE RVCMNT
+(
+	rvcNo number primary key,
+	rvNo number references REVIEW(rvNo) on delete cascade,
+	rvCmnt clob,
+	rvcDate date DEFAULT SYSDATE
+);
+
 CREATE TABLE FAVORITE
 (
 	favoriteNo number primary key,
@@ -115,32 +140,6 @@ CREATE TABLE FOLLOW
 	followIdNickname nvarchar2(15) references PROFILE(nickname) on delete cascade
 );
 
-
-CREATE TABLE REVIEW
-(
-	rvNo number primary key,
-	nickname nvarchar2(15) references PROFILE(nickname) on delete cascade,
-	rvTitle nvarchar2(20) NOT NULL,
-	rvCtt clob,
-	rvLikeCnt number DEFAULT 0,
-	rvDate date DEFAULT SYSDATE,
-	rvCategory1 nvarchar2(20),
-	rvCategory2 nvarchar2(20),
-	rvLat number,
-	rvLng number,
-	rvVisitCnt number DEFAULT 0,
-	rvFile clob,
-	rvLikeCheck number DEFAULT 0
-);
-
-
-CREATE TABLE RVCMNT
-(
-	rvcNo number primary key,
-	rvNo number references REVIEW(rvNo) on delete cascade,
-	rvCmnt clob,
-	rvcDate date DEFAULT SYSDATE
-);
 
 
 CREATE TABLE RVLIKE
