@@ -22,6 +22,30 @@ DROP TABLE MEMBER CASCADE CONSTRAINTS;
 
 /* Create Tables */
 
+CREATE TABLE MEMBER
+(
+	id varchar2(50) primary key,
+	pwd varchar2(10) NOT NULL,
+	name nvarchar2(10) NOT NULL,
+	regiDate date DEFAULT SYSDATE,
+	mail nvarchar2(100)
+);
+
+CREATE TABLE PROFILE
+(
+	nickname nvarchar2(15) primary key,
+	id varchar2(50) references MEMBER(id) on delete cascade,
+	trvPrpns nvarchar2(20),
+	exp number DEFAULT 0,
+	lev number DEFAULT 0,
+	pr nvarchar2(100),
+	openPrf number DEFAULT 1,
+	prfImage clob,
+	gender nvarchar2(8),
+	birth nvarchar2(15),
+	phone nvarchar2(15)
+);
+
 CREATE TABLE ACHLIST
 (
 	achId nvarchar2(20) primary key,
@@ -59,6 +83,18 @@ CREATE TABLE FAVORITE
 );
 
 
+CREATE TABLE FREEBOARD
+(
+	fbNo number primary key,
+	nickname nvarchar2(15) references PROFILE(nickname) on delete cascade,
+	fbTitle nvarchar2(20),
+	fbCtt clob,
+	fbDate date DEFAULT SYSDATE,
+	fbVisitCnt number DEFAULT 0,
+	fbCategory nvarchar2(8),
+	fbLikeCnt number DEFAULT 0
+);
+
 CREATE TABLE FBCMNT
 (
 	fbcNo number primary key,
@@ -81,45 +117,6 @@ CREATE TABLE FOLLOW
 	followNo number primary key,
 	followerNickname nvarchar2(15) references PROFILE(nickname) on delete cascade,
 	followIdNickname nvarchar2(15) references PROFILE(nickname) on delete cascade
-);
-
-
-CREATE TABLE FREEBOARD
-(
-	fbNo number primary key,
-	nickname nvarchar2(15) references PROFILE(nickname) on delete cascade,
-	fbTitle nvarchar2(20),
-	fbCtt clob,
-	fbDate date DEFAULT SYSDATE,
-	fbVisitCnt number DEFAULT 0,
-	fbCategory nvarchar2(8),
-	fbLikeCnt number DEFAULT 0
-);
-
-
-CREATE TABLE MEMBER
-(
-	id varchar2(50) primary key,
-	pwd varchar2(10) NOT NULL,
-	name nvarchar2(10) NOT NULL,
-	regiDate date DEFAULT SYSDATE,
-	mail nvarchar2(100)
-);
-
-
-CREATE TABLE PROFILE
-(
-	nickname nvarchar2(15) primary key,
-	id varchar2(50) references MEMBER(id) on delete cascade,
-	trvPrpns nvarchar2(20),
-	exp number DEFAULT 0,
-	level number DEFAULT 0,
-	pr nvarchar2(100),
-	openPrf number DEFAULT 1,
-	prfImage clob,
-	gender nvarchar2(8),
-	birth nvarchar2(15),
-	phone nvarchar2(15)
 );
 
 
