@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,6 +45,7 @@ public class ReviewController {
 	//전체게시물
 	@RequestMapping("TripBoard.do")
 	public String TripBoard(Model model) {
+		
 		List<ReviewDTO> list =reviewService.selectList();
 		model.addAttribute("list",list);
 		//뷰정보 반환]
@@ -52,7 +54,9 @@ public class ReviewController {
 	
 	//상세보기
 	@RequestMapping("ForumPost.do")
-	public String ForumPost() {
+	public String ForumPost(Map map,Model model) {
+		ReviewDTO dto = reviewService.selectOne(map);
+		model.addAttribute("dto",dto);
 		//뷰정보 반환]
 		return "/ForumPost";
 	}///////////////////ForumPost()
