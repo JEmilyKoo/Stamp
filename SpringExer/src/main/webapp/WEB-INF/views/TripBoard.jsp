@@ -1,412 +1,887 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-		<!DOCTYPE html>
-		<html class="enable-scroll" lang="ko">
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html class="enable-scroll" lang="ko">
 <!--  -->
-		<head> 
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1" id="wixDesktopViewport">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<!--내가 추가한 코드-->
-		<script src="${pageContext.request.contextPath}/stampGO_files/bundle.js"></script>
-		<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/profile-card-tpa-ooi/1.277.0/ProfileCardViewerWidget.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/ProfileCardViewerWidget.js"></script>
-		<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/pro-gallery-santa-wrapper/1.1612.0/viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/viewer.js"></script>
-		<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/communities-forum-client/1.432.0/forum-app-viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/forum-app-viewer.js"></script>
-		<!-- base href="https://jemilykoo.wixsite.com/website/" -->
-		<meta name="generator" content="Wix\.com Website Builder">
-		<!--내가 추가한 코드-->
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-		<title>여행 게시판 | 찍GO</title>
-		<meta name="description" content="여행 관련 주제의 글에 참여해보세요. 새 게시물을 추가하거나 기존 게시물을 편집하여 활동을 시작할 수 있습니다.">
-		<link rel="canonical" href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan">
-		
-		
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/modalcss.css" >
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/languages.css" >
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common-member-pages.css" >
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/member-likes-page.css" >
-		<script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-common.js"></script>
-		<script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-classic.js"></script>
-		<script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/Container_RectangleArea.js"></script>
-		<script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/VerticalMenu_VerticalMenuSolidColorSkin.js"></script>
-		<script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/LoginSocialBar.js"></script>
-		<script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-responsive.js"></script>
-		<script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/MeshGroup.js"></script>
-		<script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/FreemiumBannerDesktop.js"></script>
-		<script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/SkipToContentButton.js"></script>
-		<script src="${pageContext.request.contextPath}/stampGO_files/requirejs.js"></script>
-		
-		<script type="text/javascript">
-			var bodyCacheable = true;
-			var exclusionReason = {
-				"shouldRender": true,
-				"forced": false
-			};
-			var ssrInfo = {
-				"renderBodyTime": 1412,
-				"renderTimeStamp": 1624436335025
-			}
-			</script>
-		</head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"
+	id="wixDesktopViewport">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--내가 추가한 코드-->
+<!-- base href="https://jemilykoo.wixsite.com/website/" -->
+<meta name="generator" content="Wix\.com Website Builder">
+<!--내가 추가한 코드-->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/css.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+	rel="stylesheet">
+<title>여행 게시판 | 찍GO</title>
+<meta name="description"
+	content="여행 관련 주제의 글에 참여해보세요. 새 게시물을 추가하거나 기존 게시물을 편집하여 활동을 시작할 수 있습니다.">
+<link rel="canonical"
+	href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan">
 
-	
-		<body class="al-active _1Arx3">
-			<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
-			<div id="SITE_CONTAINER">
-			
-			
-				<div id="main_MF">
-					<div id="site-root">
-						<div id="마스터페이지" class="메시레이아웃">
-							<header> </header>
-							<main id="PAGES_CONTAINER" tabindex="-1">
-								<div id="SITE_PAGES">
-									<div class="스트레치">
-										<div id="여행리뷰정보아이디" class="확인용2">
-											<div class="확인용4">
-												<div id="Container여행리뷰정보아이디" class="확인용5">
-													<div data-mesh-id="Container여행리뷰정보아이디inlineContent" data-testid="inline-content">
-														<div data-mesh-id="Container여행리뷰정보아이디inlineContent-gridContainer" data-testid="mesh-container-content">
-															<div id="TPASection_kpndq3bq" style="height:auto">
-																<div class="TPASection_kpndq3bq" data-reactroot="">
-																	<div dir="ltr">
-																		<div class="md lt-lg lt-xl gt-xs gt-sm sidebar-on">
-																			<div class="_3v2Yd" style="position:fixed;visibility:hidden">실제 작동 상태를 확인하려면 라이브 사이트로 이동하세요.</div>
-																			<div id="content-wrapper" class="_2OKxY _3KFQm app-desktop forum-background-color">
-																				<div class="디폴트" id="modal-overlay"></div>
-																				<div>
-																					<div class="PfdRR message" data-hook="message"></div>
-																				</div>
-																				<div data-hook="forum-content-wrapper" id="content-wrapper">
-																					<div class="_3r1lL header-background-color" data-hook="desktop-header">
-																						<div class="_3B7XB">
-																							<nav aria-label="Breadcrumbs" class="_3xObj forum-content-classic-font breadcrumbs-text-color">
-																								<ol class="_18QAN">
-																									<li><a href="https://jemilykoo.wixsite.com/website/forum" data-hook="breadcrumbs__1">여행 리뷰/정보</a></li><span class="_3q5sF"><svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" style="fill-rule:evenodd" class="breadcrumbs-icon-fill"><path d="M785.783,854.5l-4.552,4.3a0.771,0.771,0,0,1-1.048,0,0.672,0.672,0,0,1,0-.99L784.21,854l-4.027-3.8a0.672,0.672,0,0,1,0-.99,0.773,0.773,0,0,1,1.048,0l4.552,4.3A0.674,0.674,0,0,1,785.783,854.5Z" transform="translate(-780 -849.031)"></path></svg></span>
-																									<li><span tabindex="0" aria-current="page" data-hook="breadcrumbs__current-page" role="link">여행 게시판</span></li>
-																								</ol>
-																							</nav>
-																							<div class="_2LHxU">
-																								<div class="_3C0hA" data-hook="search-input">
-																									<div class="_3iW6- search-input">
-																										<div class="_2RwOg" role="search" aria-label="&nbsp;" tabindex="0">
-																											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="_2_hbq desktop-header-search-icon-fill button-hover-fill" data-hook="search-icon">
-																												<path fill-rule="evenodd" d="M19.854 19.146c.195.196.195.512 0 .708-.196.195-.512.195-.708 0l-3.708-3.709C14.118 17.3 12.391 18 10.5 18 6.358 18 3 14.642 3 10.5 3 6.358 6.358 3 10.5 3c4.142 0 7.5 3.358 7.5 7.5 0 1.891-.7 3.619-1.855 4.938l3.709 3.708zM17 10.5C17 6.91 14.09 4 10.5 4S4 6.91 4 10.5 6.91 17 10.5 17s6.5-2.91 6.5-6.5z"></path>
+
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/modalcss.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/languages.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/common-member-pages.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/member-likes-page.css">
+
+<script type="text/javascript">
+	var bodyCacheable = true;
+	var exclusionReason = {
+		"shouldRender" : true,
+		"forced" : false
+	};
+	var ssrInfo = {
+		"renderBodyTime" : 1412,
+		"renderTimeStamp" : 1624436335025
+	}
+</script>
+</head>
+
+
+<body class="al-active _1Arx3">
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
+	<div class="meshContainer">
+		<div data-mesh-id="Container여행리뷰정보아이디inlineContent-gridContainer"
+			data-testid="mesh-container-content">
+
+			<div id="TPASection_kpndq3bq" style="height: auto">
+				<div class="TPASection_kpndq3bq">
+					<div dir="ltr">
+						<div class="md lt-lg lt-xl gt-xs gt-sm sidebar-on">
+							<div class="_3v2Yd" style="position: fixed; visibility: hidden"></div>
+							<div id="content-wrapper"
+								class="_2OKxY _3KFQm app-desktop forum-background-color">
+								<div class="디폴트" id="modal-overlay"></div>
+								<div>
+									<div class="PfdRR message" data-hook="message"></div>
+								</div>
+								<div data-hook="forum-content-wrapper" id="content-wrapper">
+									<div class="_3r1lL header-background-color"
+										data-hook="desktop-header">
+										<div class="_3B7XB">
+											<nav aria-label="Breadcrumbs"
+												class="_3xObj forum-content-classic-font breadcrumbs-text-color">
+												<ol class="_18QAN">
+													<li><a
+														href="https://jemilykoo.wixsite.com/website/forum"
+														data-hook="breadcrumbs__1">여행 리뷰/정보</a></li>
+													<span class="_3q5sF"><svg
+															xmlns="http://www.w3.org/2000/svg" width="6" height="10"
+															viewBox="0 0 6 10" style="fill-rule: evenodd"
+															class="breadcrumbs-icon-fill">
+																									<path
+																d="M785.783,854.5l-4.552,4.3a0.771,0.771,0,0,1-1.048,0,0.672,0.672,0,0,1,0-.99L784.21,854l-4.027-3.8a0.672,0.672,0,0,1,0-.99,0.773,0.773,0,0,1,1.048,0l4.552,4.3A0.674,0.674,0,0,1,785.783,854.5Z"
+																transform="translate(-780 -849.031)"></path></svg></span>
+													<li><span tabindex="0" aria-current="page"
+														data-hook="breadcrumbs__current-page" role="link">여행
+															게시판</span></li>
+												</ol>
+											</nav>
+											<div class="_2LHxU">
+												<div class="_3C0hA" data-hook="search-input">
+													<div class="_3iW6- search-input">
+														<div class="_2RwOg" role="search" aria-label="&nbsp;"
+															tabindex="0">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24"
+																height="24" viewBox="0 0 24 24"
+																class="_2_hbq desktop-header-search-icon-fill button-hover-fill"
+																data-hook="search-icon">
+																												<path fill-rule="evenodd"
+																	d="M19.854 19.146c.195.196.195.512 0 .708-.196.195-.512.195-.708 0l-3.708-3.709C14.118 17.3 12.391 18 10.5 18 6.358 18 3 14.642 3 10.5 3 6.358 6.358 3 10.5 3c4.142 0 7.5 3.358 7.5 7.5 0 1.891-.7 3.619-1.855 4.938l3.709 3.708zM17 10.5C17 6.91 14.09 4 10.5 4S4 6.91 4 10.5 6.91 17 10.5 17s6.5-2.91 6.5-6.5z"></path>
 																											</svg>
-																											<form autocomplete="off">
-																												<input type="text" data-hook="search-input" class="_1quPh desktop-header-search-text-color desktop-header-search-font search-input__input" autocomplete="off" placeholder="&nbsp;">
-																											</form>
-																											<div class="_2nmH8 desktop-header-search-text-color desktop-header-search-font GPrPx">&nbsp;</div>
-																											<div class="q4nje desktop-header-search-border-background-color"></div><span></span></div>
-																									</div>
-																								</div>
-																							</div>
-																						</div>
-																					</div>
-																					<div class="_1W1_h">
-																						<div class="_3IIvE">
-																							<div class="_3jp2s default-desktop-header-text-color page-description _1iSUx" style="color:#FFFFFF;height:300px">
-																								<div class="_3Z0vv" style="background-image: url(&quot;https://static.wixstatic.com/media/8bde4fb7e0db407693c87bdcc9150c9e.jpg/v1/fit/w_1920,h_834,al_c,q_80/file.png&quot;); background-size: cover;" alt="">
-																									<div class="LTMVp" style="background-color:#000000;opacity:0.25" data-hook="page-cover"></div>
-																									<div class="_36G23">
-																										<div class="_26TAI">
-																											<div class="_2POlQ page-description-title-font page-description__title" data-hook="page-description__title">
-																												<h1 tabindex="-1" class="_1_JwX">여행 게시판</h1></div>
-																											<div class="dTyOb page-description-font" data-hook="page-description__description">
-																												<p class="EV-c5" style="-webkit-line-clamp: 10;">여행 관련 주제의 글에 참여해보세요. 새 게시물을 추가하거나 기존 게시물을 편집하여 활동을 시작할 수 있습니다.</p>
-																											</div>
-																										</div>
-																									</div>
-																								</div>
-																							</div>
-																							<!-- 여기서부터 카드 뷰 -->
-																							
-    <div class="container" style="display: grid;
-    left :4000px;
-    
-     grid-template-columns: 1fr 1fr 1fr;
-     row-gap: 30px;
-     column-gap: 20px;
-    ">
-    <div class="item"></div>
-    
-    <div class="item"></div>
-	<div class="item"><article class="_3lZFR BhgSV _2yqBc blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-hover-container" tabindex="0" style="border-width: 1px;" data-hook="post-list-item"><div style="height: 200px; min-height: 200px;" class="_1KR9G"><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" tabindex="-1" class="blog-link-hover-color"><div class="_3RKAW _3-Hjr" data-hook="post-list-item-image"><div class="_1mvj7" style="background-image: url(&quot;https://static.wixstatic.com/media/3e24880cc05f48618ccb64e5cc4fab73.jpg/v1/fit/w_455,h_302,al_c,q_80/file.jpg&quot;); background-size: cover;" data-pin-url="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit"></div></div></a></div><div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm"><div class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font" style="font-size: 12px;"><div class="_5bxnE"><a href="#"><div class="_33LjI blog-text-color blog-link-hover-color avatar blog-post-text-color"><span class="_2iDLv avatar-image" lng="ko"><div aria-label="작성자 이미지" class="_1wPNJ fluid-avatar-image" style="background-image: url(&quot;https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c&quot;);" data-hook="avatar-image"></div></span></div></a><div class="_2wbeQ"><a href="#" class="_25KXg"><span class="_2MJF1 user-name _1Gv8s blog-link-hover-color blog-text-color" data-hook="user-name">정은 구</span><div aria-label="운영자" data-hook="badge" class="Cu6fU"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" style="fill-rule: evenodd;" class="blog-icon-fill"><path d="M15.3812,6.495914 L12.6789333,8.77258837 C12.6191333,8.84477644 12.5099333,8.85722265 12.4354,8.79997005 C12.4215333,8.79001308 12.4094,8.77756686 12.3998667,8.76429089 L9.78686667,6.14327115 C9.67766667,5.99225704 9.46186667,5.95491839 9.305,6.05863687 C9.26946667,6.08186981 9.23913333,6.11091099 9.21573333,6.14493065 L6.60013333,8.81075677 C6.5464,8.88626383 6.43893333,8.90534803 6.3592,8.85390366 C6.34446667,8.84394669 6.33146667,8.83233022 6.32106667,8.81905425 L3.61966667,6.50587098 C3.5018,6.36149485 3.28426667,6.33577266 3.13346667,6.44861837 C3.0494,6.51167921 3,6.60792997 3,6.70998895 L4,14 L15,14 L16,6.70169148 C16,6.51831719 15.8448667,6.36979232 15.6533333,6.36979232 C15.5476,6.36979232 15.4470667,6.41625821 15.3812,6.495914 Z"></path></svg></div></a><ul class="_1ReRx _2qkGq"><li><span class="post-metadata__date time-ago" data-hook="time-ago">6월 8일</span></li><li><div class="_2yYN5 e8kGb blog-separator-background-color"></div></li><li><span class="post-metadata__readTime" data-hook="time-to-read">1분</span></li></ul></div></div><div class="LxDn0 _1CSFW blog-more-icon-fill"><div class="_4ITTQ more-button"><button type="button" class="_1WK2X" tabindex="0" aria-pressed="false" aria-label="More actions" id="more-button-60becb0b4fb00a00157a345b" data-hook="more-button"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img" class="blog-icon-fill blog-hover-container-element-fill"><path d="M2.44398805,5.99973295 C1.62345525,5.9690612 0.980075653,5.28418875 1.00047182,4.46312144 C1.02086799,3.64205413 1.69745853,2.98998831 2.51850166,3.0001164 C3.33954478,3.01024449 3.99985313,3.67880182 4,4.50012255 C3.98424812,5.34399206 3.28763905,6.0153508 2.44398805,5.99973295 L2.44398805,5.99973295 Z M2.44398805,10.9997329 C1.62345525,10.9690612 0.980075653,10.2841888 1.00047182,9.46312144 C1.02086799,8.64205413 1.69745853,7.98998831 2.51850166,8.0001164 C3.33954478,8.01024449 3.99985313,8.67880182 4,9.50012255 C3.98424812,10.3439921 3.28763905,11.0153508 2.44398805,10.9997329 L2.44398805,10.9997329 Z M2.44398805,15.9997329 C1.62345525,15.9690612 0.980075653,15.2841888 1.00047182,14.4631214 C1.02086799,13.6420541 1.69745853,12.9899883 2.51850166,13.0001164 C3.33954478,13.0102445 3.99985313,13.6788018 4,14.5001225 C3.98424812,15.3439921 3.28763905,16.0153508 2.44398805,15.9997329 L2.44398805,15.9997329 Z"></path></svg></button></div></div></div><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3XkGv BhgSV _2yqBc _1T_VD"><div style="font-size: 26px;" class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD " data-hook="post-list-item__title"><h2 class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color" data-hook="post-title"><span class="post-title__text J-lPk"><div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; ">와인 농장 가서 즐길 거리 6가지</div></span></h2></div><div style="font-size: 16px;" class="_2PvFX BhgSV blog-post-description-style-font" data-hook="post-description"><div class="_17sOR post-excerpt"><div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><div class="fl4fR" data-hook="post-description">#와인농장 #포도농장</div></div></div></div></a><div class="_2tFu- BhgSV"><div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div><div style="font-size: 12px;"><div class="fhim2 blog-post-description-font blog-text-color post-footer"><div class="_60xHi"><div class="MEOqZ post-stats" data-hook="post-stats"><span tabindex="0">조회 1회</span><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3EfO5"><span data-hook="write-comment__label" class="_24h-e">댓글</span></a></div></div><div class="vP6YT"><button class="_3Bdxz post-footer__like-button"><span class="_3BTGY" data-hook="like-button-with-count__like-count"><span aria-hidden="true" class="_8J1xw like-button-with-count__like-count">1개</span><div class="like-button _7QZoA _1eKPZ" aria-label="1 좋아요 좋아요로 표시된 게시물" role="button" data-hook="like-button"><div class="JuFMG"><div class="_3GAmo"></div></div><div class="_1UeeA"><div class="_3GAmo"></div></div><div class="_3KlwM"><div class="_3GAmo"></div></div><div class="uanT3"><div class="_3GAmo"></div></div><div class="_2x4gn"></div><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img"><path d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path></svg></div></span></button></div></div></div></div></div></article>
-	</div> 
-	<div class="item"><article class="_3lZFR BhgSV _2yqBc blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-hover-container" tabindex="0" style="border-width: 1px;" data-hook="post-list-item"><div style="height: 200px; min-height: 200px;" class="_1KR9G"><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" tabindex="-1" class="blog-link-hover-color"><div class="_3RKAW _3-Hjr" data-hook="post-list-item-image"><div class="_1mvj7" style="background-image: url(&quot;https://static.wixstatic.com/media/3e24880cc05f48618ccb64e5cc4fab73.jpg/v1/fit/w_455,h_302,al_c,q_80/file.jpg&quot;); background-size: cover;" data-pin-url="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit"></div></div></a></div><div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm"><div class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font" style="font-size: 12px;"><div class="_5bxnE"><a href="#"><div class="_33LjI blog-text-color blog-link-hover-color avatar blog-post-text-color"><span class="_2iDLv avatar-image" lng="ko"><div aria-label="작성자 이미지" class="_1wPNJ fluid-avatar-image" style="background-image: url(&quot;https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c&quot;);" data-hook="avatar-image"></div></span></div></a><div class="_2wbeQ"><a href="#" class="_25KXg"><span class="_2MJF1 user-name _1Gv8s blog-link-hover-color blog-text-color" data-hook="user-name">정은 구</span><div aria-label="운영자" data-hook="badge" class="Cu6fU"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" style="fill-rule: evenodd;" class="blog-icon-fill"><path d="M15.3812,6.495914 L12.6789333,8.77258837 C12.6191333,8.84477644 12.5099333,8.85722265 12.4354,8.79997005 C12.4215333,8.79001308 12.4094,8.77756686 12.3998667,8.76429089 L9.78686667,6.14327115 C9.67766667,5.99225704 9.46186667,5.95491839 9.305,6.05863687 C9.26946667,6.08186981 9.23913333,6.11091099 9.21573333,6.14493065 L6.60013333,8.81075677 C6.5464,8.88626383 6.43893333,8.90534803 6.3592,8.85390366 C6.34446667,8.84394669 6.33146667,8.83233022 6.32106667,8.81905425 L3.61966667,6.50587098 C3.5018,6.36149485 3.28426667,6.33577266 3.13346667,6.44861837 C3.0494,6.51167921 3,6.60792997 3,6.70998895 L4,14 L15,14 L16,6.70169148 C16,6.51831719 15.8448667,6.36979232 15.6533333,6.36979232 C15.5476,6.36979232 15.4470667,6.41625821 15.3812,6.495914 Z"></path></svg></div></a><ul class="_1ReRx _2qkGq"><li><span class="post-metadata__date time-ago" data-hook="time-ago">6월 8일</span></li><li><div class="_2yYN5 e8kGb blog-separator-background-color"></div></li><li><span class="post-metadata__readTime" data-hook="time-to-read">1분</span></li></ul></div></div><div class="LxDn0 _1CSFW blog-more-icon-fill"><div class="_4ITTQ more-button"><button type="button" class="_1WK2X" tabindex="0" aria-pressed="false" aria-label="More actions" id="more-button-60becb0b4fb00a00157a345b" data-hook="more-button"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img" class="blog-icon-fill blog-hover-container-element-fill"><path d="M2.44398805,5.99973295 C1.62345525,5.9690612 0.980075653,5.28418875 1.00047182,4.46312144 C1.02086799,3.64205413 1.69745853,2.98998831 2.51850166,3.0001164 C3.33954478,3.01024449 3.99985313,3.67880182 4,4.50012255 C3.98424812,5.34399206 3.28763905,6.0153508 2.44398805,5.99973295 L2.44398805,5.99973295 Z M2.44398805,10.9997329 C1.62345525,10.9690612 0.980075653,10.2841888 1.00047182,9.46312144 C1.02086799,8.64205413 1.69745853,7.98998831 2.51850166,8.0001164 C3.33954478,8.01024449 3.99985313,8.67880182 4,9.50012255 C3.98424812,10.3439921 3.28763905,11.0153508 2.44398805,10.9997329 L2.44398805,10.9997329 Z M2.44398805,15.9997329 C1.62345525,15.9690612 0.980075653,15.2841888 1.00047182,14.4631214 C1.02086799,13.6420541 1.69745853,12.9899883 2.51850166,13.0001164 C3.33954478,13.0102445 3.99985313,13.6788018 4,14.5001225 C3.98424812,15.3439921 3.28763905,16.0153508 2.44398805,15.9997329 L2.44398805,15.9997329 Z"></path></svg></button></div></div></div><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3XkGv BhgSV _2yqBc _1T_VD"><div style="font-size: 26px;" class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD" data-hook="post-list-item__title"><h2 class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color" data-hook="post-title"><span class="post-title__text J-lPk"><div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; ">와인 농장 가서 즐길 거리 6가지</div></span></h2></div><div style="font-size: 16px;" class="_2PvFX BhgSV blog-post-description-style-font" data-hook="post-description"><div class="_17sOR post-excerpt"><div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><div class="fl4fR" data-hook="post-description"> #와인농장 #포도농장</div></div></div></div></a><div class="_2tFu- BhgSV"><div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div><div style="font-size: 12px;"><div class="fhim2 blog-post-description-font blog-text-color post-footer"><div class="_60xHi"><div class="MEOqZ post-stats" data-hook="post-stats"><span tabindex="0">조회 1회</span><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3EfO5"><span data-hook="write-comment__label" class="_24h-e">댓글</span></a></div></div><div class="vP6YT"><button class="_3Bdxz post-footer__like-button"><span class="_3BTGY" data-hook="like-button-with-count__like-count"><span aria-hidden="true" class="_8J1xw like-button-with-count__like-count">1개</span><div class="like-button _7QZoA _1eKPZ" aria-label="1 좋아요 좋아요로 표시된 게시물" role="button" data-hook="like-button"><div class="JuFMG"><div class="_3GAmo"></div></div><div class="_1UeeA"><div class="_3GAmo"></div></div><div class="_3KlwM"><div class="_3GAmo"></div></div><div class="uanT3"><div class="_3GAmo"></div></div><div class="_2x4gn"></div><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img"><path d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path></svg></div></span></button></div></div></div></div></div></article>
-	</div>
-	<div class="item"><article class="_3lZFR BhgSV _2yqBc blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-hover-container" tabindex="0" style="border-width: 1px;" data-hook="post-list-item"><div style="height: 200px; min-height: 200px;" class="_1KR9G"><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" tabindex="-1" class="blog-link-hover-color"><div class="_3RKAW _3-Hjr" data-hook="post-list-item-image"><div class="_1mvj7" style="background-image: url(&quot;https://static.wixstatic.com/media/3e24880cc05f48618ccb64e5cc4fab73.jpg/v1/fit/w_455,h_302,al_c,q_80/file.jpg&quot;); background-size: cover;" data-pin-url="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit"></div></div></a></div><div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm"><div class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font" style="font-size: 12px;"><div class="_5bxnE"><a href="#"><div class="_33LjI blog-text-color blog-link-hover-color avatar blog-post-text-color"><span class="_2iDLv avatar-image" lng="ko"><div aria-label="작성자 이미지" class="_1wPNJ fluid-avatar-image" style="background-image: url(&quot;https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c&quot;);" data-hook="avatar-image"></div></span></div></a><div class="_2wbeQ"><a href="#" class="_25KXg"><span class="_2MJF1 user-name _1Gv8s blog-link-hover-color blog-text-color" data-hook="user-name">정은 구</span><div aria-label="운영자" data-hook="badge" class="Cu6fU"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" style="fill-rule: evenodd;" class="blog-icon-fill"><path d="M15.3812,6.495914 L12.6789333,8.77258837 C12.6191333,8.84477644 12.5099333,8.85722265 12.4354,8.79997005 C12.4215333,8.79001308 12.4094,8.77756686 12.3998667,8.76429089 L9.78686667,6.14327115 C9.67766667,5.99225704 9.46186667,5.95491839 9.305,6.05863687 C9.26946667,6.08186981 9.23913333,6.11091099 9.21573333,6.14493065 L6.60013333,8.81075677 C6.5464,8.88626383 6.43893333,8.90534803 6.3592,8.85390366 C6.34446667,8.84394669 6.33146667,8.83233022 6.32106667,8.81905425 L3.61966667,6.50587098 C3.5018,6.36149485 3.28426667,6.33577266 3.13346667,6.44861837 C3.0494,6.51167921 3,6.60792997 3,6.70998895 L4,14 L15,14 L16,6.70169148 C16,6.51831719 15.8448667,6.36979232 15.6533333,6.36979232 C15.5476,6.36979232 15.4470667,6.41625821 15.3812,6.495914 Z"></path></svg></div></a><ul class="_1ReRx _2qkGq"><li><span class="post-metadata__date time-ago" data-hook="time-ago">6월 8일</span></li><li><div class="_2yYN5 e8kGb blog-separator-background-color"></div></li><li><span class="post-metadata__readTime" data-hook="time-to-read">1분</span></li></ul></div></div><div class="LxDn0 _1CSFW blog-more-icon-fill"><div class="_4ITTQ more-button"><button type="button" class="_1WK2X" tabindex="0" aria-pressed="false" aria-label="More actions" id="more-button-60becb0b4fb00a00157a345b" data-hook="more-button"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img" class="blog-icon-fill blog-hover-container-element-fill"><path d="M2.44398805,5.99973295 C1.62345525,5.9690612 0.980075653,5.28418875 1.00047182,4.46312144 C1.02086799,3.64205413 1.69745853,2.98998831 2.51850166,3.0001164 C3.33954478,3.01024449 3.99985313,3.67880182 4,4.50012255 C3.98424812,5.34399206 3.28763905,6.0153508 2.44398805,5.99973295 L2.44398805,5.99973295 Z M2.44398805,10.9997329 C1.62345525,10.9690612 0.980075653,10.2841888 1.00047182,9.46312144 C1.02086799,8.64205413 1.69745853,7.98998831 2.51850166,8.0001164 C3.33954478,8.01024449 3.99985313,8.67880182 4,9.50012255 C3.98424812,10.3439921 3.28763905,11.0153508 2.44398805,10.9997329 L2.44398805,10.9997329 Z M2.44398805,15.9997329 C1.62345525,15.9690612 0.980075653,15.2841888 1.00047182,14.4631214 C1.02086799,13.6420541 1.69745853,12.9899883 2.51850166,13.0001164 C3.33954478,13.0102445 3.99985313,13.6788018 4,14.5001225 C3.98424812,15.3439921 3.28763905,16.0153508 2.44398805,15.9997329 L2.44398805,15.9997329 Z"></path></svg></button></div></div></div><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3XkGv BhgSV _2yqBc _1T_VD"><div style="font-size: 26px;" class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD" data-hook="post-list-item__title"><h2 class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color" data-hook="post-title"><span class="post-title__text J-lPk"><div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; ">와인 농장 가서 즐길 거리 6가지</div></span></h2></div><div style="font-size: 16px;" class="_2PvFX BhgSV blog-post-description-style-font" data-hook="post-description"><div class="_17sOR post-excerpt"><div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><div class="fl4fR" data-hook="post-description">#와인농장 #포도농장</div></div></div></div></a><div class="_2tFu- BhgSV"><div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div><div style="font-size: 12px;"><div class="fhim2 blog-post-description-font blog-text-color post-footer"><div class="_60xHi"><div class="MEOqZ post-stats" data-hook="post-stats"><span tabindex="0">조회 1회</span><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3EfO5"><span data-hook="write-comment__label" class="_24h-e">댓글</span></a></div></div><div class="vP6YT"><button class="_3Bdxz post-footer__like-button"><span class="_3BTGY" data-hook="like-button-with-count__like-count"><span aria-hidden="true" class="_8J1xw like-button-with-count__like-count">1개</span><div class="like-button _7QZoA _1eKPZ" aria-label="1 좋아요 좋아요로 표시된 게시물" role="button" data-hook="like-button"><div class="JuFMG"><div class="_3GAmo"></div></div><div class="_1UeeA"><div class="_3GAmo"></div></div><div class="_3KlwM"><div class="_3GAmo"></div></div><div class="uanT3"><div class="_3GAmo"></div></div><div class="_2x4gn"></div><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img"><path d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path></svg></div></span></button></div></div></div></div></div></article>
-	</div>
-	<div class="item"><article class="_3lZFR BhgSV _2yqBc blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-hover-container" tabindex="0" style="border-width: 1px;" data-hook="post-list-item"><div style="height: 200px; min-height: 200px;" class="_1KR9G"><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" tabindex="-1" class="blog-link-hover-color"><div class="_3RKAW _3-Hjr" data-hook="post-list-item-image"><div class="_1mvj7" style="background-image: url(&quot;https://static.wixstatic.com/media/3e24880cc05f48618ccb64e5cc4fab73.jpg/v1/fit/w_455,h_302,al_c,q_80/file.jpg&quot;); background-size: cover;" data-pin-url="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit"></div></div></a></div><div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm"><div class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font" style="font-size: 12px;"><div class="_5bxnE"><a href="#"><div class="_33LjI blog-text-color blog-link-hover-color avatar blog-post-text-color"><span class="_2iDLv avatar-image" lng="ko"><div aria-label="작성자 이미지" class="_1wPNJ fluid-avatar-image" style="background-image: url(&quot;https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c&quot;);" data-hook="avatar-image"></div></span></div></a><div class="_2wbeQ"><a href="#" class="_25KXg"><span class="_2MJF1 user-name _1Gv8s blog-link-hover-color blog-text-color" data-hook="user-name">정은 구</span><div aria-label="운영자" data-hook="badge" class="Cu6fU"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" style="fill-rule: evenodd;" class="blog-icon-fill"><path d="M15.3812,6.495914 L12.6789333,8.77258837 C12.6191333,8.84477644 12.5099333,8.85722265 12.4354,8.79997005 C12.4215333,8.79001308 12.4094,8.77756686 12.3998667,8.76429089 L9.78686667,6.14327115 C9.67766667,5.99225704 9.46186667,5.95491839 9.305,6.05863687 C9.26946667,6.08186981 9.23913333,6.11091099 9.21573333,6.14493065 L6.60013333,8.81075677 C6.5464,8.88626383 6.43893333,8.90534803 6.3592,8.85390366 C6.34446667,8.84394669 6.33146667,8.83233022 6.32106667,8.81905425 L3.61966667,6.50587098 C3.5018,6.36149485 3.28426667,6.33577266 3.13346667,6.44861837 C3.0494,6.51167921 3,6.60792997 3,6.70998895 L4,14 L15,14 L16,6.70169148 C16,6.51831719 15.8448667,6.36979232 15.6533333,6.36979232 C15.5476,6.36979232 15.4470667,6.41625821 15.3812,6.495914 Z"></path></svg></div></a><ul class="_1ReRx _2qkGq"><li><span class="post-metadata__date time-ago" data-hook="time-ago">6월 8일</span></li><li><div class="_2yYN5 e8kGb blog-separator-background-color"></div></li><li><span class="post-metadata__readTime" data-hook="time-to-read">1분</span></li></ul></div></div><div class="LxDn0 _1CSFW blog-more-icon-fill"><div class="_4ITTQ more-button"><button type="button" class="_1WK2X" tabindex="0" aria-pressed="false" aria-label="More actions" id="more-button-60becb0b4fb00a00157a345b" data-hook="more-button"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img" class="blog-icon-fill blog-hover-container-element-fill"><path d="M2.44398805,5.99973295 C1.62345525,5.9690612 0.980075653,5.28418875 1.00047182,4.46312144 C1.02086799,3.64205413 1.69745853,2.98998831 2.51850166,3.0001164 C3.33954478,3.01024449 3.99985313,3.67880182 4,4.50012255 C3.98424812,5.34399206 3.28763905,6.0153508 2.44398805,5.99973295 L2.44398805,5.99973295 Z M2.44398805,10.9997329 C1.62345525,10.9690612 0.980075653,10.2841888 1.00047182,9.46312144 C1.02086799,8.64205413 1.69745853,7.98998831 2.51850166,8.0001164 C3.33954478,8.01024449 3.99985313,8.67880182 4,9.50012255 C3.98424812,10.3439921 3.28763905,11.0153508 2.44398805,10.9997329 L2.44398805,10.9997329 Z M2.44398805,15.9997329 C1.62345525,15.9690612 0.980075653,15.2841888 1.00047182,14.4631214 C1.02086799,13.6420541 1.69745853,12.9899883 2.51850166,13.0001164 C3.33954478,13.0102445 3.99985313,13.6788018 4,14.5001225 C3.98424812,15.3439921 3.28763905,16.0153508 2.44398805,15.9997329 L2.44398805,15.9997329 Z"></path></svg></button></div></div></div><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3XkGv BhgSV _2yqBc _1T_VD"><div style="font-size: 26px;" class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD" data-hook="post-list-item__title"><h2 class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color" data-hook="post-title"><span class="post-title__text J-lPk"><div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; ">와인 농장 가서 즐길 거리 6가지</div></span></h2></div><div style="font-size: 16px;" class="_2PvFX BhgSV blog-post-description-style-font" data-hook="post-description"><div class="_17sOR post-excerpt"><div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><div class="fl4fR" data-hook="post-description"> #와인농장 #포도농장</div></div></div></div></a><div class="_2tFu- BhgSV"><div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div><div style="font-size: 12px;"><div class="fhim2 blog-post-description-font blog-text-color post-footer"><div class="_60xHi"><div class="MEOqZ post-stats" data-hook="post-stats"><span tabindex="0">조회 1회</span><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3EfO5"><span data-hook="write-comment__label" class="_24h-e">댓글</span></a></div></div><div class="vP6YT"><button class="_3Bdxz post-footer__like-button"><span class="_3BTGY" data-hook="like-button-with-count__like-count"><span aria-hidden="true" class="_8J1xw like-button-with-count__like-count">1개</span><div class="like-button _7QZoA _1eKPZ" aria-label="1 좋아요 좋아요로 표시된 게시물" role="button" data-hook="like-button"><div class="JuFMG"><div class="_3GAmo"></div></div><div class="_1UeeA"><div class="_3GAmo"></div></div><div class="_3KlwM"><div class="_3GAmo"></div></div><div class="uanT3"><div class="_3GAmo"></div></div><div class="_2x4gn"></div><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img"><path d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path></svg></div></span></button></div></div></div></div></div></article>
-	</div>
-	<div class="item"><article class="_3lZFR BhgSV _2yqBc blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-hover-container" tabindex="0" style="border-width: 1px;" data-hook="post-list-item"><div style="height: 200px; min-height: 200px;" class="_1KR9G"><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" tabindex="-1" class="blog-link-hover-color"><div class="_3RKAW _3-Hjr" data-hook="post-list-item-image"><div class="_1mvj7" style="background-image: url(&quot;https://static.wixstatic.com/media/3e24880cc05f48618ccb64e5cc4fab73.jpg/v1/fit/w_455,h_302,al_c,q_80/file.jpg&quot;); background-size: cover;" data-pin-url="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit"></div></div></a></div><div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm"><div class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font" style="font-size: 12px;"><div class="_5bxnE"><a href="#"><div class="_33LjI blog-text-color blog-link-hover-color avatar blog-post-text-color"><span class="_2iDLv avatar-image" lng="ko"><div aria-label="작성자 이미지" class="_1wPNJ fluid-avatar-image" style="background-image: url(&quot;https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c&quot;);" data-hook="avatar-image"></div></span></div></a><div class="_2wbeQ"><a href="#" class="_25KXg"><span class="_2MJF1 user-name _1Gv8s blog-link-hover-color blog-text-color" data-hook="user-name">정은 구</span><div aria-label="운영자" data-hook="badge" class="Cu6fU"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" style="fill-rule: evenodd;" class="blog-icon-fill"><path d="M15.3812,6.495914 L12.6789333,8.77258837 C12.6191333,8.84477644 12.5099333,8.85722265 12.4354,8.79997005 C12.4215333,8.79001308 12.4094,8.77756686 12.3998667,8.76429089 L9.78686667,6.14327115 C9.67766667,5.99225704 9.46186667,5.95491839 9.305,6.05863687 C9.26946667,6.08186981 9.23913333,6.11091099 9.21573333,6.14493065 L6.60013333,8.81075677 C6.5464,8.88626383 6.43893333,8.90534803 6.3592,8.85390366 C6.34446667,8.84394669 6.33146667,8.83233022 6.32106667,8.81905425 L3.61966667,6.50587098 C3.5018,6.36149485 3.28426667,6.33577266 3.13346667,6.44861837 C3.0494,6.51167921 3,6.60792997 3,6.70998895 L4,14 L15,14 L16,6.70169148 C16,6.51831719 15.8448667,6.36979232 15.6533333,6.36979232 C15.5476,6.36979232 15.4470667,6.41625821 15.3812,6.495914 Z"></path></svg></div></a><ul class="_1ReRx _2qkGq"><li><span class="post-metadata__date time-ago" data-hook="time-ago">6월 8일</span></li><li><div class="_2yYN5 e8kGb blog-separator-background-color"></div></li><li><span class="post-metadata__readTime" data-hook="time-to-read">1분</span></li></ul></div></div><div class="LxDn0 _1CSFW blog-more-icon-fill"><div class="_4ITTQ more-button"><button type="button" class="_1WK2X" tabindex="0" aria-pressed="false" aria-label="More actions" id="more-button-60becb0b4fb00a00157a345b" data-hook="more-button"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img" class="blog-icon-fill blog-hover-container-element-fill"><path d="M2.44398805,5.99973295 C1.62345525,5.9690612 0.980075653,5.28418875 1.00047182,4.46312144 C1.02086799,3.64205413 1.69745853,2.98998831 2.51850166,3.0001164 C3.33954478,3.01024449 3.99985313,3.67880182 4,4.50012255 C3.98424812,5.34399206 3.28763905,6.0153508 2.44398805,5.99973295 L2.44398805,5.99973295 Z M2.44398805,10.9997329 C1.62345525,10.9690612 0.980075653,10.2841888 1.00047182,9.46312144 C1.02086799,8.64205413 1.69745853,7.98998831 2.51850166,8.0001164 C3.33954478,8.01024449 3.99985313,8.67880182 4,9.50012255 C3.98424812,10.3439921 3.28763905,11.0153508 2.44398805,10.9997329 L2.44398805,10.9997329 Z M2.44398805,15.9997329 C1.62345525,15.9690612 0.980075653,15.2841888 1.00047182,14.4631214 C1.02086799,13.6420541 1.69745853,12.9899883 2.51850166,13.0001164 C3.33954478,13.0102445 3.99985313,13.6788018 4,14.5001225 C3.98424812,15.3439921 3.28763905,16.0153508 2.44398805,15.9997329 L2.44398805,15.9997329 Z"></path></svg></button></div></div></div><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3XkGv BhgSV _2yqBc _1T_VD"><div style="font-size: 26px;" class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD" data-hook="post-list-item__title"><h2 class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color" data-hook="post-title"><span class="post-title__text J-lPk"><div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; ">와인 농장 가서 즐길 거리 6가지</div></span></h2></div><div style="font-size: 16px;" class="_2PvFX BhgSV blog-post-description-style-font" data-hook="post-description"><div class="_17sOR post-excerpt"><div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><div class="fl4fR" data-hook="post-description"> #와인농장 #포도농장</div></div></div></div></a><div class="_2tFu- BhgSV"><div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div><div style="font-size: 12px;"><div class="fhim2 blog-post-description-font blog-text-color post-footer"><div class="_60xHi"><div class="MEOqZ post-stats" data-hook="post-stats"><span tabindex="0">조회 1회</span><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3EfO5"><span data-hook="write-comment__label" class="_24h-e">댓글</span></a></div></div><div class="vP6YT"><button class="_3Bdxz post-footer__like-button"><span class="_3BTGY" data-hook="like-button-with-count__like-count"><span aria-hidden="true" class="_8J1xw like-button-with-count__like-count">1개</span><div class="like-button _7QZoA _1eKPZ" aria-label="1 좋아요 좋아요로 표시된 게시물" role="button" data-hook="like-button"><div class="JuFMG"><div class="_3GAmo"></div></div><div class="_1UeeA"><div class="_3GAmo"></div></div><div class="_3KlwM"><div class="_3GAmo"></div></div><div class="uanT3"><div class="_3GAmo"></div></div><div class="_2x4gn"></div><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img"><path d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path></svg></div></span></button></div></div></div></div></div></article>
-	</div>
-	<div class="item"><article class="_3lZFR BhgSV _2yqBc blog-post-description-font blog-text-color blog-card-background-color blog-card-border-color post-list-item blog-hover-container" tabindex="0" style="border-width: 1px;" data-hook="post-list-item"><div style="height: 200px; min-height: 200px;" class="_1KR9G"><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" tabindex="-1" class="blog-link-hover-color"><div class="_3RKAW _3-Hjr" data-hook="post-list-item-image"><div class="_1mvj7" style="background-image: url(&quot;https://static.wixstatic.com/media/3e24880cc05f48618ccb64e5cc4fab73.jpg/v1/fit/w_455,h_302,al_c,q_80/file.jpg&quot;); background-size: cover;" data-pin-url="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit"></div></div></a></div><div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm"><div class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font" style="font-size: 12px;"><div class="_5bxnE"><a href="#"><div class="_33LjI blog-text-color blog-link-hover-color avatar blog-post-text-color"><span class="_2iDLv avatar-image" lng="ko"><div aria-label="작성자 이미지" class="_1wPNJ fluid-avatar-image" style="background-image: url(&quot;https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c&quot;);" data-hook="avatar-image"></div></span></div></a><div class="_2wbeQ"><a href="#" class="_25KXg"><span class="_2MJF1 user-name _1Gv8s blog-link-hover-color blog-text-color" data-hook="user-name">정은 구</span><div aria-label="운영자" data-hook="badge" class="Cu6fU"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" style="fill-rule: evenodd;" class="blog-icon-fill"><path d="M15.3812,6.495914 L12.6789333,8.77258837 C12.6191333,8.84477644 12.5099333,8.85722265 12.4354,8.79997005 C12.4215333,8.79001308 12.4094,8.77756686 12.3998667,8.76429089 L9.78686667,6.14327115 C9.67766667,5.99225704 9.46186667,5.95491839 9.305,6.05863687 C9.26946667,6.08186981 9.23913333,6.11091099 9.21573333,6.14493065 L6.60013333,8.81075677 C6.5464,8.88626383 6.43893333,8.90534803 6.3592,8.85390366 C6.34446667,8.84394669 6.33146667,8.83233022 6.32106667,8.81905425 L3.61966667,6.50587098 C3.5018,6.36149485 3.28426667,6.33577266 3.13346667,6.44861837 C3.0494,6.51167921 3,6.60792997 3,6.70998895 L4,14 L15,14 L16,6.70169148 C16,6.51831719 15.8448667,6.36979232 15.6533333,6.36979232 C15.5476,6.36979232 15.4470667,6.41625821 15.3812,6.495914 Z"></path></svg></div></a><ul class="_1ReRx _2qkGq"><li><span class="post-metadata__date time-ago" data-hook="time-ago">6월 8일</span></li><li><div class="_2yYN5 e8kGb blog-separator-background-color"></div></li><li><span class="post-metadata__readTime" data-hook="time-to-read">1분</span></li></ul></div></div><div class="LxDn0 _1CSFW blog-more-icon-fill"><div class="_4ITTQ more-button"><button type="button" class="_1WK2X" tabindex="0" aria-pressed="false" aria-label="More actions" id="more-button-60becb0b4fb00a00157a345b" data-hook="more-button"><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img" class="blog-icon-fill blog-hover-container-element-fill"><path d="M2.44398805,5.99973295 C1.62345525,5.9690612 0.980075653,5.28418875 1.00047182,4.46312144 C1.02086799,3.64205413 1.69745853,2.98998831 2.51850166,3.0001164 C3.33954478,3.01024449 3.99985313,3.67880182 4,4.50012255 C3.98424812,5.34399206 3.28763905,6.0153508 2.44398805,5.99973295 L2.44398805,5.99973295 Z M2.44398805,10.9997329 C1.62345525,10.9690612 0.980075653,10.2841888 1.00047182,9.46312144 C1.02086799,8.64205413 1.69745853,7.98998831 2.51850166,8.0001164 C3.33954478,8.01024449 3.99985313,8.67880182 4,9.50012255 C3.98424812,10.3439921 3.28763905,11.0153508 2.44398805,10.9997329 L2.44398805,10.9997329 Z M2.44398805,15.9997329 C1.62345525,15.9690612 0.980075653,15.2841888 1.00047182,14.4631214 C1.02086799,13.6420541 1.69745853,12.9899883 2.51850166,13.0001164 C3.33954478,13.0102445 3.99985313,13.6788018 4,14.5001225 C3.98424812,15.3439921 3.28763905,16.0153508 2.44398805,15.9997329 L2.44398805,15.9997329 Z"></path></svg></button></div></div></div><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3XkGv BhgSV _2yqBc _1T_VD"><div style="font-size: 26px;" class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD" data-hook="post-list-item__title"><h2 class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color" data-hook="post-title"><span class="post-title__text J-lPk"><div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; ">와인 농장 가서 즐길 거리 6가지</div></span></h2></div><div style="font-size: 16px;" class="_2PvFX BhgSV blog-post-description-style-font" data-hook="post-description"><div class="_17sOR post-excerpt"><div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;"><div class="fl4fR" data-hook="post-description"> #와인농장 #포도농장</div></div></div></div></a><div class="_2tFu- BhgSV"><div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div><div style="font-size: 12px;"><div class="fhim2 blog-post-description-font blog-text-color post-footer"><div class="_60xHi"><div class="MEOqZ post-stats" data-hook="post-stats"><span tabindex="0">조회 1회</span><a target="_top" href="https://jemilykoo.wixsite.com/website/post/6-ways-to-get-the-most-out-of-your-vineyard-visit" class="_3EfO5"><span data-hook="write-comment__label" class="_24h-e">댓글</span></a></div></div><div class="vP6YT"><button class="_3Bdxz post-footer__like-button"><span class="_3BTGY" data-hook="like-button-with-count__like-count"><span aria-hidden="true" class="_8J1xw like-button-with-count__like-count">1개</span><div class="like-button _7QZoA _1eKPZ" aria-label="1 좋아요 좋아요로 표시된 게시물" role="button" data-hook="like-button"><div class="JuFMG"><div class="_3GAmo"></div></div><div class="_1UeeA"><div class="_3GAmo"></div></div><div class="_3KlwM"><div class="_3GAmo"></div></div><div class="uanT3"><div class="_3GAmo"></div></div><div class="_2x4gn"></div><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" role="img"><path d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path></svg></div></span></button></div></div></div></div></div></article>
-	</div>
-	
-	
-	<div class="item"></div>
-	<div class="item"></div>
-	<div class="item"></div>
-	<div class="item"></div>
-	<div class="item"></div>
-</div>
-																							
-																							<!-- 카드뷰 끝 -->
-																							
-																							<div class="_16spU post-list">
-																								<div>
-																									<div class="_24P6W forum-card-background-color forum-card-border-color forum-content-classic-font" style="border-width:1px" data-hook="post-list">
-																										<div class="_19vnq PSXkW" data-hook="post-list-classic-controls">
-																											<div class="_282ya">
-																												<div class="_2q-HU">
-																													<div data-hook="filter-select">
-																														<div class="_1D0o8 LTwPD more-button" data-hook="more-button">
-																															<button class="_2jKCS button-hover-fill forum-icon-fill button-hover-color button-hover-fill forum-text-color forum-content-classic-font _2B7gt" aria-label="필터:" aria-haspopup="true" aria-expanded="false">
-																																<div class="_1GgU5"><span style="color:rgba(0, 0, 0, 0.6)">필터:</span>&nbsp;<span>전체 게시물</span><span class="_1WMzl"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19"><defs><path id="01.-default-down-a" d="M11.4964212,9.69999981 L6.06615558,14.8757976 C5.97794814,14.9598716 5.97794814,15.0961824 6.06615558,15.1802563 L6.54529666,15.6369443 C6.6335041,15.7210183 6.77651661,15.7210183 6.86472405,15.6369443 L12.9338444,9.85222916 C12.9779481,9.81019218 13,9.755096 13,9.69999981 C13,9.64490362 12.9779481,9.58980744 12.9338444,9.54777046 L6.86472405,3.76305527 C6.77651661,3.67898132 6.6335041,3.67898132 6.54529666,3.76305527 L6.06615558,4.21974331 C5.97794814,4.30381726 5.97794814,4.44012806 6.06615558,4.52420201 L11.4964212,9.69999981 Z"></path></defs><use transform="rotate(90 9.5 9.7)" xlink:href="#01.-default-down-a"></use></svg></span></div>
-																															</button>
-																														</div>
-																													</div>
-																												</div>
-																												<div class="_2q-HU">
-																													<div data-hook="sorting-select">
-																														<div class="_3hlXs LTwPD more-button" data-hook="more-button">
-																															<button class="_2jKCS button-hover-fill forum-icon-fill button-hover-color button-hover-fill forum-text-color forum-content-classic-font _2B7gt" aria-label="정렬:" aria-haspopup="true" aria-expanded="false">
-																																<div class="_3Crrb"><span style="color:rgba(0, 0, 0, 0.6)">정렬:</span>&nbsp;<span>최근 활동</span><span class="_2kjKX"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19"><defs><path id="01.-default-down-a" d="M11.4964212,9.69999981 L6.06615558,14.8757976 C5.97794814,14.9598716 5.97794814,15.0961824 6.06615558,15.1802563 L6.54529666,15.6369443 C6.6335041,15.7210183 6.77651661,15.7210183 6.86472405,15.6369443 L12.9338444,9.85222916 C12.9779481,9.81019218 13,9.755096 13,9.69999981 C13,9.64490362 12.9779481,9.58980744 12.9338444,9.54777046 L6.86472405,3.76305527 C6.77651661,3.67898132 6.6335041,3.67898132 6.54529666,3.76305527 L6.06615558,4.21974331 C5.97794814,4.30381726 5.97794814,4.44012806 6.06615558,4.52420201 L11.4964212,9.69999981 Z"></path></defs><use transform="rotate(90 9.5 9.7)" xlink:href="#01.-default-down-a"></use></svg></span></div>
-																															</button>
-																														</div>
-																													</div>
-																												</div>
-																											</div>
-																											<div class="_282ya">
-																												<div data-hook="create-post-cta">
-																													<div class="_3SBFF undefined LTwPD sameS more-button" data-hook="more-button">
-																														<button class="_2jKCS button-hover-fill forum-icon-fill forum-text-color forum-content-classic-font _3Z2wu button-background-color _2B7gt" aria-label="게시물 작성하기" aria-haspopup="true" aria-expanded="false">
-																															<div class="_2RPBu button-primary-text-color"><span>게시물 작성하기</span>&nbsp;<span class="button-primary-icon-fill zwN_n"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19"><defs><path id="01.-default-down-a" d="M11.4964212,9.69999981 L6.06615558,14.8757976 C5.97794814,14.9598716 5.97794814,15.0961824 6.06615558,15.1802563 L6.54529666,15.6369443 C6.6335041,15.7210183 6.77651661,15.7210183 6.86472405,15.6369443 L12.9338444,9.85222916 C12.9779481,9.81019218 13,9.755096 13,9.69999981 C13,9.64490362 12.9779481,9.58980744 12.9338444,9.54777046 L6.86472405,3.76305527 C6.77651661,3.67898132 6.6335041,3.67898132 6.54529666,3.76305527 L6.06615558,4.21974331 C5.97794814,4.30381726 5.97794814,4.44012806 6.06615558,4.52420201 L11.4964212,9.69999981 Z"></path></defs><use transform="rotate(90 9.5 9.7)" xlink:href="#01.-default-down-a"></use></svg></span></div>
-																														</button>
-																													</div>
-																												</div>
-																											</div>
-																										</div>
-																										<div class="_3Cioj forum-separator-background-color"></div>
-																										<div class="PSXkW">
-																											<table class="_1YVaU">
-																												<thead>
-																													<tr class="_3JyWO" style="border-color:white">
-																														<th class="_2V4iu _3MUx4 forum-text-color">
-																															<div class="_1dokf"></div>
-																														</th>
-																														<th class="_1tnhq Y-Jqn">
-																															<svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" role="img" class="forum-icon-stroke">
-																																<title>Comments</title>
-																																<path d="M9.48,11.45l-4,2.88a0.84,0.84,0,0,1-1.34-.65V11.45H2.22A1.7,1.7,0,0,1,.5,9.79V2.17A1.7,1.7,0,0,1,2.22.5H14.78A1.7,1.7,0,0,1,16.5,2.17V9.79a1.7,1.7,0,0,1-1.72,1.67H9.48Z" transform="translate(0 0)" fill="none"></path>
-																															</svg>
-																														</th>
-																														<th class="_1tnhq Y-Jqn">
-																															<svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 17 15" fill="none" style="fill-rule:evenodd" role="img" class="forum-icon-stroke">
-																																<title>Likes</title>
-																																<path d="M350,217.365a4.312,4.312,0,0,0-8-2.28,4.309,4.309,0,0,0-8,2.28,4.375,4.375,0,0,0,1.487,3.286l6.12,6.184A0.567,0.567,0,0,0,342,227a0.553,0.553,0,0,0,.4-0.165l6.12-6.184A4.375,4.375,0,0,0,350,217.365Z" transform="translate(-333.5 -212.5)"></path>
-																															</svg>
-																														</th>
-																														<th class="_1tnhq Y-Jqn">
-																															<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" class="forum-icon-fill">
-																																<title>조회</title>
-																																<path d="M11.5,5 C17.293,5 20.813,11.041 20.918,11.298 L20.918,11.298 L21,11.5 L20.918,11.701 C20.813,11.959 17.293,18 11.5,18 C5.707,18 2.187,11.959 2.082,11.701 L2.082,11.701 L2,11.5 L2.082,11.298 C2.187,11.041 5.707,5 11.5,5 Z M11.5,6.036 C6.92,6.036 3.565,10.488 3.089,11.499 C3.567,12.51 6.932,16.964 11.5,16.964 C16.08,16.964 19.435,12.512 19.911,11.5 C19.433,10.49 16.068,6.036 11.5,6.036 Z M11.5,8.25 C13.2949254,8.25 14.75,9.70507456 14.75,11.5 C14.75,13.2949254 13.2949254,14.75 11.5,14.75 C9.70507456,14.75 8.25,13.2949254 8.25,11.5 C8.25,9.70507456 9.70507456,8.25 11.5,8.25 Z M11.5,9.25 C10.2573593,9.25 9.25,10.2573593 9.25,11.5 C9.25,12.7426407 10.2573593,13.75 11.5,13.75 C12.7426407,13.75 13.75,12.7426407 13.75,11.5 C13.75,10.2573593 12.7426407,9.25 11.5,9.25 Z" id="Color"></path>
-																															</svg>
-																														</th>
-																														<th class="_1Cmax _3MUx4 forum-text-color">최근 활동</th>
-																														<th class="_3R3CQ"><span class="yeoGk">Item option menu</span></th>
-																													</tr>
-																												</thead>
-																												<tbody>
-																													<tr aria-hidden="true" style="border-color:white">
-																														<td class="_2lRkg" colspan="100" style="border-color:white">
-																															<div style="border-color:white" class="_3Cioj _3C_rt forum-separator-background-color"></div>
-																														</td>
-																													</tr>
-																													<tr id="60becb4785f7df001562fb6b" class="_38Fer forum-text-color post-list-item forum-content-classic-font" data-hook="post-list-item">
-																														<td>
-																															<div class="le4VL"><a href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/yeohaeng-gesipane-osin-geoseul-hwanyeonghabnida" class="forum-title-classic-font _1CApn" data-hook="post-list-item_link"><h2 class="_2FqU5 _2rOY9 post-title forum-title-classic-font _2WkBL forum-text-color forum-link-hover-color" data-hook="post-title"><div class="_33VI0"><div class="_3N7Rh"><span>여행 게시판에 오신 것을 환영합니다</span></div></div></h2></a>
-																																<svg xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" width="24" height="24" viewBox="0 0 24 24" class="_29n1R icon-secondary-fill" aria-label="Pinned post">
-																																	<path fill-rule="evenodd" d="M14.5 3.75l5.75 5.75-.621.621c-.563.563-1.326.879-2.122.879h-.757L15 12.75v1.75c0 1.591-.675 3.108-1.858 4.172l-.642.578-3.546-3.547-3.088 3.15c-.192.195-.505.198-.7.007l-.004-.004c-.196-.196-.197-.513-.003-.71l3.088-3.15-3.497-3.499.577-.64C6.392 9.675 7.909 9 9.5 9h1.75L13 7.25v-.757c0-.796.316-1.56.879-2.122l.621-.621z"></path>
-																																</svg>
-																															</div>
-																															<div class="_146iO forum-links-hashtags-color">
-																																<div viewedmemberid="8bcb425c-140a-4737-81cb-ae69082c4465" viewedmemberslug="jemilykoo" class="_2eFIV"><a href="https://jemilykoo.wixsite.com/website/profile/jemilykoo/profile" class="_8ZDBI forum-text-color forum-link-hover-color"><span>정은 구</span><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" style="fill-rule:evenodd" aria-label="운영자" class="_3LDKX forum-icon-fill"><path d="M15.3812,6.495914 L12.6789333,8.77258837 C12.6191333,8.84477644 12.5099333,8.85722265 12.4354,8.79997005 C12.4215333,8.79001308 12.4094,8.77756686 12.3998667,8.76429089 L9.78686667,6.14327115 C9.67766667,5.99225704 9.46186667,5.95491839 9.305,6.05863687 C9.26946667,6.08186981 9.23913333,6.11091099 9.21573333,6.14493065 L6.60013333,8.81075677 C6.5464,8.88626383 6.43893333,8.90534803 6.3592,8.85390366 C6.34446667,8.84394669 6.33146667,8.83233022 6.32106667,8.81905425 L3.61966667,6.50587098 C3.5018,6.36149485 3.28426667,6.33577266 3.13346667,6.44861837 C3.0494,6.51167921 3,6.60792997 3,6.70998895 L4,14 L15,14 L16,6.70169148 C16,6.51831719 15.8448667,6.36979232 15.6533333,6.36979232 C15.5476,6.36979232 15.4470667,6.41625821 15.3812,6.495914 Z"></path></svg><div class="_1dooA forum-text-color"></div></a></div>
-																																<div class="_14GJw forum-text-color"><span aria-hidden="true" class="forum-text-color forum-text-color" style="font-weight:bold">&nbsp;&nbsp;·&nbsp;&nbsp;</span>그룹 대화</div>
-																															</div>
-																														</td>
-																														<td class="v4Jom IKqJj">0</td>
-																														<td class="v4Jom IKqJj">0</td>
-																														<td class="v4Jom IKqJj"><span data-hook="post-list-item__view-count"></span></td>
-																														<td class="_33Xju ZhoWl">
-																															<div class="forum-text-color forum-link-hover-color _1n6TA" bilocation="post_list_item_recent_activity" data-hook="post-list-item__recent-activity" aria-label="Navigate to most recent activity" style="cursor:pointer">
-																																<div viewedmemberid="8bcb425c-140a-4737-81cb-ae69082c4465" viewedmemberslug="jemilykoo"><span class="_14_Ju _2JPMk _2X6nY avatar-image"><div class="_2LXiY fluid-avatar-image" style="background-image:url(https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c);background-size:cover" aria-hidden="true"></div></span></div><span class="_2udjW _3GzJy time-ago" data-hook="time-ago">6월 07일</span></div>
-																														</td>
-																														<td>
-																															<div class="LTwPD more-button" data-hook="more-button">
-																																<button class="_2jKCS button-hover-fill forum-icon-fill forum-text-color forum-content-classic-font _2B7gt" aria-label="More actions" id="more-button-60becb4785f7df001562fb6b" aria-haspopup="true" aria-expanded="false">
-																																	<svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24">
-																																		<path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z"></path>
-																																	</svg>
-																																</button>
-																															</div>
-																														</td>
-																													</tr>
-																													<tr aria-hidden="true">
-																														<td class="_2lRkg" colspan="100">
-																															<div class="_3Cioj forum-separator-background-color"></div>
-																														</td>
-																													</tr>
-																													<tr id="60c749fa62171b0066b38b39" class="_38Fer forum-text-color post-list-item forum-content-classic-font" data-hook="post-list-item">
-																														<td>
-																															<div class="le4VL"><a href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/eobseum" class="forum-title-classic-font _1CApn" data-hook="post-list-item_link"><h2 class="_2FqU5 _2rOY9 post-title forum-title-classic-font _2WkBL forum-text-color forum-link-hover-color" data-hook="post-title"><div class="_33VI0"><div class="_3N7Rh"><span>없음</span></div></div></h2></a></div>
-																															<div class="_146iO forum-links-hashtags-color">
-																																<div viewedmemberid="5f3e376d-dd7a-4bc7-80be-2cdfc250c98c" viewedmemberslug="qjrrogoa" class="_2eFIV"><a href="https://jemilykoo.wixsite.com/website/profile/qjrrogoa/profile" class="_8ZDBI forum-text-color forum-link-hover-color"><span>박대민</span><div class="_1dooA forum-text-color"></div></a></div>
-																																<div class="_14GJw forum-text-color"><span aria-hidden="true" class="forum-text-color forum-text-color" style="font-weight:bold">&nbsp;&nbsp;·&nbsp;&nbsp;</span>그룹 대화</div>
-																															</div>
-																														</td>
-																														<td class="v4Jom IKqJj">0</td>
-																														<td class="v4Jom IKqJj">0</td>
-																														<td class="v4Jom IKqJj"><span data-hook="post-list-item__view-count"></span></td>
-																														<td class="_33Xju ZhoWl">
-																															<div class="forum-text-color forum-link-hover-color _1n6TA" bilocation="post_list_item_recent_activity" data-hook="post-list-item__recent-activity" aria-label="Navigate to most recent activity" style="cursor:pointer">
-																																<div viewedmemberid="5f3e376d-dd7a-4bc7-80be-2cdfc250c98c" viewedmemberslug="qjrrogoa"><span class="_14_Ju _2JPMk _2X6nY avatar-image"><div class="_2LXiY fluid-avatar-image" style="background-image:url(https://static.wixstatic.com/media/1bf8c6_4affc4634a2348a2b945fc5f012feaab%7Emv2.jpg/v1/fit/w_100,h_100/file.png);background-size:cover" aria-hidden="true"></div></span></div><span class="_2udjW _3GzJy time-ago" data-hook="time-ago">6월 14일</span></div>
-																														</td>
-																														<td>
-																															<div class="LTwPD more-button" data-hook="more-button">
-																																<button class="_2jKCS button-hover-fill forum-icon-fill forum-text-color forum-content-classic-font _2B7gt" aria-label="More actions" id="more-button-60c749fa62171b0066b38b39" aria-haspopup="true" aria-expanded="false">
-																																	<svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24">
-																																		<path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z"></path>
-																																	</svg>
-																																</button>
-																															</div>
-																														</td>
-																													</tr>
-																													<tr aria-hidden="true">
-																														<td class="_2lRkg" colspan="100">
-																															<div class="_3Cioj forum-separator-background-color"></div>
-																														</td>
-																													</tr>
-																													<tr id="60becb4785f7df001562fb6a" class="_38Fer forum-text-color post-list-item forum-content-classic-font" data-hook="post-list-item">
-																														<td>
-																															<div class="le4VL"><a href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/yeoreume-gajogi-hamgge-gagi-joheun-hyuyangji-cuceonhaejuseyo" class="forum-title-classic-font _1CApn" data-hook="post-list-item_link"><h2 class="_2FqU5 _2rOY9 post-title forum-title-classic-font _2WkBL forum-text-color forum-link-hover-color" data-hook="post-title"><div class="_33VI0"><div class="_3N7Rh"><span>여름에 가족이 함께 가기 좋은 휴양지 추천해주세요!</span></div></div></h2></a></div>
-																															<div class="_146iO forum-links-hashtags-color">
-																																<div viewedmemberid="8bcb425c-140a-4737-81cb-ae69082c4465" viewedmemberslug="jemilykoo" class="_2eFIV"><a href="https://jemilykoo.wixsite.com/website/profile/jemilykoo/profile" class="_8ZDBI forum-text-color forum-link-hover-color"><span>정은 구</span><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" style="fill-rule:evenodd" aria-label="운영자" class="_3LDKX forum-icon-fill"><path d="M15.3812,6.495914 L12.6789333,8.77258837 C12.6191333,8.84477644 12.5099333,8.85722265 12.4354,8.79997005 C12.4215333,8.79001308 12.4094,8.77756686 12.3998667,8.76429089 L9.78686667,6.14327115 C9.67766667,5.99225704 9.46186667,5.95491839 9.305,6.05863687 C9.26946667,6.08186981 9.23913333,6.11091099 9.21573333,6.14493065 L6.60013333,8.81075677 C6.5464,8.88626383 6.43893333,8.90534803 6.3592,8.85390366 C6.34446667,8.84394669 6.33146667,8.83233022 6.32106667,8.81905425 L3.61966667,6.50587098 C3.5018,6.36149485 3.28426667,6.33577266 3.13346667,6.44861837 C3.0494,6.51167921 3,6.60792997 3,6.70998895 L4,14 L15,14 L16,6.70169148 C16,6.51831719 15.8448667,6.36979232 15.6533333,6.36979232 C15.5476,6.36979232 15.4470667,6.41625821 15.3812,6.495914 Z"></path></svg><div class="_1dooA forum-text-color"></div></a></div>
-																																<div class="_14GJw forum-text-color"><span aria-hidden="true" class="forum-text-color forum-text-color" style="font-weight:bold">&nbsp;&nbsp;·&nbsp;&nbsp;</span>그룹 대화</div>
-																															</div>
-																														</td>
-																														<td class="v4Jom IKqJj">0</td>
-																														<td class="v4Jom IKqJj">0</td>
-																														<td class="v4Jom IKqJj"><span data-hook="post-list-item__view-count"></span></td>
-																														<td class="_33Xju ZhoWl">
-																															<div class="forum-text-color forum-link-hover-color _1n6TA" bilocation="post_list_item_recent_activity" data-hook="post-list-item__recent-activity" aria-label="Navigate to most recent activity" style="cursor:pointer">
-																																<div viewedmemberid="8bcb425c-140a-4737-81cb-ae69082c4465" viewedmemberslug="jemilykoo"><span class="_14_Ju _2JPMk _2X6nY avatar-image"><div class="_2LXiY fluid-avatar-image" style="background-image:url(https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c);background-size:cover" aria-hidden="true"></div></span></div><span class="_2udjW _3GzJy time-ago" data-hook="time-ago">6월 07일</span></div>
-																														</td>
-																														<td>
-																															<div class="LTwPD more-button" data-hook="more-button">
-																																<button class="_2jKCS button-hover-fill forum-icon-fill forum-text-color forum-content-classic-font _2B7gt" aria-label="More actions" id="more-button-60becb4785f7df001562fb6a" aria-haspopup="true" aria-expanded="false">
-																																	<svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24">
-																																		<path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z"></path>
-																																	</svg>
-																																</button>
-																															</div>
-																														</td>
-																													</tr>
-																													<tr aria-hidden="true">
-																														<td class="_2lRkg" colspan="100">
-																															<div class="_3Cioj forum-separator-background-color"></div>
-																														</td>
-																													</tr>
-																													<tr id="60becb4785f7df001562fb69" class="_38Fer forum-text-color post-list-item forum-content-classic-font" data-hook="post-list-item">
-																														<td>
-																															<div class="le4VL"><a href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/ibeone-cingurang-rodeuteurib-danyeowassneundeyo-jeongbo-gongyuhabnida" class="forum-title-classic-font _1CApn" data-hook="post-list-item_link"><h2 class="_2FqU5 _2rOY9 post-title forum-title-classic-font _2WkBL forum-text-color forum-link-hover-color" data-hook="post-title"><div class="_33VI0"><div class="_3N7Rh"><span>이번에 친구랑 로드트립 다녀왔는데요, 정보 공유합니다.</span></div></div></h2></a></div>
-																															<div class="_146iO forum-links-hashtags-color">
-																																<div viewedmemberid="8bcb425c-140a-4737-81cb-ae69082c4465" viewedmemberslug="jemilykoo" class="_2eFIV"><a href="https://jemilykoo.wixsite.com/website/profile/jemilykoo/profile" class="_8ZDBI forum-text-color forum-link-hover-color"><span>정은 구</span><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" style="fill-rule:evenodd" aria-label="운영자" class="_3LDKX forum-icon-fill"><path d="M15.3812,6.495914 L12.6789333,8.77258837 C12.6191333,8.84477644 12.5099333,8.85722265 12.4354,8.79997005 C12.4215333,8.79001308 12.4094,8.77756686 12.3998667,8.76429089 L9.78686667,6.14327115 C9.67766667,5.99225704 9.46186667,5.95491839 9.305,6.05863687 C9.26946667,6.08186981 9.23913333,6.11091099 9.21573333,6.14493065 L6.60013333,8.81075677 C6.5464,8.88626383 6.43893333,8.90534803 6.3592,8.85390366 C6.34446667,8.84394669 6.33146667,8.83233022 6.32106667,8.81905425 L3.61966667,6.50587098 C3.5018,6.36149485 3.28426667,6.33577266 3.13346667,6.44861837 C3.0494,6.51167921 3,6.60792997 3,6.70998895 L4,14 L15,14 L16,6.70169148 C16,6.51831719 15.8448667,6.36979232 15.6533333,6.36979232 C15.5476,6.36979232 15.4470667,6.41625821 15.3812,6.495914 Z"></path></svg><div class="_1dooA forum-text-color"></div></a></div>
-																																<div class="_14GJw forum-text-color"><span aria-hidden="true" class="forum-text-color forum-text-color" style="font-weight:bold">&nbsp;&nbsp;·&nbsp;&nbsp;</span>그룹 대화</div>
-																															</div>
-																														</td>
-																														<td class="v4Jom IKqJj">0</td>
-																														<td class="v4Jom IKqJj">0</td>
-																														<td class="v4Jom IKqJj"><span data-hook="post-list-item__view-count"></span></td>
-																														<td class="_33Xju ZhoWl">
-																															<div class="forum-text-color forum-link-hover-color _1n6TA" bilocation="post_list_item_recent_activity" data-hook="post-list-item__recent-activity" aria-label="Navigate to most recent activity" style="cursor:pointer">
-																																<div viewedmemberid="8bcb425c-140a-4737-81cb-ae69082c4465" viewedmemberslug="jemilykoo"><span class="_14_Ju _2JPMk _2X6nY avatar-image"><div class="_2LXiY fluid-avatar-image" style="background-image:url(https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c);background-size:cover" aria-hidden="true"></div></span></div><span class="_2udjW _3GzJy time-ago" data-hook="time-ago">6월 07일</span></div>
-																														</td>
-																														<td>
-																															<div class="LTwPD more-button" data-hook="more-button">
-																																<button class="_2jKCS button-hover-fill forum-icon-fill forum-text-color forum-content-classic-font _2B7gt" aria-label="More actions" id="more-button-60becb4785f7df001562fb69" aria-haspopup="true" aria-expanded="false">
-																																	<svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24">
-																																		<path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z"></path>
-																																	</svg>
-																																</button>
-																															</div>
-																														</td>
-																													</tr>
-																													<tr aria-hidden="true">
-																														<td class="_2lRkg" colspan="100">
-																															<div class="_3Cioj forum-separator-background-color"></div>
-																														</td>
-																													</tr>
-																													<tr id="60becb4785f7df001562fb68" class="_38Fer forum-text-color post-list-item forum-content-classic-font" data-hook="post-list-item">
-																														<td>
-																															<div class="le4VL"><a href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/aideulirang-gati-kaereobaen-yeohaeng-gago-sipneyo" class="forum-title-classic-font _1CApn" data-hook="post-list-item_link"><h2 class="_2FqU5 _2rOY9 post-title forum-title-classic-font _2WkBL forum-text-color forum-link-hover-color" data-hook="post-title"><div class="_33VI0"><div class="_3N7Rh"><span>아이들이랑 같이 캐러밴 여행 가고 싶네요</span></div></div></h2></a></div>
-																															<div class="_146iO forum-links-hashtags-color">
-																																<div viewedmemberid="8bcb425c-140a-4737-81cb-ae69082c4465" viewedmemberslug="jemilykoo" class="_2eFIV"><a href="https://jemilykoo.wixsite.com/website/profile/jemilykoo/profile" class="_8ZDBI forum-text-color forum-link-hover-color"><span>정은 구</span><svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19" style="fill-rule:evenodd" aria-label="운영자" class="_3LDKX forum-icon-fill"><path d="M15.3812,6.495914 L12.6789333,8.77258837 C12.6191333,8.84477644 12.5099333,8.85722265 12.4354,8.79997005 C12.4215333,8.79001308 12.4094,8.77756686 12.3998667,8.76429089 L9.78686667,6.14327115 C9.67766667,5.99225704 9.46186667,5.95491839 9.305,6.05863687 C9.26946667,6.08186981 9.23913333,6.11091099 9.21573333,6.14493065 L6.60013333,8.81075677 C6.5464,8.88626383 6.43893333,8.90534803 6.3592,8.85390366 C6.34446667,8.84394669 6.33146667,8.83233022 6.32106667,8.81905425 L3.61966667,6.50587098 C3.5018,6.36149485 3.28426667,6.33577266 3.13346667,6.44861837 C3.0494,6.51167921 3,6.60792997 3,6.70998895 L4,14 L15,14 L16,6.70169148 C16,6.51831719 15.8448667,6.36979232 15.6533333,6.36979232 C15.5476,6.36979232 15.4470667,6.41625821 15.3812,6.495914 Z"></path></svg><div class="_1dooA forum-text-color"></div></a></div>
-																																<div class="_14GJw forum-text-color"><span aria-hidden="true" class="forum-text-color forum-text-color" style="font-weight:bold">&nbsp;&nbsp;·&nbsp;&nbsp;</span>그룹 대화</div>
-																															</div>
-																														</td>
-																														<td class="v4Jom IKqJj">0</td>
-																														<td class="v4Jom IKqJj">0</td>
-																														<td class="v4Jom IKqJj"><span data-hook="post-list-item__view-count"></span></td>
-																														<td class="_33Xju ZhoWl">
-																															<div class="forum-text-color forum-link-hover-color _1n6TA" bilocation="post_list_item_recent_activity" data-hook="post-list-item__recent-activity" aria-label="Navigate to most recent activity" style="cursor:pointer">
-																																<div viewedmemberid="8bcb425c-140a-4737-81cb-ae69082c4465" viewedmemberslug="jemilykoo"><span class="_14_Ju _2JPMk _2X6nY avatar-image"><div class="_2LXiY fluid-avatar-image" style="background-image:url(https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c);background-size:cover" aria-hidden="true"></div></span></div><span class="_2udjW _3GzJy time-ago" data-hook="time-ago">6월 07일</span></div>
-																														</td>
-																														<td>
-																															<div class="LTwPD more-button" data-hook="more-button">
-																																<button class="_2jKCS button-hover-fill forum-icon-fill forum-text-color forum-content-classic-font _2B7gt" aria-label="More actions" id="more-button-60becb4785f7df001562fb68" aria-haspopup="true" aria-expanded="false">
-																																	<svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24">
-																																		<path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z"></path>
-																																	</svg>
-																																</button>
-																															</div>
-																														</td>
-																													</tr>
-																												</tbody>
-																											</table>
-																										</div>
-																									</div>
-																								</div>
-																							</div>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
+															<form autocomplete="off">
+																<input type="text" data-hook="search-input"
+																	class="_1quPh desktop-header-search-text-color desktop-header-search-font search-input__input"
+																	autocomplete="off" placeholder="&nbsp;">
+															</form>
+															<div
+																class="_2nmH8 desktop-header-search-text-color desktop-header-search-font GPrPx">&nbsp;</div>
+															<div
+																class="q4nje desktop-header-search-border-background-color"></div>
+															<span></span>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
+									<div class="_1W1_h">
+										<div class="_3IIvE">
+											<div
+												class="_3jp2s default-desktop-header-text-color page-description _1iSUx"
+												style="color: #FFFFFF; height: 300px">
+												<div class="_3Z0vv"
+													style="background-image: url(&quot;https://static.wixstatic.com/media/8bde4fb7e0db407693c87bdcc9150c9e.jpg/v1/fit/w_1920,h_834,al_c,q_80/file.png&quot;); background-size: cover;"
+													alt="">
+													<div class="LTMVp"
+														style="background-color: #000000; opacity: 0.25"
+														data-hook="page-cover"></div>
+													<div class="_36G23">
+														<div class="_26TAI">
+															<div
+																class="_2POlQ page-description-title-font page-description__title"
+																data-hook="page-description__title">
+																<h1 tabindex="-1" class="_1_JwX">여행 게시판</h1>
+															</div>
+															<div class="dTyOb page-description-font"
+																data-hook="page-description__description">
+																<p class="EV-c5" style="-webkit-line-clamp: 10;">여행
+																	관련 주제의 글에 참여해보세요. 새 게시물을 추가하거나 기존 게시물을 편집하여 활동을 시작할 수
+																	있습니다.</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
+<div class="_3SBFF undefined LTwPD sameS "  style=" max-width:140px;">
+<button id=tripBoardCreateButton  class="_2jKCS button-hover-fill forum-icon-fill forum-text-color forum-content-classic-font _3Z2wu button-background-color _2B7gt" aria-label="게시물 작성하기" aria-haspopup="true" aria-expanded="false">
+<div class="_2RPBu button-primary-text-color"
+style=" box-sizing: inherit; outline: 0;
+background: transparent;
+    background-color: transparent;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-image: none;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+	
+ ">
+<span>게시물 작성하기 </span></div></button>
+</div>
+
+<!-- 게시물 작성하기 버튼 종료  -->
+<!-- 카드뷰 -->
+
+<div class="container"
+	style="display: grid; max-width: 980px; grid-template-columns: 1fr 1fr 1fr; row-gap: 30px; column-gap: 10px;">
+	<!-- 갯수 맞추기 위해 있어야 하는 코드 시작 -->
+	<div class="item1"></div>
+	<div class="item1"></div>
+	<!-- 갯수 맞추기 위해 있어야 하는 코드 끝 -->
+	
+	<!-- 아이템을 받아와서 반복하면 됨--> 
+	<div class="item">
+		<div class="article">
+		<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
+			<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
+			<a target="_top" href="<c:url value="/Stamp/ForumPost.do"/>">
+			<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
+				<div class="cardImage" style="background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
+				</div>
+			</a>
+		<!-- 이미지 받아오는 코드 끝-->
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			
+				<div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm">
+					<div
+						class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font"
+						style="font-size: 12px;">
+						<div class="_5bxnE">
+							
+							<div class="_33LjI avatar">
+							<!-- 사용자에 맞게 프로필을 교체해야 함 -->
+								<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+				style="text-decoration: none">
+								<span class="_2iDLv avatar-image">
+								<!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
+									<div class="_1wPNJ fluid-avatar-image"
+										style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');"></div>
+								</span>
+								</a>
+							</div>
+							
+							<div class="_2wbeQ">
+							
+							<!-- 사용자에 맞게 프로필링크를 교체해야 함  -->
+							<a target="_top" href="<c:url value="/Profile/Main.do"/>" style="text-decoration: none">
+							<!-- 이름 -->
+								<span style="display: flex">정은 구</span>
+								</a>
+								<!-- 리뷰에 맞게 리뷰 링크 교체해야함 -->
+								<a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+								 <span style="margin: 0px">6월 8일</span>
+								 </a>
+							</div>
+						</div>
+					</div>
+			
+			
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 끝-->
+		<!-- 제목과 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			<!-- 리뷰에 맞게 페이지 링크 수정해야 -->
+			 <a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+				<div style="font-size: 26px;"
+					class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD">
+					<h2
+						class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color">
+						<span class="post-title__text J-lPk">
+							<!-- 제목 -->
+							<div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; text-align:left">
+							와인 농장 가서 즐길 거리 6가지</div>
+						</span>
+					</h2>
+				</div>
+				<div style="font-size: 16px;"
+					class="_2PvFX BhgSV blog-post-description-style-font">
+					<div class="_17sOR post-excerpt">
+						<div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+							<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
+							<div class="fl4fR">#와인농장 #포도농장</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			<!--  조회수, 댓글, 좋아요 나오는 페이지 -->
+				<div class="_2tFu- BhgSV">
+					<div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div>
+					<div style="font-size: 12px;">
+						<div
+							class="fhim2 blog-post-description-font blog-text-color post-footer">
+							<div class="_60xHi">
+								<div class="MEOqZ post-stats">
+								    <!-- 조회 -->
+									<span tabindex="0">조회 122</span>
+									<!-- 댓글 --> 
+									<span class="_24h-e">댓글 131</span>
 								</div>
-							</main>
-							<div id="soapAfterPagesContainer" class="page-without-sosp">
-								<div data-mesh-id="soapAfterPagesContainerinlineContent" data-testid="inline-content">
-									<div data-mesh-id="soapAfterPagesContainerinlineContent-gridContainer" data-testid="mesh-container-content"></div>
+							</div>
+							
+							<div class="vP6YT">
+								<button class="_3Bdxz post-footer__like-button">
+									<span class="_3BTGY"> 
+									<span class="_8J1xw">134</span>
+										<!-- 하트 아이콘 시작 -->
+										<div class="like-button _7QZoA _1eKPZ"
+											aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
+
+											<svg xmlns="http://www.w3.org/2000/svg" width="19"
+												viewBox="0 0 19 19" role="img">
+                                            <path fill="#ff5000"
+													d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path>
+                                        </svg>
+										</div>
+										<!-- 하트 아이콘 끝 -->
+									</span>
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+</div>
+<!-- 카드뷰 끝. 아래는 테이블에 맞춰 불러올 수 있다면 853번째 줄까지 지워도 됨 -->											
+			
+	<div class="item">
+		<div class="article">
+		<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
+			<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
+			<a target="_top" href="<c:url value="/Stamp/ForumPost.do"/>">
+			<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
+				<div class="cardImage" style="background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
+				</div>
+			</a>
+		<!-- 이미지 받아오는 코드 끝-->
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			
+				<div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm">
+					<div
+						class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font"
+						style="font-size: 12px;">
+						<div class="_5bxnE">
+							
+							<div class="_33LjI avatar">
+							<!-- 사용자에 맞게 프로필을 교체해야 함 -->
+								<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+				style="text-decoration: none">
+								<span class="_2iDLv avatar-image">
+								<!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
+									<div class="_1wPNJ fluid-avatar-image"
+										style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');"></div>
+								</span>
+								</a>
+							</div>
+							
+							<div class="_2wbeQ">
+							
+							<!-- 사용자에 맞게 프로필링크를 교체해야 함  -->
+							<a target="_top" href="<c:url value="/Profile/Main.do"/>" style="text-decoration: none">
+							<!-- 이름 -->
+								<span style="display: flex">정은 구</span>
+								</a>
+								<!-- 리뷰에 맞게 리뷰 링크 교체해야함 -->
+								<a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+								 <span style="margin: 0px">6월 8일</span>
+								 </a>
+							</div>
+						</div>
+					</div>
+			
+			
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 끝-->
+		<!-- 제목과 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			<!-- 리뷰에 맞게 페이지 링크 수정해야 -->
+			 <a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+				<div style="font-size: 26px;"
+					class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD">
+					<h2
+						class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color">
+						<span class="post-title__text J-lPk">
+							<!-- 제목 -->
+							<div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; text-align:left">
+							와인 농장 가서 즐길 거리 6가지</div>
+						</span>
+					</h2>
+				</div>
+				<div style="font-size: 16px;"
+					class="_2PvFX BhgSV blog-post-description-style-font">
+					<div class="_17sOR post-excerpt">
+						<div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+							<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
+							<div class="fl4fR">#와인농장 #포도농장</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			<!--  조회수, 댓글, 좋아요 나오는 페이지 -->
+				<div class="_2tFu- BhgSV">
+					<div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div>
+					<div style="font-size: 12px;">
+						<div
+							class="fhim2 blog-post-description-font blog-text-color post-footer">
+							<div class="_60xHi">
+								<div class="MEOqZ post-stats">
+								    <!-- 조회 -->
+									<span tabindex="0">조회 122</span>
+									<!-- 댓글 --> 
+									<span class="_24h-e">댓글 131</span>
+								</div>
+							</div>
+							
+							<div class="vP6YT">
+								<button class="_3Bdxz post-footer__like-button">
+									<span class="_3BTGY"> 
+									<span class="_8J1xw">134</span>
+										<!-- 하트 아이콘 시작 -->
+										<div class="like-button _7QZoA _1eKPZ"
+											aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
+
+											<svg xmlns="http://www.w3.org/2000/svg" width="19"
+												viewBox="0 0 19 19" role="img">
+                                            <path fill="#ff5000"
+													d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path>
+                                        </svg>
+										</div>
+										<!-- 하트 아이콘 끝 -->
+									</span>
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+</div>
+											
+		<div class="item">
+		<div class="article">
+		<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
+			<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
+			<a target="_top" href="<c:url value="/Stamp/ForumPost.do"/>">
+			<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
+				<div class="cardImage" style="background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
+				</div>
+			</a>
+		<!-- 이미지 받아오는 코드 끝-->
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			
+				<div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm">
+					<div
+						class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font"
+						style="font-size: 12px;">
+						<div class="_5bxnE">
+							
+							<div class="_33LjI avatar">
+							<!-- 사용자에 맞게 프로필을 교체해야 함 -->
+								<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+				style="text-decoration: none">
+								<span class="_2iDLv avatar-image">
+								<!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
+									<div class="_1wPNJ fluid-avatar-image"
+										style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');"></div>
+								</span>
+								</a>
+							</div>
+							
+							<div class="_2wbeQ">
+							
+							<!-- 사용자에 맞게 프로필링크를 교체해야 함  -->
+							<a target="_top" href="<c:url value="/Profile/Main.do"/>" style="text-decoration: none">
+							<!-- 이름 -->
+								<span style="display: flex">정은 구</span>
+								</a>
+								<!-- 리뷰에 맞게 리뷰 링크 교체해야함 -->
+								<a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+								 <span style="margin: 0px">6월 8일</span>
+								 </a>
+							</div>
+						</div>
+					</div>
+			
+			
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 끝-->
+		<!-- 제목과 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			<!-- 리뷰에 맞게 페이지 링크 수정해야 -->
+			 <a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+				<div style="font-size: 26px;"
+					class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD">
+					<h2
+						class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color">
+						<span class="post-title__text J-lPk">
+							<!-- 제목 -->
+							<div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; text-align:left">
+							와인 농장 가서 즐길 거리 6가지</div>
+						</span>
+					</h2>
+				</div>
+				<div style="font-size: 16px;"
+					class="_2PvFX BhgSV blog-post-description-style-font">
+					<div class="_17sOR post-excerpt">
+						<div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+							<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
+							<div class="fl4fR">#와인농장 #포도농장</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			<!--  조회수, 댓글, 좋아요 나오는 페이지 -->
+				<div class="_2tFu- BhgSV">
+					<div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div>
+					<div style="font-size: 12px;">
+						<div
+							class="fhim2 blog-post-description-font blog-text-color post-footer">
+							<div class="_60xHi">
+								<div class="MEOqZ post-stats">
+								    <!-- 조회 -->
+									<span tabindex="0">조회 122</span>
+									<!-- 댓글 --> 
+									<span class="_24h-e">댓글 131</span>
+								</div>
+							</div>
+							
+							<div class="vP6YT">
+								<button class="_3Bdxz post-footer__like-button">
+									<span class="_3BTGY"> 
+									<span class="_8J1xw">134</span>
+										<!-- 하트 아이콘 시작 -->
+										<div class="like-button _7QZoA _1eKPZ"
+											aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
+
+											<svg xmlns="http://www.w3.org/2000/svg" width="19"
+												viewBox="0 0 19 19" role="img">
+                                            <path fill="#ff5000"
+													d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path>
+                                        </svg>
+										</div>
+										<!-- 하트 아이콘 끝 -->
+									</span>
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+</div>	<div class="item">
+		<div class="article">
+		<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
+			<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
+			<a target="_top" href="<c:url value="/Stamp/ForumPost.do"/>">
+			<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
+				<div class="cardImage" style="background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
+				</div>
+			</a>
+		<!-- 이미지 받아오는 코드 끝-->
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			
+				<div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm">
+					<div
+						class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font"
+						style="font-size: 12px;">
+						<div class="_5bxnE">
+							
+							<div class="_33LjI avatar">
+							<!-- 사용자에 맞게 프로필을 교체해야 함 -->
+								<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+				style="text-decoration: none">
+								<span class="_2iDLv avatar-image">
+								<!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
+									<div class="_1wPNJ fluid-avatar-image"
+										style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');"></div>
+								</span>
+								</a>
+							</div>
+							
+							<div class="_2wbeQ">
+							
+							<!-- 사용자에 맞게 프로필링크를 교체해야 함  -->
+							<a target="_top" href="<c:url value="/Profile/Main.do"/>" style="text-decoration: none">
+							<!-- 이름 -->
+								<span style="display: flex">정은 구</span>
+								</a>
+								<!-- 리뷰에 맞게 리뷰 링크 교체해야함 -->
+								<a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+								 <span style="margin: 0px">6월 8일</span>
+								 </a>
+							</div>
+						</div>
+					</div>
+			
+			
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 끝-->
+		<!-- 제목과 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			<!-- 리뷰에 맞게 페이지 링크 수정해야 -->
+			 <a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+				<div style="font-size: 26px;"
+					class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD">
+					<h2
+						class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color">
+						<span class="post-title__text J-lPk">
+							<!-- 제목 -->
+							<div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; text-align:left">
+							와인 농장 가서 즐길 거리 6가지</div>
+						</span>
+					</h2>
+				</div>
+				<div style="font-size: 16px;"
+					class="_2PvFX BhgSV blog-post-description-style-font">
+					<div class="_17sOR post-excerpt">
+						<div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+							<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
+							<div class="fl4fR">#와인농장 #포도농장</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			<!--  조회수, 댓글, 좋아요 나오는 페이지 -->
+				<div class="_2tFu- BhgSV">
+					<div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div>
+					<div style="font-size: 12px;">
+						<div
+							class="fhim2 blog-post-description-font blog-text-color post-footer">
+							<div class="_60xHi">
+								<div class="MEOqZ post-stats">
+								    <!-- 조회 -->
+									<span tabindex="0">조회 122</span>
+									<!-- 댓글 --> 
+									<span class="_24h-e">댓글 131</span>
+								</div>
+							</div>
+							
+							<div class="vP6YT">
+								<button class="_3Bdxz post-footer__like-button">
+									<span class="_3BTGY"> 
+									<span class="_8J1xw">134</span>
+										<!-- 하트 아이콘 시작 -->
+										<div class="like-button _7QZoA _1eKPZ"
+											aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
+
+											<svg xmlns="http://www.w3.org/2000/svg" width="19"
+												viewBox="0 0 19 19" role="img">
+                                            <path fill="#ff5000"
+													d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path>
+                                        </svg>
+										</div>
+										<!-- 하트 아이콘 끝 -->
+									</span>
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+</div>	<div class="item">
+		<div class="article">
+		<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
+			<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
+			<a target="_top" href="<c:url value="/Stamp/ForumPost.do"/>">
+			<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
+				<div class="cardImage" style="background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
+				</div>
+			</a>
+		<!-- 이미지 받아오는 코드 끝-->
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			
+				<div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm">
+					<div
+						class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font"
+						style="font-size: 12px;">
+						<div class="_5bxnE">
+							
+							<div class="_33LjI avatar">
+							<!-- 사용자에 맞게 프로필을 교체해야 함 -->
+								<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+				style="text-decoration: none">
+								<span class="_2iDLv avatar-image">
+								<!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
+									<div class="_1wPNJ fluid-avatar-image"
+										style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');"></div>
+								</span>
+								</a>
+							</div>
+							
+							<div class="_2wbeQ">
+							
+							<!-- 사용자에 맞게 프로필링크를 교체해야 함  -->
+							<a target="_top" href="<c:url value="/Profile/Main.do"/>" style="text-decoration: none">
+							<!-- 이름 -->
+								<span style="display: flex">정은 구</span>
+								</a>
+								<!-- 리뷰에 맞게 리뷰 링크 교체해야함 -->
+								<a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+								 <span style="margin: 0px">6월 8일</span>
+								 </a>
+							</div>
+						</div>
+					</div>
+			
+			
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 끝-->
+		<!-- 제목과 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			<!-- 리뷰에 맞게 페이지 링크 수정해야 -->
+			 <a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+				<div style="font-size: 26px;"
+					class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD">
+					<h2
+						class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color">
+						<span class="post-title__text J-lPk">
+							<!-- 제목 -->
+							<div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; text-align:left">
+							와인 농장 가서 즐길 거리 6가지</div>
+						</span>
+					</h2>
+				</div>
+				<div style="font-size: 16px;"
+					class="_2PvFX BhgSV blog-post-description-style-font">
+					<div class="_17sOR post-excerpt">
+						<div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+							<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
+							<div class="fl4fR">#와인농장 #포도농장</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			<!--  조회수, 댓글, 좋아요 나오는 페이지 -->
+				<div class="_2tFu- BhgSV">
+					<div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div>
+					<div style="font-size: 12px;">
+						<div
+							class="fhim2 blog-post-description-font blog-text-color post-footer">
+							<div class="_60xHi">
+								<div class="MEOqZ post-stats">
+								    <!-- 조회 -->
+									<span tabindex="0">조회 122</span>
+									<!-- 댓글 --> 
+									<span class="_24h-e">댓글 131</span>
+								</div>
+							</div>
+							
+							<div class="vP6YT">
+								<button class="_3Bdxz post-footer__like-button">
+									<span class="_3BTGY"> 
+									<span class="_8J1xw">134</span>
+										<!-- 하트 아이콘 시작 -->
+										<div class="like-button _7QZoA _1eKPZ"
+											aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
+
+											<svg xmlns="http://www.w3.org/2000/svg" width="19"
+												viewBox="0 0 19 19" role="img">
+                                            <path fill="#ff5000"
+													d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path>
+                                        </svg>
+										</div>
+										<!-- 하트 아이콘 끝 -->
+									</span>
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+</div>	
+
+	<div class="item">
+		<div class="article">
+		<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
+			<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
+			<a target="_top" href="<c:url value="/Stamp/ForumPost.do"/>">
+			<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
+				<div class="cardImage" style="background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
+				</div>
+			</a>
+		<!-- 이미지 받아오는 코드 끝-->
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			
+				<div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm">
+					<div
+						class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font"
+						style="font-size: 12px;">
+						<div class="_5bxnE">
+							
+							<div class="_33LjI avatar">
+							<!-- 사용자에 맞게 프로필을 교체해야 함 -->
+								<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+				style="text-decoration: none">
+								<span class="_2iDLv avatar-image">
+								<!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
+									<div class="_1wPNJ fluid-avatar-image"
+										style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');"></div>
+								</span>
+								</a>
+							</div>
+							
+							<div class="_2wbeQ">
+							
+							<!-- 사용자에 맞게 프로필링크를 교체해야 함  -->
+							<a target="_top" href="<c:url value="/Profile/Main.do"/>" style="text-decoration: none">
+							<!-- 이름 -->
+								<span style="display: flex">정은 구</span>
+								</a>
+								<!-- 리뷰에 맞게 리뷰 링크 교체해야함 -->
+								<a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+								 <span style="margin: 0px">6월 8일</span>
+								 </a>
+							</div>
+						</div>
+					</div>
+			
+			
+		<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 끝-->
+		<!-- 제목과 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+			<!-- 리뷰에 맞게 페이지 링크 수정해야 -->
+			 <a target="_top" style="text-decoration: none;"
+				href="<c:url value="/Stamp/ForumPost.do"/>">
+				<div style="font-size: 26px;"
+					class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD">
+					<h2
+						class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color">
+						<span class="post-title__text J-lPk">
+							<!-- 제목 -->
+							<div class="J-lPk font_7" style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; text-align:left">
+							와인 농장 가서 즐길 거리 6가지</div>
+						</span>
+					</h2>
+				</div>
+				<div style="font-size: 16px;"
+					class="_2PvFX BhgSV blog-post-description-style-font">
+					<div class="_17sOR post-excerpt">
+						<div style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+							<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
+							<div class="fl4fR">#와인농장 #포도농장</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			<!--  조회수, 댓글, 좋아요 나오는 페이지 -->
+				<div class="_2tFu- BhgSV">
+					<div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div>
+					<div style="font-size: 12px;">
+						<div
+							class="fhim2 blog-post-description-font blog-text-color post-footer">
+							<div class="_60xHi">
+								<div class="MEOqZ post-stats">
+								    <!-- 조회 -->
+									<span tabindex="0">조회 122</span>
+									<!-- 댓글 --> 
+									<span class="_24h-e">댓글 131</span>
+								</div>
+							</div>
+							
+							<div class="vP6YT">
+								<button class="_3Bdxz post-footer__like-button">
+									<span class="_3BTGY"> 
+									<span class="_8J1xw">134</span>
+										<!-- 하트 아이콘 시작 -->
+										<div class="like-button _7QZoA _1eKPZ"
+											aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
+
+											<svg xmlns="http://www.w3.org/2000/svg" width="19"
+												viewBox="0 0 19 19" role="img">
+                                            <path fill="#ff5000"
+													d="M9.44985848,15.5291774 C9.43911371,15.5362849 9.42782916,15.5449227 9.41715267,15.5553324 L9.44985848,15.5291774 Z M9.44985848,15.5291774 L9.49370677,15.4941118 C9.15422701,15.7147757 10.2318883,15.0314406 10.7297038,14.6971183 C11.5633567,14.1372547 12.3827081,13.5410755 13.1475707,12.9201001 C14.3829188,11.9171478 15.3570936,10.9445466 15.9707237,10.0482572 C16.0768097,9.89330422 16.1713564,9.74160032 16.2509104,9.59910798 C17.0201658,8.17755699 17.2088969,6.78363112 16.7499013,5.65913129 C16.4604017,4.81092573 15.7231445,4.11008901 14.7401472,3.70936139 C13.1379564,3.11266008 11.0475663,3.84092251 9.89976068,5.36430396 L9.50799408,5.8842613 L9.10670536,5.37161711 C7.94954806,3.89335486 6.00516066,3.14638251 4.31830373,3.71958508 C3.36517186,4.00646284 2.65439601,4.72068063 2.23964629,5.77358234 C1.79050315,6.87166888 1.98214559,8.26476279 2.74015555,9.58185512 C2.94777753,9.93163559 3.23221417,10.3090129 3.5869453,10.7089994 C4.17752179,11.3749196 4.94653811,12.0862394 5.85617417,12.8273544 C7.11233096,13.8507929 9.65858244,15.6292133 9.58280954,15.555334 C9.53938013,15.5129899 9.48608859,15.5 9.50042471,15.5 C9.5105974,15.5 9.48275828,15.5074148 9.44985848,15.5291774 Z"></path>
+                                        </svg>
+										</div>
+										<!-- 하트 아이콘 끝 -->
+									</span>
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+</div>
+<!-- 위는 테이블에 맞춰 불러올 수 있다면 지워도 됨-->
+</div>
+
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div></div>
-		</body>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
 
-		</html>
+</html>

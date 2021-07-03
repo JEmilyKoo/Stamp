@@ -1,5 +1,131 @@
 @charset "UTF-8";
+/*tripboard에서 새로 만든 css*/
 
+.article{
+	
+ box-sizing: border-box;
+	border: solid #5B6DCD 1px;
+    border-width: 1px;
+    border-style: solid;
+    font: 500 18px/1.75em 'Noto Sans KR', sans-serif;
+        line-height: 1.75em;
+    line-height: normal;
+    border-color: rgba(0,0,0,0.25);
+    background-color: rgba(255,255,255,1);
+    color: rgba(0,0,0,1);
+    box-sizing: inherit;
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+    background: #fff;
+        background-color: rgb(255, 255, 255);
+    cursor: default;
+    text-align:left;
+}
+.cardImage{
+	    height: 200px;
+    min-height: 200px;
+ box-sizing: border-box;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/*report*/
+
+
+		.moreButtonDiv {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 24px;
+			width: 24px;
+			flex-shrink: 0;
+			vertical-align: middle;
+			line-height: normal !important;
+		}
+		
+		.moreButton {
+			border-radius: var(--buttonBorderRadius);
+			background: 0 0;
+			border: 0;
+			padding: 0;
+			cursor: pointer;
+		}
+		
+		.actions {
+			right: 0px;
+			color: #000000;
+			font: 500 14px/17px 'Noto Sans KR', sans-serif;
+			cursor: default;
+			border-radius: 2px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 0 4px 0 rgba(0, 0, 0, 0.1);
+			border: solid 1px rgba(255, 255, 255, 0.25);
+			padding: 0px 0px 15px 15px;
+			display: flex;
+			flex-direction: column;
+			position: absolute;
+			top: 25px;
+			z-index: calc(var(--pinned-layer-in-container, 902) - 2);
+			min-width: 200px;
+			line-height: normal !important;
+			margin: 0;
+			outline: 0;
+			background: transparent;
+			white-space: nowrap;
+			pointer-events: auto;
+		}
+		
+		.actions *,
+		.actions::before,
+		.actions::after {
+			box-sizing: inherit;
+		}
+		
+		.actionButton {
+			margin-top: 16px;
+			color: rgb(0, 0, 0);
+			fill: rgb(0, 0, 0);
+			padding: 0 20px;
+			background: 0 0;
+			cursor: pointer;
+			border: 0;
+			padding: 0;
+			width: 100%;
+			display: block;
+		}
+		
+		.postActions {
+			display: flex;
+			align-items: center;
+			padding: 0;
+			border: 0;
+		}
+		
+		.icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 24px;
+			height: 24px;
+			padding: 0;
+			border: 0;
+		}
+		
+		.ActionButtonText {
+			margin-left: 12px;
+			text-align: left;
+			font-size: 14px;
+			flex-grow: 1;
+			margin-left: 10px;
+			padding: 5px;
+			border: 0;
+		}
 /*Badge에서 새로 만든 css*/
 
 .meshContainer{
