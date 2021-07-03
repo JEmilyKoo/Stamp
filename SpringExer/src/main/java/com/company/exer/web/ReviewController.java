@@ -32,13 +32,32 @@ public class ReviewController {
 
 	@Resource(name="reviewService")
 	private ReviewService reviewService;
-
+/*
 	@RequestMapping("List.do")
 	public String List(Model model) {
 		List<ReviewDTO> list = reviewService.selectList();
 		model.addAttribute("list",list);
 		return "review/List";
 	}
+	*/
+	
+	//전체게시물
+	@RequestMapping("TripBoard.do")
+	public String TripBoard(Model model) {
+		List<ReviewDTO> list =reviewService.selectList();
+		model.addAttribute("list",list);
+		//뷰정보 반환]
+		return "/TripBoard";
+	}///////////////////TripBoard()
+	
+	//상세보기
+	@RequestMapping("ForumPost.do")
+	public String ForumPost() {
+		//뷰정보 반환]
+		return "/ForumPost";
+	}///////////////////ForumPost()
+	
+	
 	/*
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
 	public String Write() {

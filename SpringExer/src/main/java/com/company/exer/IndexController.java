@@ -41,13 +41,13 @@ public class IndexController {
 		//뷰정보 반환]
 		return "/CategoryCreate";
 	}///////////////////handlerMapping()
-	
+	/*
 	@RequestMapping("/Stamp/ForumPost.do")
 	public String ForumPost() {
 		//뷰정보 반환]
 		return "/ForumPost";
 	}///////////////////ForumPost()
-	
+	*/
 	@RequestMapping("/Stamp/ForumPostCreate.do")
 	public String ForumPostCreate() {
 		//뷰정보 반환]
@@ -70,11 +70,13 @@ public class IndexController {
 		//뷰정보 반환]
 		return "/Stamp";
 	}///////////////////Stamp()
+	/*
 	@RequestMapping("/Stamp/TripBoard.do")
 	public String TripBoard() {
 		//뷰정보 반환]
 		return "/TripBoard";
 	}///////////////////TripBoard()
+	*/
 	@RequestMapping("/Stamp/TripBoardEdit.do")
 	public String TripBoardEdit() {
 		//뷰정보 반환]

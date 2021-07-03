@@ -49,9 +49,9 @@ body {
 				<li><a href="<c:url value="/Stamp/CategoryEdit.do"/>">CategoryEdit</a></li>
 				<li><a href="<c:url value="/Stamp/Category.do"/>">Category</a></li>
 				<li><a href="<c:url value="/Stamp/CategoryCreate.do"/>">CategoryCreate</a></li>
-				<li><a href="<c:url value="/Stamp/ForumPost.do"/>">ForumPost</a></li>
+				<li><a href="<c:url value="/Review/ForumPost.do"/>">ForumPost</a></li>
 				<li><a href="<c:url value="/Stamp/ForumPostCreate.do"/>">ForumPostCreate</a></li>
-				<li><a href="<c:url value="/Stamp/TripBoard.do"/>">TripBoard</a></li>
+				<li><a href="<c:url value="/Review/TripBoard.do"/>">TripBoard</a></li>
 				<li><a href="<c:url value="/Stamp/TripBoardEdit.do"/>">TripBoardEdit</a></li>
 				<li><a href="<c:url value="/Stamp/TripBoardReport.do"/>">TripBoardReport</a></li>
 				<li><a href="<c:url value="/Stamp/NewPost.do"/>">NewPost</a></li>
