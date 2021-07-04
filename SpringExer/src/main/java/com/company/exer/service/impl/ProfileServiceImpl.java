@@ -8,8 +8,9 @@ import com.company.exer.service.ProfileService;
 
 @Service("profileService")
 public class ProfileServiceImpl implements ProfileService {
-	
+	/*
 	@Resource(name="ProfileDAO")
 	private ProfileDAO dao;
-
+*/
+	
 }
