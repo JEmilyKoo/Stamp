@@ -16,6 +16,5 @@ public class MemberDTO {
 		private String name;
 		private int followCheck;
 		
-		private String nickname;
 
 }
