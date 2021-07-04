@@ -135,7 +135,12 @@
 			<scope>test</scope>
 		</dependency>  
 		
-		
+		<!-- 웹 소켓용 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-websocket</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
 		 
 		 
 		  <dependency>

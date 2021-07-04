@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
+<mapper namespace="mybatis.mapper.dm">
+	
+	<resultMap 
+		type="com.company.test.service.TestDMDTO"
+		id="TestDMDTOResult">
+
+		<result column="dmno" property="dmNo" />
+		<result column="id" property="id" />
+		<result column="dmctt" property="dmCtt" />
+		<result column="dmtoid" property="dmToId" />
+		<result column="dmdate" property="dmDate" />
+		<result column="dmlike" property="dmLike" />
+		<result column="dmchecked" property="dmChecked" />
+	</resultMap>
+	<!--  회원가입 및 로그인 시작 -->
+	<!-- 회원가입 확인용 -->
+	
+	
+	
+	
+
+	<!-- DM기능 구현용 시작-->
+
+	<!-- 1. DM 테이블 INSERT -->
+	<insert id="sendDM"
+		parameterType="com.company.test.service.TestDMDTO">
+		
+		INSERT INTO DM VALUES(
+		SEQ_DM.NEXTVAL,
+		#{id},
+		#{dmCtt},
+		#{dmToId},
+		default,
+		default,
+		default)
+	</insert>
+	
+	<!-- 2. DM 전체 메세지함 쿼리문 -->
+	<select id="DMList" parameterType="Map"
+		resultType="com.company.test.service.TestDMDTO">
+		
+		SELECT id,dmToId,max(dmDate) dmDate FROM dm
+		WHERE id = #{id} OR dmToId = #{id}
+		GROUP BY id, dmToId
+	</select>
+	
+	<!-- 3. 최신 발신내역 가져오는 쿼리문 -->
+	<select id="getDMSendList" parameterType="Map"
+		resultMap="TestDMDTOResult">
+		
+		SELECT *
+		FROM (SELECT * FROM dm ORDER BY ROWNUM DESC)
+		WHERE (id,dmToId) IN
+		((#{id},#{dmToId}),(#{dmToId},#{id})) 
+		AND ROWNUM = 1
+	</select> 
+	
+	<!-- 4. DM 1:1대화목록 쿼리문 -->
+	<select id="DMChatList" parameterType="Map"
+		resultType="com.company.test.service.TestDMDTO">
+		
+		SELECT *
+		FROM dm 
+		WHERE (id,dmToId) IN
+		((#{id},#{dmToId}),(#{dmToId},#{id}))
+	</select>
+	
+	<!-- 5. 읽음 처리 쿼리문 -->
+	<update id="checkDM" parameterType="com.company.test.service.TestDMDTO" >
+	
+		UPDATE dm 
+		SET dmChecked = ' '
+		WHERE id= #{id} AND  dmToId = #{dmToId}
+	</update>
+	<select id="cntNewDM"
+		parameterType="com.company.test.service.TestDTO" resultType="int">
+		
+		SELECT COUNT(dmChecked) 
+		FROM DM 
+		WHERE id= #{id} AND  dmToId = #{dmToId}
+		AND dmChecked='1'
+	</select>
+</mapper>
