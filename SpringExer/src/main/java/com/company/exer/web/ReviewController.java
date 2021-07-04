@@ -26,7 +26,7 @@ import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.ReviewService;
 import com.company.exer.service.impl.ReviewServiceImpl;
 
-@SessionAttributes({"id"})
+@SessionAttributes({"id","nickName"})
 @Controller
 @RequestMapping("/Review/")
 public class ReviewController {
@@ -54,7 +54,7 @@ public class ReviewController {
 	
 	//상세보기
 	@RequestMapping("ForumPost.do")
-	public String ForumPost(Map map,Model model) {
+	public String ForumPost(@RequestParam Map map,Model model) {
 		ReviewDTO dto = reviewService.selectOne(map);
 		model.addAttribute("dto",dto);
 		//뷰정보 반환]
@@ -62,19 +62,21 @@ public class ReviewController {
 	}///////////////////ForumPost()
 	
 	
-	/*
+	//글 작성페이지
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
 	public String Write() {
 		return "review/Write";
 	}
 	
+	//글 작성
 	@RequestMapping(value="Write.do",method = RequestMethod.POST)
 	public String WriteOk(@RequestParam Map map,@ModelAttribute("id") String id) {
+		
 		map.put("id", id);
 		reviewService.insert(map);
-		return "forward:/Review/List.do";
+		return "forward:/Review/TripBoard.do";
 	}
-
+	/*
 	@RequestMapping("View.do")
 	public String View(Model model,
 			HttpServletRequest req,

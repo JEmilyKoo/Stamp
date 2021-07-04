@@ -5,10 +5,10 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.company.test.service.TestDMDTO;
 
 @Service
 public class DmServiceImpl {
+	/*
 	@Resource
 	private DmDAO dao;
 //	1. DM 테이블 INSERT
@@ -48,5 +48,5 @@ public class DmServiceImpl {
 	public int cntNewDM(Map map) {
 		return dao.cntNewDM(map);
 	}
-
+*/
 }

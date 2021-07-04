@@ -14,7 +14,7 @@
 	
 	<select id="memberLogin" parameterType="Map" resultType="Boolean">
 		select count(*)
-		From member
+		From member m JOIN PROFILE p ON p.id=m.id 
 		where id=#{id} and pwd=#{pwd}
 	</select>
 	

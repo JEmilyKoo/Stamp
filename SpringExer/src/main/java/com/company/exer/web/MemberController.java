@@ -51,6 +51,8 @@ public class MemberController {
 		int affected = memberService.join(map);
 		if(affected==1) {
 			session.setAttribute("id",map.get("id"));
+			session.setAttribute("nickname", map.get("nickname"));
+			System.out.println("map.get('nickname'):"+map.get("nickname"));
 			return "forward:/Review/List.do";
 		}
 		else

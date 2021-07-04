@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.company.exer.service.impl.DmServiceImpl;
-import com.company.exer.service.DmDTO;
 
 @SessionAttributes({ "id" })
 @Controller  //@Controller로 컨트롤러라는 걸 명시
@@ -28,7 +27,7 @@ public class DmController {
 	@Autowired  // @Autowired로 서비스 주입
 	private DmServiceImpl service;
 
-	
+/*	
 	// 1. getDMBox
 	@RequestMapping("/DMBox")
 	public String getDMBox(@RequestParam Map map, @ModelAttribute("id") String id, Model model,HttpServletRequest req) {
@@ -158,7 +157,7 @@ public class DmController {
 		
 		return data;
 	}
-
+*/
 	
 
 }

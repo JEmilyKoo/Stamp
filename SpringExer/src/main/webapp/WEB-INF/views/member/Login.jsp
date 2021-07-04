@@ -140,7 +140,7 @@
 										<div id="pwdInput" class="_1FsS0 _36G3j _19QH-">
 											<label for="pwd" class="_1qrSw">비밀번호</label>
 											<div class="ABx0f">
-												<input id="pwd" class="_3rh7f has-custom-focus"
+												<input id="pwd" name="pwd" class="_3rh7f has-custom-focus"
 													type="password" required autocomplete="off" value=""
 													style="font-size: 14px">
 											</div>
