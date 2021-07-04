@@ -13,8 +13,7 @@
 <!-- base href="https://jemilykoo.wixsite.com/website/" -->
 <meta name="generator" content="Wix\.com Website Builder">
 <!--내가 추가한 코드-->
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/css.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link

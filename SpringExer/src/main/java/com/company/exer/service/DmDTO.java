@@ -1,4 +1,4 @@
-package com.company.exer.service;
+/*package com.company.exer.service;
 
 import java.sql.Timestamp;
 
@@ -15,3 +15,4 @@ public class DmDTO {
 	private String dmLike;
 	private String dmChecked;
 }
+*/
