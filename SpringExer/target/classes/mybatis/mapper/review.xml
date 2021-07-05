@@ -63,4 +63,9 @@
 		from review
 		where rvNo=#{rvNo}
 	</insert>
+	
+	<insert id="reviewCmnt" parameterType="Map">
+		insert into rvcmnt
+		values(seq_rvcmnt.nextval,#{rvNo},#{nickname},#{rvCmnt},sysdate)
+	</insert>
 </mapper>

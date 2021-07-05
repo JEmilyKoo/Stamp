@@ -31,6 +31,14 @@ public class ReviewDTO {
 	private Date rvlDate;
 	
 	
+	//rvCmnt 추가
+	private String rvcNo;
+	//+rvNo
+	private String rvCmnt;
+	//+nickName
+	private Date rvcDate;
+	
+	
 	
 	
 }
