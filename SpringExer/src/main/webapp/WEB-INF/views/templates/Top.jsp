@@ -84,19 +84,21 @@
                     <span class="glyphicon glyphicon-map-marker"></span>
                     <span class="fontTitle">찍GO</span>
                     <br/>
-                    <p class="fontSub">지금 바로 떠나세요</p>
+                    <p class="fontSub">님 지금 바로 떠나세요 </p>
                 </a>
             </div>
             <!-- 화면 크기가 클때 상단에 보여지는 네비게이션바(데스크탑용) -->
             <div class="collapse navbar-collapse" id="collapse-menu">
                 <!-- 네비게이션바에 폼 추가 -->
                 <ul class="nav navbar-nav navbar-right">
-				<li><a href="<c:url value="/"/>">메인</a></li>
+				<li><a href="<c:url value="/"/>"    >메인</a></li>
                     <li><a href="<c:url value="/Review/List.do"/>">여행 리뷰/정보</a></li>
                     
 				<li><a href="<c:url value="/Stamp/MapSearch.do"/>">지도 검색</a></li>
 				
 				<li><a href="<c:url value="/Stamp/guide.do"/>">가이드</a></li>
+				
+                   
                     <c:if test="${not empty sessionScope.id }" var="isLogin">
                     
 				<li><a href="<c:url value="/Member/Logout.do"/>">Logout</a></li>

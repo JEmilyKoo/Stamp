@@ -1,4 +1,16 @@
 @charset "UTF-8";
+
+/*Join에서 새로 만든 css*/
+
+.joinError{
+	
+	position: relative;
+	top:2px;
+	border:rgb(var(--color_16)) 0px solid;
+	border-top-width : 1px;
+	z-index: 2;
+	color:rgb(var(--color_16)); 
+}
 /*tripboard에서 새로 만든 css*/
 
 .article{

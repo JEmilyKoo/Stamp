@@ -23,14 +23,28 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	<!--  작동 안 되어서 일단 빼둠
 	<beans:bean id="chatServer"  class="com.company.exer.web.WebSocketServer"/>
-	 <!-- 웹소켓 서버와 클라이언트에서 접속하는 path와 매핑:엔드포인트 설정 -->
+	  웹소켓 서버와 클라이언트에서 접속하는 path와 매핑:엔드포인트 설정
+	 
 	 <websocket:handlers allowed-origins="*">
-	 	<websocket:mapping handler="chatServer" path="/chat-ws.do"/>
+	 	<websocket:mapping handler="StampServer" path="/chat-ws.do"/>
 	 </websocket:handlers>
-	
+	-->
 	<context:component-scan base-package="com.company.exer" />
+	 
 	
-	<resources mapping="/stampGO_files/**" location="/stampGO_files/" /> 
-	
+
+<!-- 오류나서 주석처리 
+<interceptors>
+<interceptor>
+
+<mapping path="/freeboard/*"/>
+
+<beans:bean class="com.company.exer.service.AuthLoginInterceptor" id="AuthLoginInterceptor"/>
+
+</interceptor>
+
+</interceptors>
+-->
 </beans:beans>

@@ -7,7 +7,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.company.test.service.TestDMDTO;
 
 @Repository
 public class DmDAO {
@@ -16,6 +15,7 @@ public class DmDAO {
 	private SqlSessionTemplate sqlMapper;
 	
 //	1. DM 테이블 INSERT 
+	/*
 	public int sendDM(Map map) {
 
 		return sqlMapper.insert("sendDM", map);
@@ -38,7 +38,7 @@ public class DmDAO {
 
 		return sqlMapper.selectList("DMChatList", map);
 	}
-	
+	*/
 //	5. 읽음 처리 쿼리문
 	public int checkDM(Map map) {
 		return sqlMapper.update("checkDM", map);

@@ -4,10 +4,13 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1"
 	id="wixDesktopViewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!--내가 추가한 코드-->
+
+<!--  추가로 구현이 필요한 사항 -->
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/css.css">
 <link rel="stylesheet" type="text/css"
@@ -95,8 +98,7 @@
 									
 								</div>
 
-								<form data-testid="emailAuth" id="myform" method="post"
-									class="form-horizontal"
+							<form id="myform" name='homeForm' method="post" class="form-horizontal"
 									action="<c:url value="/Member/Join.do"/>">
 
 
@@ -108,18 +110,22 @@
 													<label for="id" class="_1qrSw">아이디</label>
 													<div class="ABx0f">
 														<input id="id" name="id" class="_3rh7f has-custom-focus"
-															type="text" required autocomplete="off"
-															style="font-size: 14px">
+															type="text" required autocomplete="off" style="font-size: 14px">
 													</div>
+													<c:if test="${not empty sessionScope.error }" var="error">
+                									    <div class="joinError">중복된 아이디입니다</div>
+				
+				    								</c:if>
+																		
 												</div>
+												
 											</div>
 										</div>
-
 
 										<div class="MQAj0">
 											<div id="nameDiv" class="_1ggNP">
 												<div id="nameInput" class="_1FsS0 _36G3j _19QH-">
-													<label for="name" class="_1qrSw">이름</label>
+													<label for="name" class="_1qrSw" >이름</label>
 													<div class="ABx0f">
 														<input id="name" name="name"
 															class="_3rh7f has-custom-focus" type="text" required
@@ -134,12 +140,11 @@
 
 
 										<div class="_1RlXb">
-											<div id="pwdDiv" class="_1ggNP"
-												data-testid="siteMembers.container">
+											<div id="pwdDiv" class="_1ggNP">
 												<div id="pwdInput" class="_1FsS0 _36G3j _19QH-">
-													<label for="pwd" class="_1qrSw">비밀번호</label>
+													<label for="pwd" class="_1qrSw" >비밀번호</label>
 													<div class="ABx0f">
-														<input id="pwd" class="_3rh7f has-custom-focus"
+														<input id="pwd"  name="pwd"  class="_3rh7f has-custom-focus"
 															type="password" required autocomplete="off" value=""
 															style="font-size: 14px">
 													</div>
@@ -180,6 +185,7 @@
 
 	<script>
 		function goBack() {
+			//location.href = '/exer/Stamp/guide.do';
 			window.history.back();
 		}
 	</script>

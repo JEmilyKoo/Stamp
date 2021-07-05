@@ -5,16 +5,56 @@
   
 <!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
 <!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
+
 <mapper namespace="mybatis.mapper.member">
+	<insert id="sqlmemberJoin" parameterType="memberDTO">
+		INSERT INTO MEMBER (id,pwd,name)
+		VALUES (#{id}, #{pwd}, #{name})
+		
+	<!-- 새롭게 가입하는 것 -->
+	</insert>
+
+	<!-- 아이디 중복 여부 -->
+	<select id="sqlmemberJoinCheck" parameterType="memberDTO" resultType="Int">
+		SELECT count(*) FROM MEMBER
+		WHERE id = #{id}
+		<!-- 이거 리턴하고 나서 만약에 겹치면 다시 하라고 뜨는 그런 것 -->
+	</select>
+    
+
+    <!-- 로그인 여부 -->
+	<select id="sqlloginCheck"  parameterType="memberDTO"  resultType="Int">
+        SELECT count(*) 
+        FROM MEMBER
+        WHERE id = #{id}
+        AND pwd = #{pwd}
+    </select>
+ 
+ 	<select id="followCheck" parameterType="memberDTO" resultType="Int">
+		SELECT * FROM FOLLOW
+		WHERE followerId=#{followerId} and followId=#{followId}
+	</select>
 	
-	<insert id="memberJoin" parameterType="Map">
+	<select id="followCnt" parameterType="memberDTO" resultType="Int">
+		SELECT * FROM FOLLOW
+		WHERE followerId = #{followId}
+	</select>
+	
+	<select id="followerCnt" parameterType="memberDTO" resultType="Int">
+		SELECT * FROM FOLLOW
+		WHERE followId = #{followId}
+	</select>
+	
+	
+	<!-- 
+	 <insert id="memberJoin" parameterType="Map">
 		Insert into member 
 		values(#{id}, #{pwd}, #{name},default)
 	</insert>
 	
 	<select id="memberLogin" parameterType="Map" resultType="Boolean">
 		select count(*)
-		From member
+		From member m JOIN PROFILE p ON p.id=m.id 
 		where id=#{id} and pwd=#{pwd}
 	</select>
 	
@@ -47,4 +87,8 @@
 		from follow
 		where followId = #{followId}
 	</select>
+	-->
+	
 </mapper>
+
+

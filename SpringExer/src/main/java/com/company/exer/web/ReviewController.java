@@ -26,7 +26,7 @@ import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.ReviewService;
 import com.company.exer.service.impl.ReviewServiceImpl;
 
-@SessionAttributes({"id"})
+@SessionAttributes({"id","nickName"})
 @Controller
 @RequestMapping("/Review/")
 public class ReviewController {
@@ -48,13 +48,15 @@ public class ReviewController {
 		
 		List<ReviewDTO> list =reviewService.selectList();
 		model.addAttribute("list",list);
+		System.out.println("listsize:"+list.size());
+		System.out.println("list:getNickName"+list.get(0).toString());
 		//뷰정보 반환]
 		return "/TripBoard";
 	}///////////////////TripBoard()
 	
 	//상세보기
 	@RequestMapping("ForumPost.do")
-	public String ForumPost(Map map,Model model) {
+	public String ForumPost(@RequestParam Map map,Model model) {
 		ReviewDTO dto = reviewService.selectOne(map);
 		model.addAttribute("dto",dto);
 		//뷰정보 반환]
@@ -62,19 +64,40 @@ public class ReviewController {
 	}///////////////////ForumPost()
 	
 	
-	/*
+	//글 작성페이지
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
 	public String Write() {
 		return "review/Write";
 	}
 	
+	//글 작성
 	@RequestMapping(value="Write.do",method = RequestMethod.POST)
 	public String WriteOk(@RequestParam Map map,@ModelAttribute("id") String id) {
+		
 		map.put("id", id);
 		reviewService.insert(map);
-		return "forward:/Review/List.do";
+		return "forward:/Review/TripBoard.do";
 	}
+	
 
+	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
+	public @ResponseBody String Like(@RequestParam Map map) throws IOException {
+		int check = reviewService.likeCheck(map);
+		if(check==0) {
+			reviewService.like(map);
+		}
+		else {
+			reviewService.unlike(map); 
+		}
+		reviewService.likeCount(map);
+		ReviewDTO dto=reviewService.selectOne(map);
+		if(dto.getRvLikeCnt()>=2) {
+			reviewService.stampInsert(map);
+		}
+		return check+"";
+	}
+	
+	/*
 	@RequestMapping("View.do")
 	public String View(Model model,
 			HttpServletRequest req,
@@ -117,22 +140,6 @@ public class ReviewController {
 		return "forward:/Review/List.do";
 	}
 	
-	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
-	public @ResponseBody String Like(@RequestParam Map map) throws IOException {
-		int check = reviewService.likeCheck(map);
-		if(check==0) {
-			reviewService.like(map);
-		}
-		else {
-			reviewService.unlike(map); 
-		}
-		reviewService.likeCount(map);
-		ReviewDTO dto=reviewService.selectOne(map);
-		if(dto.getRvLikeCnt()>=2) {
-			reviewService.stampInsert(map);
-		}
-		return check+"";
-	}
 	
 	*/
 }

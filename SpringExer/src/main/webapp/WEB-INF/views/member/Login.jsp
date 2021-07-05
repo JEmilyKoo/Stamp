@@ -112,12 +112,7 @@
 			<c:if test="${not isLogin }">
 				<!--로그인하면 이 화면을 뿌려주어야 함-->
 				
-
-						<form data-testid="emailAuth" id="myform" method="post"
-							class="form-horizontal"
-							action="<c:url value='/Member/Login.do'/>">
-
-
+<form id="myform"  name='homeForm' method="post"  class="form-horizontal" action="<c:url value="/Member/LoginCheck.do"/>">
 							<div class="aonqC">
 
 								<div class="MQAj0">
@@ -129,21 +124,28 @@
 													type="text" required autocomplete="off"
 													style="font-size: 14px">
 											</div>
+											<c:if test="${not empty sessionScope.error }" var="error">
+                									    <div class="joinError">다시 입력해주세요</div>
+				
+				    								</c:if>	
 										</div>
 									</div>
 								</div>
 
 
 								<div class="_1RlXb">
-									<div id="pwdDiv" class="_1ggNP"
-										data-testid="siteMembers.container">
+									<div id="pwdDiv" class="_1ggNP">
 										<div id="pwdInput" class="_1FsS0 _36G3j _19QH-">
-											<label for="pwd" class="_1qrSw">비밀번호</label>
+											<label for="pwd" class="_1qrSw"
+											style="font-size: 14px">비밀번호</label>
 											<div class="ABx0f">
-												<input id="pwd" class="_3rh7f has-custom-focus"
+												<input id="pwd" name="pwd" class="_3rh7f has-custom-focus"
 													type="password" required autocomplete="off" value=""
 													style="font-size: 14px">
-											</div>
+											</div><c:if test="${isLogin}">
+												    <div class="joinError">다시 입력해주세요</div>
+													</c:if>	
+				    								
 										</div>
 									</div>
 								</div>
