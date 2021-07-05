@@ -78,6 +78,25 @@ public class ReviewController {
 		reviewService.insert(map);
 		return "forward:/Review/TripBoard.do";
 	}
+	
+
+	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
+	public @ResponseBody String Like(@RequestParam Map map) throws IOException {
+		int check = reviewService.likeCheck(map);
+		if(check==0) {
+			reviewService.like(map);
+		}
+		else {
+			reviewService.unlike(map); 
+		}
+		reviewService.likeCount(map);
+		ReviewDTO dto=reviewService.selectOne(map);
+		if(dto.getRvLikeCnt()>=2) {
+			reviewService.stampInsert(map);
+		}
+		return check+"";
+	}
+	
 	/*
 	@RequestMapping("View.do")
 	public String View(Model model,
@@ -121,22 +140,6 @@ public class ReviewController {
 		return "forward:/Review/List.do";
 	}
 	
-	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
-	public @ResponseBody String Like(@RequestParam Map map) throws IOException {
-		int check = reviewService.likeCheck(map);
-		if(check==0) {
-			reviewService.like(map);
-		}
-		else {
-			reviewService.unlike(map); 
-		}
-		reviewService.likeCount(map);
-		ReviewDTO dto=reviewService.selectOne(map);
-		if(dto.getRvLikeCnt()>=2) {
-			reviewService.stampInsert(map);
-		}
-		return check+"";
-	}
 	
 	*/
 }
