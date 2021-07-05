@@ -6,7 +6,7 @@
 <mapper namespace="mybatis.mapper.profile">
 	<!-- 삽입 이때 별명을 선택하라고 하는데 별명은 겹칠 수 없다 -->
 	<insert id="sqlNewProfile" parameterType="profileDTO">
-		INSERT INTO PROFILE (NICKNAME, ID, MAIL, 
+		INSERT INTO PROFILE" (NICKNAME, ID, MAIL, 
 TRVPRPNS, PR,  GENDER, BIRTH, PHONE, LEV, EXP, OPENPRF)
  VALUES 
 		 (#{nickName}, #{id}, #{mail}, #{trvprpns},

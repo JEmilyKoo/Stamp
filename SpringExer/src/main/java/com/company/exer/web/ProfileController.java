@@ -90,7 +90,7 @@ public class ProfileController {
 		profileDTO.setNickName(session.getAttribute("id").toString());
 		profileDTO.setMail("name@mail.com");
 		profileDTO.setTrvprpns("서울");
-		profileDTO.setPr("집보내주세요");
+		profileDTO.setPr("한마디소개");
 		profileDTO.setGender("여자");
 		profileDTO.setBirth("2021-07-05");
 		profileDTO.setPhone("010-2228-3239");

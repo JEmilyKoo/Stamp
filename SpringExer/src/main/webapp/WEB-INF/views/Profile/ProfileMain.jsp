@@ -113,7 +113,6 @@
 	<jsp:include page="/WEB-INF/views/templates/ProfileSideBar.jsp" />
 	<div style="postion:absolute;max-width:1080px;margin-left:460px; top:80px  ">
 	
-	${sessionScope.profile}
 <!-- 
 	<form id="myform" name='profileForm' method="post" class="form-horizontal"
 		action="<c:url value="/Profile/NewInsertProfile.do"/>">
@@ -212,28 +211,37 @@
 							<div id="comp-kpzke0rf4" class="숲많이감클래스" data-testid="리치텍스트엘리먼트">
 								<p class="font_8"
 									style="text-align: left; line-height: 1.75em; font-size: 18px">
-									<span>한소인 8기 프로젝트 1팀<a href="<c:url value="/Profile/NewProfile.do"/>">
+									<span> profile세션보여주는칸:
+									
+	${sessionScope.profile}
+									 </span>
+									 <ul class="font_8">
+									<li><a href="<c:url value="/Profile/NewProfile.do"/>">
 		<button style="border:green 1px solid" id="newProfile">프로필을 세션에 암거나 자동으로 채우는 버튼</button>
-	</a>
+	</a></li><li>
+									
+									
 	<a href="<c:url value="/Profile/NewInsertProfile.do"/>">
 		<button  style="border:red 1px solid"  id="newInsertProfile">세션에 있는 프로필을 인서트하는 버튼(여러번 누르면 에러남)</button>
-	</a> 
+	</a> </li><li>
 	
 	<a href="<c:url value="/Profile/SelectProfile.do"/>">
 		<button  style="border:blue 1px solid"  id="selectProfile">세션에 있는 프로필을 가지고 선택해 또 새로 세션에 불러오는 버튼(첫번째 버튼 누르고 눌러야함)</button>
-	</a> 
+	</a> </li><li>
 	<a href="<c:url value="/Profile/SelectMemberProfile.do"/>">
 		<button style="border:yellow 1px solid"  id="selectMemberProfile">세션에 있는 로그인을 가지고 선택해 세션에 불러오는 버튼</button>
-	</a> 
+	</a> </li><li>
 	<a href="<c:url value="/Profile/UpdateProfile.do"/>">
-		<button style="border:black 1px solid"  id="updateProfile">기존에 있는 프로필을 업데이트하는 버튼</button>
-	</a> 
+		<button style="border:black 1px solid"  id="updateProfile">(profileDTO받아와야해서 안돌아감)기존에 있는 프로필을 업데이트하는 버튼</button>
+	</a> </li><li>
 	<a href="<c:url value="/Profile/UpdateNicknameProfile.do"/>">
-		<button style="border:orange 1px solid"  id="updateNicknameProfile">기존 프로필 중에서 닉네임만 딱 업데이트하는 버튼</button>
-	</a> 
+		<button style="border:orange 1px solid"  id="updateNicknameProfile">(profileDTO받아와야해서 안돌아감)기존 프로필 중에서 닉네임만 딱 업데이트하는 버튼</button>
+	</a> </li><li>
 	<a href="<c:url value="/Profile/DeleteProfile.do"/>">
-		<button style="border:purple 1px solid"  id="deleteProfile">기존 프로필 지워버리는 버튼</button>
-	</a> </span>
+		<button style="border:purple 1px solid"  id="deleteProfile">(profileDTO받아와야해서 안돌아감)기존 프로필 지워버리는 버튼</button>
+	</a></li>
+									
+									</ul>
 								</p>
 							</div>
 							<div id="comp-kpzke0rf5" aria-disabled="false" class="oneButton">
