@@ -1,4 +1,4 @@
-package com.company.exer;
+package com.company.exer.web;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;

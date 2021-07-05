@@ -31,8 +31,7 @@
 </head>
 
 <body>
-	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
-<div id="comp-kpndp2z9" style="height: auto;position: absolute; left:200px; top:100px ">
+<div id="comp-kpndp2z9" style="height: auto;position: absolute; left:200px; top:80px ">
 	<div class="comp-kpndp2z9">
 		<div data-hook="ProfileCard-wrapper" dir="ltr">
 
@@ -112,7 +111,7 @@
 		</div>
 	</div>
 </div>
-<div  style="height: auto;position: relative; left:200px; top:350px">
+<div  style="height: auto;position: absolute; left:200px; top:380px">
 	<nav id="comp-kpndp7iz" class="_3rKL6 _25-B7" >
 		<ul class="-SaFH">
 			<li class="XOxx5"><div data-testid="itemContentWrapper-0"

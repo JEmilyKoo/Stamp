@@ -10,9 +10,6 @@
 	id="wixDesktopViewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!--내가 추가한 코드-->
-<!-- base href="https://jemilykoo.wixsite.com/website/" -->
-<meta name="generator" content="Wix\.com Website Builder">
-<!--내가 추가한 코드-->
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/css.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,11 +18,6 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
 <title>여행 게시판 | 찍GO</title>
-<meta name="description"
-	content="여행 관련 주제의 글에 참여해보세요. 새 게시물을 추가하거나 기존 게시물을 편집하여 활동을 시작할 수 있습니다.">
-<link rel="canonical"
-	href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan">
-
 
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/modalcss.css">
