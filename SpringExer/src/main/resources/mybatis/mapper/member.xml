@@ -7,21 +7,23 @@
 <!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
 
 <mapper namespace="mybatis.mapper.member">
-	<insert id="memberJoin" parameterType="Map">
-		INSERT INTO MEMBER (id, pwd, nickname)
-		VALUES (#{id}, #{pwd}, #{nickname})
+	<insert id="sqlmemberJoin" parameterType="memberDTO">
+		INSERT INTO MEMBER (id,pwd,name)
+		VALUES (#{id}, #{pwd}, #{name})
+		
+	<!-- 새롭게 가입하는 것 -->
 	</insert>
 
 	<!-- 아이디 중복 여부 -->
-	<select id="memberJoinCheck" parameterType="Map" resultType="Boolean">
-		SELECT * FROM MEMBER
+	<select id="sqlmemberJoinCheck" parameterType="memberDTO" resultType="Int">
+		SELECT count(*) FROM MEMBER
 		WHERE id = #{id}
+		<!-- 이거 리턴하고 나서 만약에 겹치면 다시 하라고 뜨는 그런 것 -->
 	</select>
     
 
     <!-- 로그인 여부 -->
-	<select id="loginCheck"
-		resultType="com.company.exer.service.MemberDTO">
+	<select id="loginCheck" resultType="com.company.exer.service.MemberDTO">
         SELECT * 
         FROM MEMBER
         WHERE id = #{id}

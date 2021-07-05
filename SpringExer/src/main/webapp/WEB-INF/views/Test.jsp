@@ -47,7 +47,7 @@ pageEncoding="UTF-8"%>
 		</svg>
 	버튼</button>
 	<div class="actions" style="z-index:10; position: absolute; top: 80px; left:400px; background-color:red">달깍달깍
-		<jsp:include page="/WEB-INF/views/test/Test2.jsp"/>
+	
 	</div>
 	<!--<jsp:include page="/WEB-INF/views/test/Test3.jsp"/>-->
 	
@@ -71,7 +71,7 @@ pageEncoding="UTF-8"%>
 										</svg>
 										<!--아이콘그림-->
 									</div>
-									<div class="ActionButtonText"><jsp:include page="/WEB-INF/views/test/Test2.jsp"/></div>
+									<div class="ActionButtonText"></div>
 								</div>
 							</button>
 							<button class="actionButton" role="menuitem">

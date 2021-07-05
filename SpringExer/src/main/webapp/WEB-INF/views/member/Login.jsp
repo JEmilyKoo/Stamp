@@ -130,8 +130,7 @@
 
 
 								<div class="_1RlXb">
-									<div id="pwdDiv" class="_1ggNP"
-										data-testid="siteMembers.container">
+									<div id="pwdDiv" class="_1ggNP">
 										<div id="pwdInput" class="_1FsS0 _36G3j _19QH-">
 											<label for="pwd" class="_1qrSw">비밀번호</label>
 											<div class="ABx0f">

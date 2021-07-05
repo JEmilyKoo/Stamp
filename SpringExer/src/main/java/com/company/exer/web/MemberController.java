@@ -29,16 +29,34 @@ public class MemberController {
 		
 		return "member/Join";
 	}
+	// 여기까진 괜찮음
 	
 	// POST 회원가입
 	@RequestMapping(value = "Join.do", method = RequestMethod.POST)
-	public String postRegister(MemberDTO memberDTO) throws Exception {
+	public String postRegister(HttpSession session, MemberDTO memberDTO) throws Exception {
 		logger.info("post Join");
+		System.out.println(memberDTO);// 여기로 id pwd name을 받아옴
+		//하기 전에 체크를 해야지
+		//멤버 체크하는 함수가 잘 돌아가면
+		int flag = service.memberJoinCheck(memberDTO);
 		
+		if(flag==0) {
 		service.memberJoin(memberDTO);
+		System.out.println("중복된아이디가 아닙니다");
+		//아니 여기까지 되었으면 멤버 조인이 돌아가야 할 거 아냐
 		
-		return null;
+		//되었고
+		
+		}
+		else {	session.setAttribute("error", "다시 입력하세요");
+			
+			return "member/Join";
+		}
+		
+		session.removeAttribute("error");
+		return "member/Login";
 	}
+	// 서비스에 멤버 조인이 있으??
 	
 	// GET 로그인
 	@RequestMapping(value = "Login.do", method = RequestMethod.GET)

@@ -24,11 +24,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void memberJoin(MemberDTO memberDTO) throws Exception {
-		
+			dao.memberJoin(memberDTO);
 	}
 
-
-
+	public int memberJoinCheck(MemberDTO memberDTO) throws Exception {
+		return dao.memberJoinCheck(memberDTO);
+	}
 	@Override
 	public int followCheck(MemberDTO memberDTO) {
 		return dao.followCheck(memberDTO);
