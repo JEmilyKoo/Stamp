@@ -127,6 +127,7 @@ pageEncoding="UTF-8"%>
   </script>
 
 
+<<<<<<< HEAD
   <form id="myform">
   <input type="hidden" id="url" value="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&oquery=%EB%84%A4%EC%9D%B4%EB%B2%84+%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%84%BC%ED%84%B0&ie=utf8&query=%EB%84%A4%EC%9D%B4%EB%B2%84+%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%84%BC%ED%84%B0"><br/>
    <br/>
@@ -204,3 +205,40 @@ catch(e) { window.kakaoDemoException && window.kakaoDemoException(e) }
 </html>
 
     </body></html>
+=======
+    </body></html>
+    
+   <!-- 
+  	좋아요 
+   <script>
+   var id = "${sessionScope.id}"
+		var rvNo = "${dto.rvNo}"
+		var likecount = Number.parseInt($("#likecount").html())
+	
+		$("#like").click(function(){
+			$.ajax({
+				url:"<c:url value="/Review/Like.do"/>",
+				type:"post",
+				data:{id, rvNo},
+				dataType:"text",
+				success:function(data){
+					if(data==0){
+						$("#like").val("좋아요 취소");
+						$("#likecount").html(++likecount);
+					}
+					else{
+						$("#like").val("좋아요");
+						$("#likecount").html(--likecount);
+					}
+				},
+				error:function(){
+					alert("에러");
+				}
+			})
+		})
+	
+		</script>
+	
+   
+    -->
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git

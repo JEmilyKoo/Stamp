@@ -324,3 +324,66 @@
 </body>
 
 </html>
+
+<!-- 지도 위도 경도 얻기
+<script>
+	    if(navigator.geolocation){//브라우저에 Geolocation 지원 여부 판단
+            //PositionOptions객체 설정용]
+            var options = {timeout:3000,maxinumAge:5000};
+            //현재 위치 정보 딱 한번만 얻기
+            navigator.geolocation.getCurrentPosition(successCallback);           
+        }
+        //위치 정보를 얻었을 때 자동으로 호출되는 콜백 함수 : 인자는 Position객체
+        function successCallback(position){
+            //위도/경도얻기
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            //div에 지도 표시하기
+            dispalyKakaomap(lat,lng);
+        }///////successCallback
+        function dispalyKakaomap(lat,lng){
+
+			var container = document.getElementById('map');
+			var options = {
+				center: new kakao.maps.LatLng(lat, lng),
+				level: 5
+			};
+			var map = new kakao.maps.Map(container, options);
+			
+	        var zoomControl = new kakao.maps.ZoomControl();
+	        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+
+	        // 지도를 클릭한 위치에 표출할 마커입니다
+	        var marker = new kakao.maps.Marker({ 
+	            // 지도 중심좌표에 마커를 생성합니다 
+	            position: map.getCenter() 
+	        }); 
+	        // 지도에 마커를 표시합니다
+	        marker.setMap(map);
+	        
+	        // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+
+	        // 지도에 클릭 이벤트를 등록합니다
+	        // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+	        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+	            
+	            // 클릭한 위도, 경도 정보를 가져옵니다 
+	            var latlng = mouseEvent.latLng; 
+	            
+	            // 마커 위치를 클릭한 위치로 옮깁니다
+	            marker.setPosition(latlng);
+	         
+	            var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+	            message += '경도는 ' + latlng.getLng() + ' 입니다';
+	            
+	            var resultDiv = document.getElementById('clickLatlng'); 
+	            resultDiv.innerHTML = message;
+	            $("input[name=rvLat]").val(latlng.getLat());
+	            $("input[name=rvLng]").val(latlng.getLng());
+	        });
+        }
+      
+	</script>
+
+ -->
