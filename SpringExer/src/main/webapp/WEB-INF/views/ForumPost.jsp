@@ -102,3 +102,37 @@ pageEncoding="UTF-8"%>
 
 
     </body></html>
+    
+   <!-- 
+  	좋아요 
+   <script>
+   var id = "${sessionScope.id}"
+		var rvNo = "${dto.rvNo}"
+		var likecount = Number.parseInt($("#likecount").html())
+	
+		$("#like").click(function(){
+			$.ajax({
+				url:"<c:url value="/Review/Like.do"/>",
+				type:"post",
+				data:{id, rvNo},
+				dataType:"text",
+				success:function(data){
+					if(data==0){
+						$("#like").val("좋아요 취소");
+						$("#likecount").html(++likecount);
+					}
+					else{
+						$("#like").val("좋아요");
+						$("#likecount").html(--likecount);
+					}
+				},
+				error:function(){
+					alert("에러");
+				}
+			})
+		})
+	
+		</script>
+	
+   
+    -->
