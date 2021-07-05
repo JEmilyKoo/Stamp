@@ -699,7 +699,6 @@
 												<div class="_16FUt">
 
 
-													<jsp:include page="/WEB-INF/views/templates/get_draft.jsp" />
 												</div>
 											</div>
 											<div id="comp-kpzm931q" class="숲많이감클래스"
