@@ -96,43 +96,43 @@
               <li class="nav-item">
                 <a class="nav-link active" href="index.html">
                   <i class="material-icons">edit</i>
-                  <span>Blog Dashboard</span>
+                  <span>글 삭제</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="components-blog-posts.html">
                   <i class="material-icons">vertical_split</i>
-                  <span>Blog Posts</span>
+                  <span>신고목록</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="add-new-post.html">
                   <i class="material-icons">note_add</i>
-                  <span>Add New Post</span>
+                  <span>블랙리스트</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="form-components.html">
                   <i class="material-icons">view_module</i>
-                  <span>Forms &amp; Components</span>
+                  <span>이달의 게시물/스탬프 생성 갯수</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="tables.html">
                   <i class="material-icons">table_chart</i>
-                  <span>Tables</span>
+                  <span>총 스탬프 찍은 갯수</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="user-profile-lite.html">
                   <i class="material-icons">person</i>
-                  <span>User Profile</span>
+                  <span>나이,성별?</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="errors.html">
                   <i class="material-icons">error</i>
-                  <span>Errors</span>
+                  <span>회원목록?</span>
                 </a>
               </li>
             </ul>
@@ -190,7 +190,7 @@
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img class="user-avatar rounded-circle mr-2" src="images/avatars/0.jpg" alt="User Avatar">
+                    <img class="user-avatar rounded-circle mr-2" src=<c:url value="/resources/images/avatars/0.jpg"/> alt="User Avatar">
                     <span class="d-none d-md-inline-block">Sierra Brooks</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
