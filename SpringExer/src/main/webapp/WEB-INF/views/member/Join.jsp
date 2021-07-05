@@ -110,14 +110,12 @@
 													<label for="id" class="_1qrSw">아이디</label>
 													<div class="ABx0f">
 														<input id="id" name="id" class="_3rh7f has-custom-focus"
-															type="text" required autocomplete="off">
+															type="text" required autocomplete="off" style="font-size: 14px">
 													</div>
 													<c:if test="${not empty sessionScope.error }" var="error">
                 									    <div class="joinError">중복된 아이디입니다</div>
 				
 				    								</c:if>
-                    								<c:if test="${not isLogin }">	
-                   									 </c:if>    
 																		
 												</div>
 												
@@ -127,7 +125,7 @@
 										<div class="MQAj0">
 											<div id="nameDiv" class="_1ggNP">
 												<div id="nameInput" class="_1FsS0 _36G3j _19QH-">
-													<label for="name" class="_1qrSw">이름</label>
+													<label for="name" class="_1qrSw" >이름</label>
 													<div class="ABx0f">
 														<input id="name" name="name"
 															class="_3rh7f has-custom-focus" type="text" required
@@ -144,7 +142,7 @@
 										<div class="_1RlXb">
 											<div id="pwdDiv" class="_1ggNP">
 												<div id="pwdInput" class="_1FsS0 _36G3j _19QH-">
-													<label for="pwd" class="_1qrSw">비밀번호</label>
+													<label for="pwd" class="_1qrSw" >비밀번호</label>
 													<div class="ABx0f">
 														<input id="pwd"  name="pwd"  class="_3rh7f has-custom-focus"
 															type="password" required autocomplete="off" value=""
@@ -187,6 +185,7 @@
 
 	<script>
 		function goBack() {
+			//location.href = '/exer/Stamp/guide.do';
 			window.history.back();
 		}
 	</script>

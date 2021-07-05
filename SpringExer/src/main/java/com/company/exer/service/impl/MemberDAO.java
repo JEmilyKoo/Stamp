@@ -40,6 +40,9 @@ public class MemberDAO {
     public int memberJoinCheck(MemberDTO memberDTO) {
     	return sqlMapper.selectOne("sqlmemberJoinCheck",memberDTO);
 	}
+    public int memberLoginCheck(MemberDTO memberDTO) {
+    	return sqlMapper.selectOne("sqlloginCheck",memberDTO);
+	}
     public int followCheck(MemberDTO memberDTO) {
 		return sqlMapper.selectOne("followCheck",memberDTO);
 	}

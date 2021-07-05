@@ -43,9 +43,6 @@ public class MemberController {
 		if(flag==0) {
 		service.memberJoin(memberDTO);
 		System.out.println("중복된아이디가 아닙니다");
-		//아니 여기까지 되었으면 멤버 조인이 돌아가야 할 거 아냐
-		
-		//되었고
 		
 		}
 		else {	session.setAttribute("error", "다시 입력하세요");
@@ -65,38 +62,50 @@ public class MemberController {
 		
 		return "member/Login";
 	}
+	@RequestMapping(value = "Login.do", method = RequestMethod.POST) // 잘못 입력했을 때
+	public String loginFormPPST() {
+		logger.info("post login");
+		
+		return "member/Login";
+	}
 
 	// POST 로그인
 	@RequestMapping(value = "LoginCheck.do", method = RequestMethod.POST)
 	public String loginCheck(HttpSession session, MemberDTO memberDTO) throws Exception {
-		System.out.println(17);
+		
+		
+		
 		System.out.println(memberDTO);
-		String returnURL = "";
+		String returnURL = "home";
 		// 로그인 세션 존재할때
 		if (session.getAttribute("login") != null) {
 			// 기존 세션 제거
 			session.removeAttribute("login");
 		}
 		
-		System.out.println(47);
+		//로그인 맞는지 확인은 해야지
 		
-		// 로그인 성공시 MemberDTO 객체 반환
-		MemberDTO dto = service.getMember(memberDTO); //throws Exception
-		System.out.println(dto);
-		// 로그인 성공시 세션에 MemberDTO 객체 저장후 메인 리다이렉트
-		if (dto != null) {
+		int flag = service.memberLoginCheck(memberDTO);
+		//1이어야 로그인 성공
+		if(flag==1) {
+			MemberDTO dto = service.getMember(memberDTO); //throws Exception
+			System.out.println("제대로 잘 굴러감 ");
 			session.setAttribute("login", dto);
-			returnURL = "redirect:/";
-			System.out.println(1);
-		}
-		
-		// 로그인 실패시 다시 로그인 화면 리다이렉트
-		else {
-			returnURL = "redirect:/member/login.do";
-			System.out.println(3);
-		}
-		System.out.println(4);
+			session.setAttribute("id", dto.getId());	
+
+			session.removeAttribute("error");
+			}
+			else {	session.setAttribute("error", "다시 입력하세요");
+			session.removeAttribute("login");
+			System.out.println(":dfdsfdsfds");
+			
+			returnURL = "forward:/Member/Login.do"; //이렇게 되면 post 형식으로 주는 꼴이 되어버린다 
+			}
 		return returnURL;
+		
+		
+		
+		
 	}
 
 	// 로그아웃시 세션 초기화후 로그인 화면 리다이렉트

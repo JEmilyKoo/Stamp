@@ -23,8 +23,8 @@
     
 
     <!-- 로그인 여부 -->
-	<select id="loginCheck" resultType="com.company.exer.service.MemberDTO">
-        SELECT * 
+	<select id="sqlloginCheck"  parameterType="memberDTO"  resultType="Int">
+        SELECT count(*) 
         FROM MEMBER
         WHERE id = #{id}
         AND pwd = #{pwd}
