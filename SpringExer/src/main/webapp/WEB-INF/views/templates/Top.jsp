@@ -110,6 +110,10 @@
                 <li><a href="<c:url value="/Member/Login.do"/>">Login</a></li>	
 				<li><a href="<c:url value="/Member/Join.do"/>">JOIN</a></li>	
                     </c:if>    
+                    
+	sessionScope.login.id: ${sessionScope.login.id}
+	sessionScope.login: ${sessionScope.login}
+             	sessionScope.id: ${sessionScope.id}       
                 </ul>
                 
             </div>

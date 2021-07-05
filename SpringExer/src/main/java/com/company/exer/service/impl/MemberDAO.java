@@ -5,13 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import com.company.exer.service.MemberDTO;
-import com.company.exer.service.MemberService;
-
-
-import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 
 @Repository("memberDAO")

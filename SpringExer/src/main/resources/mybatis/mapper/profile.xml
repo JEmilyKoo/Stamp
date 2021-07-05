@@ -4,8 +4,60 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mybatis.mapper.profile">
-
-
-
-
+	<!-- 삽입 이때 별명을 선택하라고 하는데 별명은 겹칠 수 없다 -->
+	<insert id="sqlNewProfile" parameterType="profileDTO">
+		INSERT INTO PROFILE (NICKNAME, ID, MAIL, 
+TRVPRPNS, PR,  GENDER, BIRTH, PHONE, LEV, EXP, OPENPRF)
+ VALUES 
+		 (#{nickName}, #{id}, #{mail}, #{trvprpns},
+		  #{pr},  #{gender}, #{birth},
+		  #{phone}, #{lev}, #{exp}, #{openprf})
+	<!-- 새롭게 가입하는 것  삽입 선택 수정 삭제-->
+	</insert>
+	
+	<!-- 선택 -->
+	
+	<select id="sqlSelectProfile" parameterType="profileDTO" resultType="profileDTO">
+		<!-- 프로필로 받아서 프로필로 내보낸다 -->
+		select * From PROFILE where id= #{id}
+	</select>
+	
+	<select id="sqlSelectMemberProfile" parameterType="memberDTO" resultType="profileDTO">
+		<!-- 멤버로 받아서 프로필로 내보낸다 -->
+		select * From PROFILE where id=#{id}
+	</select>
+	
+	<!-- 수정 -->
+	<update id="sqlUpdateProfile" parameterType="profileDTO">
+	<!-- 프로필을 받아서 수정한다 일단 다 받아온 다음에 수정을 한다는 가정이라 모든 게 차 있다. -->
+	
+	UPDATE "STAMP"."PROFILE" SET 
+	
+	  MAIL=#{mail},
+TRVPRPNS=#{trvprpns},
+ PR=#{pr}, 
+ <if test='prfimage != null'>
+	PRIIMAGE=#{prfimage},
+	</if>
+	
+  GENDER=#{gender},
+   BIRTH=#{birth}, 
+   PHONE=#{phone}, 
+   LEV=#{lev},
+    EXP=#{exp},
+     OPENPRF=#{openprf}
+      	WHERE ID = #{id}
+	</update>
+	
+	<!-- 별명을 수정하는 것 별명은 겹칠 수 없는 것 같으니까 신중하게 하라고 해야 한다 -->
+	<update id="sqlUpdateNicknameProfile" parameterType="profileDTO">
+	UPDATE "STAMP"."PROFILE" SET 
+	NICKNAME=#{nickName}
+	WHERE ID=#{id}
+	
+	</update>
+	<!-- 삭제를 넣긴 했는데 쓸 데가 있을까? -->
+	<delete id="sqlDeleteProfile" parameterType="profileDTO">
+		DELETE FROM "STAMP"."PROFILE" WHERE ID=#{id}
+	</delete>
 </mapper>

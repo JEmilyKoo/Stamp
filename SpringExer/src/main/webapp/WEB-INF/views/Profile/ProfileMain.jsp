@@ -107,6 +107,101 @@
 	src="${pageContext.request.contextPath}/stampGO_files/HtmlComponent.js"></script>
 </head>
 <body>
+
+	<a href="<c:url value="/Profile/NewProfile.do"/>">
+		<button style="border:green 1px solid" id="newProfile">프로필을 세션에 암거나 자동으로 채우는 버튼</button>
+	</a>
+	<a href="<c:url value="/Profile/NewInsertProfile.do"/>">
+		<button  style="border:red 1px solid"  id="newInsertProfile">세션에 있는 프로필을 인서트하는 버튼(여러번 누르면 에러남)</button>
+	</a> 
+	
+	<a href="<c:url value="/Profile/SelectProfile.do"/>">
+		<button  style="border:blue 1px solid"  id="selectProfile">세션에 있는 프로필을 가지고 선택해 또 새로 세션에 불러오는 버튼(첫번째 버튼 누르고 눌러야함)</button>
+	</a> 
+	<a href="<c:url value="/Profile/SelectMemberProfile.do"/>">
+		<button style="border:yellow 1px solid"  id="selectMemberProfile">세션에 있는 로그인을 가지고 선택해 세션에 불러오는 버튼</button>
+	</a> 
+	<a href="<c:url value="/Profile/UpdateProfile.do"/>">
+		<button style="border:black 1px solid"  id="updateProfile">기존에 있는 프로필을 업데이트하는 버튼</button>
+	</a> 
+	<a href="<c:url value="/Profile/UpdateNicknameProfile.do"/>">
+		<button style="border:orange 1px solid"  id="updateNicknameProfile">기존 프로필 중에서 닉네임만 딱 업데이트하는 버튼</button>
+	</a> 
+	<a href="<c:url value="/Profile/DeleteProfile.do"/>">
+		<button style="border:purple 1px solid"  id="deleteProfile">기존 프로필 지워버리는 버튼</button>
+	</a> 
+	${sessionScope.profile}
+<!-- 
+	<form id="myform" name='profileForm' method="post" class="form-horizontal"
+		action="<c:url value="/Profile/NewInsertProfile.do"/>">
+
+
+		<div class="aonqC">
+
+			<div class="MQAj0">
+				<div id="idDiv" class="_1ggNP">
+					<div id="idInput" class="_1FsS0 _36G3j _19QH-">
+						<label for="id" class="_1qrSw">아이디</label>
+						<div class="ABx0f">
+							<input id="id" name="id" class="_3rh7f has-custom-focus"
+								type="text" required autocomplete="off" style="font-size: 14px">
+						</div>
+						<c:if test="${not empty sessionScope.error }" var="error">
+							<div class="joinError">중복된 아이디입니다</div>
+
+						</c:if>
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="MQAj0">
+				<div id="nameDiv" class="_1ggNP">
+					<div id="nameInput" class="_1FsS0 _36G3j _19QH-">
+						<label for="name" class="_1qrSw">이름</label>
+						<div class="ABx0f">
+							<input id="name" name="name" class="_3rh7f has-custom-focus"
+								type="text" required autocomplete="off" style="font-size: 14px">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<div class="_1RlXb">
+			<div id="pwdDiv" class="_1ggNP">
+				<div id="pwdInput" class="_1FsS0 _36G3j _19QH-">
+					<label for="pwd" class="_1qrSw">비밀번호</label>
+					<div class="ABx0f">
+						<input id="pwd" name="pwd" class="_3rh7f has-custom-focus"
+							type="password" required autocomplete="off" value=""
+							style="font-size: 14px">
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+		</div>
+
+		<div class=" _2KYMK">
+			<div id="okButton_SM_ROOT_COMP12" aria-disabled="false"
+				class="oneButton">
+				<button type="submit" class="oneButtonLinkClass boxButton">
+					<span class="oneButtonSpanClass">가입하기</span>
+				</button>
+			</div>
+		</div>
+
+
+
+	</form>
+ -->
 	<div class="meshContainer" style="height: 300px">
 		<section id="comp-kpzke0rf" class="확인용6">
 			<div data-testid="columns" class="확인용8">
@@ -320,7 +415,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section id="comp-kpzknxzk" class="확인용6">
 		<div data-testid="columns" class="확인용8">
 			<div id="comp-kpzknxzl" class="릴레이티브비지블">
@@ -696,10 +791,7 @@
 										<div data-mesh-id="comp-kpzm931pinlineContent-gridContainer"
 											data-testid="mesh-container-content">
 											<div id="comp-kpzm931p1" class="_26QaB">
-												<div class="_16FUt">
-
-
-												</div>
+												<div class="_16FUt"></div>
 											</div>
 											<div id="comp-kpzm931q" class="숲많이감클래스"
 												data-testid="리치텍스트엘리먼트">
