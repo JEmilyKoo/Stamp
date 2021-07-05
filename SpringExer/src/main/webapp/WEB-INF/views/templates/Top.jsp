@@ -43,6 +43,7 @@
         max-height:80px;
         vertical-align: middle;
         padding:8px 12px;
+        background-color:white;
     }
     
     .navbar-right{
@@ -98,13 +99,15 @@
 				
 				<li><a href="<c:url value="/Stamp/guide.do"/>">가이드</a></li>
 				
-                   
                     <c:if test="${not empty sessionScope.id }" var="isLogin">
-                    
+                   
 				<li><a href="<c:url value="/Member/Logout.do"/>">Logout</a></li>
 				    </c:if>
                     <c:if test="${not isLogin }">	
-				<li><a href="<c:url value="/Member/Login.do"/>">Login</a></li>	
+                    
+						
+						
+                <li><a href="<c:url value="/Member/Login.do"/>">Login</a></li>	
 				<li><a href="<c:url value="/Member/Join.do"/>">JOIN</a></li>	
                     </c:if>    
                 </ul>

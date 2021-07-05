@@ -100,6 +100,12 @@ public class IndexController {
 		return "/Test";
 	}///////////////////Test()
 	
+	@RequestMapping("/Admin.do")
+	public String Admin() {
+		//뷰정보 반환]
+		return "/Admin";
+	}///////////////////Test()
+	
 	
 	/*
 	[스프링 타일즈 적용시]- 컨트럴러 메소드에서 문자열로 리턴시
