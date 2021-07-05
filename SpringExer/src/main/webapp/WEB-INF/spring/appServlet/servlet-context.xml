@@ -34,4 +34,17 @@
 	<context:component-scan base-package="com.company.exer" />
 	 
 	
+
+<!-- 오류나서 주석처리 
+<interceptors>
+<interceptor>
+
+<mapping path="/freeboard/*"/>
+
+<beans:bean class="com.company.exer.service.AuthLoginInterceptor" id="AuthLoginInterceptor"/>
+
+</interceptor>
+
+</interceptors>
+-->
 </beans:beans>

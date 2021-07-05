@@ -1,48 +1,54 @@
 package com.company.exer.service.impl;
 
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
-
-import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import com.company.exer.service.MemberDTO;
 import com.company.exer.service.MemberService;
+
+
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 
 @Repository("memberDAO")
 public class MemberDAO {
 
-	@Resource(name="template")
+	@Autowired
 	private SqlSessionTemplate sqlMapper;
 	
-	public int join(Map map) {
-		return sqlMapper.insert("memberJoin",map);
-	}
+//@Repository("memberDAO")
+//public interface MemberDAO {
 
-	public boolean login(Map map) {
-		return sqlMapper.selectOne("memberLogin",map);
-	}
-
-	public boolean joinCheck(Map map) {
-		return sqlMapper.selectOne("memberJoinCheck",map);
-	}
+//	@Resource(name="template")
+	//private SqlSessionTemplate sqlMapper;
 	
-	public MemberDTO mypage(Map map) {
-		return sqlMapper.selectOne("memberMypage",map);
+//	@Autowired
+//	public SqlSessionTemplate sqlMapper;
+	
+	public void register(MemberDTO memberDTO) throws Exception{}
+	
+    public MemberDTO get(MemberDTO memberDTO) throws Exception{
+		return memberDTO;}
+   
+    public void memberJoin(MemberDTO memberDTO) {
+    	sqlMapper.insert("sqlmemberJoin",memberDTO);
+	}
+    public int memberJoinCheck(MemberDTO memberDTO) {
+    	return sqlMapper.selectOne("sqlmemberJoinCheck",memberDTO);
+	}
+    public int followCheck(MemberDTO memberDTO) {
+		return sqlMapper.selectOne("followCheck",memberDTO);
 	}
 
-	public int followCheck(Map map) {
-		return sqlMapper.selectOne("followCheck",map);
+	public int followCnt(MemberDTO memberDTO) {
+		return sqlMapper.selectOne("followCnt",memberDTO);
 	}
 
-	public int followCnt(Map map) {
-		return sqlMapper.selectOne("followCnt",map);
+	public int followerCnt(MemberDTO memberDTO) {
+		return sqlMapper.selectOne("followerCnt",memberDTO);
 	}
-
-	public int followerCnt(Map map) {
-		return sqlMapper.selectOne("followerCnt",map);
-	}
-
 }
