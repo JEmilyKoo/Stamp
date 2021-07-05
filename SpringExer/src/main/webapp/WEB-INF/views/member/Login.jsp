@@ -112,12 +112,7 @@
 			<c:if test="${not isLogin }">
 				<!--로그인하면 이 화면을 뿌려주어야 함-->
 				
-
-						<form id="myform" method="post"
-							class="form-horizontal"
-							action="<c:url value='/Member/Login.do'/>">
-
-
+<form id="myform"  name='homeForm' method="post"  class="form-horizontal" action="<c:url value="/Member/LoginCheck.do"/>">
 							<div class="aonqC">
 
 								<div class="MQAj0">

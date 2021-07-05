@@ -14,13 +14,12 @@
 	</typeAliases>
 	<!-- 매퍼파일(SQL쿼리 결과와 자바빈 매핑)의 위치정보 설정 -->
 	<mappers>
-		<mapper resource="mybatis/mapper/MemberMapper.xml" />
+		<mapper resource="mybatis/mapper/member.xml" />
 		<mapper resource="mybatis/mapper/review.xml" />
 		<mapper resource="mybatis/mapper/stamp.xml" />
 		<mapper resource="mybatis/mapper/follow.xml" />
-		<!--
-		<mapper  resource="mybatis/mapper/FreeBoardMapper.xml" />
 		
+		<!--  
 		
 		 <mapper resource="mybatis/mapper/dm.xml" />-->
 	</mappers>

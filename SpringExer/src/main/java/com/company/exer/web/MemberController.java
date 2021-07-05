@@ -13,7 +13,7 @@ import com.company.exer.service.MemberDTO;
 import com.company.exer.service.MemberService;
 
 @Controller
-@RequestMapping("/member/*")
+@RequestMapping("/Member/")
 public class MemberController {
 	
 	
@@ -23,7 +23,7 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 		
 	// GET 회원가입
-	@RequestMapping(value = "join.do", method = RequestMethod.GET)
+	@RequestMapping(value = "Join.do", method = RequestMethod.GET)
 	public String getRegister() throws Exception {
 		logger.info("get Join");
 		
@@ -41,7 +41,7 @@ public class MemberController {
 	}
 	
 	// GET 로그인
-	@RequestMapping(value = "login.do", method = RequestMethod.GET)
+	@RequestMapping(value = "Login.do", method = RequestMethod.GET)
 	public String loginForm() {
 		logger.info("get login");
 		
@@ -49,7 +49,7 @@ public class MemberController {
 	}
 
 	// POST 로그인
-	@RequestMapping(value = "loginCheck.do", method = RequestMethod.POST)
+	@RequestMapping(value = "LoginCheck.do", method = RequestMethod.POST)
 	public String loginCheck(HttpSession session, MemberDTO memberDTO) throws Exception {
 		System.out.println(17);
 		System.out.println(memberDTO);
@@ -82,10 +82,10 @@ public class MemberController {
 	}
 
 	// 로그아웃시 세션 초기화후 로그인 화면 리다이렉트
-	@RequestMapping(value = "logout.do")
+	@RequestMapping(value = "Logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/login.do";
+		return "home";
 	}
 	
 
