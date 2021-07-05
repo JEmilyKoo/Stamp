@@ -84,7 +84,7 @@
                     <span class="glyphicon glyphicon-map-marker"></span>
                     <span class="fontTitle">찍GO</span>
                     <br/>
-                    <p class="fontSub">님 지금 바로 떠나세요 </p>
+                    <p class="fontSub">지금 바로 떠나세요 </p>
                 </a>
             </div>
             <!-- 화면 크기가 클때 상단에 보여지는 네비게이션바(데스크탑용) -->

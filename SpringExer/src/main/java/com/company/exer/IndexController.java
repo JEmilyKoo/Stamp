@@ -1,5 +1,7 @@
 package com.company.exer;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -89,8 +91,12 @@ public class IndexController {
 	}///////////////////TripBoardReport()
 	
 	@RequestMapping("/Stamp/Test.do")
-	public String Test() {
+	public String Test(HttpSession session) {
 		//뷰정보 반환]
+
+		session.removeAttribute("login");
+		session.removeAttribute("id");
+		session.removeAttribute("error");
 		return "/Test";
 	}///////////////////Test()
 	

@@ -57,15 +57,18 @@ public class MemberController {
 	
 	// GET 로그인
 	@RequestMapping(value = "Login.do", method = RequestMethod.GET)
-	public String loginForm() {
+	public String loginForm(HttpSession session) {
 		logger.info("get login");
-		
+
+		session.removeAttribute("login");
+		session.removeAttribute("id");
+		session.removeAttribute("error");
 		return "member/Login";
 	}
 	@RequestMapping(value = "Login.do", method = RequestMethod.POST) // 잘못 입력했을 때
-	public String loginFormPPST() {
+	public String loginFormPPST(HttpSession session) {
 		logger.info("post login");
-		
+		session.setAttribute("error", "다시 입력하세요");
 		return "member/Login";
 	}
 
@@ -97,10 +100,11 @@ public class MemberController {
 			}
 			else {	session.setAttribute("error", "다시 입력하세요");
 			session.removeAttribute("login");
-			System.out.println(":dfdsfdsfds");
 			
 			returnURL = "forward:/Member/Login.do"; //이렇게 되면 post 형식으로 주는 꼴이 되어버린다 
 			}
+
+		session.removeAttribute("error");
 		return returnURL;
 		
 		

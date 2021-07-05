@@ -37,9 +37,6 @@ pageEncoding="UTF-8"%>
 </script>
 </head>
 <body>
-session.invalidate();
-			session.removeAttribute("login");
-			session.removeAttribute("id");
 <div>
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/></div>
 	<div style="height:500px">d</div>
