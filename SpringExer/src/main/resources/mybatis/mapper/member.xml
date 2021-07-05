@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
-<!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
+<!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. 
 <mapper namespace="mybatis.mapper.member">
 	
 	<insert id="memberJoin" parameterType="Map">
@@ -48,3 +48,4 @@
 		where followId = #{followId}
 	</select>
 </mapper>
+-->

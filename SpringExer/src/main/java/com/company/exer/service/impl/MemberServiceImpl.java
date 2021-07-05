@@ -1,9 +1,6 @@
 package com.company.exer.service.impl;
 
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
+import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
@@ -12,43 +9,35 @@ import com.company.exer.service.MemberService;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
-	
-	@Resource(name="memberDAO")
-	private MemberDAO dao;
-	
+     
+    @Inject
+    private MemberDAO memberDAO;
+     
+    public MemberDTO getMember(MemberDTO memberDTO) throws Exception {
+    	
+    	return memberDAO.get(memberDTO);
+    }
+
 	@Override
-	public int join(Map map) {
-		 return dao.join(map);
+	public void memberJoin(MemberDTO memberDTO) throws Exception {
+		
+	}
+
+
+
+	@Override
+	public int followCheck(MemberDTO memberDTO) {
+		return dao.followCheck(memberDTO);
 	}
 
 	@Override
-	public boolean login(Map map) {
-		return dao.login(map);
+	public int followCnt(MemberDTO memberDTO) {
+		return dao.followCnt(memberDTO);
 	}
 
 	@Override
-	public boolean joinCheck(Map map) {
-		return dao.joinCheck(map);
-	}
-
-	@Override
-	public MemberDTO mypage(Map map) {
-		return dao.mypage(map);
-	}
-
-	@Override
-	public int followCheck(Map map) {
-		return dao.followCheck(map);
-	}
-
-	@Override
-	public int followCnt(Map map) {
-		return dao.followCnt(map);
-	}
-
-	@Override
-	public int followerCnt(Map map) {
-		return dao.followerCnt(map);
+	public int followerCnt(MemberDTO memberDTO) {
+		return dao.followerCnt(memberDTO);
 	}
 
 }

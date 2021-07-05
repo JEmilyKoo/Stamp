@@ -113,7 +113,7 @@
 				<!--로그인하면 이 화면을 뿌려주어야 함-->
 				
 
-						<form data-testid="emailAuth" id="myform" method="post"
+						<form id="myform" method="post"
 							class="form-horizontal"
 							action="<c:url value='/Member/Login.do'/>">
 
