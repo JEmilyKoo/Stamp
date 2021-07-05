@@ -38,12 +38,12 @@
 	<select id="reviewLikeCheck" parameterType="Map" resultType="Int">
 		select count(*)
 		from rvLike rl JOIN review rv ON rl.rvno=rv.rvno
-		where rl.rvNo=#{rvNo} and rl.nickname=#{nickName}
+		where rl.rvNo=#{rvNo} and rv.nickname=#{nickName}
 	</select>
 	
 	<insert id="reviewLike" parameterType="Map">
 		insert into rvLike
-		values (#{id},#{rvNo})
+		values (#{nickname},#{rvNo},sysdate)
 	</insert>
 	
 	<update id="reviewLikeCount" parameterType="Map">

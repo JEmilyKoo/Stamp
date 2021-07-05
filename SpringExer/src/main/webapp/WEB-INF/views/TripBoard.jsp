@@ -283,7 +283,7 @@
 																						<!-- 하트 아이콘 시작 -->
 																						<div class="like-button _7QZoA _1eKPZ"
 																							aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
-																							<a href="<c:url value="/"/>"><img src="../images/review/beanH.png" /></a>
+																							<a href="<c:url value="/Review/Like.do?rvno=${item.rvNo}"/>"><img src="../images/review/beanH.png" /></a>
 
 																							<svg xmlns="http://www.w3.org/2000/svg"
 																								width="19" viewBox="0 0 19 19" role="img">

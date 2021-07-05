@@ -27,6 +27,9 @@ public class ReviewDTO {
 	private String rvFile;
 	private int rvLikeCheck;
 	
+	//rvLike 추가
+	private Date rvlDate;
+	
 	
 	
 	
