@@ -5,7 +5,7 @@
 .joinError{
 	
 	position: relative;
-	top:10px;
+	top:2px;
 	border:rgb(var(--color_16)) 0px solid;
 	border-top-width : 1px;
 	z-index: 2;

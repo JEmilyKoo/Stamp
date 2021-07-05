@@ -37,6 +37,9 @@ pageEncoding="UTF-8"%>
 </script>
 </head>
 <body>
+session.invalidate();
+			session.removeAttribute("login");
+			session.removeAttribute("id");
 <div>
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/></div>
 	<div style="height:500px">d</div>
@@ -49,7 +52,6 @@ pageEncoding="UTF-8"%>
 	<div class="actions" style="z-index:10; position: absolute; top: 80px; left:400px; background-color:red">달깍달깍
 	
 	</div>
-	<!--<jsp:include page="/WEB-INF/views/test/Test3.jsp"/>-->
 	
 			<div style="position: absolute; top: 200px; left:500px">
 				<!-- 잘 보이기 위한 위치-->이 버튼을 실행하면 아래 목록이 뜨게 설정하세요

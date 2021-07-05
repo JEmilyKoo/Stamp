@@ -26,9 +26,13 @@ public class MemberServiceImpl implements MemberService {
 	public void memberJoin(MemberDTO memberDTO) throws Exception {
 			dao.memberJoin(memberDTO);
 	}
-
+	@Override
 	public int memberJoinCheck(MemberDTO memberDTO) throws Exception {
 		return dao.memberJoinCheck(memberDTO);
+	}
+	@Override
+	public int memberLoginCheck(MemberDTO memberDTO) throws Exception {
+		return dao.memberLoginCheck(memberDTO);
 	}
 	@Override
 	public int followCheck(MemberDTO memberDTO) {

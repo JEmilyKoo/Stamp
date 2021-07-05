@@ -36,10 +36,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Controller
 @RequestMapping("/Member/")
 public class Member2Controller {
-	/*
+	
 	@Resource(name="memberService")
 	private MemberService memberService;
-	
+	/*
 	@RequestMapping(value="1Join.do",method = RequestMethod.GET)
 	public String Join() {
 		return "member/Join";
@@ -75,10 +75,10 @@ public class Member2Controller {
 		}
 		return "forward:/Review/List.do";
 	}
-	
+	*/
 	
 	@RequestMapping(value="KakaoLogin.do",produces="application/json;charset=UTF-8")
-	public @ResponseBody String KakaoLogin(String code,HttpSession session) {
+	public String KakaoLogin(String code,HttpSession session) throws Exception {
 		///POST방식으로 key=value 데이터를 요청 (카카오쪽으로)
 		//a태그라 무조건 get방식인데 아래 라이브러리 사용하면 post가능
 		RestTemplate rt = new RestTemplate();
@@ -164,29 +164,42 @@ public class Member2Controller {
 		System.out.println("이름!!"+map.get("name"));
 		map.put("pwd","1234");
 		
+		MemberDTO memberDTO = new MemberDTO();
 		
+		memberDTO.setId(kakaoProfile.getId().toString());
+		memberDTO.setName(kakaoProfile.properties.getNickname());
+		memberDTO.setPwd("1234");
+		System.out.println( "setId" +kakaoProfile.getId().toString());
+		System.out.println("setName"+memberDTO.getName());
+		System.out.println("setPwd"+memberDTO.getPwd());
 		//가입자 혹은 비가입자 체크 해서 처리
 		//비가입자면 회원가입 처리 
-		boolean flag = memberService.joinCheck(map);
+		int flag = memberService.memberJoinCheck(memberDTO);
 		
 		//이미 가입 완료
-		if(flag == true) {
-			memberService.login(map);
-			session.setAttribute("id",map.get("id"));
-			return "forward:/Review/List.do";
-		}
+		if(flag == 1) {
+			//session.removeAttribute("login");
+			//session.removeAttribute("id");
+			
+			memberService.getMember(memberDTO);
+			session.setAttribute("login", memberDTO);
+			session.setAttribute("id",memberDTO.getId());
+
+			
+			return "redirect:/";
+			}
 
 		//비 가입자
 		else {
-			memberService.join(map);
-			session.setAttribute("id",map.get("id"));
-			return "forward:/Review/List.do";
+			memberService.memberJoin(memberDTO);
+			session.setAttribute("id",memberDTO.getId());
+			return "redirect:/";
 		}
 	}
 	
 	//////////네이버 로그인
 	@RequestMapping(value="NaverLogin.do",produces="application/json;charset=UTF-8")
-	public String NaverLogin(String code,HttpSession session) {
+	public String NaverLogin(String code,HttpSession session) throws Exception {
 				
 				///POST방식으로 key=value 데이터를 요청 (카카오쪽으로)
 				//a태그라 무조건 get방식인데 아래 라이브러리 사용하면 post가능
@@ -274,31 +287,44 @@ public class Member2Controller {
 //						.pwd(garbagePassword.toString())
 //						.name(kakaoProfile.properties.getNickname())
 //						.build();
-				Map map = new HashMap();
-				map.put("id", naverProfile.getResponse().id);
-				map.put("name", naverProfile.getResponse().name);
-				map.put("pwd","1234");
+				
+				
+				
+				
+		
+				MemberDTO memberDTO = new MemberDTO();
+				
+				memberDTO.setId(naverProfile.getResponse().id);
+				memberDTO.setName(naverProfile.getResponse().name);
+				memberDTO.setPwd("1234");
 				
 				//가입자 혹은 비가입자 체크 해서 처리
 				//비가입자면 회원가입 처리 
-				boolean flag = memberService.joinCheck(map);
+				int flag = memberService.memberJoinCheck(memberDTO);
 				
 				//이미 가입 완료
-				if(flag == true) {
-					memberService.login(map);
-					session.setAttribute("id",map.get("id"));
-					return "forward:/Review/List.do";
-				}
+				if(flag == 1) {
+					//session.removeAttribute("login");
+					//session.removeAttribute("id");
+					
+					memberService.getMember(memberDTO);
+					session.setAttribute("login", memberDTO);
+					session.setAttribute("id",memberDTO.getId());
+
+					
+					return "redirect:/";
+					}
 
 				//비 가입자
 				else {
-					memberService.join(map);
-					session.setAttribute("id",map.get("id"));
-					return "forward:/Review/List.do";
+					memberService.memberJoin(memberDTO);
+					session.setAttribute("id",memberDTO.getId());
+					return "redirect:/";
 				}
+				
 	}
 
-	
+	/*
 	@RequestMapping("1Logout.do")
 	public String Logout(HttpSession session) {
 		session.invalidate();
@@ -306,7 +332,10 @@ public class Member2Controller {
 	}
 	
 	
-	
+	@RequestMapping("GoHome.do")
+	public String GoHome(String string) {
+		return "home";
+	}
 	@RequestMapping("1Mypage.do")
 	public String Mypage(@RequestParam Map map, Model model,HttpSession session){
 		if(session.getAttribute("id")!=null) {
@@ -337,4 +366,5 @@ public class Member2Controller {
 		return "/member/Mypage";
 	}
 	*/
+	
 }
