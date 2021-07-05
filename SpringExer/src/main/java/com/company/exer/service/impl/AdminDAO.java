@@ -16,7 +16,7 @@ public class AdminDAO {
 	
 	public List<ReviewDTO> selectList() {
 		return sqlMapper.selectList("reviewSelectList");
-	}
+	}//
 
 	public ReviewDTO selectOne(Map map) {
 		return sqlMapper.selectOne("reviewSelectOne",map);
