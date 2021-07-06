@@ -22,19 +22,19 @@ public class DmDAO {
 	}
 	
 //	2. DM 전체 메세지함 쿼리문
-	public List<TestDMDTO> DMList(Map map) {
+	public List<DmDTO> DMList(Map map) {
 
 		return sqlMapper.selectList("DMList", map);
 	}
 	
 //	3. 최신 발신내역 가져오는 쿼리문
-	public TestDMDTO getDMSendList(Map map) {
+	public DmDTO getDMSendList(Map map) {
 
 		return sqlMapper.selectOne("getDMSendList", map);
 	}
 	
 //	4. DM 1:1대화목록 쿼리문
-	public List<TestDMDTO> DMChatList(Map map) {
+	public List<DmDTO> DMChatList(Map map) {
 
 		return sqlMapper.selectList("DMChatList", map);
 	}

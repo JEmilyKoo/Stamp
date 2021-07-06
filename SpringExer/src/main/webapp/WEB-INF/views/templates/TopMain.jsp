@@ -60,6 +60,9 @@ body {
 				<li><a href="<c:url value="/Stamp/Test.do"/>">Test</a></li>
 				<li><a href="<c:url value="/Profile/StampList.do"/>">ProfileStampList</a></li>
 				<li><a href="<c:url value="/Profile/Main.do"/>">ProfileMain</a></li>
+				
+				<li><a href="<c:url value="/Profile/Main/Id.do?id=KOO"/>">KOO의 ProfileMain</a></li>
+				
 				<li><a href="<c:url value="/Stamp/Badge.do"/>">Badge</a></li>
 				<li><a href="<c:url value="/Profile/Like.do"/>">ProfileLike</a></li>
 				<li><a href="<c:url value="/Profile/Comment.do"/>">ProfileComment</a></li>

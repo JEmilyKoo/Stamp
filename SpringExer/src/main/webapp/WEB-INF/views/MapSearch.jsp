@@ -36,6 +36,8 @@
 </head>
 
 <body>
+<button type="button" class="btn btn-success">Success</button>
+
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 	
 	<!-- 메인페이지에만 있는 사이트맵 -->
@@ -77,7 +79,11 @@ if (navigator.geolocation) {
             console.log("위도 : %s , 경도 :%s",lat,lon)
     		
     	});	
+<<<<<<< HEAD
     }, 1000);
+=======
+    }, 5000);
+>>>>>>> refs/heads/master
     
 } 
 
@@ -159,6 +165,8 @@ for (var i = 0; i < positions.length; i ++) {
     
     kakao.maps.event.addListener(marker, 'click', function() {
     	ArrOverlay[MarkOverlay.indexOf(this)].setMap(map);
+    	if(setMap(map)==null)
+    		console.log("1234")
 
     });
 }
