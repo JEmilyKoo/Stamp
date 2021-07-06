@@ -99,7 +99,7 @@ public class ReviewController {
 		//reviewService.likeCount(map);
 		//ReviewDTO dto=reviewService.selectOne(map);
 		//if(dto.getRvLikeCnt()>=2) {
-		//	reviewService.stampInsert(map);
+		//	reviewService.stampCreate(map);
 		//}
 		return "/TripBoard";
 	}
