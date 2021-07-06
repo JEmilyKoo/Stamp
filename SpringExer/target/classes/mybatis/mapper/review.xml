@@ -57,7 +57,7 @@
 		where rvNo=#{rvNo} and id=#{id}
 	</delete>
 	
-	<insert id="stampInsert" parameterType="Map">
+	<insert id="stampCreate" parameterType="Map">
 		insert into stamp(rvNo,rvLat,rvLng,stNo)
 		select rvNo,rvLat,rvLng,SEQ_STAMP.nextval
 		from review

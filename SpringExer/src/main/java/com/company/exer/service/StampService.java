@@ -6,4 +6,5 @@ import java.util.Map;
 public interface StampService {
 	//int stampUp();
 	List<StampDTO> stampList();
+	List<StampDTO> stampUp(Map map);
 }

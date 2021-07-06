@@ -1,6 +1,7 @@
 package com.company.exer.web;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.StampDTO;
@@ -22,11 +24,17 @@ public class StampController {
 	
 	
 	@RequestMapping("MapSearch.do")
-	public String stampInsert(Model model) {
+	public String stampCreate(Model model) {
 		
 		//stampService.stampUp();
 		List<StampDTO> list= stampService.stampList();
 		model.addAttribute("list",list);
+		return "MapSearch";
+	}
+	
+	@RequestMapping("StampUp.do")
+	public @ResponseBody String stampUp(Map map) {
+		
 		return "MapSearch";
 	}
 	

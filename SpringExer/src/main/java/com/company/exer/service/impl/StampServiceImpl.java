@@ -21,9 +21,11 @@ public class StampServiceImpl implements StampService {
 		return dao.stampList();
 	}
 
-//	@Override
-//	public int stampUp() {
-//		return dao.stampUp();
-//	}
+	@Override
+	public List<StampDTO> stampUp(Map map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

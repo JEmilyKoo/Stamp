@@ -14,5 +14,5 @@ public interface ReviewService {
 	int likeCheck(Map map);
 	int likeCount(Map map);
 	int unlike(Map map);
-	int stampInsert(Map map);
+	int stampCreate(Map map);
 }

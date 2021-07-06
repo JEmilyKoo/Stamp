@@ -62,8 +62,8 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public int stampInsert(Map map) {
-		return dao.stampInsert(map);
+	public int stampCreate(Map map) {
+		return dao.stampCreate(map);
 	}
 
 
