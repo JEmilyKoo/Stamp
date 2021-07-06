@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
+<mapper namespace="mybatis.mapper.adminStamp">
+	
+	<!-- <select id="stampList" resultType="stampDTO">
+		select s.*, b.rvTitle,b.rvlat,b.rvlng
+		from stamp s Join review b On s.rvNo=b.rvNo
+	</select> -->
+	<!-- 1. 스탬프 조회 -->
+	<!-- <select id="">
+		select * from stamp order by stNo desc;
+	</select>
+	2. 스탬프 등록
+	
+	3. 스탬프 수정
+	<update id="">
+		update stamp 
+		set stisexpired = 0
+		where stNo =#{stNo}
+	</update>
+	4. 스탬프 삭제
+	<delete id="">
+		delete stamp
+		where stNo = #{stNo}
+	</delete> -->
+</mapper>
