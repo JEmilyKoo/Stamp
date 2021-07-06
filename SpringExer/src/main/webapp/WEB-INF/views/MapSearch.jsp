@@ -77,7 +77,7 @@ if (navigator.geolocation) {
             console.log("위도 : %s , 경도 :%s",lat,lon)
     		
     	});	
-    }, 10000);
+    }, 1000);
     
 } 
 
