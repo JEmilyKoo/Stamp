@@ -81,18 +81,21 @@ public class ReviewController {
 	
 
 	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
-	public @ResponseBody String Like(@RequestParam Map map) throws IOException {
+	public @ResponseBody String Like(@RequestParam Map map,@ModelAttribute String nickname,Model model) throws IOException {
+		System.out.println(nickname);
+		map.put("nickname", nickname);
 		System.out.println("오류나나?");
 		int check = reviewService.likeCheck(map);
-		System.out.println("check:"+check);
-		if(check==0) {
-			System.out.println("11");
-			reviewService.like(map);
-		}
-		else {
-			System.out.println("22");
-			reviewService.unlike(map); 
-		}
+		System.out.println("오류나나?2");
+		//System.out.println("check:"+check);
+		//if(check==0) {
+		//	System.out.println("11");
+		//	reviewService.like(map);
+		//}
+		//else {
+		///	System.out.println("22");
+		//	reviewService.unlike(map); 
+		//}
 		//reviewService.likeCount(map);
 		//ReviewDTO dto=reviewService.selectOne(map);
 		//if(dto.getRvLikeCnt()>=2) {
