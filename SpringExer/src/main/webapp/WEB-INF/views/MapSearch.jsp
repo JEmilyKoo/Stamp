@@ -36,6 +36,8 @@
 </head>
 
 <body>
+<button type="button" class="btn btn-success">Success</button>
+
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 	
 	<!-- 메인페이지에만 있는 사이트맵 -->
@@ -77,7 +79,7 @@ if (navigator.geolocation) {
             console.log("위도 : %s , 경도 :%s",lat,lon)
     		
     	});	
-    }, 10000);
+    }, 5000);
     
 } 
 
