@@ -46,7 +46,7 @@ CREATE TABLE DM
 	dmNo number NOT NULL,
 	nickname nvarchar2(15) NOT NULL UNIQUE,
 	dmToNickname nvarchar2(15) NOT NULL UNIQUE,
-	dmCnt nvarchar2(100),
+	dmCtt nvarchar2(100),
 	dmDate date DEFAULT SYSDATE,
 	dmChecked number DEFAULT 1,
 	PRIMARY KEY (dmNo)
