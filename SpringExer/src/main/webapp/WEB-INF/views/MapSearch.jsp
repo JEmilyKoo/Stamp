@@ -109,7 +109,7 @@ for (var i = 0; i < positions.length; i ++) {
     
     kakao.maps.event.addListener(marker, 'click', function() {
     	ArrOverlay[MarkOverlay.indexOf(this)].setMap(map);
-    	if(ArrOverlay[MarkOverlay.indexOf(this)].setMap(map))
+    	if(setMap(map)==null)
     		console.log("1234")
     });
 }
@@ -117,8 +117,6 @@ for (var i = 0; i < positions.length; i ++) {
     // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
     function closeOverlay(data) {
     	ArrOverlay[data].setMap(null);   
-    	if(ArrOverlay[data].setMap(null))
-    		console.log("5678")
     }
     
 </script>
