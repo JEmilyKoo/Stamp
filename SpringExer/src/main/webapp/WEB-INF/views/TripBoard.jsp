@@ -87,8 +87,8 @@
 														<div class="_2RwOg" role="search" aria-label="&nbsp;"
 															tabindex="0">
 					
-																<!-- 검색 돋보기 -->
-							<div>									
+							<div>					
+<!-- 아래 검색 -->			
 			<form class="form-inline" method="post"
 				action="<c:url value='/Review/TripBoard.do'/>">
 																<div class="form-group">
