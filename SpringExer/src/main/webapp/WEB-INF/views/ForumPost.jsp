@@ -106,7 +106,11 @@ pageEncoding="UTF-8"%>
   
   <button class="KkXMX forum-content-classic-font button-hover-color forum-icon-stroke button-hover-stroke" aria-label="정은 구님에게 댓글"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" role="img" class="_3Cu5l"><title></title><path d="M9.48,11.45l-4,2.88a0.84,0.84,0,0,1-1.34-.65V11.45H2.22A1.7,1.7,0,0,1,.5,9.79V2.17A1.7,1.7,0,0,1,2.22.5H14.78A1.7,1.7,0,0,1,16.5,2.17V9.79a1.7,1.7,0,0,1-1.72,1.67H9.48Z" transform="translate(0 0)" fill="none"></path></svg>
   <span>댓글</span></button></span>
-  <a href="<c:url value="/Review/Like.do"/>">
+  
+  
+  
+  <!-- 좋아요 구현중 -->
+  <a href="<c:url value="/Review/Like.do?rvno=${rvNo}"/>">
   <span class="_37Gv5"><button class="_1j4M5" actiondetails="[object Object]">
   <div class="dr0cE" aria-label="좋아요 0개. Is unliked" data-hook="like-button" style="--heart-color:#e84a43;">
   <div class="_2OWaP"><div class="_1pvT5"></div></div><div class="_2FjpA"><div class="_1pvT5"></div></div>
