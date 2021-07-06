@@ -98,7 +98,8 @@ public class MemberController {
 			MemberDTO dto = service.getMember(memberDTO); //throws Exception
 			System.out.println("제대로 잘 굴러감 ");
 			session.setAttribute("login", dto);
-			session.setAttribute("id", dto.getId());	
+			session.setAttribute("id", dto.getId());
+			
 			
 			/*세션의 프로필에 멤버에서 나온 걸로 프로필 박음*/
 			ProfileDTO profiledto = new ProfileDTO();
