@@ -127,8 +127,8 @@ body {
 			<div class="collapse navbar-collapse" id="collapse-menu">
 				<!-- 네비게이션바에 폼 추가 -->
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<c:url value="/"/>">메인</a></li>
 					<li><a href="<c:url value="/Review/List.do"/>">여행 리뷰/정보</a></li>
+<li><a href="<c:url value="/Index.do"/>">인덱스</a></li>
 
 					<li><a href="<c:url value="/Stamp/MapSearch.do"/>">지도 검색</a></li>
 
