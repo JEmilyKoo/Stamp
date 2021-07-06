@@ -75,72 +75,6 @@
 
 
 
-
-			<!-- 뱃지 시작 -->
-			<h2 class="font_4 color_32"
-				style="padding: 30px; text-align: center;">뱃지</h2>
-			<p class="font_8 color_5"
-				style="text-align: center; margin: 0px 0px 40px 0px">획득한 뱃지를
-				확인하세요</p>
-			<div class="badgeListContainer"
-				style="text-align: center; display: grid; margin: 0px 0px 40px 0px;  gap: 20px; padding: 10px; row-gap: 50px; grid-template-columns: repeat(3, 1fr);">
-				<div >
-					<img
-						src="${pageContext.request.contextPath}/images/profile/badge/badge1.png"
-						alt="산뱃지"
-						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
-					<h3 class="profileMainEachName">타고</h3>
-					<p class="font_8 color_5"
-				style="text-align: center; margin: 0px 0px 20px 0px">숲 많이 가서 획득</p>
-					<div id="oneButtonId" aria-disabled="false" class="oneButton"
-						style="padding: 10px; height: 30px; justify-content: center">
-						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
-						<a href="<c:url value="/Profile/Main.do"/>"
-							class="oneButtonLinkClass"> <span class="oneButtonSpanClass">상세
-								보기</span>
-						</a>
-					</div>
-				</div>
-				<!-- 스탬프 반복 -->
-				<div >
-					<img
-						src="${pageContext.request.contextPath}/images/profile/badge/badge2.png"
-						alt="산뱃지"
-						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
-					<h3 class="profileMainEachName">타고</h3>
-					<p class="font_8 color_5"
-				style="text-align: center; margin: 0px 0px 20px 0px">바다 많이 가서 획득</p>
-					<div id="oneButtonId" aria-disabled="false" class="oneButton"
-						style="padding: 10px; height: 30px; justify-content: center">
-						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
-						<a href="<c:url value="/Profile/Main.do"/>"
-							class="oneButtonLinkClass"> <span class="oneButtonSpanClass">상세
-								보기</span>
-						</a>
-					</div>
-					<!-- 스탬프 반복 -->
-				</div>
-				<div >
-					<img
-						src="${pageContext.request.contextPath}/images/profile/badge/badge3.png"
-						alt="산뱃지"
-						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
-					<h3 class="profileMainEachName">타고</h3>
-					<p class="font_8 color_5"
-				style="text-align: center; margin: 0px 0px 20px 0px">산 많이 가서 획득</p>
-				<div id="oneButtonId" aria-disabled="false" class="oneButton"
-						style="padding: 10px; height: 30px; justify-content: center">
-						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
-						<a href="<c:url value="/Profile/Main.do"/>"
-							class="oneButtonLinkClass"> <span class="oneButtonSpanClass">상세
-								보기</span>
-						</a>
-					</div>
-					<!-- 스탬프 반복 -->
-				</div>
-			</div>
-
-
 			<!-- 스탬프 리스트 시작 -->
 			<h2 class="font_4 color_32"
 				style="padding: 30px; text-align: center;">스탬프</h2>
@@ -281,6 +215,76 @@
 
 			</div>
 			<!--stamplist 끝-->
+
+
+
+
+			<!-- 뱃지 시작 -->
+			<h2 class="font_4 color_32"
+				style="padding: 30px; text-align: center;">뱃지</h2>
+			<p class="font_8 color_5"
+				style="text-align: center; margin: 0px 0px 40px 0px">획득한 뱃지를
+				확인하세요</p>
+			<div class="badgeListContainer"
+				style="text-align: center; display: grid; margin: 0px 0px 40px 0px;  gap: 20px; padding: 10px; row-gap: 50px; grid-template-columns: repeat(3, 1fr);">
+				<div >
+					<img
+						src="${pageContext.request.contextPath}/images/profile/badge/badge1.png"
+						alt="산뱃지"
+						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
+					<h3 class="profileMainEachName">타고</h3>
+					<p class="font_8 color_5"
+				style="text-align: center; margin: 0px 0px 20px 0px">숲 많이 가서 획득</p>
+					<div id="oneButtonId" aria-disabled="false" class="oneButton"
+						style="padding: 10px; height: 30px; justify-content: center">
+						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
+						<a href="<c:url value="/Profile/Main.do"/>"
+							class="oneButtonLinkClass"> <span class="oneButtonSpanClass">상세
+								보기</span>
+						</a>
+					</div>
+				</div>
+				<!-- 스탬프 반복 -->
+				<div >
+					<img
+						src="${pageContext.request.contextPath}/images/profile/badge/badge2.png"
+						alt="산뱃지"
+						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
+					<h3 class="profileMainEachName">타고</h3>
+					<p class="font_8 color_5"
+				style="text-align: center; margin: 0px 0px 20px 0px">바다 많이 가서 획득</p>
+					<div id="oneButtonId" aria-disabled="false" class="oneButton"
+						style="padding: 10px; height: 30px; justify-content: center">
+						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
+						<a href="<c:url value="/Profile/Main.do"/>"
+							class="oneButtonLinkClass"> <span class="oneButtonSpanClass">상세
+								보기</span>
+						</a>
+					</div>
+					<!-- 스탬프 반복 -->
+				</div>
+				<div >
+					<img
+						src="${pageContext.request.contextPath}/images/profile/badge/badge3.png"
+						alt="산뱃지"
+						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
+					<h3 class="profileMainEachName">타고</h3>
+					<p class="font_8 color_5"
+				style="text-align: center; margin: 0px 0px 20px 0px">산 많이 가서 획득</p>
+				<div id="oneButtonId" aria-disabled="false" class="oneButton"
+						style="padding: 10px; height: 30px; justify-content: center">
+						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
+						<a href="<c:url value="/Profile/Main.do"/>"
+							class="oneButtonLinkClass"> <span class="oneButtonSpanClass">상세
+								보기</span>
+						</a>
+					</div>
+					<!-- 스탬프 반복 -->
+				</div>
+			</div>
+
+
+
 
 			<!-- 업적 시작 -->
 			<h2 class="font_4 color_32"
