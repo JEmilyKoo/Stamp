@@ -8,11 +8,10 @@ import lombok.Data;
 public class DmDTO {
 
 	private String dmNo;
-	private String id;
+	private String nickname;
+	private String dmToNickname;
 	private String dmCtt;
-	private String dmToId;
 	private Timestamp dmDate;
-	private String dmLike;
 	private String dmChecked;
 }
 */
