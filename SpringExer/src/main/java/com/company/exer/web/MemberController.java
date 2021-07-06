@@ -106,6 +106,7 @@ public class MemberController {
 			profiledto=profileservice.selectMemberProfile(dto);
 			session.setAttribute("profile", profiledto);
 			session.removeAttribute("error");
+			System.out.println(profiledto);
 			}
 			else {	session.setAttribute("error", "다시 입력하세요");
 			session.removeAttribute("login");

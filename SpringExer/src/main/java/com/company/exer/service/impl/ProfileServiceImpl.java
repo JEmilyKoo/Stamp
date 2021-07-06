@@ -48,4 +48,15 @@ public class ProfileServiceImpl implements ProfileService {
 		dao.deleteProfile(profileDTO);
 		
 	}
+	
+	
+
+	@Override
+	public void profileNewSetting(ProfileDTO profileDTO) throws Exception {
+		dao.profileNewSetting(profileDTO);
+	}
+	@Override
+	public int profileNickNameCheck(ProfileDTO profileDTO) throws Exception {
+		return dao.profileNickNameCheck(profileDTO);
+	}
 }

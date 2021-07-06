@@ -63,6 +63,9 @@ body {
 				
 				<li><a href="<c:url value="/Profile/Main/Id.do?id=KOO"/>">KOO의 ProfileMain</a></li>
 				
+				<li><a href="<c:url value="/Profile/NewSetting.do"/>">프로필값새로입력하는것</a></li>
+				
+				
 				<li><a href="<c:url value="/Stamp/Badge.do"/>">Badge</a></li>
 				<li><a href="<c:url value="/Profile/Like.do"/>">ProfileLike</a></li>
 				<li><a href="<c:url value="/Profile/Comment.do"/>">ProfileComment</a></li>

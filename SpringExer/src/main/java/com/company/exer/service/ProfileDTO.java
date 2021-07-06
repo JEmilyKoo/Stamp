@@ -22,5 +22,5 @@ public class ProfileDTO {
 	private String phone;
 	private String lev;
 	private String exp;
-	private String openprf;
+	private int openprf;
 }
