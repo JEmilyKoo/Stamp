@@ -53,8 +53,8 @@ public class ReviewDAO {
 		return sqlMapper.delete("reviewUnLike",map);
 	}
 	
-	public int stampInsert(Map map) {
-		return sqlMapper.delete("stampInsert",map);
+	public int stampCreate(Map map) {
+		return sqlMapper.delete("stampCreate",map);
 	}
 	
 

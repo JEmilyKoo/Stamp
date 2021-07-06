@@ -25,6 +25,11 @@ public class StampDAO {
 	public List<StampDTO> stampList() {
 		return sqlMapper.selectList("stampList");
 	}
+
+
+	public List<StampDTO> stampUp(Map map) {
+		return null;
+	}
 	
 
 	
