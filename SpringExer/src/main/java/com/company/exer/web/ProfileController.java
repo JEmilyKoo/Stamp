@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.company.exer.service.MemberDTO;
 import com.company.exer.service.ProfileDTO;
@@ -43,7 +44,25 @@ public class ProfileController {
 	public String loginFormPPST(HttpSession session) {
 		return "Profile/ProfileMain";
 	}
-
+	@RequestMapping(value = "Main/Id.do", method = RequestMethod.GET)
+	public String ProfileMainId(@RequestParam String id, HttpSession session) throws Exception {
+		//뷰정보 반환]
+		System.out.println(id);
+		//들어왔음koo의 dto를 받아 넘긴다 
+		ProfileDTO dto = new ProfileDTO();
+		dto.setId(id);
+		//dto에 아이디를 넘긴다
+		dto=service.selectProfile(dto);
+		//프로필을 다 가져온다
+		session.setAttribute("otherProfile", dto);
+		//받아온 걸 세션의 남의 프로필칸에 넣는다
+		
+		return "Profile/ProfileMain";
+	}///////////////////ProfileMain()
+	@RequestMapping(value = "Main/Id.do", method = RequestMethod.POST) // 잘못 입력했을 때
+	public String ProfileMainIdPost(HttpSession session) {
+		return "Profile/ProfileMain";
+	}
 	@RequestMapping("Like.do")
 	public String ProfileLike() {
 		//뷰정보 반환]

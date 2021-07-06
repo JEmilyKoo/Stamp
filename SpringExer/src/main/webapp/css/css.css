@@ -1,5 +1,42 @@
 @charset "UTF-8";
-
+@media all and (min-width:768px) {
+	.profileContainer {
+		margin: 90px 10px 10px 10px;
+		min-height: 300px;
+		display: grid;
+		grid-template-columns: 250px 980px;
+		grid-template-areas: "sidebar main" "sidebar main";
+		justify-content: center;
+		gap: 30px;
+	}
+	.profileSideBar {
+		grid-area: sidebar;
+		margin-padding: 300px;
+	}
+	.profileMain {
+		grid-area: main;
+		margin-padding: 300px;
+	}
+}
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width:767px) {
+	.profileContainer {
+		margin: 90px 10px 10px 10px;
+		display: grid;
+		grid-template-rows: 540px 1fr;
+		vertical-align: center;
+		gap: 30px;
+	}
+	.profileSideBar {
+		height: 700px;
+	}
+	.profileMain {
+		height: 450px;
+	}
+	.stampListContainer{
+	grid-template-rows: 1fr 1fr 1fr;
+	}
+}
 /*Join에서 새로 만든 css*/
 
 .joinError{
@@ -241,8 +278,7 @@ grid-area: 4 / 1 / 5 / 2;
   justify-self:start;
   align-self:start;
    width:100px;
-   height:45px;
-
+ height:45px;padding:10px;height:30px;justify-content:center;
    --shd: none;
   --fnt: 500 15px/1.875em 'Noto Sans KR', sans-serif;
   --txt: var(--color_11);
@@ -255,6 +291,12 @@ grid-area: 4 / 1 / 5 / 2;
 
   --label-align: center;
    }
+.profileMainEachName{
+	
+	    margin: 0px 0px 10px 0px;
+	    color: rgb(var(--color_5));
+	    font: var(--font_0);
+}
 
 .boxButton{
 	
