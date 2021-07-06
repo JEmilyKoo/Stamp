@@ -11,7 +11,12 @@
 <head>
 <title>MapSearch</title>
 <style>
-.wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+	.customoverlay {position:relative;bottom:85px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
+	.customoverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+	.customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+	.customoverlay .title {display:block;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:14px;font-weight:bold;}
+	.customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+	.wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
     .wrap * {padding: 0;margin: 0;}
     .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
     .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
@@ -85,30 +90,35 @@ var MarkOverlay = [];
 for (var i = 0; i < positions.length; i ++) {
 	
     var marker = new kakao.maps.Marker({
-        position: positions[i].latlng
+        position: positions[i].latlng,
+        image : markerImage,
     });
     marker.setMap(map);
     
     var overlay = new kakao.maps.CustomOverlay({
         map: map,
         position: positions[i].latlng,
-        content: positions[i].content
+        content: positions[i].content,
+        yAnchor: 1 
     });
    
     overlay.setMap(null);
     ArrOverlay[i] = overlay;
     MarkOverlay[i] = marker;
     
+    
     kakao.maps.event.addListener(marker, 'click', function() {
     	ArrOverlay[MarkOverlay.indexOf(this)].setMap(map);
+    	if(ArrOverlay[MarkOverlay.indexOf(this)].setMap(map))
+    		console.log("1234")
     });
 }
  
     // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
     function closeOverlay(data) {
-    	console.log(data);
-    	console.log(ArrOverlay);
-    	ArrOverlay[data].setMap(null);     
+    	ArrOverlay[data].setMap(null);   
+    	if(ArrOverlay[data].setMap(null))
+    		console.log("5678")
     }
     
 </script>
