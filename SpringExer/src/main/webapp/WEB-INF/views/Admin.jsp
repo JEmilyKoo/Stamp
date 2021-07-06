@@ -96,43 +96,67 @@
               <li class="nav-item">
                 <a class="nav-link active" href="index.html">
                   <i class="material-icons">edit</i>
-                  <span>글 삭제</span>
+                  <span>관리자분석</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="components-blog-posts.html">
                   <i class="material-icons">vertical_split</i>
-                  <span>신고목록</span>
+                  <span>회원정보관리</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="add-new-post.html">
                   <i class="material-icons">note_add</i>
-                  <span>블랙리스트</span>
+                  <span>팔로우관리</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="form-components.html">
                   <i class="material-icons">view_module</i>
-                  <span>이달의 게시물/스탬프 생성 갯수</span>
+                  <span>스탬프관리</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="tables.html">
                   <i class="material-icons">table_chart</i>
-                  <span>총 스탬프 찍은 갯수</span>
+                  <span>해시태그 관리</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="user-profile-lite.html">
                   <i class="material-icons">person</i>
-                  <span>나이,성별?</span>
+                  <span>리뷰 관리</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="errors.html">
                   <i class="material-icons">error</i>
-                  <span>회원목록?</span>
+                  <span>리뷰 댓글 관리</span>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link " href="errors.html">
+                  <i class="material-icons">error</i>
+                  <span>댓글 좋아요 관리</span>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link " href="errors.html">
+                  <i class="material-icons">error</i>
+                  <span>리뷰 좋아요 관리</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="errors.html">
+                  <i class="material-icons">error</i>
+                  <span>대댓글 관리</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="errors.html">
+                  <i class="material-icons">error</i>
+                  <span>신고 관리</span>
                 </a>
               </li>
             </ul>
