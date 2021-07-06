@@ -159,12 +159,9 @@ for (var i = 0; i < positions.length; i ++) {
     
     kakao.maps.event.addListener(marker, 'click', function() {
     	ArrOverlay[MarkOverlay.indexOf(this)].setMap(map);
-<<<<<<< HEAD
     	if(setMap(map)==null)
     		console.log("1234")
-=======
 
->>>>>>> refs/heads/pdm
     });
 }
  
