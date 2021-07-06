@@ -170,7 +170,7 @@ body {
 										<button class="actionButton" role="menuitem">
 										<div style="display: grid; max-width: 500px; grid-template-columns:   1fr 180px ; row-gap: 10px; column-gap: 10px;">			
 										<div style=" text-align:left" >Lv. ${sessionScope.profile.lev} </div>	
-										<div> ${sessionScope.profile.nickName}님</div>
+										<div> ${sessionScope.nickName}님</div>
 										<div style="text-align:left">${sessionScope.profile.exp} exp</div>
 										<div><progress id="bar" value="20" max="100"></progress></div>
 										</div>

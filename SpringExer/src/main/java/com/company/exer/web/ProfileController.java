@@ -52,6 +52,7 @@ public class ProfileController {
 		//그게 아니면
 		
 		session.setAttribute("profile", dto);
+		session.setAttribute("nickName", dto.getNickName());
 		return "Profile/ProfileMain";
 		
 
