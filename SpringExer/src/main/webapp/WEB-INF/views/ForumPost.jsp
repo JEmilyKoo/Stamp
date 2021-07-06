@@ -110,7 +110,8 @@ pageEncoding="UTF-8"%>
   
   
   <!-- 좋아요 구현중 -->
-  <a href="<c:url value="/Review/Like.do?rvno=${rvNo}"/>">
+<c:if test="${check==0 }" var="var">
+  <a href="<c:url value="/Review/Like.do?rvNo=${dto.rvNo}"/>">
   <span class="_37Gv5"><button class="_1j4M5" actiondetails="[object Object]">
   <div class="dr0cE" aria-label="좋아요 0개. Is unliked" data-hook="like-button" style="--heart-color:#e84a43;">
   <div class="_2OWaP"><div class="_1pvT5"></div></div><div class="_2FjpA"><div class="_1pvT5"></div></div>
@@ -119,6 +120,18 @@ pageEncoding="UTF-8"%>
 
   <img src="../images/review/beanH.png">
 </a>
+</c:if>
+<c:if test="${not var}">
+<a href="<c:url value="/Review/Like.do?rvNo=${dto.rvNo}"/>">
+  <span class="_37Gv5"><button class="_1j4M5" actiondetails="[object Object]">
+  <div class="dr0cE" aria-label="좋아요 0개. Is unliked" data-hook="like-button" style="--heart-color:#e84a43;">
+  <div class="_2OWaP"><div class="_1pvT5"></div></div><div class="_2FjpA"><div class="_1pvT5"></div></div>
+  <div class="_3YyRC"><div class="_1pvT5"></div></div><div class="_1z3qL"><div class="_1pvT5"></div></div>
+  <div class="_3T8La"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+
+  <img src="../images/review/fullH.png">
+</a>
+</c:if>
 
   
   </div></button><span class="_3DfnL post-main-actions__like-count _344s1" data-hook="who-liked-popover-btn">0</span></span></div>
