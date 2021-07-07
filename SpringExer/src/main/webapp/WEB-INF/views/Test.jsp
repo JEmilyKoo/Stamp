@@ -1,728 +1,254 @@
-<div id="comp-kpzke0rf3" class="숲많이감클래스" data-testid="리치텍스트엘리먼트">
-								<h1 class="font_0" style="line-height: 1.41em; font-size: 22px">
-									<span class="color_32">👑구정은<span
-										style="font-weight: bold"> LV.10</span><br></span>
-								</h1>
-							</div>
-							
-							<div id="comp-kpzke0rf4" class="숲많이감클래스" data-testid="리치텍스트엘리먼트">
-								<p class="font_8"
-									style="text-align: left; line-height: 1.75em; font-size: 18px">
-									<span> profile세션보여주는칸:
-									
-	${sessionScope.profile}
-									 </span>
-									 </p>
-									 </div>
-	<div class="meshContainer" style="height: 300px">
-		<section id="comp-kpzke0rf" class="확인용6">
-			<div data-testid="columns" class="확인용8">
-				<div id="comp-kpzke0rf1" class="릴레이티브비지블">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home</title>
+		
+		
+<style>
 
-					<div data-mesh-id="comp-kpzke0rf1inlineContent"
-						data-testid="inline-content">
-						<div data-mesh-id="comp-kpzke0rf1inlineContent-gridContainer"
-							data-testid="mesh-container-content">
-							
-							
-							
-									 
-									 <ul class="font_8">
-									<li><a href="<c:url value="/Profile/NewProfile.do"/>">
-		<button style="border:green 1px solid" id="newProfile">프로필을 세션에 암거나 자동으로 채우는 버튼</button>
-	</a></li><li>
-									
-									
-	<a href="<c:url value="/Profile/NewInsertProfile.do"/>">
-		<button  style="border:red 1px solid"  id="newInsertProfile">세션에 있는 프로필을 인서트하는 버튼(여러번 누르면 에러남)</button>
-	</a> </li><li>
+
+.homeBody {
+	overflow: auto;
+}
+/*
+.homeContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: red;
+	text-align: center;
+	margin-bottom: 60px;
+	display: flex;
+}
+
+.homeContainerMenu {
+	display: flex;
+	flex-direction: row;
+}
+
+.homeContainer.child {
 	
-	<a href="<c:url value="/Profile/SelectProfile.do"/>">
-		<button  style="border:blue 1px solid"  id="selectProfile">세션에 있는 프로필을 가지고 선택해 또 새로 세션에 불러오는 버튼(첫번째 버튼 누르고 눌러야함)</button>
-	</a> </li><li>
-	<a href="<c:url value="/Profile/SelectMemberProfile.do"/>">
-		<button style="border:yellow 1px solid"  id="selectMemberProfile">세션에 있는 로그인을 가지고 선택해 세션에 불러오는 버튼</button>
-	</a> </li><li>
-	<a href="<c:url value="/Profile/UpdateProfile.do"/>">
-		<button style="border:black 1px solid"  id="updateProfile">(profileDTO받아와야해서 안돌아감)기존에 있는 프로필을 업데이트하는 버튼</button>
-	</a> </li><li>
-	<a href="<c:url value="/Profile/UpdateNicknameProfile.do"/>">
-		<button style="border:orange 1px solid"  id="updateNicknameProfile">(profileDTO받아와야해서 안돌아감)기존 프로필 중에서 닉네임만 딱 업데이트하는 버튼</button>
-	</a> </li><li>
-	<a href="<c:url value="/Profile/DeleteProfile.do"/>">
-		<button style="border:purple 1px solid"  id="deleteProfile">(profileDTO받아와야해서 안돌아감)기존 프로필 지워버리는 버튼</button>
-	</a></li>
-									
-									</ul>
-								</p>
-							</div>
-							<div id="comp-kpzke0rf5" aria-disabled="false" class="oneButton">
-								<a data-testid="linkElement" href="mailto:jemilykoo@gmail.com"
-									target="_self" class="oneButtonLinkClass"><span
-									class="oneButtonSpanClass">✉️</span></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- 
-		<div id="comp-kpzke0re1" class="릴레이티브비지블">
-			<div data-mesh-id="comp-kpzke0re1inlineContent"
-				data-testid="inline-content">
-				
-					 -->
-		<div data-mesh-id="comp-kpzke0re1inlineContent-gridContainer"
-			data-testid="mesh-container-content" style="">
+}
 
-			<div id="comp-kpzke0rg" aria-disabled="false" class="oneButton">
-				<a data-testid="linkElement"
-					href="https://jemilykoo.wixsite.com/website/profile/%7BuserName%7D/profile"
-					target="_self" class="oneButtonLinkClass"><span
-					class="oneButtonSpanClass">게시글</span></a>
-			</div>
-			<div id="comp-kpzkekds" aria-disabled="false" class="oneButton">
-				<a data-testid="linkElement"
-					data-anchor-comp-id="adi_page1017_1_154"
-					href="https://jemilykoo.wixsite.com/website/%ED%94%84%EB%A1%9C%ED%95%84"
-					target="_self" class="oneButtonLinkClass"><span
-					class="oneButtonSpanClass">뱃지</span></a>
-			</div>
-		</div>
-	</div>
-	<section id="comp-kpqg9ea77" class="확인용6">
-		<div data-testid="columns" class="확인용8">
-			<div id="comp-kpqg9ea9" class="릴레이티브비지블">
-				<div data-mesh-id="comp-kpqg9ea9inlineContent"
-					data-testid="inline-content">
-					<div data-mesh-id="comp-kpqg9ea9inlineContent-gridContainer"
-						data-testid="mesh-container-content">
-						<div id="comp-kpqg9ea91" class="숲많이감클래스" data-testid="리치텍스트엘리먼트">
-							<h2 class="font_6"
-								style="text-align: center; line-height: 1.35em; font-size: 40px">
-								<span class="color_5"><span
-									style="text-transform: uppercase;">뱃지</span></span>
-							</h2>
-						</div>
-						<div id="comp-kpqg9ea92" class="숲많이감클래스" data-testid="리치텍스트엘리먼트">
-							<p class="font_8"
-								style="text-align: center; line-height: 1.75em; font-size: 18px">
-								<span class="color_5">획득한 뱃지를 확인하세요</span>
-							</p>
-						</div>
-						<section id="comp-kpqg9ea93" class="확인용6">
-							<div data-testid="columns" class="확인용8">
-								<div id="comp-kpqg9ea94" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpqg9ea94inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpqg9ea94inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpqg9ea95" class="Ued3M">
-												<div data-testid="linkElement" class="_2edl5">
+.himeContainerItem {
+	align-items: center;
+	margin: 0 auto:      
+	flex: 1 1 0;
+}
 
-													<img
-														src="${pageContext.request.contextPath}/images/profile/badge/badge1.png"
-														alt="숲뱃지"
-														style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
+.customoverlay {
+	position: relative;
+	bottom: 85px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	border-bottom: 2px solid #ddd;
+	float: left;
+}
 
-												</div>
-											</div>
-											<div id="comp-kpqg9ea96" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h3 class="font_0"
-													style="text-align: center; line-height: 1.41em; font-size: 22px">
-													<span class="color_5"><span
-														style="text-transform: uppercase;">숲 뱃지</span></span>
-												</h3>
-											</div>
-											<div id="comp-kpqg9ea97" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="line-height: 1.75em; text-align: center; font-size: 18px">
-													<span class="color_5">​숲 많이 가서 획득함<br></span>
-												</p>
-											</div>
-											<div id="comp-kpqg9ea98" aria-disabled="false"
-												class="oneButton">
-												<a data-testid="linkElement"
-													href="https://jemilykoo.wixsite.com/website/%EC%82%B0-%EB%B1%83%EC%A7%80"
-													target="_self" class="oneButtonLinkClass"><span
-													class="oneButtonSpanClass">상세 보기</span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="comp-kpqg9ea99" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpqg9ea99inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpqg9ea99inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpqg9ea910" class="Ued3M">
-												<div data-testid="linkElement" class="_2edl5">
+.customoverlay:nth-of-type(n) {
+	border: 0;
+	box-shadow: 0px 1px 2px #888;
+}
 
-													<img
-														src="${pageContext.request.contextPath}/images/profile/badge/badge2.png"
-														alt="바다뱃지"
-														style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
-												</div>
-											</div>
-											<div id="comp-kpqg9ea911" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h3 class="font_0"
-													style="text-align: center; line-height: 1.41em; font-size: 22px">
-													<span class="color_5"><span
-														style="text-transform: uppercase;">바다 뱃지</span></span>
-												</h3>
-											</div>
-											<div id="comp-kpqg9ea912" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="text-align: center; line-height: 1.75em; font-size: 18px">
-													<span class="color_5">바다 많이 가서 획득함</span>
-												</p>
-											</div>
-											<div id="comp-kpqg9ea913" aria-disabled="false"
-												class="oneButton">
-												<a data-testid="linkElement"
-													href="https://jemilykoo.wixsite.com/website/%EB%B0%94%EB%8B%A4-%EB%B1%83%EC%A7%80"
-													target="_self" class="oneButtonLinkClass"><span
-													class="oneButtonSpanClass">상세 보기</span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="comp-kpqg9ea914" class="릴레이티브비지블">
-									<div class="확인용7">
-										<div id="bgMedia_comp-kpqg9ea914" class="높이백"></div>
-									</div>
-									<div data-mesh-id="comp-kpqg9ea914inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpqg9ea914inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpqg9eaa" class="Ued3M">
-												<div data-testid="linkElement" class="_2edl5">
-													<img
-														src="${pageContext.request.contextPath}/images/profile/badge/badge2.png"
-														alt="산뱃지"
-														style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
-												</div>
-											</div>
-											<div id="comp-kpqg9eab" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h3 class="font_0"
-													style="text-align: center; line-height: 1.41em; font-size: 22px">
-													<span class="color_5"><span
-														style="text-transform: uppercase;">산 뱃지</span></span>
-												</h3>
-											</div>
-											<div id="comp-kpqg9eab1" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="text-align: center; line-height: 1.75em; font-size: 18px">
-													<span class="color_5">산 많이 가서 획득함</span>
-												</p>
-											</div>
-											<div id="comp-kpqg9eab2" aria-disabled="false"
-												class="oneButton">
-												<a data-testid="linkElement"
-													href="https://jemilykoo.wixsite.com/website/%EC%82%B0-%EB%B1%83%EC%A7%80-1"
-													target="_self" class="oneButtonLinkClass"><span
-													class="oneButtonSpanClass">상세 보기</span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+.customoverlay a {
+	display: block;
+	text-decoration: none;
+	color: #000;
+	text-align: center;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: bold;
+	overflow: hidden;
+	background: #d95050;
+	background: #d95050
+		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
+		no-repeat right 14px center;
+}
 
-	<section id="comp-kpzknxzk" class="확인용6">
-		<div data-testid="columns" class="확인용8">
-			<div id="comp-kpzknxzl" class="릴레이티브비지블">
-				<div data-mesh-id="comp-kpzknxzlinlineContent"
-					data-testid="inline-content">
-					<div data-mesh-id="comp-kpzknxzlinlineContent-gridContainer"
-						data-testid="mesh-container-content">
-						<section id="comp-kpzknxzl1" class="확인용6">
-							<div data-testid="columns" class="확인용8">
-								<div id="comp-kpzknxzl2" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzknxzl2inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzknxzl2inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzknxzl3" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h2 class="font_6"
-													style="text-align: center; line-height: 1.35em; font-size: 40px">
-													<span class="color_32"><span
-														style="text-transform: uppercase;">스탬프 리스트</span></span>
-												</h2>
-											</div>
-											<div id="comp-kpzknxzl4" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="text-align: center; line-height: 1.75em; font-size: 18px">
-													<span>그동안 획득한 스탬프</span>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-						<section id="comp-kpzko8uu" class="확인용6">
-							<div data-testid="columns" class="확인용8">
-								<div id="comp-kpzko8uu1" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzko8uu1inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzko8uu1inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzko8uv1" class="Ued3M">
-												<div data-testid="linkElement" class="_2edl5">
-													<img
-														src="${pageContext.request.contextPath}/images/stamp/stamp5.png"
-														alt="Client 5"
-														style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
-												</div>
-											</div>
-											<div id="comp-kpzko8uu2" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h3 class="font_0"
-													style="line-height: 1.41em; text-align: center; font-size: 22px">
-													<span class="color_5">한국소프트웨어<br>인재개발원<br></span>
-												</h3>
-											</div>
-											<div id="comp-kpzko8uu3" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="text-align: center; line-height: 1.75em; font-size: 18px">
-													<span class="color_5">2021.6.16</span>
-												</p>
-											</div>
-											<div id="comp-kpzko8uv" role="button" tabindex="0"
-												aria-disabled="false" class="oneButton">
-												<div data-testid="linkElement" class="oneButtonLinkClass">
-													<span class="oneButtonSpanClass">게시글 바로가기</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="comp-kpzko8uv2" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzko8uv2inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzko8uv2inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzko8uv6" class="Ued3M">
-												<div data-testid="linkElement" class="_2edl5">
-													<img
-														src="${pageContext.request.contextPath}/images/stamp/stamp6.png"
-														alt="Client 6"
-														style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
-												</div>
-											</div>
-											<div id="comp-kpzko8uv3" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h3 class="font_0"
-													style="text-align: center; line-height: 1.41em; font-size: 22px">
-													<span class="color_5"><span
-														style="text-transform: uppercase;">액시스</span></span>
-												</h3>
-											</div>
-											<div id="comp-kpzko8uv4" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="line-height: 1.75em; text-align: center; font-size: 18px">
-													<span class="color_5"></span><br>
-												</p>
-											</div>
-											<div id="comp-kpzko8uv5" role="button" tabindex="0"
-												aria-disabled="false" class="oneButton">
-												<div data-testid="linkElement" class="oneButtonLinkClass">
-													<span class="oneButtonSpanClass">게시글 바로가기</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="comp-kpzko8uv7" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzko8uv7inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzko8uv7inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzko8uw3" class="Ued3M">
-												<div data-testid="linkElement" class="_2edl5">
-													<img
-														src="${pageContext.request.contextPath}/images/stamp/stamp4.png"
-														alt="Client 4"
-														style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
-												</div>
-											</div>
-											<div id="comp-kpzko8uw" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h3 class="font_0"
-													style="text-align: center; line-height: 1.41em; font-size: 22px">
-													<span class="color_5"><span
-														style="text-transform: uppercase;">볼브</span></span>
-												</h3>
-											</div>
-											<div id="comp-kpzko8uw1" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="line-height: 1.75em; text-align: center; font-size: 18px">
-													<span class="color_5"></span><br>
-												</p>
-											</div>
-											<div id="comp-kpzko8uw2" role="button" tabindex="0"
-												aria-disabled="false" class="oneButton">
-												<div data-testid="linkElement" class="oneButtonLinkClass">
-													<span class="oneButtonSpanClass">게시글 바로가기</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="comp-kpzko8uw4" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzko8uw4inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzko8uw4inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzko8uw8" class="Ued3M">
-												<div data-testid="linkElement" class="_2edl5">
-													<img
-														src="${pageContext.request.contextPath}/images/stamp/stamp1.png"
-														alt="Client 1"
-														style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
-												</div>
-											</div>
-											<div id="comp-kpzko8uw5" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h3 class="font_0"
-													style="text-align: center; line-height: 1.41em; font-size: 22px">
-													<span class="color_5"><span
-														style="text-transform: uppercase;">소빅스</span></span>
-												</h3>
-											</div>
-											<div id="comp-kpzko8uw6" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="line-height: 1.75em; text-align: center; font-size: 18px">
-													<span class="color_5"></span><br>
-												</p>
-											</div>
-											<div id="comp-kpzko8uw7" role="button" tabindex="0"
-												aria-disabled="false" class="oneButton">
-												<div data-testid="linkElement" class="oneButtonLinkClass">
-													<span class="oneButtonSpanClass">게시글 바로가기</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-						<section id="comp-kpzko8uw9" class="확인용6">
-							<div data-testid="columns" class="확인용8">
-								<div id="comp-kpzko8ux" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzko8uxinlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzko8uxinlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzko8ux4" class="Ued3M">
-												<div data-testid="linkElement" class="_2edl5">
-													<img
-														src="${pageContext.request.contextPath}/images/stamp/stamp7.png"
-														alt="Client 7"
-														style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
-												</div>
-											</div>
-											<div id="comp-kpzko8ux1" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h3 class="font_0"
-													style="text-align: center; line-height: 1.41em; font-size: 22px">
-													<span class="color_5"><span
-														style="text-transform: uppercase;">폴라</span></span>
-												</h3>
-											</div>
-											<div id="comp-kpzko8ux2" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="line-height: 1.75em; text-align: center; font-size: 18px">
-													<span class="color_5"></span><br>
-												</p>
-											</div>
-											<div id="comp-kpzko8ux3" role="button" tabindex="0"
-												aria-disabled="false" class="oneButton">
-												<div data-testid="linkElement" class="oneButtonLinkClass">
-													<span class="oneButtonSpanClass">게시글 바로가기</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="comp-kpzko8ux5" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzko8ux5inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzko8ux5inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzko8uy1" class="Ued3M">
-												<div data-testid="linkElement" class="_2edl5">
-													<img
-														src="${pageContext.request.contextPath}/images/stamp/stamp8.png"
-														alt="Client 8"
-														style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
-												</div>
-											</div>
-											<div id="comp-kpzko8ux6" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h3 class="font_0"
-													style="text-align: center; line-height: 1.41em; font-size: 22px">
-													<span class="color_5"><span
-														style="text-transform: uppercase;">이타카</span></span>
-												</h3>
-											</div>
-											<div id="comp-kpzko8ux7" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="line-height: 1.75em; text-align: center; font-size: 18px">
-													<span class="color_5"></span><br>
-												</p>
-											</div>
-											<div id="comp-kpzko8uy" role="button" tabindex="0"
-												aria-disabled="false" class="oneButton">
-												<div data-testid="linkElement" class="oneButtonLinkClass">
-													<span class="oneButtonSpanClass">게시글 바로가기</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="comp-kpzko8uy2" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzko8uy2inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzko8uy2inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzko8uy6" class="Ued3M">
-												<div data-testid="linkElement" class="_2edl5">
-													<img
-														src="${pageContext.request.contextPath}/images/stamp/stamp2.png"
-														alt="Client 2"
-														style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
-												</div>
-											</div>
-											<div id="comp-kpzko8uy3" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h3 class="font_0"
-													style="text-align: center; line-height: 1.41em; font-size: 22px">
-													<span class="color_5"><span
-														style="text-transform: uppercase;">헥사</span></span>
-												</h3>
-											</div>
-											<div id="comp-kpzko8uy4" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="line-height: 1.75em; text-align: center; font-size: 18px">
-													<span class="color_5"></span><br>
-												</p>
-											</div>
-											<div id="comp-kpzko8uy5" role="button" tabindex="0"
-												aria-disabled="false" class="oneButton">
-												<div data-testid="linkElement" class="oneButtonLinkClass">
-													<span class="oneButtonSpanClass">게시글 바로가기</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div id="comp-kpzko8uy7" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzko8uy7inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzko8uy7inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzko8uz2" class="Ued3M">
-												<div data-testid="linkElement" class="_2edl5">
-													<img
-														src="${pageContext.request.contextPath}/images/stamp/stamp3.png"
-														alt="Client 3"
-														style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
-												</div>
-											</div>
-											<div id="comp-kpzko8uy8" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h3 class="font_0"
-													style="text-align: center; line-height: 1.41em; font-size: 22px">
-													<span class="color_5"><span
-														style="text-transform: uppercase;">타고</span></span>
-												</h3>
-											</div>
-											<div id="comp-kpzko8uz" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="line-height: 1.75em; text-align: center; font-size: 18px">
-													<span class="color_5"></span><br>
-												</p>
-											</div>
-											<div id="comp-kpzko8uz1" role="button" tabindex="0"
-												aria-disabled="false" class="oneButton">
-												<div data-testid="linkElement" class="oneButtonLinkClass">
-													<span class="oneButtonSpanClass">게시글 바로가기</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="comp-kpzm931n" class="확인용6">
-		<div data-testid="columns" class="확인용8">
-			<div id="comp-kpzm931o" class="릴레이티브비지블">
-				<div data-mesh-id="comp-kpzm931oinlineContent"
-					data-testid="inline-content">
-					<div data-mesh-id="comp-kpzm931oinlineContent-gridContainer"
-						data-testid="mesh-container-content">
-						<div id="comp-kpzm931o1" class="숲많이감클래스" data-testid="리치텍스트엘리먼트">
-							<h2 class="font_4"
-								style="line-height: 1.25em; text-align: center; font-size: 72px">
-								<span class="color_32">​업적<br></span>
-							</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="comp-kpzm931o2" class="확인용6">
-		<div data-testid="columns" class="확인용8">
-			<div id="comp-kpzm931o3" class="릴레이티브비지블">
-				<div data-mesh-id="comp-kpzm931o3inlineContent"
-					data-testid="inline-content">
-					<div data-mesh-id="comp-kpzm931o3inlineContent-gridContainer"
-						data-testid="mesh-container-content">
-						<section id="comp-kpzm931o4" class="확인용6">
-							<div data-testid="columns" class="확인용8">
-								<div id="comp-kpzm931p" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzm931pinlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzm931pinlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzm931p1" class="_26QaB">
-												<div class="_16FUt"></div>
-											</div>
-											<div id="comp-kpzm931q" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h2 class="font_6"
-													style="text-align: left; line-height: 1.35em; font-size: 40px">
-													<span class="color_32"><span
-														style="text-transform: uppercase;">서울 스탬프 올클</span></span>
-												</h2>
-											</div>
-											<div id="comp-kpzm931q1" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="text-align: left; line-height: 1.75em; font-size: 18px">
-													<span>65% 달성</span>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="comp-kpzm8ync1" class="확인용6">
-		<div data-testid="columns" class="확인용8">
-			<div id="comp-kpzm8ync2" class="릴레이티브비지블">
-				<div data-mesh-id="comp-kpzm8ync2inlineContent"
-					data-testid="inline-content">
-					<div data-mesh-id="comp-kpzm8ync2inlineContent-gridContainer"
-						data-testid="mesh-container-content">
-						<section id="comp-kpzm8ync3" class="확인용6">
-							<div data-testid="columns" class="확인용8">
-								<div id="comp-kpzm8ync4" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzm8ync4inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzm8ync4inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzm8ync5" class="_26QaB">
-												<div class="_16FUt"></div>
+.customoverlay .title {
+	display: block;
+	text-align: center;
+	background: #fff;
+	margin-right: 35px;
+	padding: 10px 15px;
+	font-size: 14px;
+	font-weight: bold;
+}
 
-											</div>
-											<div id="comp-kpzm8ynd" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h2 class="font_6"
-													style="text-align: left; line-height: 1.35em; font-size: 40px">
-													<span class="color_5"><span
-														style="text-transform: uppercase;">산 스탬프 5개 모으기</span></span>
-												</h2>
-											</div>
-											<div id="comp-kpzm8ynd1" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="text-align: left; line-height: 1.75em; font-size: 18px">
-													<span class="color_5">20% 달성</span>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
+.customoverlay:after {
+	content: '';
+	position: absolute;
+	margin-left: -12px;
+	left: 50%;
+	bottom: -12px;
+	width: 22px;
+	height: 12px;
+	background:
+		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
+}
+
+body {
+	background: #eee;
+}
+
+h3 {
+	font-size: 20px;
+	text-align: center;
+	padding: 10px 0;
+	margin-top: 20px;
+}
+
+.photo_container {
+	margin: 0 auto;
+}
+
+.photo_list {
+	display: flex;
+	border: 3px solid #000;
+	align-content: space-around;
+	justify-content: space-around;
+}
+
+.photo_list.column {
+	flex-flow: row wrap;
+}
+
+.photo_box {
+	display: flex;
+	flex-direction: column;
+	width: 250px;
+	height: 180px;
+	background: #fff;
+	margin: 10px
+}
+
+.photo {
+	width: 100%;
+	height: 120px;
+	background-color: gray;
+}
+
+.description {
+	flex: auto;
+}
+
+.gnb, .logo, .search {
+	flex: none;
+}
+
+.gnb {
+	margin-left: auto;
+}
+
+.logo, .gnb {
+	padding: 10px 10px;
+	background-color: rgba(0, 0, 0, .4);
+}
+
+.search {
+	display: flex;
+	padding: 10px 0;
+	margin-left: 10px;
+}
+*/
+</style>
+
+<script>
+	document.documentElement.className = 'js';
+</script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function() {
+		//페이지 최초 로드시 내용 숨기기]
+		$(".siteMap").hide();
+		$(".moreButton").click(function() {
+			console.log($(this).next().css('display'));
+			//클릭한 제목의 내용이 숨겨져 있다면
+			if ($(this).next().css('display') == 'none') {
+				$(".actions").fadeOut(200);//열린 모든 내용 숨기기
+				$(this).next().fadeIn(200);//해당 제목의 내용 보이기
+
+			} else {
+				$(this).next().fadeOut(200);
+			}
+		});
+
+	});
+</script>
+</head>
+
+<body class="homeBody">
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
+	<!-- 메인페이지에만 있는 사이트맵 -->
+	
+		<jsp:include page="/WEB-INF/views/templates/TopMain.jsp" />
+	
+<!-- 
+	<div class="homeContainer">
+		<div class="homeContainerMenu">
+
+			<div class="photo_container" style="width: 1090px">
+				<div class="photo_list column" style="width: 100%">
+					<div class="logo">
+						<p class="font_8 color_5" style="text-align: center;">추천 리뷰</p>
+					</div>
+					<div class="search"></div>
+					<div class="gnb">
+						<p class="font_9 color_5" style="text-align: center;">더보기</p>
 					</div>
 				</div>
 			</div>
+
 		</div>
-	</section>
-	<section id="comp-kpzm8wnk" class="확인용6">
-		<div data-testid="columns" class="확인용8">
-			<div id="comp-kpzm8wnk1" class="릴레이티브비지블">
-				<div data-mesh-id="comp-kpzm8wnk1inlineContent"
-					data-testid="inline-content">
-					<div data-mesh-id="comp-kpzm8wnk1inlineContent-gridContainer"
-						data-testid="mesh-container-content">
-						<section id="comp-kpzm8wnk2" class="확인용6">
-							<div data-testid="columns" class="확인용8">
-								<div id="comp-kpzm8wnk3" class="릴레이티브비지블">
-									<div data-mesh-id="comp-kpzm8wnk3inlineContent"
-										data-testid="inline-content">
-										<div data-mesh-id="comp-kpzm8wnk3inlineContent-gridContainer"
-											data-testid="mesh-container-content">
-											<div id="comp-kpzm8wnk4" class="_26QaB"></div>
-											<div id="comp-kpzm8wnl" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<h2 class="font_6"
-													style="text-align: left; line-height: 1.35em; font-size: 40px">
-													<span class="color_32"><span
-														style="text-transform: uppercase;">산 스탬프 100개 모으기</span></span>
-												</h2>
-											</div>
-											<div id="comp-kpzm8wnl1" class="숲많이감클래스"
-												data-testid="리치텍스트엘리먼트">
-												<p class="font_8"
-													style="text-align: left; line-height: 1.75em; font-size: 18px">
-													<span>50% 달성</span>
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-					</div>
+
+		<div class="homeContainerMenu"
+			style="flex-wrap: wrap; background-color: yellow; justify-content: space-around;">
+			<div class="ui_box">
+				<div class="photo_container" style="max-width: 1190px">
+					<ul class="photo_list column">
+						<li class="photo_box">
+							<div class="photo"></div>
+							<div class="description">Title1</div>
+						</li>
+						<li class="photo_box">
+							<div class="photo"></div>
+							<div class="description">Title2</div>
+						</li>
+						<li class="photo_box">
+							<div class="photo"></div>
+							<div class="description">Title3</div>
+						</li>
+						<li class="photo_box">
+							<div class="photo"></div>
+							<div class="description">Title4</div>
+						</li>
+					</ul>
 				</div>
 			</div>
+
 		</div>
-	</section>
-</div>
+
+
+		<div class="homeContainerItem"
+			style="background-color: yellow; height: 60px">빈칸</div>
+		<div class="homeContainerItem" style="background-color: yellow">카테고리보기
+ -->
+<!-- 카테고리시작 -->
+<!-- 카테고리끝 
+		
+		<div class="homeContainerItem"
+			style="background-color: yellow; height: 60px">빈칸</div>
+	
+-->
+</body>
+</html>

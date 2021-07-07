@@ -15,6 +15,8 @@
 
 ( function( window ) {
 
+'use strict';
+
 // class helper functions from bonzo https://github.com/ded/bonzo
 
 function classReg( className ) {
