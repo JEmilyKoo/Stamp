@@ -1,13 +1,4 @@
-/**
- * main.js
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- * 
- * Copyright 2016, Codrops
- * http://www.codrops.com
- */
+
 ;(function(window) {
 
 	'use strict';
@@ -334,7 +325,7 @@
 			// hide button
 			classie.add(loadMoreCtrl, 'button--hidden');
 			// add some extra items to the grid
-			var dummyContent = '<li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="${pageContext.request.contextPath}/images/main/photos/1.jpg" alt="Some image" /><h3 class="grid__item-title">Natural saturation effects</h3></a></li><li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="${pageContext.request.contextPath}/images/main/photos/2.jpg" alt="Some image" /><h3 class="grid__item-title">Auto-color and light</h3></a></li><li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="${pageContext.request.contextPath}/images/main/photos/3.jpg" alt="Some image" /><h3 class="grid__item-title">That special blur</h3></a></li><li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="${pageContext.request.contextPath}/images/main/photos/4.jpg" alt="Some image" /><h3 class="grid__item-title">Drama where you need it</h3></a></li><li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="${pageContext.request.contextPath}/images/main/photos/5.jpg" alt="Some image" /><h3 class="grid__item-title">Realistic depth</h3></a></li><li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="${pageContext.request.contextPath}/images/main/photos/6.jpg" alt="Some image" /><h3 class="grid__item-title">The common, but special</h3></a></li>';
+			var dummyContent = '<li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="img/photos/1.jpg" alt="Some image" /><h3 class="grid__item-title">Natural saturation effects</h3></a></li><li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="img/photos/2.jpg" alt="Some image" /><h3 class="grid__item-title">Auto-color and light</h3></a></li><li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="img/photos/3.jpg" alt="Some image" /><h3 class="grid__item-title">That special blur</h3></a></li><li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="img/photos/4.jpg" alt="Some image" /><h3 class="grid__item-title">Drama where you need it</h3></a></li><li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="img/photos/5.jpg" alt="Some image" /><h3 class="grid__item-title">Realistic depth</h3></a></li><li class="grid__item grid__item--hidden"><a class="grid__link" href="#"><img class="grid__img" src="img/photos/6.jpg" alt="Some image" /><h3 class="grid__item-title">The common, but special</h3></a></li>';
 			gridEl.innerHTML += dummyContent;
 			[].slice.call(gridEl.querySelectorAll('.grid__item--hidden')).forEach(function(item) {
 				gridItems.push(item);

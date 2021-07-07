@@ -24,7 +24,11 @@ public class IndexController {
 		//뷰정보 반환]
 		return "/Index";
 	}///////////////////Index()
-	
+	@RequestMapping("/TestIndex.do")
+	public String TestIndex() {
+		//뷰정보 반환]
+		return "/test/testIndex";
+	}///////////////////Index()
 	@RequestMapping("/Stamp/Badge.do")
 	public String Badge() {
 		//뷰정보 반환]
