@@ -127,8 +127,8 @@ body {
 			<div class="collapse navbar-collapse" id="collapse-menu">
 				<!-- 네비게이션바에 폼 추가 -->
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<c:url value="/"/>">메인</a></li>
 					<li><a href="<c:url value="/Review/List.do"/>">여행 리뷰/정보</a></li>
+<li><a href="<c:url value="/Index.do"/>">인덱스</a></li>
 
 					<li><a href="<c:url value="/Stamp/MapSearch.do"/>">지도 검색</a></li>
 
@@ -170,7 +170,7 @@ body {
 										<button class="actionButton" role="menuitem">
 										<div style="display: grid; max-width: 500px; grid-template-columns:   1fr 180px ; row-gap: 10px; column-gap: 10px;">			
 										<div style=" text-align:left" >Lv. ${sessionScope.profile.lev} </div>	
-										<div> ${sessionScope.profile.nickName}님</div>
+										<div> ${sessionScope.nickName}님</div>
 										<div style="text-align:left">${sessionScope.profile.exp} exp</div>
 										<div><progress id="bar" value="20" max="100"></progress></div>
 										</div>
