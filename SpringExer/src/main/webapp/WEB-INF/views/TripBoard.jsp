@@ -103,7 +103,7 @@
 				</div>
 				
 				<button type="submit" class="btn btn-primary">검색</button>
-															
+				</form>											
 															</div>
 															</div>
 															
@@ -145,8 +145,9 @@
 													</div>
 												</div>
 											</div>
-
+											
 											<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
+											<a href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
 											<div class="_3SBFF undefined LTwPD sameS "
 												style="max-width: 140px;">
 												<button id=tripBoardCreateButton
@@ -155,14 +156,15 @@
 													aria-expanded="false">
 													<div class="_2RPBu button-primary-text-color"
 														style="box-sizing: inherit; outline: 0; background: transparent; background-color: transparent; background-position-x: 0%; background-position-y: 0%; background-repeat: repeat; background-attachment: scroll; background-image: none; background-size: auto; background-origin: padding-box; background-clip: border-box;">
-														<a
-															href="<c:url value="/Review/Write.do?nickName=${nickname }"/>"><span>게시물
-																작성하기 </span>
+														
+														<!-- 게시물 작성하기인데 이동이 안됨 -->
+														
+														<span>게시물 작성하기 </span>
 													</div>
 												</button>
-												</a>
+												
 											</div>
-
+											</a>
 											<!-- 게시물 작성하기 버튼 종료  -->
 											<!-- 카드뷰 -->
 

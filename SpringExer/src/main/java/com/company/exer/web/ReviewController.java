@@ -66,7 +66,11 @@ public class ReviewController {
 	
 	//글 작성페이지
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
-	public String Write() {
+	public String Write(Model model,@RequestParam Map map,@ModelAttribute("nickName") String nickName) {
+		ReviewDTO dto = reviewService.selectOne(map);
+		model.addAttribute("dto",dto);
+		System.out.println("nickName:"+map.get("nickName"));
+		System.out.println("nickName2:"+nickName);
 		return "review/Write";
 	}
 	
