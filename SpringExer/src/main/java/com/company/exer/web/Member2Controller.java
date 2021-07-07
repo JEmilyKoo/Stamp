@@ -190,12 +190,14 @@ public class Member2Controller {
 			//session.removeAttribute("id");
 			
 			memberService.getMember(memberDTO);
-			
 			}
 
 		//비 가입자
 		else {
 			memberService.memberJoin(memberDTO);
+			session.setAttribute("login", memberDTO);
+			session.setAttribute("id",memberDTO.getId());
+			return "redirect:/Profile/ProfileNewSetting";
 		}
 		
 		
@@ -203,11 +205,14 @@ public class Member2Controller {
 		session.setAttribute("id",memberDTO.getId());
 		/*세션의 프로필에 멤버에서 나온 걸로 프로필 박음*/
 		ProfileDTO profiledto = new ProfileDTO();
+		
 		profiledto=profileservice.selectMemberProfile(memberDTO);
+		//프로필DTO는 프로필 DTO로 받음
+		
 		session.setAttribute("profile", profiledto);
 		
-		if(profiledto.getNickName()==null) {
-			session.setAttribute("profile", profiledto);
+		if(profiledto==null) {
+			
 			session.setAttribute("nickName", memberDTO.getName());
 		}
 		else{
@@ -215,7 +220,7 @@ public class Member2Controller {
 		}
 		
 		
-	
+		session.setAttribute("profile", profiledto);
 		return "redirect:/";
 		
 		
