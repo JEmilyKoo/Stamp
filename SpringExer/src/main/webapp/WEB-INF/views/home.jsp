@@ -8,8 +8,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Polaroid Stack to Grid Intro Animation | Demo: Default |
-	Codrops</title>
+<title>찍GO</title>
 <meta name="description"
 	content="Demo of the tutorial on how to re-create a similar effect of the takeitapp.co website." />
 <meta name="keywords"

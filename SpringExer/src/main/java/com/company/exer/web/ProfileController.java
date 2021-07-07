@@ -178,8 +178,8 @@ public class ProfileController {
 		profileDTO.setGender("여자");
 		profileDTO.setBirth("2021-07-05");
 		profileDTO.setPhone("010-2228-3239");
-		profileDTO.setLev("0");
-		profileDTO.setExp("0");
+		profileDTO.setLev(0);
+		profileDTO.setExp(0);
 		profileDTO.setOpenprf(1);
 		System.out.println(profileDTO);
 		session.setAttribute("profile", profileDTO);
