@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -33,11 +35,29 @@ public class StampController {
 		return "MapSearch";
 	}
 	
-	@RequestMapping("StampUp.do")
-	public @ResponseBody String stampUp(@RequestParam Map map) {
-		System.out.println(map.get("lat"));
-		System.out.println(map.get("lng"));
-		return "MapSearch";
+	@RequestMapping("StampCheck.do")
+	public @ResponseBody int stampCheck(@RequestParam Map map,HttpSession session) {
+			
+		if(session.getAttribute("nickName") != null) {
+			String nickName = session.getAttribute("nickName").toString();
+			map.put("nickName",nickName);
+			stampService.stampCheck(map);
+			int count = stampService.stampCheckCount(map);
+			System.out.println("count"+count);
+			if(count >= 5) {
+				int del = stampService.stampCheckDelete(map);
+				stampService.stampCreate(map);
+			}
+			return 0;
+		}
+		else {
+			return 0;
+		}
+	
+		
 	}
+
+
+	
 	
 }

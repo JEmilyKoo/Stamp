@@ -22,10 +22,26 @@ public class StampServiceImpl implements StampService {
 	}
 
 	@Override
-	public List<StampDTO> stampUp(Map map) {
-		// TODO Auto-generated method stub
-		return null;
+	public int stampCheck(Map map) {
+		return dao.stampCheck(map);
 	}
+
+	@Override
+	public int stampCheckCount(Map map) {
+		return dao.stampCheckCount(map);
+	}
+
+	@Override
+	public int stampCheckDelete(Map map) {
+		return dao.stampCheckDelete(map);
+	}
+
+	@Override
+	public int stampCreate(Map map) {
+		return dao.stampCreate(map);
+	}
+
+	
 
 
 }

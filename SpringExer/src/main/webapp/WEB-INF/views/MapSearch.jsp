@@ -37,11 +37,9 @@
 
 <body>
 <div style="height:90px"></div>
-	<button type="button" class="btn btn-success">Success</button>
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 	
 	<div id="map" style="width:100%;height:500px;"></div>
-	<!-- <div><a id="stamp" class="btn btn-success">스탬프 얻기!</a></div> -->
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
 <script>
 
@@ -52,8 +50,8 @@ var mapContainer = document.getElementById('map'),
         level: 9
         };
         
-        
-var lat, lng;
+
+var lat, lng
 if (navigator.geolocation) {
     // GeoLocation을 이용해서 접속 위치를 얻어옵니다
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -61,31 +59,34 @@ if (navigator.geolocation) {
            setInterval(function(){
            	//현재 위치를 조사하는 함수
            	navigator.geolocation.getCurrentPosition(function(position){
-           		lat = position.coords.latitude, // 위도
+           	       lat = position.coords.latitude, // 위도
                    lng = position.coords.longitude; // 경도
-                   console.log("11111111111위도 : %s , 경도 :%s",lat,lng)
 
-        var locPosition = new kakao.maps.LatLng(lat, lng) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-        
-        // 마커와 인포윈도우를 표시합니다
-        displayMarker(locPosition);
+		        var locPosition = new kakao.maps.LatLng(lat, lng) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+		        
+		        // 마커와 인포윈도우를 표시합니다
+		        displayMarker(locPosition);
+                 
+                 $.ajax({
+            			url:"<c:url value="/Stamp/StampCheck.do"/>",
+            			type:"post",
+            			data:{lat,lng},
+            			dataType:"text",
+            			success:function(data){
+            				if(data != 0){
+            					console.log(data)
+            				}
+            			}
+            		});
+                 
            	});	
            }, 5000);
-            
+           
       });
     
     
     
-	$('#stamp').on('click',function(){
-	    $.ajax({
-			url:"<c:url value="/Stamp/StampUp.do"/>",
-			data:{lat,lng},
-			dataType:"text",
-			success:function(data){
-	            console.log("222222222222위도 : %s , 경도 :%s",lat,lng)
-			}
-		});
-	})
+	  
 	    
 } 
 
@@ -110,7 +111,7 @@ function displayMarker(locPosition) {
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
 var imageSrc = '<c:url value="/images/stamp.png"/>'
-	 imageSize = new kakao.maps.Size(20, 20),
+	 imageSize = new kakao.maps.Size(50, 50),
 	 imageOption = {offset: new kakao.maps.Point(27, 69)};
 
 var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
@@ -125,8 +126,8 @@ var positions = [
 	        '<div class="wrap">' + 
             '    <div class="info">' + 
             '        <div class="title">' + 
-        	'  		<a href="<c:url value="/Review/View.do?rvNo=${item.rvNo }"/>">' +
-	        '    		<span class="title">${item.rvTitle}</span>' +
+        	'  		<a href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">' +
+	        '    		<span style = "text-align : center" class="title">${item.rvTitle}</span>' +
 	        '  		</a>' +
             '            <div class="close" onclick="closeOverlay('+(index++)+')" title="닫기"></div>' + 
             '        </div>' + 

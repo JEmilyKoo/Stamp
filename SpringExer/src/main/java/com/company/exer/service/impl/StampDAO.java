@@ -12,25 +12,35 @@ import com.company.exer.service.StampDTO;
 import com.company.exer.service.StampService;
 
 @Repository("stampDAO")
-public class StampDAO {
+public class StampDAO /*implements StampService*/ {
 
 	@Resource(name="template")
 	private SqlSessionTemplate sqlMapper;
 
-
-//	public int stampUp() {
-//		return sqlMapper.insert("stampUp");
-//	}
 
 	public List<StampDTO> stampList() {
 		return sqlMapper.selectList("stampList");
 	}
 
 
-	public List<StampDTO> stampUp(Map map) {
-		return null;
+	public int stampCheck(Map map) {
+		return sqlMapper.insert("stampCheck",map);
+	}
+
+
+	public int stampCheckCount(Map map) {
+		return sqlMapper.selectOne("stampCheckCount",map);
+	}
+
+	public int stampCheckDelete(Map map) {
+		return sqlMapper.delete("stampCheckDelete",map);
 	}
 	
+	public int stampCreate(Map map) {
+		return sqlMapper.insert("stampCreate",map);
+	}
+
+
 
 	
 }

@@ -63,10 +63,6 @@ public class MemberController {
 	@RequestMapping(value = "Login.do", method = RequestMethod.GET)
 	public String loginForm(HttpSession session) {
 		logger.info("get login");
-
-		session.removeAttribute("login");
-		session.removeAttribute("id");
-		session.removeAttribute("error");
 		return "member/Login";
 	}
 	@RequestMapping(value = "Login.do", method = RequestMethod.POST) // 잘못 입력했을 때
@@ -79,8 +75,6 @@ public class MemberController {
 	// POST 로그인
 	@RequestMapping(value = "LoginCheck.do", method = RequestMethod.POST)
 	public String loginCheck(HttpSession session, MemberDTO memberDTO) throws Exception {
-		
-		
 		
 		System.out.println(memberDTO);
 		String returnURL = "home";
