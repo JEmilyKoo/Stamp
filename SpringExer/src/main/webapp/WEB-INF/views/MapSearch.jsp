@@ -110,7 +110,7 @@ function displayMarker(locPosition) {
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
 var imageSrc = '<c:url value="/images/stamp.png"/>'
-	 imageSize = new kakao.maps.Size(20, 20),
+	 imageSize = new kakao.maps.Size(50, 50),
 	 imageOption = {offset: new kakao.maps.Point(27, 69)};
 
 var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
@@ -125,8 +125,8 @@ var positions = [
 	        '<div class="wrap">' + 
             '    <div class="info">' + 
             '        <div class="title">' + 
-        	'  		<a href="<c:url value="/Review/View.do?rvNo=${item.rvNo }"/>">' +
-	        '    		<span class="title">${item.rvTitle}</span>' +
+        	'  		<a href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">' +
+	        '    		<span style = "text-align : center" class="title">${item.rvTitle}</span>' +
 	        '  		</a>' +
             '            <div class="close" onclick="closeOverlay('+(index++)+')" title="닫기"></div>' + 
             '        </div>' + 
