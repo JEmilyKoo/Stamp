@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -33,11 +34,30 @@ public class StampController {
 		return "MapSearch";
 	}
 	
-	@RequestMapping("StampUp.do")
-	public @ResponseBody String stampUp(@RequestParam Map map) {
-		System.out.println(map.get("lat"));
-		System.out.println(map.get("lng"));
-		return "MapSearch";
+	@RequestMapping("StampCheck.do")
+	public @ResponseBody int stampCheck(@RequestParam Map map,HttpSession session) {
+		String nickName = session.getAttribute("nickName").toString();
+		map.put("nickName", nickName);
+		//로그인이 안되어있으면 스탬프를 얻을 수 없다.
+		if(nickName == null) {
+			return 0;
+		}
+		//n초마다 stampCheck 테이블에 현재 위치 insert
+		else {
+			int data = stampService.stampCheck(map);
+			return data;
+		}
 	}
+	
+	@RequestMapping("StampInsert.do")
+	public @ResponseBody int stampInsert(@RequestParam Map map,HttpSession session) {
+		String nickName = session.getAttribute("nickName").toString();
+		map.put("nickName", nickName);
+		StampDTO dto = stampService.stampInsert();
+		
+		return 0;
+	}
+
+	
 	
 }

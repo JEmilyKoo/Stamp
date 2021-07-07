@@ -27,8 +27,13 @@ public class StampDAO {
 	}
 
 
-	public List<StampDTO> stampUp(Map map) {
-		return null;
+	public int stampCheck(Map map) {
+		return sqlMapper.insert("stampCheck",map);
+	}
+
+
+	public StampDTO stampInsert() {
+		return sqlMapper.selectOne("stampInsert");
 	}
 	
 
