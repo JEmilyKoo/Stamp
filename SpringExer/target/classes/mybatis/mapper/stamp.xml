@@ -9,19 +9,29 @@
 		from stamp s Join review r On s.rvNo=r.rvNo
 	</select>
 	
-	<insert id="stampUpdate" parameterType="Map">
-		insert into stampCheck
-		values(#{nickName},#{lat},#{lng})
-	</insert>
 	
-	<select id="stampInsert" resultType="stampDTO">
+	<insert id="stampCheck" parameterType="Map">
+		insert into stampcheck(nickname,rvno,distance)
 		SELECT *
-		from (select rvno, CALC_DISTANCE(lat,lng, rvlat, rvlng) DISTANCE from review r Join stampcheck s ON r.nickname = s.nickname)
+        from (select #{nickName},rvno, CALC_DISTANCE(#{lat},#{lng}, rvlat, rvlng) DISTANCE from review r join profile p on r.nickname=p.nickname)
 		where DISTANCE <![CDATA[ < ]]> 3 
+	</insert>
+
+	<select id="stampCheckCount" parameterType="Map" resultType="Int">
+		select count(*)
+		from stampcheck
+		where nickName=#{nickName}
 	</select>
 	
-	<delete id="stampUpdateDelete" parameterType="Map">
-		delete stampCheck
-		where nickName = #{nickName}		
+	<delete id="stampCheckDelete" parameterType="Map">
+		delete stampcheck
+		where nickName=#{nickName}
 	</delete>
+	
+	<insert id="stampCreate" parameterType="Map">
+		insert into memberStamp(nickname, rvno)
+		select nickname, rvno
+		from stampcheck
+		where nickName = #{nickName}
+	</insert>
 </mapper>

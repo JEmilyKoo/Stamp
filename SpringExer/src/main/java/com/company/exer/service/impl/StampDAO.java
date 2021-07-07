@@ -18,29 +18,29 @@ public class StampDAO /*implements StampService*/ {
 	private SqlSessionTemplate sqlMapper;
 
 
-//	public int stampUp() {
-//		return sqlMapper.insert("stampUp");
-//	}
-
 	public List<StampDTO> stampList() {
 		return sqlMapper.selectList("stampList");
 	}
 
 
-	public int stampUpdate(Map map) {
-		return sqlMapper.insert("stampUpdate",map);
+	public int stampCheck(Map map) {
+		return sqlMapper.insert("stampCheck",map);
 	}
 
 
-	public StampDTO stampInsert() {
-		return sqlMapper.selectOne("stampInsert");
+	public int stampCheckCount(Map map) {
+		return sqlMapper.selectOne("stampCheckCount",map);
 	}
 
-
-	public int stampUpdateDelete(Map map) {
-		return sqlMapper.delete("stampUpdateDelete",map);
+	public int stampCheckDelete(Map map) {
+		return sqlMapper.delete("stampCheckDelete",map);
 	}
 	
+	public int stampCreate(Map map) {
+		return sqlMapper.insert("stampCreate",map);
+	}
+
+
 
 	
 }

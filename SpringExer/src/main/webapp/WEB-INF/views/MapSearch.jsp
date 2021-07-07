@@ -61,7 +61,6 @@ if (navigator.geolocation) {
            	navigator.geolocation.getCurrentPosition(function(position){
            	       lat = position.coords.latitude, // 위도
                    lng = position.coords.longitude; // 경도
-                   console.log("11111111111위도 : %s , 경도 :%s",lat,lng)
 
 		        var locPosition = new kakao.maps.LatLng(lat, lng) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 		        
@@ -69,30 +68,20 @@ if (navigator.geolocation) {
 		        displayMarker(locPosition);
                  
                  $.ajax({
-            			url:"<c:url value="/Stamp/stampUpdate.do"/>",
+            			url:"<c:url value="/Stamp/StampCheck.do"/>",
+            			type:"post",
             			data:{lat,lng},
             			dataType:"text",
             			success:function(data){
+            				if(data != 0){
+            					console.log(data)
+            				}
             			}
             		});
+                 
            	});	
-           }, 5001);
+           }, 5000);
            
-            setInterval(function(){
-			
-                $.ajax({
-        			url:"<c:url value="/Stamp/StampInsert.do"/>",
-        			data:{lat,lng},
-        			dataType:"text",
-        			success:function(data){
-        				console.log(data)
-        				alert("스탬프 획득했습니다!!!")
-        			}
-        		});
-           
-            }, 25000);
-
-            
       });
     
     
