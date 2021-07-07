@@ -18,7 +18,12 @@ public class IndexController {
 	
 	
 	//컨트롤러 메소드]
-	
+
+	@RequestMapping("/Index.do")
+	public String Index() {
+		//뷰정보 반환]
+		return "/Index";
+	}///////////////////Index()
 	
 	@RequestMapping("/Stamp/Badge.do")
 	public String Badge() {

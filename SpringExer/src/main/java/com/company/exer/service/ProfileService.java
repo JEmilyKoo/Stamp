@@ -16,4 +16,9 @@ public interface ProfileService {
 	
 	public void deleteProfile(ProfileDTO profileDTO) throws Exception;
 
+	
+	public void profileNewSetting(ProfileDTO profileDTO) throws Exception;
+    
+    int	 profileNickNameCheck(ProfileDTO profileDTO) throws Exception;
+
 }

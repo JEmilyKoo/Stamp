@@ -36,9 +36,27 @@ public class ProfileController {
 	
 	
 	@RequestMapping(value = "Main.do", method = RequestMethod.GET)
-	public String ProfileMain() {
+	public String ProfileMain(HttpSession session) throws Exception {
 		//뷰정보 반환]
+		//먼저 dto에서 로그인을 땡겨옴
+		ProfileDTO dto = new ProfileDTO();
+
+		dto=(ProfileDTO) session.getAttribute("profile");
+		System.out.println("dto:"+dto);
+		//프로필 dto 생성
+		if(dto==null){
+			//해당하는 멤버의 닉네임이 빈통이라면
+			return "Profile/ProfileNewSetting";
+			//가서 세팅하라고 한다
+		}
+		//그게 아니면
+		
+		session.setAttribute("profile", dto);
+		session.setAttribute("nickName", dto.getNickName());
 		return "Profile/ProfileMain";
+		
+
+	
 	}///////////////////ProfileMain()
 	@RequestMapping(value = "Main.do", method = RequestMethod.POST) // 잘못 입력했을 때
 	public String loginFormPPST(HttpSession session) {
@@ -63,6 +81,53 @@ public class ProfileController {
 	public String ProfileMainIdPost(HttpSession session) {
 		return "Profile/ProfileMain";
 	}
+
+	@RequestMapping(value = "NewSetting.do", method = RequestMethod.GET)
+	public String ProfileNewSetting()  throws Exception {
+		//뷰정보 반환]
+		return "Profile/ProfileNewSetting";
+	}///////////////////ProfileNewSetting()
+		
+	
+	@RequestMapping(value = "NewSetting.do", method = RequestMethod.POST)
+	public String ProfileNewSettingPOST(HttpSession session, ProfileDTO profileDTO) throws Exception  {
+		//뷰정보 반환]
+		
+		System.out.println(profileDTO);
+		// 여기로 id pwd name을 받아옴
+		//하기 전에 체크를 해야지
+		//멤버 체크하는 함수가 잘 돌아가면
+		
+		//id값도 로그인 된 걸로 넣어줌
+		
+		profileDTO.setId(session.getAttribute("id").toString());
+		//profileDTO.setOpenprf(Integer.parseInt(profileDTO.getOpenprf()));
+		System.out.println(profileDTO);
+		int flag = service.profileNickNameCheck(profileDTO);
+		//닉네임 체크하는 함수
+		if(flag==0) {
+		service.profileNewSetting(profileDTO);
+		System.out.println("중복된 별명이 아닙니다");
+
+		session.setAttribute("profile", profileDTO);
+
+		session.setAttribute("nickName", profileDTO.getNickName());
+		}
+		else {	session.setAttribute("error", "이미 존재하는 별명입니다");
+			
+			return "Profile/NewSetting";
+		}
+		
+		session.removeAttribute("error");
+		
+		
+		return "Profile/ProfileMain";
+	}///////////////////ProfileNewSettingPOST()
+		
+		
+	
+	
+		
 	@RequestMapping("Like.do")
 	public String ProfileLike() {
 		//뷰정보 반환]
@@ -115,7 +180,7 @@ public class ProfileController {
 		profileDTO.setPhone("010-2228-3239");
 		profileDTO.setLev("0");
 		profileDTO.setExp("0");
-		profileDTO.setOpenprf("1");
+		profileDTO.setOpenprf(1);
 		System.out.println(profileDTO);
 		session.setAttribute("profile", profileDTO);
 		return "Profile/ProfileMain";

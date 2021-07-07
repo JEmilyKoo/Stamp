@@ -37,13 +37,13 @@
 	
 	<select id="reviewLikeCheck" parameterType="Map" resultType="Int">
 		select count(*)
-		from rvLike rl JOIN review rv ON rl.rvno=rv.rvno
-		where rl.rvNo=#{rvNo} and rv.nickname=#{nickName}
+		from rvLike rl JOIN review rv ON rl.rvNo=rv.rvNo
+		where rl.rvNo=#{rvNo} and rl.nickName=#{nickName}
 	</select>
 	
 	<insert id="reviewLike" parameterType="Map">
 		insert into rvLike
-		values (#{nickname},#{rvNo},sysdate)
+		values (#{nickName},#{rvNo},sysdate)
 	</insert>
 	
 	<update id="reviewLikeCount" parameterType="Map">
@@ -54,7 +54,7 @@
 	
 	<delete id="reviewUnLike" parameterType="Map">
 		delete rvLike
-		where rvNo=#{rvNo} and id=#{id}
+		where rvNo=#{rvNo} and nickName=#{nickName}
 	</delete>
 	
 	<insert id="stampCreate" parameterType="Map">

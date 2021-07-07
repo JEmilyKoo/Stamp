@@ -42,4 +42,12 @@ public class ProfileDAO {
 	public void deleteProfile(ProfileDTO profileDTO) throws Exception {
 		sqlMapper.delete("sqlDeleteProfile",profileDTO);
 	}
+	
+	
+	public void profileNewSetting(ProfileDTO profileDTO) throws Exception  {
+    	sqlMapper.insert("sqlProfileNewSetting",profileDTO);
+	}
+    public int profileNickNameCheck(ProfileDTO profileDTO)  throws Exception {
+    	return sqlMapper.selectOne("sqlProfileNickNameCheck",profileDTO);
+	}
 }

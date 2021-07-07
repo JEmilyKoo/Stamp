@@ -5,8 +5,30 @@
 
 <mapper namespace="mybatis.mapper.profile">
 	<!-- 삽입 이때 별명을 선택하라고 하는데 별명은 겹칠 수 없다 -->
+	<insert id="sqlProfileNewSetting" parameterType="profileDTO">
+		INSERT INTO PROFILE (NICKNAME, ID, MAIL, 
+		TRVPRPNS, PR,  GENDER, BIRTH, PHONE, OPENPRF)
+ 		VALUES 
+		 (#{nickName}, #{id}, #{mail}, #{trvprpns},
+		  #{pr},  #{gender}, #{birth},
+		  #{phone},  #{openprf})
+		
+	<!-- 새롭게 프로필을 기입하는 것 -->
+	</insert>
+
+	<!-- 아이디 중복 여부 -->
+	<select id="sqlProfileNickNameCheck" parameterType="profileDTO" resultType="Int">
+		SELECT count(*) FROM PROFILE
+		WHERE NICKNAME = #{nickName}
+		<!-- 이거 리턴하고 나서 만약에 겹치면 다시 하라고 뜨는 그런 것 -->
+	</select>
+    
+    
+    
+	
+	
 	<insert id="sqlNewProfile" parameterType="profileDTO">
-		INSERT INTO PROFILE" (NICKNAME, ID, MAIL, 
+		INSERT INTO PROFILE (NICKNAME, ID, MAIL, 
 TRVPRPNS, PR,  GENDER, BIRTH, PHONE, LEV, EXP, OPENPRF)
  VALUES 
 		 (#{nickName}, #{id}, #{mail}, #{trvprpns},
