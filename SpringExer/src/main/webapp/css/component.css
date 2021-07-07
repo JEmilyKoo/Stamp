@@ -150,8 +150,7 @@
 	fill: #fff;
 }
 
-@
--webkit-keyframes pointDown {from { -webkit-transform:translate3d(0,
+@-webkit-keyframes pointDown {from { -webkit-transform:translate3d(0,
 	-10px, 0);
 	transform: translate3d(0, -10px, 0);
 }
@@ -162,8 +161,7 @@ to {
 }
 
 }
-@
-keyframes pointDown {from { -webkit-transform:translate3d(0, -10px, 0);
+@keyframes pointDown {from { -webkit-transform:translate3d(0, -10px, 0);
 	transform: translate3d(0, -10px, 0);
 }
 
@@ -241,8 +239,7 @@ to {
 	animation-delay: 0.2s;
 }
 
-@
--webkit-keyframes fadeInOut {from { opacity:0;
+@-webkit-keyframes fadeInOut {from { opacity:0;
 	
 }
 
@@ -251,8 +248,7 @@ to {
 }
 
 }
-@
-keyframes fadeInOut {from { opacity:0;
+@keyframes fadeInOut {from { opacity:0;
 	
 }
 
