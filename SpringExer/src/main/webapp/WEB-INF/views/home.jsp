@@ -3,7 +3,6 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8" />
@@ -34,9 +33,6 @@
 	href="${pageContext.request.contextPath}/css/css.css" />
 
 
-<!--[if IE]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 <script>
 	document.documentElement.className = 'js';
 </script>
@@ -63,7 +59,7 @@
 			<div class="page__title">
 				<h2 class=" font_5 page__title-main color_5">추천 리뷰</h2>
 				<p class="page__title-sub font_7">
-					<a href="<c:url value="/Review/TripBoard.do"/>">인기 리뷰</a>를 확인하세요
+					카테고리별 <a href="<c:url value="/Review/TripBoard.do"/>">인기 리뷰</a>를 확인하세요
 				</p>
 			</div>
 			<ul class="grid">
