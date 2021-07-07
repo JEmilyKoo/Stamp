@@ -10,9 +10,6 @@
 	id="wixDesktopViewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!--내가 추가한 코드-->
-<!-- base href="https://jemilykoo.wixsite.com/website/" -->
-<meta name="generator" content="Wix\.com Website Builder">
-<!--내가 추가한 코드-->
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/css.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,11 +18,6 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
 <title>여행 게시판 | 찍GO</title>
-<meta name="description"
-	content="여행 관련 주제의 글에 참여해보세요. 새 게시물을 추가하거나 기존 게시물을 편집하여 활동을 시작할 수 있습니다.">
-<link rel="canonical"
-	href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan">
-
 
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/modalcss.css">
@@ -94,23 +86,29 @@
 													<div class="_3iW6- search-input">
 														<div class="_2RwOg" role="search" aria-label="&nbsp;"
 															tabindex="0">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24"
-																height="24" viewBox="0 0 24 24"
-																class="_2_hbq desktop-header-search-icon-fill button-hover-fill"
-																data-hook="search-icon">
-																												<path fill-rule="evenodd"
-																	d="M19.854 19.146c.195.196.195.512 0 .708-.196.195-.512.195-.708 0l-3.708-3.709C14.118 17.3 12.391 18 10.5 18 6.358 18 3 14.642 3 10.5 3 6.358 6.358 3 10.5 3c4.142 0 7.5 3.358 7.5 7.5 0 1.891-.7 3.619-1.855 4.938l3.709 3.708zM17 10.5C17 6.91 14.09 4 10.5 4S4 6.91 4 10.5 6.91 17 10.5 17s6.5-2.91 6.5-6.5z"></path>
-																											</svg>
-															<form autocomplete="off">
-																<input type="text" data-hook="search-input"
-																	class="_1quPh desktop-header-search-text-color desktop-header-search-font search-input__input"
-																	autocomplete="off" placeholder="&nbsp;">
-															</form>
-															<div
-																class="_2nmH8 desktop-header-search-text-color desktop-header-search-font GPrPx">&nbsp;</div>
+					
+							<div>					
+<!-- 아래 검색 -->			
+			<form class="form-inline" method="post"
+				action="<c:url value='/Review/TripBoard.do'/>">
+																<div class="form-group">
+					<select name="searchColumn" class="form-right">
+						<option value="title">제목</option>
+						<option value="name">작성자</option>
+						<option value="content">내용</option>
+					</select>
+				</div>
+															<div class="form-group">
+					<input type="text" name="searchWord" class="form-right" />
+				</div>
+				
+				<button type="submit" class="btn btn-primary">검색</button>
+				</form>											
+															</div>
+															</div>
+															
 															<div
 																class="q4nje desktop-header-search-border-background-color"></div>
-															<span></span>
 														</div>
 													</div>
 												</div>
@@ -133,10 +131,12 @@
 															<div
 																class="_2POlQ page-description-title-font page-description__title"
 																data-hook="page-description__title">
+																<!-- 타이틀 -->
 																<h1 tabindex="-1" class="_1_JwX">여행 게시판</h1>
 															</div>
 															<div class="dTyOb page-description-font"
 																data-hook="page-description__description">
+																<!-- 설명글 -->
 																<p class="EV-c5" style="-webkit-line-clamp: 10;">여행
 																	관련 주제의 글에 참여해보세요. 새 게시물을 추가하거나 기존 게시물을 편집하여 활동을 시작할 수
 																	있습니다.</p>
@@ -145,8 +145,9 @@
 													</div>
 												</div>
 											</div>
-
+											
 											<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
+											<a href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
 											<div class="_3SBFF undefined LTwPD sameS "
 												style="max-width: 140px;">
 												<button id=tripBoardCreateButton
@@ -155,14 +156,15 @@
 													aria-expanded="false">
 													<div class="_2RPBu button-primary-text-color"
 														style="box-sizing: inherit; outline: 0; background: transparent; background-color: transparent; background-position-x: 0%; background-position-y: 0%; background-repeat: repeat; background-attachment: scroll; background-image: none; background-size: auto; background-origin: padding-box; background-clip: border-box;">
-														<a
-															href="<c:url value="/Review/Write.do?nickName=${nickname }"/>"><span>게시물
-																작성하기 </span>
+														
+														<!-- 게시물 작성하기인데 이동이 안됨 -->
+														
+														<span>게시물 작성하기 </span>
 													</div>
 												</button>
-												</a>
+												
 											</div>
-
+											</a>
 											<!-- 게시물 작성하기 버튼 종료  -->
 											<!-- 카드뷰 -->
 
@@ -255,7 +257,8 @@
 																			<div
 																				style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
 																				<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
-																				<div class="fl4fR">#와인농장 #포도농장</div>
+																				<!-- 뿌려주는 반복문 필요할거 같다 -->
+																				<div class="fl4fR"><a href="<c:url value=""/>">#사용자가 설정한 태그 #검색결과뜨게</a></div>
 																			</div>
 																		</div>
 																	</div>
@@ -271,19 +274,19 @@
 																			<div class="_60xHi">
 																				<div class="MEOqZ post-stats">
 																					<!-- 조회 -->
-																					<span tabindex="0">조회 122</span>
+																					<span tabindex="0">조회 0</span>
 																					<!-- 댓글 -->
-																					<span class="_24h-e">댓글 131</span>
+																					<span class="_24h-e">댓글 0</span>
 																				</div>
 																			</div>
 
 																			<div class="vP6YT">
 																				<button class="_3Bdxz post-footer__like-button">
-																					<span class="_3BTGY"> <span class="_8J1xw">134</span>
+																					<span class="_3BTGY"> <span class="_8J1xw">0</span>
 																						<!-- 하트 아이콘 시작 -->
 																						<div class="like-button _7QZoA _1eKPZ"
 																							aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
-																							<a href="<c:url value="/"/>"><img src="../images/review/beanH.png" /></a>
+																							<a href="<c:url value="/Review/Like.do?rvno=${item.rvNo}"/>"><img src="../images/review/beanH.png" /></a>
 
 																							<svg xmlns="http://www.w3.org/2000/svg"
 																								width="19" viewBox="0 0 19 19" role="img">

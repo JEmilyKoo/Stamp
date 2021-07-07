@@ -17,18 +17,18 @@ public class DmServiceImpl {
 	}
 	
 //	2. DM 전체 메세지함 쿼리문
-	public List<TestDMDTO> DMList(Map map) {
+	public List<DmDTO> DMList(Map map) {
 		return dao.DMList(map);
 	}
 	
 //	3. 최신 발신내역 가져오는 쿼리문
-	public TestDMDTO getDMSendList(Map map) {
+	public DmDTO getDMSendList(Map map) {
 		
 		return dao.getDMSendList(map);
 	}
 	
 //	4. DM 1:1대화목록 쿼리문
-	public List<TestDMDTO> DMChatList(Map map) {
+	public List<DmDTO> DMChatList(Map map) {
 
 		return dao.DMChatList(map);
 	}
@@ -39,7 +39,7 @@ public class DmServiceImpl {
 	}
 	
 //	6. 4+5 쿼리문(읽음 처리 후, 1:1대화 리스트 뽑기)
-	public List<TestDMDTO> checkDMChatList(Map map) {
+	public List<DmDTO> checkDMChatList(Map map) {
 		dao.checkDM(map);
 		return dao.DMChatList(map);
 	}

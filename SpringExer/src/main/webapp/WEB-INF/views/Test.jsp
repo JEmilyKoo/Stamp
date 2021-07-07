@@ -1,106 +1,253 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-		$(function() {
-			//페이지 최초 로드시 내용 숨기기]
-			$(".actions").hide();
-			$(".moreButton").click(function(){
-		    	console.log($(this).next().css('display'));
-		    	//클릭한 제목의 내용이 숨겨져 있다면
-		    	if($(this).next().css('display')=='none'){
-		    		$(".actions").fadeOut(200);//열린 모든 내용 숨기기
-		    		$(this).next().fadeIn(200);//해당 제목의 내용 보이기
-		    		
-		    	}
-		    	else{
-		    		$(this).next().fadeOut(200);
-		    	}
-		    });
-			
-			$(".Button2").click(function(){
-		    	if($(this).next().css('display')=='none'){
-		    		$(this).next().fadeIn(200);//해당 제목의 내용 보이기
-		    		
-		    	}
-		    	else{
-		    		$(this).next().fadeOut(200);
-		    	}
-		    });
-			
-		});
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home</title>
 		
+		
+<style>
+
+
+.homeBody {
+	overflow: auto;
+}
+/*
+.homeContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: red;
+	text-align: center;
+	margin-bottom: 60px;
+	display: flex;
+}
+
+.homeContainerMenu {
+	display: flex;
+	flex-direction: row;
+}
+
+.homeContainer.child {
+	
+}
+
+.himeContainerItem {
+	align-items: center;
+	margin: 0 auto:      
+	flex: 1 1 0;
+}
+
+.customoverlay {
+	position: relative;
+	bottom: 85px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	border-bottom: 2px solid #ddd;
+	float: left;
+}
+
+.customoverlay:nth-of-type(n) {
+	border: 0;
+	box-shadow: 0px 1px 2px #888;
+}
+
+.customoverlay a {
+	display: block;
+	text-decoration: none;
+	color: #000;
+	text-align: center;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: bold;
+	overflow: hidden;
+	background: #d95050;
+	background: #d95050
+		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
+		no-repeat right 14px center;
+}
+
+.customoverlay .title {
+	display: block;
+	text-align: center;
+	background: #fff;
+	margin-right: 35px;
+	padding: 10px 15px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.customoverlay:after {
+	content: '';
+	position: absolute;
+	margin-left: -12px;
+	left: 50%;
+	bottom: -12px;
+	width: 22px;
+	height: 12px;
+	background:
+		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
+}
+
+body {
+	background: #eee;
+}
+
+h3 {
+	font-size: 20px;
+	text-align: center;
+	padding: 10px 0;
+	margin-top: 20px;
+}
+
+.photo_container {
+	margin: 0 auto;
+}
+
+.photo_list {
+	display: flex;
+	border: 3px solid #000;
+	align-content: space-around;
+	justify-content: space-around;
+}
+
+.photo_list.column {
+	flex-flow: row wrap;
+}
+
+.photo_box {
+	display: flex;
+	flex-direction: column;
+	width: 250px;
+	height: 180px;
+	background: #fff;
+	margin: 10px
+}
+
+.photo {
+	width: 100%;
+	height: 120px;
+	background-color: gray;
+}
+
+.description {
+	flex: auto;
+}
+
+.gnb, .logo, .search {
+	flex: none;
+}
+
+.gnb {
+	margin-left: auto;
+}
+
+.logo, .gnb {
+	padding: 10px 10px;
+	background-color: rgba(0, 0, 0, .4);
+}
+
+.search {
+	display: flex;
+	padding: 10px 0;
+	margin-left: 10px;
+}
+*/
+</style>
+
+<script>
+	document.documentElement.className = 'js';
+</script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function() {
+		//페이지 최초 로드시 내용 숨기기]
+		$(".siteMap").hide();
+		$(".moreButton").click(function() {
+			console.log($(this).next().css('display'));
+			//클릭한 제목의 내용이 숨겨져 있다면
+			if ($(this).next().css('display') == 'none') {
+				$(".actions").fadeOut(200);//열린 모든 내용 숨기기
+				$(this).next().fadeIn(200);//해당 제목의 내용 보이기
+
+			} else {
+				$(this).next().fadeOut(200);
+			}
+		});
+
+	});
 </script>
 </head>
-<body>
-session.invalidate();
-			session.removeAttribute("login");
-			session.removeAttribute("id");
-<div>
-	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/></div>
-	<div style="height:500px">d</div>
-	<button class="Button2">
-		<svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24">
-			<path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z"></path>
-							<!--아이콘그림-->
-		</svg>
-	버튼</button>
-	<div class="actions" style="z-index:10; position: absolute; top: 80px; left:400px; background-color:red">달깍달깍
+
+<body class="homeBody">
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
+	<!-- 메인페이지에만 있는 사이트맵 -->
 	
-	</div>
 	
-			<div style="position: absolute; top: 200px; left:500px">
-				<!-- 잘 보이기 위한 위치-->이 버튼을 실행하면 아래 목록이 뜨게 설정하세요
-				<!--설명-->
-				<div class="moreButtonDiv">
-					<button class="moreButton">
-						<svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24">
-							<path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z"></path>
-							<!--아이콘그림-->
-						</svg>
-					</button>
-					<div class="actions" role="menu">
-						<div>
-							<button class="actionButton" role="menuitem">
-								<div class="postActions">
-									<div class="icon">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" strokeClass="_23zYH" fillClass="_3RleN">
-											<path d="M12.5 3c.828 0 1.5.672 1.5 1.5v.708l.193.058C16.403 5.98 18 8.053 18 10.5v2.882c0 .682.514 1.085.724 1.17.907.46 1.276 1.327 1.276 2.066V17c0 .552-.448 1-1 1h-4.05c-.232 1.141-1.24 2-2.45 2-1.21 0-2.218-.859-2.45-2H6c-.552 0-1-.448-1-1v-.382c0-.816.43-1.567 1.124-1.982.584-.281.876-.7.876-1.254V10.5c0-2.518 1.692-4.64 4-5.293V4.5c0-.828.672-1.5 1.5-1.5z" transform="translate(-24 -12) translate(24 12)"></path>
-										</svg>
-										<!--아이콘그림-->
-									</div>
-									<div class="ActionButtonText"></div>
-								</div>
-							</button>
-							<button class="actionButton" role="menuitem">
-								<div class="postActions">
-									<div class="icon">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-											<path fill-rule="evenodd" d="M13.777 6.084l6 4c.23.153.292.464.139.693-.037.055-.084.102-.139.139l-6 4c-.23.153-.54.091-.693-.139-.055-.082-.084-.178-.084-.277V13h-1c-3.866 0-7 3.134-7 7H4v-2.5c0-5.079 3.986-9.227 9-9.487V6.5c0-.276.224-.5.5-.5.099 0 .195.03.277.084zM14 7.434V9h-.5c-4.13 0-7.57 2.944-8.34 6.848C6.564 13.541 9.102 12 12 12h2v1.566l4.599-3.066L14 7.434z"> </path>
-											<!--아이콘그림-->
-										</svg>
-									</div>
-									<div class="ActionButtonText">공유</div>
-								</div>
-							</button>
-							<button class="actionButton" role="menuitem">
-								<div class="postActions" data-hook="post-actions__report">
-									<div class="icon">
-										<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" style="fill-rule: evenodd;">
-											<path d="M680,549a9,9,0,1,1,9-9A9,9,0,0,1,680,549Zm1-12a1,1,0,0,0-2,0v4a1,1,0,0,0,2,0v-4Zm-1,6a1,1,0,1,0,1,1A1,1,0,0,0,680,543Z" transform="translate(-671 -531)"> </path>
-											<!--아이콘그림-->
-										</svg>
-									</div>
-									<div class="ActionButtonText">게시물 신고</div>
-								</div>
-							</button>
-						</div>
+<!-- 
+	<div class="homeContainer">
+		<div class="homeContainerMenu">
+
+			<div class="photo_container" style="width: 1090px">
+				<div class="photo_list column" style="width: 100%">
+					<div class="logo">
+						<p class="font_8 color_5" style="text-align: center;">추천 리뷰</p>
+					</div>
+					<div class="search"></div>
+					<div class="gnb">
+						<p class="font_9 color_5" style="text-align: center;">더보기</p>
 					</div>
 				</div>
 			</div>
+
+		</div>
+
+		<div class="homeContainerMenu"
+			style="flex-wrap: wrap; background-color: yellow; justify-content: space-around;">
+			<div class="ui_box">
+				<div class="photo_container" style="max-width: 1190px">
+					<ul class="photo_list column">
+						<li class="photo_box">
+							<div class="photo"></div>
+							<div class="description">Title1</div>
+						</li>
+						<li class="photo_box">
+							<div class="photo"></div>
+							<div class="description">Title2</div>
+						</li>
+						<li class="photo_box">
+							<div class="photo"></div>
+							<div class="description">Title3</div>
+						</li>
+						<li class="photo_box">
+							<div class="photo"></div>
+							<div class="description">Title4</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="homeContainerItem"
+			style="background-color: yellow; height: 60px">빈칸</div>
+		<div class="homeContainerItem" style="background-color: yellow">카테고리보기
+ -->
+<!-- 카테고리시작 -->
+<!-- 카테고리끝 
+		
+		<div class="homeContainerItem"
+			style="background-color: yellow; height: 60px">빈칸</div>
+	
+-->
 </body>
 </html>

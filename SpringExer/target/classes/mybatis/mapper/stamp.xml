@@ -5,7 +5,23 @@
 
 <mapper namespace="mybatis.mapper.stamp">
 	<select id="stampList" resultType="stampDTO">
-		select s.*, b.rvTitle,b.rvlat,b.rvlng
-		from stamp s Join review b On s.rvNo=b.rvNo
+		select s.*, r.rvTitle,r.rvlat,r.rvlng
+		from stamp s Join review r On s.rvNo=r.rvNo
 	</select>
+	
+	<insert id="stampUpdate" parameterType="Map">
+		insert into stampCheck
+		values(#{nickName},#{lat},#{lng})
+	</insert>
+	
+	<select id="stampInsert" resultType="stampDTO">
+		SELECT *
+		from (select rvno, CALC_DISTANCE(lat,lng, rvlat, rvlng) DISTANCE from review r Join stampcheck s ON r.nickname = s.nickname)
+		where DISTANCE <![CDATA[ < ]]> 3 
+	</select>
+	
+	<delete id="stampUpdateDelete" parameterType="Map">
+		delete stampCheck
+		where nickName = #{nickName}		
+	</delete>
 </mapper>

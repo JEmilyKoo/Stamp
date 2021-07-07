@@ -1,5 +1,7 @@
 package com.company.exer;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,8 +18,17 @@ public class IndexController {
 	
 	
 	//컨트롤러 메소드]
-	
-	
+
+	@RequestMapping("/Index.do")
+	public String Index() {
+		//뷰정보 반환]
+		return "/Index";
+	}///////////////////Index()
+	@RequestMapping("/TestIndex.do")
+	public String TestIndex() {
+		//뷰정보 반환]
+		return "/test/testIndex";
+	}///////////////////Index()
 	@RequestMapping("/Stamp/Badge.do")
 	public String Badge() {
 		//뷰정보 반환]
@@ -89,8 +100,12 @@ public class IndexController {
 	}///////////////////TripBoardReport()
 	
 	@RequestMapping("/Stamp/Test.do")
-	public String Test() {
+	public String Test(HttpSession session) {
 		//뷰정보 반환]
+
+		session.removeAttribute("login");
+		session.removeAttribute("id");
+		session.removeAttribute("error");
 		return "/Test";
 	}///////////////////Test()
 	

@@ -11,7 +11,12 @@
 <head>
 <title>MapSearch</title>
 <style>
-.wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+	.customoverlay {position:relative;bottom:85px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
+	.customoverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+	.customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+	.customoverlay .title {display:block;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:14px;font-weight:bold;}
+	.customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+	.wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
     .wrap * {padding: 0;margin: 0;}
     .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
     .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
@@ -31,11 +36,10 @@
 </head>
 
 <body>
+<div style="height:90px"></div>
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 	
-	<!-- 메인페이지에만 있는 사이트맵 -->
-	<jsp:include page="/WEB-INF/views/templates/TopMain.jsp"/>
-	<div id="map" style="width:100%;height:700px;"></div>
+	<div id="map" style="width:100%;height:500px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
 <script>
 
@@ -46,9 +50,78 @@ var mapContainer = document.getElementById('map'),
         level: 9
         };
         
+
+var lat, lng
+if (navigator.geolocation) {
+    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+    navigator.geolocation.getCurrentPosition(function(position) {
+        
+           setInterval(function(){
+           	//현재 위치를 조사하는 함수
+           	navigator.geolocation.getCurrentPosition(function(position){
+           	       lat = position.coords.latitude, // 위도
+                   lng = position.coords.longitude; // 경도
+                   console.log("11111111111위도 : %s , 경도 :%s",lat,lng)
+
+		        var locPosition = new kakao.maps.LatLng(lat, lng) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+		        
+		        // 마커와 인포윈도우를 표시합니다
+		        displayMarker(locPosition);
+                 
+                 $.ajax({
+            			url:"<c:url value="/Stamp/stampUpdate.do"/>",
+            			data:{lat,lng},
+            			dataType:"text",
+            			success:function(data){
+            			}
+            		});
+           	});	
+           }, 5001);
+           
+            setInterval(function(){
+			
+                $.ajax({
+        			url:"<c:url value="/Stamp/StampInsert.do"/>",
+        			data:{lat,lng},
+        			dataType:"text",
+        			success:function(data){
+        				console.log(data)
+        				alert("스탬프 획득했습니다!!!")
+        			}
+        		});
+           
+            }, 25000);
+
+            
+      });
+    
+    
+    
+	  
+	    
+} 
+
+else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+    
+    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667)    
+        
+    displayMarker(locPosition);
+}
+
+//지도에 마커와 인포윈도우를 표시하는 함수입니다
+function displayMarker(locPosition) {
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({  
+        map: map, 
+        position: locPosition
+    }); 
+
+}    
+
+        
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png'
+var imageSrc = '<c:url value="/images/stamp.png"/>'
 	 imageSize = new kakao.maps.Size(50, 50),
 	 imageOption = {offset: new kakao.maps.Point(27, 69)};
 
@@ -64,8 +137,8 @@ var positions = [
 	        '<div class="wrap">' + 
             '    <div class="info">' + 
             '        <div class="title">' + 
-        	'  		<a href="<c:url value="/Review/View.do?rvNo=${item.rvNo }"/>">' +
-	        '    		<span class="title">${item.rvTitle}</span>' +
+        	'  		<a href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">' +
+	        '    		<span style = "text-align : center" class="title">${item.rvTitle}</span>' +
 	        '  		</a>' +
             '            <div class="close" onclick="closeOverlay('+(index++)+')" title="닫기"></div>' + 
             '        </div>' + 
@@ -85,30 +158,32 @@ var MarkOverlay = [];
 for (var i = 0; i < positions.length; i ++) {
 	
     var marker = new kakao.maps.Marker({
-        position: positions[i].latlng
+        position: positions[i].latlng,
+        image : markerImage,
     });
     marker.setMap(map);
     
     var overlay = new kakao.maps.CustomOverlay({
         map: map,
         position: positions[i].latlng,
-        content: positions[i].content
+        content: positions[i].content,
+        yAnchor: 1 
     });
    
     overlay.setMap(null);
     ArrOverlay[i] = overlay;
     MarkOverlay[i] = marker;
     
+    
     kakao.maps.event.addListener(marker, 'click', function() {
     	ArrOverlay[MarkOverlay.indexOf(this)].setMap(map);
+
     });
 }
  
     // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
     function closeOverlay(data) {
-    	console.log(data);
-    	console.log(ArrOverlay);
-    	ArrOverlay[data].setMap(null);     
+    	ArrOverlay[data].setMap(null);   
     }
     
 </script>

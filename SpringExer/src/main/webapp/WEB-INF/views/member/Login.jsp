@@ -142,7 +142,7 @@
 												<input id="pwd" name="pwd" class="_3rh7f has-custom-focus"
 													type="password" required autocomplete="off" value=""
 													style="font-size: 14px">
-											</div><c:if test="${isLogin}">
+											</div><c:if test="${error}">
 												    <div class="joinError">다시 입력해주세요</div>
 													</c:if>	
 				    								

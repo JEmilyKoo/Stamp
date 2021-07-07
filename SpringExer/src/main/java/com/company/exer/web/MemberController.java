@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.company.exer.service.MemberDTO;
 import com.company.exer.service.MemberService;
+import com.company.exer.service.ProfileDTO;
+import com.company.exer.service.ProfileService;
 
 @Controller
 @RequestMapping("/Member/")
@@ -19,6 +21,8 @@ public class MemberController {
 	
 	@Inject // 자동 주입
 	MemberService service;
+	@Inject // 자동 주입
+	ProfileService profileservice;
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 		
@@ -57,23 +61,20 @@ public class MemberController {
 	
 	// GET 로그인
 	@RequestMapping(value = "Login.do", method = RequestMethod.GET)
-	public String loginForm() {
+	public String loginForm(HttpSession session) {
 		logger.info("get login");
-		
 		return "member/Login";
 	}
 	@RequestMapping(value = "Login.do", method = RequestMethod.POST) // 잘못 입력했을 때
-	public String loginFormPPST() {
+	public String loginFormPPST(HttpSession session) {
 		logger.info("post login");
-		
+		session.setAttribute("error", "다시 입력하세요");
 		return "member/Login";
 	}
 
 	// POST 로그인
 	@RequestMapping(value = "LoginCheck.do", method = RequestMethod.POST)
 	public String loginCheck(HttpSession session, MemberDTO memberDTO) throws Exception {
-		
-		
 		
 		System.out.println(memberDTO);
 		String returnURL = "home";
@@ -91,16 +92,23 @@ public class MemberController {
 			MemberDTO dto = service.getMember(memberDTO); //throws Exception
 			System.out.println("제대로 잘 굴러감 ");
 			session.setAttribute("login", dto);
-			session.setAttribute("id", dto.getId());	
-
+			session.setAttribute("id", dto.getId());
+			
+			
+			/*세션의 프로필에 멤버에서 나온 걸로 프로필 박음*/
+			ProfileDTO profiledto = new ProfileDTO();
+			profiledto=profileservice.selectMemberProfile(dto);
+			session.setAttribute("profile", profiledto);
 			session.removeAttribute("error");
+			System.out.println(profiledto);
 			}
 			else {	session.setAttribute("error", "다시 입력하세요");
 			session.removeAttribute("login");
-			System.out.println(":dfdsfdsfds");
 			
 			returnURL = "forward:/Member/Login.do"; //이렇게 되면 post 형식으로 주는 꼴이 되어버린다 
 			}
+
+		session.removeAttribute("error");
 		return returnURL;
 		
 		

@@ -66,7 +66,11 @@ public class ReviewController {
 	
 	//글 작성페이지
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
-	public String Write() {
+	public String Write(Model model,@RequestParam Map map,@ModelAttribute("nickName") String nickName) {
+		ReviewDTO dto = reviewService.selectOne(map);
+		model.addAttribute("dto",dto);
+		System.out.println("nickName:"+map.get("nickName"));
+		System.out.println("nickName2:"+nickName);
 		return "review/Write";
 	}
 	
@@ -81,20 +85,26 @@ public class ReviewController {
 	
 
 	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
-	public @ResponseBody String Like(@RequestParam Map map) throws IOException {
+	public String Like(@RequestParam Map map,
+			@ModelAttribute("nickName") String nickName,Model model) throws IOException {
+		map.put("nickName", nickName);
 		int check = reviewService.likeCheck(map);
+		System.out.println("check:"+check);
+		model.addAttribute("check",check);
 		if(check==0) {
+			System.out.println("11");
 			reviewService.like(map);
 		}
-		else {
+		else if(check==1){
+			System.out.println("22");
 			reviewService.unlike(map); 
 		}
-		reviewService.likeCount(map);
-		ReviewDTO dto=reviewService.selectOne(map);
-		if(dto.getRvLikeCnt()>=2) {
-			reviewService.stampInsert(map);
-		}
-		return check+"";
+		//reviewService.likeCount(map);
+		//ReviewDTO dto=reviewService.selectOne(map);
+		//if(dto.getRvLikeCnt()>=2) {
+		//	reviewService.stampCreate(map);
+		//}
+		return "forward:/Review/ForumPost.do";
 	}
 	
 	/*

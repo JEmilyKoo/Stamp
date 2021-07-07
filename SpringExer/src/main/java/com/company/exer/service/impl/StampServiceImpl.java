@@ -21,9 +21,22 @@ public class StampServiceImpl implements StampService {
 		return dao.stampList();
 	}
 
-//	@Override
-//	public int stampUp() {
-//		return dao.stampUp();
-//	}
+	@Override
+	public int stampUpdate(Map map) {
+		return dao.stampUpdate(map);
+	}
+
+	@Override
+	public StampDTO stampInsert() {
+		return dao.stampInsert();
+	}
+
+	@Override
+	public int stampUpdateDelete(Map map) {
+		return dao.stampUpdateDelete(map);
+	}
+	
+	
+
 
 }
