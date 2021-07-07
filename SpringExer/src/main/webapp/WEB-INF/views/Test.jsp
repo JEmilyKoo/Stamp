@@ -191,7 +191,6 @@ h3 {
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 	<!-- 메인페이지에만 있는 사이트맵 -->
 	
-		<jsp:include page="/WEB-INF/views/templates/TopMain.jsp" />
 	
 <!-- 
 	<div class="homeContainer">

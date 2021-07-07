@@ -36,11 +36,10 @@
 </head>
 
 <body>
+<div style="height:90px"></div>
 	<button type="button" class="btn btn-success">Success</button>
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
-
-	<!-- 메인페이지에만 있는 사이트맵 -->
-	<jsp:include page="/WEB-INF/views/templates/TopMain.jsp"/>
+	
 	<div id="map" style="width:100%;height:500px;"></div>
 	<div><a id="stamp" class="btn btn-success">스탬프 얻기!</a></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
