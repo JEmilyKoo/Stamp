@@ -36,7 +36,7 @@
 	document.documentElement.className = 'js';
 </script>
 </head>
-<body>
+<body style="overflow-x:hidden;">
 
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 	<div class="view">

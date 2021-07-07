@@ -29,6 +29,12 @@
 			남의 프로필을 출력합니다 ${sessionScope.otherProfile}
 
 			<ul class="font_8">
+			
+			<li><a href="<c:url value="/Profile/Main/Id.do?id=KOO"/>">KOO의
+											ProfileMain</a></li>
+			
+			
+			
 				<li><a href="<c:url value="/Profile/NewProfile.do"/>">
 						<button style="border: green 1px solid" id="newProfile">프로필을
 							세션에 암거나 자동으로 채우는 버튼</button>
