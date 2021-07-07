@@ -6,6 +6,7 @@ import java.util.Map;
 public interface StampService {
 	//int stampUp();
 	List<StampDTO> stampList();
-	int stampCheck(Map map);
+	int stampUpdate(Map map);
 	StampDTO stampInsert();
+	int stampUpdateDelete(Map map);
 }

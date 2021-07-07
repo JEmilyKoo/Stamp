@@ -69,11 +69,10 @@ if (navigator.geolocation) {
 		        displayMarker(locPosition);
                  
                  $.ajax({
-            			url:"<c:url value="/Stamp/StampCheck.do"/>",
+            			url:"<c:url value="/Stamp/stampUpdate.do"/>",
             			data:{lat,lng},
             			dataType:"text",
             			success:function(data){
-            	            console.log("인설트 성공!!!!!")
             			}
             		});
            	});	

@@ -34,7 +34,7 @@ public class StampController {
 		return "MapSearch";
 	}
 	
-	@RequestMapping("StampCheck.do")
+	@RequestMapping("StampUpdate.do")
 	public @ResponseBody int stampCheck(@RequestParam Map map,HttpSession session) {
 		String nickName = session.getAttribute("nickName").toString();
 		map.put("nickName", nickName);
@@ -44,7 +44,7 @@ public class StampController {
 		}
 		//n초마다 stampCheck 테이블에 현재 위치 insert
 		else {
-			int data = stampService.stampCheck(map);
+			int data = stampService.stampUpdate(map);
 			return data;
 		}
 	}
@@ -54,7 +54,7 @@ public class StampController {
 		String nickName = session.getAttribute("nickName").toString();
 		map.put("nickName", nickName);
 		StampDTO dto = stampService.stampInsert();
-		
+		stampService.stampUpdateDelete(map);
 		return 0;
 	}
 
