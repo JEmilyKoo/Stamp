@@ -104,15 +104,13 @@ function displayMarker(locPosition) {
         position: locPosition
     }); 
 
-    // 지도 중심좌표를 접속위치로 변경합니다
-    map.setCenter(locPosition);      
 }    
 
         
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png'
-	 imageSize = new kakao.maps.Size(50, 50),
+var imageSrc = '<c:url value="/images/stamp.png"/>'
+	 imageSize = new kakao.maps.Size(20, 20),
 	 imageOption = {offset: new kakao.maps.Point(27, 69)};
 
 var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
@@ -167,8 +165,6 @@ for (var i = 0; i < positions.length; i ++) {
     
     kakao.maps.event.addListener(marker, 'click', function() {
     	ArrOverlay[MarkOverlay.indexOf(this)].setMap(map);
-    	if(setMap(map)==null)
-    		console.log("1234")
 
     });
 }
