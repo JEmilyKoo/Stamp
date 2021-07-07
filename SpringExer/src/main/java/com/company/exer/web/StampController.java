@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.company.exer.service.ReviewDTO;
@@ -33,8 +34,9 @@ public class StampController {
 	}
 	
 	@RequestMapping("StampUp.do")
-	public @ResponseBody String stampUp(Map map) {
-		
+	public @ResponseBody String stampUp(@RequestParam Map map) {
+		System.out.println(map.get("lat"));
+		System.out.println(map.get("lng"));
 		return "MapSearch";
 	}
 	
