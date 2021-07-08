@@ -304,8 +304,7 @@ body {
 									<li><a href="<c:url value="/Profile/Post.do"/>">ProfilePost</a></li>
 									<li><a href="<c:url value="/Profile/Alarm.do"/>">ProfileAlarm</a></li>
 									<li><a href="<c:url value="/Profile/AlarmSetting.do"/>">ProfileAlarmSetting</a></li>
-									<li><a href="<c:url value="/Admin.do"/>">관리자페이지</a></li>
-
+									<li><a href="<c:url value="/Admin/Admin.do"/>">관리자페이지</a></li>
 
 								</ul>
 						</div>
