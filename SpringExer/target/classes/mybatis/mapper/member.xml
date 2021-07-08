@@ -7,6 +7,15 @@
 <!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
 
 <mapper namespace="mybatis.mapper.member">
+
+
+	<select id="sqlgetmember" parameterType="memberDTO" resultType="memberDTO">
+		SELECT * FROM MEMBER
+		WHERE id = #{id}
+		<!-- 이거 리턴하고 나서 만약에 겹치면 다시 하라고 뜨는 그런 것 -->
+	</select>
+    
+
 	<insert id="sqlmemberJoin" parameterType="memberDTO">
 		INSERT INTO MEMBER (id,pwd,name)
 		VALUES (#{id}, #{pwd}, #{name})
