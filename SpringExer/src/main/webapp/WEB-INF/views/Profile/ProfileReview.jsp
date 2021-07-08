@@ -9,26 +9,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Home</title>
-
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/modalcss.css" >
-
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/memberPagesVendor.css" >
   
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/memberPagesCommons.css" >
-  
+
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/member-posts-page.css" >
-  
   
 
 <style>
-.homeBody {
-	overflow: auto;
-}
 </style>
 
-<script>
-	document.documentElement.className = 'js';
-</script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script
@@ -36,7 +26,7 @@
 
 </head>
 
-<body class="homeBody">
+<body>
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 	<!-- 메인페이지에만 있는 사이트맵 -->
 <div class="profileContainer">

@@ -51,7 +51,7 @@
 				<span> 닉네임 :  	
          아이디 :  ${otherProfile.id}
          이메일 :  ${otherProfile.mail}
-         여행 성향 : ${sotherProfile.trvprpns} <br/>
+         여행 성향 : ${otherProfile.trvprpns}<span><br/></span>
          PR :  ${otherProfile.pr}
          프사 :  ${otherProfile.prfImage}
          성별 :  ${otherProfile.gender}
