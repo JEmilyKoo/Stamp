@@ -41,6 +41,11 @@ public class StampDAO /*implements StampService*/ {
 	}
 
 
+	public int stampCount(Map map) {
+		return sqlMapper.update("stampCount",map);
+	}
+
+
 
 	
 }

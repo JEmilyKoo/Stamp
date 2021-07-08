@@ -43,7 +43,7 @@
 <div style="height:90px"></div>
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 	
-	<div id="map" style="width:100%;height:500px;"></div>
+	<div id="map" style="width:100%;height:700px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
 <script>
 
@@ -51,7 +51,7 @@
 var mapContainer = document.getElementById('map'),  
     mapOption = { 
 		center: new kakao.maps.LatLng(37.56681519680827, 126.97867489950377), 
-        level: 9
+        level: 7
         };
         
 
@@ -154,7 +154,7 @@ for (var i = 0; i < positions.length; i ++) {
         image : markerImage,
     });
     
-    //마커 주변 3km 원 그려주기
+    //마커 주변 0.3km 원 그려주기
     var latlng = positions[i].latlng;
     var circle = new kakao.maps.Circle({ 
         center : latlng, // 원의 중심좌표입니다
