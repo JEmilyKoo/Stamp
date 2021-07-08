@@ -41,6 +41,7 @@ public class StampController {
 		if(session.getAttribute("nickName") != null) { //로그인 되어 있을 경우
 			String nickName = session.getAttribute("nickName").toString();
 			map.put("nickName",nickName);
+			System.out.println("1111111111111");
 			stampService.stampCheck(map); //실시간 위치를 가지고 3km이내 스탬프가 있으면 stampCheck 닉네임, 글 번호  5초마다 insert해줌
 			int count = stampService.stampCheckCount(map); // 
 			System.out.println("count"+count);
