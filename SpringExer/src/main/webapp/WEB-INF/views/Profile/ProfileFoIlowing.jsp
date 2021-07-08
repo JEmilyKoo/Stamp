@@ -61,7 +61,7 @@
 			<div class="profileCardImage">
 
 				<img
-					src="${pageContext.request.contextPath}/images/profile/icon/icon1.webp"
+					src="${pageContext.request.contextPath}/images/profile/icon/icon0.jpg"
 					alt="프사"
 					style="width: 100px; height: 100px; object-fit: cover; object-position: 50% 50%;">
 			</div>
@@ -99,7 +99,7 @@
 			<div class="profileCardImage">
 
 				<img
-					src="${pageContext.request.contextPath}/images/profile/icon/icon1.webp"
+					src="${pageContext.request.contextPath}/images/profile/icon/icon2.jpg"
 					alt="프사"
 					style="width: 100px; height: 100px; object-fit: cover; object-position: 50% 50%;">
 			</div>

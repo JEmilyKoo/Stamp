@@ -159,7 +159,7 @@ body {
 								style="text-decoration: none; vertical-align: top; color: white">
 								<span class="_2iDLv avatar-image "> <!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
 									<div class="_1wPNJ fluid-avatar-image topImage"
-										style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
+										style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon${profile.openprf}.jpg');">
 									</div>
 							</span> d
 							</a>
@@ -196,7 +196,7 @@ body {
 												<div style="text-align: left">${sessionScope.profile.exp}
 													exp</div>
 												<div>
-													<progress id="bar" value="20" max="100"></progress>
+													<progress id="bar" value="75" max="100"></progress>
 												</div>
 											</div>
 
