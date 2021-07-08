@@ -41,6 +41,11 @@ public class StampServiceImpl implements StampService {
 		return dao.stampCreate(map);
 	}
 
+	@Override
+	public int stampCount(Map map) {
+		return dao.stampCount(map);
+	}
+
 	
 
 
