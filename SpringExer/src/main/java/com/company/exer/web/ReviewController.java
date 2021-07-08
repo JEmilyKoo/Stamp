@@ -110,6 +110,22 @@ public class ReviewController {
 		return "review/Edit";
 	}
 	
+	@RequestMapping(value="Edit.do",method = RequestMethod.POST)
+	public String EditOk(@RequestParam Map map,Model model) {
+		ReviewDTO dto = reviewService.selectOne(map);
+		model.addAttribute("dto",dto);
+		reviewService.update(map);
+		return "forward:/Review/ForumPost.do";
+	}
+	
+	@RequestMapping("Delete.do")
+	public String delete(@RequestParam Map map) {
+		reviewService.delete(map);
+		return "forward:/Review/TripBoard.do";
+	}
+	
+	
+	
 	/*
 	@RequestMapping("View.do")
 	public String View(Model model,
@@ -133,20 +149,8 @@ public class ReviewController {
 	}
 	
 	
-	@RequestMapping(value="Edit.do",method = RequestMethod.POST)
-	public String EditOk(@RequestParam Map map,Model model) {
-		ReviewDTO dto = reviewService.selectOne(map);
-		model.addAttribute("dto",dto);
-		reviewService.update(map);
-		return "forward:/Review/List.do";
-	}
 	
-	@RequestMapping("Delete.do")
-	public String delete(@RequestParam Map map) {
-		reviewService.delete(map);
-		return "forward:/Review/List.do";
-	}
-	
+
 	
 	*/
 	
