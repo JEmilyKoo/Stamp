@@ -127,8 +127,8 @@
 								<span>팔로우관리</span>
 						</a></li>
 						<li class="nav-item"><a class="nav-link "
-							href="form-components.html"> <i class="material-icons">view_module</i>
-								<span>스탬프관리</span>
+							href="<c:url value="/AdminStamp"/>"> <i
+								class="material-icons">view_module</i> <span>스탬프관리</span>
 						</a></li>
 						<li class="nav-item"><a class="nav-link " href="tables.html">
 								<i class="material-icons">table_chart</i> <span>해시태그 관리</span>
@@ -261,59 +261,58 @@
 					</div>
 					<!-- End Page Header -->
 					<div>
-						<h2> 스탬프 관리 페이지</h2>
+						<h2>스탬프 관리 페이지</h2>
 					</div>
-						<div class="card-footer border-top">
-                    <div class="row">
-                      <div class="col">
-                       <table
-					class="table table-bordered table-hover table-condensed text-center">
-					<tr>
-						<th class="col-md-1 text-center">선택</th>
-						<th class="col-md-1 text-center">스탬프번호</th>
-						<th class="col-md-1 text-center">리뷰글번호</th>
-						<th class="col-md-3 text-center">스탬프 등록일</th>
-						<th class="col-md-1 text-center">만료 유무</th>
-					</tr>
-					<c:if test="${empty finalDMLists }" var="isEmpty">
-						<tr>
-							<td colspan="5">스탬프가 없어요</td>
-						</tr>
-					</c:if>
-					<c:if test="${not isEmpty }">
-						<c:forEach items="${finalDMLists }" var="item" varStatus="loop">
-							<tr>
-								<td><input type="checkbox" name="" ></td>
-								<td><a id ="enterWServer"
-									href="<c:url value="/DMChatBox?id=${item.id }&dmToId=${item.dmToId }"/>">
-										${item.dmToId == sessionScope.id?item.id:item.dmToId }</a></td>
-								<td>${item.dmCtt }</td>
-								<c:if test="${item.dmDate==serverTime}">
-									<td><fmt:formatDate value="${item.dmDate }"
-											pattern="yyyy-MM-dd a HH:mm" /></td>
-								</c:if>
-								<c:if test="${item.dmDate!=serverTime}">
-									<td><fmt:formatDate value="${item.dmDate }"
-											pattern="a HH:mm" /></td>
-								</c:if>
-								<c:if test="${sessionScope.id ==item.id }" >
-								<td>${item.dmChecked }</td>
-								</c:if>
-								<c:if test="${sessionScope.id !=item.id }" >
-								<td></td>
-								</c:if>
-							</tr>
-						</c:forEach>
-					</c:if>
-				</table>
-                      
+					<div class="card-footer border-top">
+						<div class="row">
+							<div class="col">
+
+								<table
+									class="table table-bordered table-hover table-condensed text-center">
+									<tr>
+										<th class="col-md-2 text-center">스탬프번호</th>
+										<th class="col-md-2 text-center">리뷰글번호</th>
+										<th class="col-md-5 text-center">스탬프 등록일</th>
+										<th class="col-md-2 text-center">만료 유무</th>
+										<th class="col-md-1 text-center">수정, 삭제</th>
+									</tr>
+									<c:if test="${empty dto }" var="isEmpty">
+										<tr>
+											<td colspan="5">스탬프가 없어요</td>
+										</tr>
+									</c:if>
+									<c:if test="${not isEmpty }">
+										<c:forEach items="${dto }" var="item" varStatus="loop">
+											<tr>
+												
+												<td>${item.stNo }</td>
+												<td><a id=""
+													href="<c:url value="/AdminStamp?rvNo=${item.rvNo }"/>">${item.rvNo }
+												</a></td>
+												<td>${item.stDate }</td>
+												<td>${item.stIsExpired }</td>
+												<td>
+													<button class="float-right">
+														<a
+															href="<c:url value="/Stamp/deleteAdminStamp.do?stNo=${item.stNo }"/>">삭제</a>
+													</button>&nbsp;
+													<button class="float-right">
+														<a
+															href="<c:url value="/Stamp/updateAdminStamp.do?stNo=${item.stNo }"/>">수정</a>
+													</button>
+												</td>
+											</tr>
+										</c:forEach>
+									</c:if>
+								</table>
+
+							</div>
+						</div>
+					</div>
 				</div>
 		</div>
-				</div>
-		</div>
-	</div>
-	
-	<!-- End Top Referrals Component -->
+
+		<!-- End Top Referrals Component -->
 	</div>
 	</div>
 	<footer class="main-footer d-flex p-2 px-3 bg-white border-top">
