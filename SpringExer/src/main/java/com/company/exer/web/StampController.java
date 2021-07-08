@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -36,27 +37,29 @@ public class StampController {
 	
 	@RequestMapping("StampCheck.do")
 	public @ResponseBody int stampCheck(@RequestParam Map map,HttpSession session) {
-		String nickName = session.getAttribute("nickName").toString();
-		map.put("nickName", nickName);
-		//로그인이 안되어있으면 스탬프를 얻을 수 없다.
-		if(nickName == null) {
+			
+		if(session.getAttribute("nickName") != null) { //로그인 되어 있을 경우
+			String nickName = session.getAttribute("nickName").toString();
+			map.put("nickName",nickName);
+			stampService.stampCheck(map); //실시간 위치를 가지고 3km이내 스탬프가 있으면 stampCheck 닉네임, 글 번호  5초마다 insert해줌
+			int count = stampService.stampCheckCount(map); // 
+			System.out.println("count"+count);
+			if(count >= 5) {// 30초 동안 스탬프 주변에 있을 경우 스탬프를 얻을 수 있따.
+				stampService.stampCheckDelete(map); //stampCheck insert한 내용 삭제
+				stampService.stampCreate(map); //멤버 스탬프에 등록
+				stampService.stampCount(map);
+			}
 			return 0;
 		}
-		//n초마다 stampCheck 테이블에 현재 위치 insert
-		else {
-			int data = stampService.stampCheck(map);
-			return data;
-		}
-	}
-	
-	@RequestMapping("StampInsert.do")
-	public @ResponseBody int stampInsert(@RequestParam Map map,HttpSession session) {
-		String nickName = session.getAttribute("nickName").toString();
-		map.put("nickName", nickName);
-		StampDTO dto = stampService.stampInsert();
 		
-		return 0;
+		else {///로그인 안되어있다면 아무 일 없다.
+			System.out.println("33333333333");
+			return 0;
+		}
+	
+		
 	}
+
 
 	
 	

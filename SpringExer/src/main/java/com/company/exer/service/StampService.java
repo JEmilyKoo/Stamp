@@ -7,5 +7,8 @@ public interface StampService {
 	//int stampUp();
 	List<StampDTO> stampList();
 	int stampCheck(Map map);
-	StampDTO stampInsert();
+	int stampCheckCount(Map map);
+	int stampCheckDelete(Map map);
+	int stampCreate(Map map);
+	int stampCount(Map map);
 }

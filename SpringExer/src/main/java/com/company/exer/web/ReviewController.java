@@ -107,6 +107,8 @@ public class ReviewController {
 		return "forward:/Review/ForumPost.do";
 	}
 	
+	
+	
 	/*
 	@RequestMapping("View.do")
 	public String View(Model model,
@@ -152,4 +154,6 @@ public class ReviewController {
 	
 	
 	*/
+	
+	
 }

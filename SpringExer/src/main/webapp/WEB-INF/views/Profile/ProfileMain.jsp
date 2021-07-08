@@ -26,57 +26,46 @@
 			<jsp:include page="/WEB-INF/views/templates/ProfileSideBar.jsp" />
 		</div>
 		<div class="profileMain">
-			남의 프로필을 출력합니다 ${sessionScope.otherProfile}
-
+			<div> 프로필 출력
+         
+			     </div>
 			<ul class="font_8">
-				<li><a href="<c:url value="/Profile/NewProfile.do"/>">
-						<button style="border: green 1px solid" id="newProfile">프로필을
-							세션에 암거나 자동으로 채우는 버튼</button>
-				</a></li>
-				<li><a href="<c:url value="/Profile/NewInsertProfile.do"/>">
-						<button style="border: red 1px solid" id="newInsertProfile">세션에
-							있는 프로필을 인서트하는 버튼(여러번 누르면 에러남)</button>
-				</a></li>
-				<li><a href="<c:url value="/Profile/SelectProfile.do"/>">
-						<button style="border: blue 1px solid" id="selectProfile">세션에
-							있는 프로필을 가지고 선택해 또 새로 세션에 불러오는 버튼(첫번째 버튼 누르고 눌러야함)</button>
-				</a></li>
-				<li><a href="<c:url value="/Profile/SelectMemberProfile.do"/>">
-						<button style="border: yellow 1px solid" id="selectMemberProfile">세션에
-							있는 로그인을 가지고 선택해 세션에 불러오는 버튼</button>
-				</a></li>
-				<li><a href="<c:url value="/Profile/UpdateProfile.do"/>">
-						<button style="border: black 1px solid" id="updateProfile">(profileDTO받아와야해서
-							안돌아감)기존에 있는 프로필을 업데이트하는 버튼</button>
-				</a></li>
-				<li><a
-					href="<c:url value="/Profile/UpdateNicknameProfile.do"/>">
-						<button style="border: orange 1px solid"
-							id="updateNicknameProfile">(profileDTO받아와야해서 안돌아감)기존 프로필
-							중에서 닉네임만 딱 업데이트하는 버튼</button>
-				</a></li>
-				<li><a href="<c:url value="/Profile/DeleteProfile.do"/>">
-						<button style="border: purple 1px solid" id="deleteProfile">(profileDTO받아와야해서
-							안돌아감)기존 프로필 지워버리는 버튼</button>
-				</a></li>
-
+			
+			
+			<li><a href="<c:url value="/Profile/Main/NickName.do?nickName=KOO"/>">KOO의
+											ProfileMain</a></li>
+			
+			<c:if test="${not empty sessionScope.userError }" var="userError">
+				<div style="color:red">해당하는 닉네임의 사용자가 없습니다</div>
+			</c:if>
 			</ul>
 
 
 			<h1 class="font_0" style="line-height: 1.41em; font-size: 22px">
-				<span class="color_32">👑구정은<span style="font-weight: bold">
-						LV.10</span><br></span>
+				<span class="color_32">👑${otherProfile.nickName}<span style="font-weight: bold">
+						LV.${otherProfile.lev}</span><br></span>
 			</h1>
 
 			<p class="font_8"
 				style="text-align: left; line-height: 1.75em; font-size: 18px">
-				<span> profile세션보여주는칸: ${sessionScope.profile} </span>
+				<span> 닉네임 :  	
+         아이디 :  ${otherProfile.id}
+         이메일 :  ${otherProfile.mail}
+         여행 성향 : ${sotherProfile.trvprpns} <br/>
+         PR :  ${otherProfile.pr}
+         프사 :  ${otherProfile.prfImage}
+         성별 :  ${otherProfile.gender}
+         생일 :  ${otherProfile.birth}
+         폰 번호 :  ${otherProfile.phone}
+         레벨 :  
+         경험치 :  ${otherProfile.exp}
+         공개 여부 :  ${otherProfile.openprf} </span>
 			</p>
 
-
-
 			<!-- 스탬프 리스트 시작 -->
-			<h2 class="font_4 color_32"
+			<div id="scrollSpyStamp" style="height:80px"></div>
+			
+			<h2 class="font_4 color_32" 
 				style="padding: 30px; text-align: center;">스탬프</h2>
 			<p class="font_8 color_5"
 				style="text-align: center; margin: 0px 0px 40px 0px">획득한 스탬프를
@@ -218,8 +207,9 @@
 
 
 
-
+		
 			<!-- 뱃지 시작 -->
+			<div id="scrollSpyBadge" style="height:80px"></div>
 			<h2 class="font_4 color_32"
 				style="padding: 30px; text-align: center;">뱃지</h2>
 			<p class="font_8 color_5"
@@ -287,6 +277,7 @@
 
 
 			<!-- 업적 시작 -->
+			<div id="scrollSpyAchievement" style="height:80px"></div>
 			<h2 class="font_4 color_32"
 				style="padding: 30px; text-align: center;">​업적</h2>
 			<p class="font_8 color_5"
@@ -343,6 +334,9 @@
 
 
 
-		</div></div>
+		</div>
+		<div style="height:80px"></div>
+		</div>
+		
 </body>
 </html>

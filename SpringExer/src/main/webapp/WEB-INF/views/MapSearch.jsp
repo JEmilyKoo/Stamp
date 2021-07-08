@@ -11,6 +11,10 @@
 <head>
 <title>MapSearch</title>
 <style>
+	.info {position:relative;top:5px;left:5px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;font-size:12px;padding:5px;background:#fff;list-style:none;margin:0;} 
+	.info:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}    
+	.info .label {display:inline-block;width:50px;}
+	.number {font-weight:bold;color:#00a0e9;} 
 	.customoverlay {position:relative;bottom:85px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
 	.customoverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
 	.customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
@@ -39,7 +43,7 @@
 <div style="height:90px"></div>
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 	
-	<div id="map" style="width:100%;height:500px;"></div>
+	<div id="map" style="width:100%;height:700px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
 <script>
 
@@ -47,7 +51,7 @@
 var mapContainer = document.getElementById('map'),  
     mapOption = { 
 		center: new kakao.maps.LatLng(37.56681519680827, 126.97867489950377), 
-        level: 9
+        level: 7
         };
         
 
@@ -61,7 +65,6 @@ if (navigator.geolocation) {
            	navigator.geolocation.getCurrentPosition(function(position){
            	       lat = position.coords.latitude, // 위도
                    lng = position.coords.longitude; // 경도
-                   console.log("11111111111위도 : %s , 경도 :%s",lat,lng)
 
 		        var locPosition = new kakao.maps.LatLng(lat, lng) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 		        
@@ -70,33 +73,20 @@ if (navigator.geolocation) {
                  
                  $.ajax({
             			url:"<c:url value="/Stamp/StampCheck.do"/>",
+            			type:"post",
             			data:{lat,lng},
             			dataType:"text",
             			success:function(data){
-            	            console.log("인설트 성공!!!!!")
+            				if(data != 0){
+            					console.log(data)
+            				}
             			}
             		});
+                 
            	});	
-           }, 5001);
+           }, 5000);
            
-            setInterval(function(){
-			
-                $.ajax({
-        			url:"<c:url value="/Stamp/StampInsert.do"/>",
-        			data:{lat,lng},
-        			dataType:"text",
-        			success:function(data){
-        				console.log(data)
-        				alert("스탬프 획득했습니다!!!")
-        			}
-        		});
-           
-            }, 25000);
-
-            
       });
-    
-    
     
 	  
 	    
@@ -108,6 +98,7 @@ else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치�
         
     displayMarker(locPosition);
 }
+
 
 //지도에 마커와 인포윈도우를 표시하는 함수입니다
 function displayMarker(locPosition) {
@@ -162,7 +153,22 @@ for (var i = 0; i < positions.length; i ++) {
         position: positions[i].latlng,
         image : markerImage,
     });
+    
+    //마커 주변 0.3km 원 그려주기
+    var latlng = positions[i].latlng;
+    var circle = new kakao.maps.Circle({ 
+        center : latlng, // 원의 중심좌표입니다
+        radius: 3000, // 원의 반지름입니다 m 단위 이며 선 객체를 이용해서 얻어옵니다
+        strokeWeight: 1, // 선의 두께입니다
+        strokeColor: '#00a0e9', // 선의 색깔입니다
+        strokeOpacity: 0.1, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid', // 선의 스타일입니다
+        fillColor: '#00a0e9', // 채우기 색깔입니다
+        fillOpacity: 0.2  // 채우기 불투명도입니다 
+    });
+    
     marker.setMap(map);
+    circle.setMap(map);
     
     var overlay = new kakao.maps.CustomOverlay({
         map: map,
@@ -186,6 +192,10 @@ for (var i = 0; i < positions.length; i ++) {
     function closeOverlay(data) {
     	ArrOverlay[data].setMap(null);   
     }
+    
+    var radius = 100;
+
+
     
 </script>
 

@@ -94,20 +94,35 @@ public class MemberController {
 			session.setAttribute("login", dto);
 			session.setAttribute("id", dto.getId());
 			
-			
 			/*세션의 프로필에 멤버에서 나온 걸로 프로필 박음*/
 			ProfileDTO profiledto = new ProfileDTO();
-			profiledto=profileservice.selectMemberProfile(dto);
+			profiledto=profileservice.selectProfileFromMember(dto);
 			session.setAttribute("profile", profiledto);
-			session.removeAttribute("error");
-			System.out.println(profiledto);
+			
+			
+				if(profiledto==null) {
+					System.out.println("profiledto는 null");
+					session.setAttribute("nickName", dto.getName());
+					return "Profile/ProfileInsert";
+				}
+				else {
+					session.setAttribute("nickName", profiledto.getNickName());		
+				}
+			
+			
 			}
+		
+		
+		
 			else {	session.setAttribute("error", "다시 입력하세요");
 			session.removeAttribute("login");
 			
 			returnURL = "forward:/Member/Login.do"; //이렇게 되면 post 형식으로 주는 꼴이 되어버린다 
 			}
 
+		
+		
+		
 		session.removeAttribute("error");
 		return returnURL;
 		

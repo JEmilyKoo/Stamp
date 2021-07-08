@@ -2,23 +2,28 @@ package com.company.exer.service;
 
 
 public interface ProfileService {
-
-	public void newProfile(ProfileDTO profileDTO) throws Exception;
-    
-	public ProfileDTO selectProfile(ProfileDTO profileDTO) throws Exception;
 	
-	public ProfileDTO selectMemberProfile(MemberDTO memberDTO) throws Exception;
-	// 멤버로 받아서 프로필로 내보낸다
+////*생성*
+	public void insertProfile(ProfileDTO profileDTO) throws Exception;
+	// 프로필 생성 insertProfile
 	
+////*수정*
 	public void updateProfile(ProfileDTO profileDTO) throws Exception;
+	// 프로필 수정 updateProfile
 	
-	public void updateNicknameProfile(ProfileDTO profileDTO) throws Exception;
-	
+////*삭제*
 	public void deleteProfile(ProfileDTO profileDTO) throws Exception;
-
+	// 프로필 삭제 deleteProfile
 	
-	public void profileNewSetting(ProfileDTO profileDTO) throws Exception;
+////*선택*
+	public ProfileDTO selectProfile(ProfileDTO profileDTO) throws Exception;
+	// 해당 닉네임의 프로필 선택 selectProfile	
+	
+	public ProfileDTO selectProfileFromMember(MemberDTO memberDTO) throws Exception;
+	// 해당 멤버-아이디의 프로필 선택 selectProfileFromMember
+	
+////*체크*
+	int	 NickNameCheck(ProfileDTO profileDTO) throws Exception;
+	// 해당 닉네임의 프로필이 있는지 중복 여부 체크(1이라면 있다/ 0이라면 없다) NickNameCheck
     
-    int	 profileNickNameCheck(ProfileDTO profileDTO) throws Exception;
-
 }
