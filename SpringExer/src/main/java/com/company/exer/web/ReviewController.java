@@ -103,7 +103,12 @@ public class ReviewController {
 		return "forward:/Review/ForumPost.do";
 	}
 	
-	
+	@RequestMapping(value="Edit.do", method = RequestMethod.GET)
+	public String Edit(@RequestParam Map map,Model model ) {
+		ReviewDTO dto = reviewService.selectOne(map);
+		model.addAttribute("dto",dto);
+		return "review/Edit";
+	}
 	
 	/*
 	@RequestMapping("View.do")
@@ -127,12 +132,6 @@ public class ReviewController {
 		return "review/View";
 	}
 	
-	@RequestMapping(value="Edit.do", method = RequestMethod.GET)
-	public String Edit(@RequestParam Map map,Model model ) {
-		ReviewDTO dto = reviewService.selectOne(map);
-		model.addAttribute("dto",dto);
-		return "review/Edit";
-	}
 	
 	@RequestMapping(value="Edit.do",method = RequestMethod.POST)
 	public String EditOk(@RequestParam Map map,Model model) {
