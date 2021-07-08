@@ -23,16 +23,27 @@
 		where nickName=#{nickName}
 	</select>
 	
+	<select id="stampRvno" parameterType="Map" resultType="String">
+		select distinct rvno
+		from stampcheck
+		where nickName=#{nickName}
+	</select>
+	
 	<delete id="stampCheckDelete" parameterType="Map">
 		delete stampcheck
 		where nickName=#{nickName}
 	</delete>
 	
-	<insert id="stampCreate" parameterType="Map">
+	<insert id="stampGet" parameterType="Map">
 		insert into memberStamp
 		select distinct nickName, rvno
 		from stampcheck
 		where nickName = #{nickName}
 	</insert>
 
+	<select id="stampCheckGet" parameterType="Map" resultType="Int">
+		 select count(*)
+        From memberstamp m Join stampCheck s ON m.rvNO=s.rvNO
+        where m.nickname = #{nickName} and m.rvno = #{rvNo}
+	</select>
 </mapper>
