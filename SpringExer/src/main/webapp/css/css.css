@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+/*프로필 카드*/
+
 
 /* 알림 세팅 */
   /* Styles */
@@ -84,7 +86,7 @@
 	.profileSettingButton {
 		position: relative;
 		right: 30px;
-		
+		top:5px;
 		z-index: 100;
 		
 	}

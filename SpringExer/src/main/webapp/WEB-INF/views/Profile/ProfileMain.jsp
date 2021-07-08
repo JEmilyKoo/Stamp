@@ -42,16 +42,16 @@
 
 
 			<h1 class="font_0" style="line-height: 1.41em; font-size: 22px">
-				<span class="color_32">👑${otherProfile.nickName}<span style="font-weight: bold">
-						LV.${otherProfile.lev}</span><br></span>
+				<span class="color_32"> 👑LV.${otherProfile.lev}   ${otherProfile.nickName}<span style="font-weight: bold">
+						</span><br></span>
 			</h1>
 
 			<p class="font_8"
 				style="text-align: left; line-height: 1.75em; font-size: 18px">
-				<span> 닉네임 :  	
+				<span>   	
          아이디 :  ${otherProfile.id}
          이메일 :  ${otherProfile.mail}
-         여행 성향 : ${sotherProfile.trvprpns} <br/>
+         여행 성향 : ${otherProfile.trvprpns}<span><br/></span>
          PR :  ${otherProfile.pr}
          프사 :  ${otherProfile.prfImage}
          성별 :  ${otherProfile.gender}

@@ -9,5 +9,7 @@ public interface StampService {
 	int stampCheck(Map map);
 	int stampCheckCount(Map map);
 	int stampCheckDelete(Map map);
-	int stampCreate(Map map);
+	int stampGet(Map map);
+	int stampCheckGet(Map map);
+	String stampRvno(Map map);
 }

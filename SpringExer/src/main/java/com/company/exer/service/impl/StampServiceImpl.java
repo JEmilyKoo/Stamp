@@ -37,8 +37,18 @@ public class StampServiceImpl implements StampService {
 	}
 
 	@Override
-	public int stampCreate(Map map) {
-		return dao.stampCreate(map);
+	public int stampGet(Map map) {
+		return dao.stampGet(map);
+	}
+
+	@Override
+	public int stampCheckGet(Map map) {
+		return dao.stampCheckGet(map);
+	}
+
+	@Override
+	public String stampRvno(Map map) {
+		return dao.stampRvno(map);
 	}
 
 

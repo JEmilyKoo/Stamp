@@ -45,9 +45,12 @@ public class StampController {
 			stampService.stampCheck(map); //실시간 위치를 가지고 3km이내 스탬프가 있으면 stampCheck 닉네임, 글 번호  5초마다 insert해줌
 			int Count = stampService.stampCheckCount(map); // 
 			System.out.println("Count"+Count);
+			String rvno = stampService.stampRvno(map); //가장 가까운 게시글 찾기, 스탬프 얻었는지 확인하기 위함
+			System.out.println("RVNO"+rvno);
+			//int CheckGet = stampService.stampCheckGet(map);
 			if(Count >= 5) {// 30초 동안 스탬프 주변에 있을 경우 스탬프를 얻을 수 있따.
-				int Create = stampService.stampCreate(map); //멤버 스탬프에 등록
-				System.out.println("Create"+Create);
+				int Get = stampService.stampGet(map); //멤버 스탬프에 등록
+				System.out.println("Get"+Get);
 				int Del = stampService.stampCheckDelete(map); //stampCheck insert한 내용 삭제
 				System.out.println("Del"+Del);
 				

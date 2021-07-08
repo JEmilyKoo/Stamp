@@ -112,7 +112,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="form-components.html">
+                <a class="nav-link " href="<c:url value="/AdminStamp"/>">
                   <i class="material-icons">view_module</i>
                   <span>스탬프관리</span>
                 </a>
