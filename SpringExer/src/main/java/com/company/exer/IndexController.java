@@ -112,13 +112,13 @@ public class IndexController {
 	@RequestMapping("/Admin.do")
 	public String Admin() {
 		//뷰정보 반환]
-		return "/Admin";
+		return "/admin/Admin";
 	}///////////////////Test()
 	
 	@RequestMapping("/AdminStamp")
 	public String AdminStamp() {
 		//뷰정보 반환]
-		return "/AdminStamp";
+		return "/admin/AdminStamp";
 	}///////////////////Test()
 	
 	/*

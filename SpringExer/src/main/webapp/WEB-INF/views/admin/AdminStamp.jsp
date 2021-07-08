@@ -266,16 +266,49 @@
 						<div class="card-footer border-top">
                     <div class="row">
                       <div class="col">
-                        <select class="custom-select custom-select-sm">
-                          <option selected>Last Week</option>
-                          <option value="1">Today</option>
-                          <option value="2">Last Month</option>
-                          <option value="3">Last Year</option>
-                        </select>
-                      </div>
-						<div class="col text-right view-report">
-                        <a href="#">Full report &rarr;</a>
-                      </div></div>
+                       <table
+					class="table table-bordered table-hover table-condensed text-center">
+					<tr>
+						<th class="col-md-1 text-center">선택</th>
+						<th class="col-md-1 text-center">스탬프번호</th>
+						<th class="col-md-1 text-center">리뷰글번호</th>
+						<th class="col-md-3 text-center">스탬프 등록일</th>
+						<th class="col-md-1 text-center">만료 유무</th>
+					</tr>
+					<c:if test="${empty finalDMLists }" var="isEmpty">
+						<tr>
+							<td colspan="5">스탬프가 없어요</td>
+						</tr>
+					</c:if>
+					<c:if test="${not isEmpty }">
+						<c:forEach items="${finalDMLists }" var="item" varStatus="loop">
+							<tr>
+								<td><input type="checkbox" name="" ></td>
+								<td><a id ="enterWServer"
+									href="<c:url value="/DMChatBox?id=${item.id }&dmToId=${item.dmToId }"/>">
+										${item.dmToId == sessionScope.id?item.id:item.dmToId }</a></td>
+								<td>${item.dmCtt }</td>
+								<c:if test="${item.dmDate==serverTime}">
+									<td><fmt:formatDate value="${item.dmDate }"
+											pattern="yyyy-MM-dd a HH:mm" /></td>
+								</c:if>
+								<c:if test="${item.dmDate!=serverTime}">
+									<td><fmt:formatDate value="${item.dmDate }"
+											pattern="a HH:mm" /></td>
+								</c:if>
+								<c:if test="${sessionScope.id ==item.id }" >
+								<td>${item.dmChecked }</td>
+								</c:if>
+								<c:if test="${sessionScope.id !=item.id }" >
+								<td></td>
+								</c:if>
+							</tr>
+						</c:forEach>
+					</c:if>
+				</table>
+                      
+				</div>
+		</div>
 				</div>
 		</div>
 	</div>
