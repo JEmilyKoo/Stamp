@@ -137,32 +137,27 @@ pageEncoding="UTF-8"%>
   
   
   
-  <!-- 좋아요 구현중 -->
-<c:if test="${check==0 }" var="var">
-  <a href="<c:url value="/Review/Like.do?rvNo=${dto.rvNo}"/>">
-  <span class="_37Gv5"><button class="_1j4M5" actiondetails="[object Object]">
-  <div class="dr0cE" aria-label="좋아요 0개. Is unliked" data-hook="like-button" style="--heart-color:#e84a43;">
-  <div class="_2OWaP"><div class="_1pvT5"></div></div><div class="_2FjpA"><div class="_1pvT5"></div></div>
-  <div class="_3YyRC"><div class="_1pvT5"></div></div><div class="_1z3qL"><div class="_1pvT5"></div></div>
-  <div class="_3T8La"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-
-  <img src="../images/review/beanH.png">
-</a>
-</c:if>
-<c:if test="${not var}">
-<a href="<c:url value="/Review/Like.do?rvNo=${dto.rvNo}"/>">
-  <span class="_37Gv5"><button class="_1j4M5" actiondetails="[object Object]">
-  <div class="dr0cE" aria-label="좋아요 0개. Is unliked" data-hook="like-button" style="--heart-color:#e84a43;">
-  <div class="_2OWaP"><div class="_1pvT5"></div></div><div class="_2FjpA"><div class="_1pvT5"></div></div>
-  <div class="_3YyRC"><div class="_1pvT5"></div></div><div class="_1z3qL"><div class="_1pvT5"></div></div>
-  <div class="_3T8La"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-
-  <img src="../images/review/fullH.png">
-</a>
-</c:if>
+		  <!-- 좋아요 구현중 -->
+		<c:if test="${dto.rvLikeCheck != 1 }" >
+		  <span class="_37Gv5"><button class="_1j4M5" actiondetails="[object Object]">
+		  <div class="dr0cE" aria-label="좋아요 0개. Is unliked" data-hook="like-button" style="--heart-color:#e84a43;">
+		  <div class="_2OWaP"><div class="_1pvT5"></div></div><div class="_2FjpA"><div class="_1pvT5"></div></div>
+		  <div class="_3YyRC"><div class="_1pvT5"></div></div><div class="_1z3qL"><div class="_1pvT5"></div></div>
+		  <div class="_3T8La"></div>
+		  <img id="like" src="../images/review/beanH.png">
+		</c:if>
+		<c:if test="${dto.rvLikeCheck == 1 }">
+		  <span class="_37Gv5"><button class="_1j4M5" actiondetails="[object Object]">
+		  <div class="dr0cE" aria-label="좋아요 0개. Is unliked" data-hook="like-button" style="--heart-color:#e84a43;">
+		  <div class="_2OWaP"><div class="_1pvT5"></div></div><div class="_2FjpA"><div class="_1pvT5"></div></div>
+		  <div class="_3YyRC"><div class="_1pvT5"></div></div><div class="_1z3qL"><div class="_1pvT5"></div></div>
+		  <div class="_3T8La"></div>
+		
+		  <img id="like" src="../images/review/fullH.png">
+		</c:if>
 
   
-  </div></button><span class="_3DfnL post-main-actions__like-count _344s1" data-hook="who-liked-popover-btn">0</span></span></div>
+  </button><div id="likecount"> ${dto.rvLikeCnt}</div></div>
   <div class="_1Fwxt forum-text-color forum-title-classic-font _3rPwO" tabindex="-1"><div><span class="A9boD">
   
 
@@ -170,12 +165,12 @@ pageEncoding="UTF-8"%>
     <input type="button" onClick="sendLinkCustom();" value="카카오톡 공유"/>
 
 <!-- 페이스북 -->
-<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유하기</a></div>
+<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small">
+<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유하기</a></div>
   <!-- 네이버 -->
 
 
 
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
   <path fill-rule="evenodd" d="M13.777 6.084l6 4c.23.153.292.464.139.693-.037.055-.084.102-.139.139l-6 4c-.23.153-.54.091-.693-.139-.055-.082-.084-.178-.084-.277V13h-1c-3.866 0-7 3.134-7 7H4v-2.5c0-5.079 3.986-9.227 9-9.487V6.5c0-.276.224-.5.5-.5.099 0 .195.03.277.084zM14 7.434V9h-.5c-4.13 0-7.57 2.944-8.34 6.848C6.564 13.541 9.102 12 12 12h2v1.566l4.599-3.066L14 7.434z"></path></svg><span class="_2HBxV">
   
   <input type="button" value="네이버공유하기" onclick="share()"/></span></button></span></div></div></div></div></div></main>
@@ -283,6 +278,37 @@ pageEncoding="UTF-8"%>
 </script>
 
 <script>
+
+	var nickName = "${sessionScope.nickName}"
+	var rvNo = "${dto.rvNo}"
+	var likecount = Number.parseInt($("#likecount").html())
+
+	$("#like").click(function(){
+		$.ajax({
+			url:"<c:url value="/Review/Like.do"/>",
+			type:"post",
+			data:{nickName, rvNo},
+			dataType:"text",
+			success:function(data){
+				if(data==0){
+					$("#like").attr("src","../images/review/fullH.png");
+					$("#likecount").html(++likecount);
+				}
+				else{
+					$("#like").attr("src","../images/review/beanH.png");
+					$("#likecount").html(--likecount);
+				}
+			},
+			error:function(){
+				alert("에러");
+			}
+		})
+	})
+
+
+
+
+
 try {
   function sendLinkDefault() {
     Kakao.init('[발급받은 js키]')

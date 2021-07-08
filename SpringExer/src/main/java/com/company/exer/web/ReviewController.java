@@ -56,9 +56,19 @@ public class ReviewController {
 	
 	//상세보기
 	@RequestMapping("ForumPost.do")
-	public String ForumPost(@RequestParam Map map,Model model) {
-		ReviewDTO dto = reviewService.selectOne(map);
-		model.addAttribute("dto",dto);
+	public String ForumPost(@RequestParam Map map,Model model,HttpServletRequest req) {
+		if(req.getSession().getAttribute("nickName")!=null) {
+			String nickName = req.getSession().getAttribute("nickName").toString();
+			map.put("nickName", nickName);
+			int check = reviewService.likeCheck(map);
+			ReviewDTO dto = reviewService.selectOne(map);
+			dto.setRvLikeCheck(check);
+			model.addAttribute("dto",dto);
+			}
+			else {
+				ReviewDTO dto = reviewService.selectOne(map);
+				model.addAttribute("dto",dto);
+			}
 		//뷰정보 반환]
 		return "/ForumPost";
 	}///////////////////ForumPost()
@@ -81,26 +91,21 @@ public class ReviewController {
 	
 
 	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
-	public String Like(@RequestParam Map map,
-			@ModelAttribute("nickName") String nickName,Model model) throws IOException {
-		map.put("nickName", nickName);
+	public @ResponseBody int Like(@RequestParam Map map) throws IOException {
 		int check = reviewService.likeCheck(map);
-		System.out.println("check:"+check);
-		model.addAttribute("check",check);
 		if(check==0) {
-			System.out.println("11");
-			reviewService.like(map);
+			int like = reviewService.like(map);
 		}
 		else if(check==1){
-			System.out.println("22");
 			reviewService.unlike(map); 
 		}
-		//reviewService.likeCount(map);
-		//ReviewDTO dto=reviewService.selectOne(map);
-		//if(dto.getRvLikeCnt()>=2) {
-		//	reviewService.stampCreate(map);
-		//}
-		return "forward:/Review/ForumPost.do";
+		reviewService.likeCount(map);
+		ReviewDTO dto=reviewService.selectOne(map);
+		if(dto.getRvLikeCnt()>=2) {
+			reviewService.stampCreate(map);
+		}
+		 
+		return check;
 	}
 	
 	@RequestMapping(value="Edit.do", method = RequestMethod.GET)

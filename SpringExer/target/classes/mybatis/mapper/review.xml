@@ -37,13 +37,13 @@
 	
 	<select id="reviewLikeCheck" parameterType="Map" resultType="Int">
 		select count(*)
-		from rvLike rl JOIN review rv ON rl.rvNo=rv.rvNo
-		where rl.rvNo=#{rvNo} and rl.nickName=#{nickName}
+		from rvLike
+		where rvNo=#{rvNo} and nickName=#{nickName}
 	</select>
 	
 	<insert id="reviewLike" parameterType="Map">
 		insert into rvLike
-		values (#{nickName},#{rvNo},sysdate)
+		values (SEQ_RVLIKE.NEXTVAL,#{rvNo},#{nickName},default)
 	</insert>
 	
 	<update id="reviewLikeCount" parameterType="Map">
@@ -58,8 +58,8 @@
 	</delete>
 	
 	<insert id="stampCreate" parameterType="Map">
-		insert into stamp(rvNo,rvLat,rvLng,stNo)
-		select rvNo,rvLat,rvLng,SEQ_STAMP.nextval
+		insert into stamp(stNo,rvNo)
+		select SEQ_STAMP.nextval,rvNo
 		from review
 		where rvNo=#{rvNo}
 	</insert>
