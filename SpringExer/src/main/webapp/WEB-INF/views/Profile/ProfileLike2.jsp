@@ -189,8 +189,6 @@
 													<div id="TPAMultiSection_kpndpfqc" class="_2JOHk"
 														style="overflow: visible; height: 687px;">
 
-														<jsp:include
-															page="/WEB-INF/views/templates/member-likes-page.jsp" />
 													</div>
 												</div>
 											</div>
