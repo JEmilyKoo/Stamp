@@ -116,8 +116,7 @@ function displayMarker(locPosition) {
         map: map, 
         position: locPosition
     }); 
-    map.setCenter(locPosition);      
-
+    
 
 }    
 
