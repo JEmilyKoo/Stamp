@@ -100,13 +100,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="components-blog-posts.html">
+                <a class="nav-link " href="<c:url value="/Admin/MemberMNG.do"/>">
                   <i class="material-icons">vertical_split</i>
                   <span>회원정보관리</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="add-new-post.html">
+                <a class="nav-link " href="<c:url value="/Admin/FollowMNG.do"/>">
                   <i class="material-icons">note_add</i>
                   <span>팔로우관리</span>
                 </a>
@@ -118,19 +118,19 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="tables.html">
+                <a class="nav-link " href="<c:url value="/Admin/TagMNG.do"/>">
                   <i class="material-icons">table_chart</i>
                   <span>해시태그 관리</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="user-profile-lite.html">
+                <a class="nav-link " href="<c:url value="/Admin/RiviewMNG.do"/>">
                   <i class="material-icons">person</i>
                   <span>리뷰 관리</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="errors.html">
+                <a class="nav-link " href="<c:url value="/Admin/RiviewComMNG.do"/>">
                   <i class="material-icons">error</i>
                   <span>리뷰 댓글 관리</span>
                 </a>

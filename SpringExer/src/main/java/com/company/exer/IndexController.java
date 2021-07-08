@@ -18,17 +18,8 @@ public class IndexController {
 	
 	
 	//컨트롤러 메소드]
-
-	@RequestMapping("/Index.do")
-	public String Index() {
-		//뷰정보 반환]
-		return "/Index";
-	}///////////////////Index()
-	@RequestMapping("/TestIndex.do")
-	public String TestIndex() {
-		//뷰정보 반환]
-		return "/test/testIndex";
-	}///////////////////Index()
+	
+	
 	@RequestMapping("/Stamp/Badge.do")
 	public String Badge() {
 		//뷰정보 반환]
@@ -109,10 +100,50 @@ public class IndexController {
 		return "/Test";
 	}///////////////////Test()
 	
-	@RequestMapping("/Admin.do")
+	@RequestMapping("/Admin/Admin.do")
 	public String Admin() {
 		//뷰정보 반환]
 		return "/admin/Admin";
+
+	}///////////////////Test()
+	
+	
+	@RequestMapping("/Admin/MemberMNG.do")
+	public String MemberMNG() {
+		//뷰정보 반환]
+		return "/admin/MemberMNG";
+	}///////////////////Test()
+	
+	@RequestMapping("/Admin/FollowMNG.do")
+	public String FollowMNG() {
+		//뷰정보 반환]
+		return "/admin/FollowMNG";
+	}///////////////////Test()
+	
+	@RequestMapping("/Admin/StampMNG.do")
+	public String StampMNG() {
+		//뷰정보 반환]
+		return "/admin/StampMNG";
+	}///////////////////Test()
+	
+	@RequestMapping("/Admin/TagMNG.do")
+	public String TagMNG() {
+		//뷰정보 반환]
+		return "/admin/TagMNG";
+	}///////////////////Test()
+	
+	@RequestMapping("/Admin/RiviewMNG.do")
+	public String RiviewMNG() {
+		//뷰정보 반환]
+		return "/admin/RiviewMNG";
+	}///////////////////Test()
+	
+	@RequestMapping("/Admin/RiviewComMNG.do")
+	public String RiviewComMNG() {
+		//뷰정보 반환]
+		return "/admin/RiviewComMNG";
+
+
 	}///////////////////Test()
 	
 	@RequestMapping("/AdminStamp")
