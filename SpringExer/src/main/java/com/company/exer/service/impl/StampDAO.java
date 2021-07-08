@@ -12,7 +12,7 @@ import com.company.exer.service.StampDTO;
 import com.company.exer.service.StampService;
 
 @Repository("stampDAO")
-public class StampDAO implements StampService {
+public class StampDAO{
 
 	@Resource(name="template")
 	private SqlSessionTemplate sqlMapper;
@@ -46,11 +46,23 @@ public class StampDAO implements StampService {
 	}
 
 
-	@Override
 	public String stampRvno(Map map) {
 		return sqlMapper.selectOne("stampRvno",map);
 	}
 
+
+	//관리자페이지
+		public List<StampDTO> showStampList() {
+			return sqlMapper.selectList("showStampList");
+		}
+		
+		public int updateAdminStamp(Map map) {
+			return sqlMapper.insert("updateAdminStamp",map);
+		}
+		
+		public int deleteAdminStamp(Map map) {
+			return sqlMapper.delete("deleteAdminStamp",map);
+		}
 
 
 	

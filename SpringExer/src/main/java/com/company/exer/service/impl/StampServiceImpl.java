@@ -51,6 +51,22 @@ public class StampServiceImpl implements StampService {
 		return dao.stampRvno(map);
 	}
 
+	//관리자페이지용
+	@Override
+	public List<StampDTO> showStampList() {
+		return dao.showStampList();
+	}
+
+	@Override
+	public int updateAdminStamp(Map map) {
+		return dao.updateAdminStamp(map);
+	}
+
+	@Override
+	public int deleteAdminStamp(Map map) {
+		return dao.deleteAdminStamp(map);
+	}
+
 
 
 	
