@@ -26,71 +26,74 @@ public class ProfileController {
 	@Inject // 자동 주입
 	ProfileService service;
 
-	//컨트롤러 메소드]
-
-	@RequestMapping("StampList.do")
-	public String ProfileStampList() {
-		//뷰정보 반환]
-		return "Profile/ProfileStampList";
-	}///////////////////ProfileStampList()
-	
+//ProfileMain에서 쓰이는 컨트롤러
+// 뷰 선택 체크
 	
 	@RequestMapping(value = "Main.do", method = RequestMethod.GET)
 	public String ProfileMain(HttpSession session) throws Exception {
+		session.removeAttribute("userError");
 		//뷰정보 반환]
-		//먼저 dto에서 로그인을 땡겨옴
 		ProfileDTO dto = new ProfileDTO();
+		//세션으로 처리하지 말고 기존에 같은 데이터가 있는지를 확인해야겠다.
+		//
+		MemberDTO mdto= new MemberDTO();
+		
+		String id;
+		id=session.getAttribute("id").toString();
 
-		dto=(ProfileDTO) session.getAttribute("profile");
-		System.out.println("dto:"+dto);
-		//프로필 dto 생성
+		mdto.setId(id);
+		dto=service.selectProfileFromMember(mdto);
+		//세션에 프로필이 있는지 확인하고 없으면 새로 삽입
 		if(dto==null){
-			//해당하는 멤버의 닉네임이 빈통이라면
-			return "Profile/ProfileNewSetting";
-			//가서 세팅하라고 한다
+			return "Profile/ProfileInsert"; 
 		}
-		//그게 아니면
-		
 		session.setAttribute("profile", dto);
-		session.setAttribute("nickName", dto.getNickName());
-		return "Profile/ProfileMain";
-		
-
-	
-	}///////////////////ProfileMain()
-	@RequestMapping(value = "Main.do", method = RequestMethod.POST) // 잘못 입력했을 때
-	public String loginFormPPST(HttpSession session) {
-		return "Profile/ProfileMain";
-	}
-	@RequestMapping(value = "Main/Id.do", method = RequestMethod.GET)
-	public String ProfileMainId(@RequestParam String id, HttpSession session) throws Exception {
-		//뷰정보 반환]
-		System.out.println(id);
-		//들어왔음koo의 dto를 받아 넘긴다 
-		ProfileDTO dto = new ProfileDTO();
-		dto.setId(id);
-		//dto에 아이디를 넘긴다
-		dto=service.selectProfile(dto);
-		//프로필을 다 가져온다
 		session.setAttribute("otherProfile", dto);
-		//받아온 걸 세션의 남의 프로필칸에 넣는다
+		//뿌려주기용 세션: 메인에 뿌려주는 건 이 otherProfile로 굴러간다
+		return "Profile/ProfileMain";
+	}///////////////////ProfileMain() 
+	
+	@RequestMapping(value = "Main.do", method = RequestMethod.POST) // 잘못 입력했을 때
+	public String ProfileMainPOST(HttpSession session) {
+		return "Profile/ProfileMain";
+	}///////////////////ProfileMainPOST()
+	
+	@RequestMapping(value = "Main/NickName.do", method = RequestMethod.GET)
+	public String ProfileMainId(@RequestParam String nickName, HttpSession session) throws Exception {
+		ProfileDTO dto = new ProfileDTO();
+		dto.setNickName(nickName);
+		//dto에 아이디를 넘긴다
 		
+		//해당 닉네임 있는지 체크한다
+		int flag = service.NickNameCheck(dto);
+		if(flag==1) {
+			dto=service.selectProfile(dto);
+			session.setAttribute("otherProfile", dto);	
+		}
+		else {
+			//해당 KOO를 만들라고 시킨다
+			session.setAttribute("userError", "해당하는 닉네임의 사용자가 없습니다");
+		}
+		//프로필을 다 가져온다
+		//받아온 걸 세션의 남의 프로필칸에 넣는다
 		return "Profile/ProfileMain";
 	}///////////////////ProfileMain()
-	@RequestMapping(value = "Main/Id.do", method = RequestMethod.POST) // 잘못 입력했을 때
+	@RequestMapping(value = "Main/NickName.do", method = RequestMethod.POST) // 잘못 입력했을 때
 	public String ProfileMainIdPost(HttpSession session) {
 		return "Profile/ProfileMain";
 	}
-
-	@RequestMapping(value = "NewSetting.do", method = RequestMethod.GET)
-	public String ProfileNewSetting()  throws Exception {
-		//뷰정보 반환]
-		return "Profile/ProfileNewSetting";
-	}///////////////////ProfileNewSetting()
-		
 	
-	@RequestMapping(value = "NewSetting.do", method = RequestMethod.POST)
-	public String ProfileNewSettingPOST(HttpSession session, ProfileDTO profileDTO) throws Exception  {
+//ProfileInsert에서 쓰이는 컨트롤러
+// 뷰 생성
+	
+	@RequestMapping(value = "Insert.do", method = RequestMethod.GET)
+	public String insertProfile()  throws Exception {
+		//뷰정보 반환]
+		return "Profile/ProfileInsert";
+	}///////////////////insertProfile()
+	
+	@RequestMapping(value = "Insert.do", method = RequestMethod.POST)
+	public String insertProfilePOST(HttpSession session, ProfileDTO profileDTO) throws Exception  {
 		//뷰정보 반환]
 		
 		System.out.println(profileDTO);
@@ -103,10 +106,10 @@ public class ProfileController {
 		profileDTO.setId(session.getAttribute("id").toString());
 		//profileDTO.setOpenprf(Integer.parseInt(profileDTO.getOpenprf()));
 		System.out.println(profileDTO);
-		int flag = service.profileNickNameCheck(profileDTO);
+		int flag = service.NickNameCheck(profileDTO);
 		//닉네임 체크하는 함수
 		if(flag==0) {
-		service.profileNewSetting(profileDTO);
+		service.insertProfile(profileDTO);
 		System.out.println("중복된 별명이 아닙니다");
 
 		session.setAttribute("profile", profileDTO);
@@ -115,30 +118,49 @@ public class ProfileController {
 		}
 		else {	session.setAttribute("error", "이미 존재하는 별명입니다");
 			
-			return "Profile/NewSetting";
+			return "Profile/ProfileInsert";
 		}
 		
 		session.removeAttribute("error");
 		
 		
+		return "Profile/ProfileMain.do";
+	}///////////////////insertProfilePOST()
+	
+//ProfileSetting에서 쓰이는 컨트롤러
+// 뷰 수정 삭제
+	@RequestMapping("Setting.do")
+	public String ProfileSetting() {
+		//뷰정보 반환]
+		return "Profile/ProfileSetting";
+	}///////////////////ProfileSetting()
+	
+	@RequestMapping("UpdateProfile.do")
+	public String ProfileUpdateProfile(ProfileDTO profileDTO) throws Exception{
+		service.updateProfile(profileDTO);
 		return "Profile/ProfileMain";
-	}///////////////////ProfileNewSettingPOST()
-		
-		
+	}///////////////////ProfileUpdateProfile()
 	
+	@RequestMapping("DeleteProfile.do")
+	public String ProfileDeleteProfile(ProfileDTO profileDTO) throws Exception{
+		service.deleteProfile(profileDTO);
+		return "Profile/ProfileMain";
+	}///////////////////ProfileDeleteProfile()
 	
-		
-	@RequestMapping("Like.do")
-	public String ProfileLike() {
+//ProfileStampList에서 쓰이는 컨트롤러
+// 뷰 선택 체크 -> 스탬프 컨트롤러 필요
+
+	@RequestMapping("StampList.do")
+	public String ProfileStampList() {
 		//뷰정보 반환]
-		return "Profile/ProfileLike";
-	}///////////////////ProfileLike()
+		return "Profile/ProfileStampList";
+	}///////////////////ProfileStampList()
 	
-	@RequestMapping("Comment.do")
-	public String ProfileComment() {
-		//뷰정보 반환]
-		return "Profile/ProfileComment";
-	}///////////////////ProfileComment()
+//Badge에서 쓰이는 컨트롤러
+// 뷰 선택 체크 -> 뱃지 컨트롤러 필요
+
+//ProfilePost에서 쓰이는 컨트롤러
+// 뷰 선택 -> 리뷰 컨트롤러 필요
 	
 	@RequestMapping("Post.do")
 	public String ProfilePost() {
@@ -146,115 +168,39 @@ public class ProfileController {
 		return "Profile/ProfilePost";
 	}///////////////////ProfilePost()
 	
+//ProfileComment에서 쓰이는 컨트롤러
+// 뷰 선택 -> 리뷰 컨트롤러 필요
+	
+	@RequestMapping("Comment.do")
+	public String ProfileComment() {
+		//뷰정보 반환]
+		return "Profile/ProfileComment";
+	}///////////////////ProfileComment()
+	
+//ProfileLike에서 쓰이는 컨트롤러
+// 뷰 선택 -> 리뷰 컨트롤러 필요
+	
+	@RequestMapping("Like.do")
+	public String ProfileLike() {
+		//뷰정보 반환]
+		return "Profile/ProfileLike";
+	}///////////////////ProfileLike()
+	
+//ProfileAlarm에서 쓰이는 컨트롤러
+// 뷰 선택 -> 미구현
 	@RequestMapping("Alarm.do")
 	public String ProfileAlarm() {
 		//뷰정보 반환]
 		return "Profile/ProfileAlarm";
 	}///////////////////ProfileAlarm()
 	
+	
+//ProfileAlarmSetting에서 쓰이는 컨트롤러
+// 뷰 수정 삭제 -> 미구현
 	@RequestMapping("AlarmSetting.do")
 	public String ProfileAlarmSetting() {
 		//뷰정보 반환]
 		return "Profile/ProfileAlarmSetting";
-	}///////////////////ProfileAlarmSetting()
+	}///////////////////ProfileAlarmSetting()	
 	
-	@RequestMapping(value="NewProfile.do",produces="application/json;charset=UTF-8")
-	public String ProfileNewProfile(HttpSession session) throws Exception {
-		ProfileDTO profileDTO = new ProfileDTO();
-		
-		if(		session.getAttribute("id") ==null) { 
-		//없으면 암거나 넣고
-		profileDTO.setId("csb");
-		}
-		else {
-		//있으면 추가한다	
-		
-		profileDTO.setId(session.getAttribute("id").toString());
-		}
-		profileDTO.setNickName(session.getAttribute("id").toString());
-		profileDTO.setMail("name@mail.com");
-		profileDTO.setTrvprpns("서울");
-		profileDTO.setPr("한마디소개");
-		profileDTO.setGender("여자");
-		profileDTO.setBirth("2021-07-05");
-		profileDTO.setPhone("010-2228-3239");
-		profileDTO.setLev(0);
-		profileDTO.setExp(0);
-		profileDTO.setOpenprf(1);
-		System.out.println(profileDTO);
-		session.setAttribute("profile", profileDTO);
-		return "Profile/ProfileMain";
-	}///////////////////NewProfile()
-	
-	@RequestMapping(value="NewInsertProfile.do",produces="application/json;charset=UTF-8")
-	public String ProfileNewInsertProfile(HttpSession session) throws Exception {
-		ProfileDTO profileDTO = new ProfileDTO();
-		
-		profileDTO= (ProfileDTO) session.getAttribute("profile");
-
-		System.out.println(profileDTO);
-		session.setAttribute("profile", profileDTO);
-		service.newProfile(profileDTO);
-		return "Profile/ProfileMain";
-	}///////////////////NewProfile()
-	
-	// 이 아래는 버튼을 만들지 않았음
-	
-	
-	@RequestMapping("SelectProfile.do")
-	public String ProfileSelectProfile(HttpSession session) throws Exception{
-		
-		ProfileDTO dto = new ProfileDTO();
-		dto=(ProfileDTO) session.getAttribute("profile");
-		
-		dto=service.selectProfile(dto);
-		session.setAttribute("profile", dto);
-		return "Profile/ProfileMain";
-}///////////////////ProfileSelectProfile()
-	
-	@RequestMapping("SelectMemberProfile.do")
-	public ProfileDTO ProfileSelectMemberProfile(HttpSession session) throws Exception{
-		
-		//프로필을 받아와서 멤버로 받아온다
-		
-		
-		MemberDTO mdto = new MemberDTO();
-		mdto=(MemberDTO) session.getAttribute("login");
-		
-		ProfileDTO dto = new ProfileDTO();
-		dto=service.selectMemberProfile(mdto);
-		
-		if(dto==null) {
-			session.setAttribute("nickName", mdto.getName());
-			
-		}
-		else {
-			
-		}
-		session.setAttribute("profile", dto);
-		session.setAttribute("nickName", dto.getNickName());
-		
-		return dto;
-	}///////////////////ProfileSelectMemberProfile()
-
-	@RequestMapping("UpdateProfile.do")
-	public String ProfileUpdateProfile(ProfileDTO profileDTO) throws Exception{
-		
-		service.updateProfile(profileDTO);
-		return "Profile/ProfileMain";
-	}///////////////////ProfileUpdateProfile()
-
-	@RequestMapping("UpdateNicknameProfile.do")
-	public String ProfileUpdateNicknameProfile(ProfileDTO profileDTO) throws Exception{
-		service.updateNicknameProfile(profileDTO);
-		return "Profile/ProfileMain";
-		
-	}///////////////////ProfileUpdateNicknameProfile()
-	
-	@RequestMapping("DeleteProfile.do")
-	public String ProfileDeleteProfile(ProfileDTO profileDTO) throws Exception{
-		service.deleteProfile(profileDTO);
-		return "Profile/ProfileMain";
-		
-	}///////////////////ProfileDeleteProfile()
 }

@@ -306,7 +306,7 @@ body {
 				<li class="font_1"><a href="<c:url  value="/Profile/Main.do"/>">프로필</a></li>
 				<li><a href="<c:url value="/Profile/StampList.do"/>">스탬프</a></li>
 				<li><a href="<c:url value="/Stamp/Badge.do"/>">뱃지</a></li>
-				<li><a href="<c:url value="/Profile/NewSetting.do"/>">프로필 생성하기</a></li>
+				<li><a href="<c:url value="/Profile/Insert.do"/>">프로필 생성하기</a></li>
 				<li><a href="<c:url value="/Profile/Post.do"/>">올린 리뷰</a></li>
 				<li><a href="<c:url value="/Profile/Comment.do"/>">올린 댓글</a></li>
 				<li><a href="<c:url value="/Profile/Like.do"/>">즐겨 찾기</a></li>

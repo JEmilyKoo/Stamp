@@ -96,7 +96,7 @@ public class MemberController {
 			
 			/*세션의 프로필에 멤버에서 나온 걸로 프로필 박음*/
 			ProfileDTO profiledto = new ProfileDTO();
-			profiledto=profileservice.selectMemberProfile(dto);
+			profiledto=profileservice.selectProfileFromMember(dto);
 			session.setAttribute("profile", profiledto);
 			
 			

@@ -204,7 +204,7 @@ public class Member2Controller {
 		/*세션의 프로필에 멤버에서 나온 걸로 프로필 박음*/
 		ProfileDTO profiledto = new ProfileDTO();
 		
-		profiledto=profileservice.selectMemberProfile(memberDTO);
+		profiledto=profileservice.selectProfileFromMember(memberDTO);
 		//프로필DTO는 프로필 DTO로 받음
 		
 		session.setAttribute("profile", profiledto);
@@ -332,37 +332,30 @@ public class Member2Controller {
 				
 				//이미 가입 완료
 				if(flag == 1) {
-					//session.removeAttribute("login");
-					//session.removeAttribute("id");
-					
 					memberService.getMember(memberDTO);
-					session.setAttribute("login", memberDTO);
-					session.setAttribute("id",memberDTO.getId());
-
-					ProfileDTO profiledto = new ProfileDTO();
-					profiledto=profileservice.selectMemberProfile(memberDTO);
-					
-					
-					if(profiledto==null) {
-						System.out.println("profiledto는 null");
-						session.setAttribute("nickName", memberDTO.getName());
 					}
-					else {
-						session.setAttribute("nickName", profiledto.getNickName());		
-					}
-					
-					
-					return "redirect:/";
-					}
-
 				//비 가입자
-				else {
+				else {	
 					memberService.memberJoin(memberDTO);
-					session.setAttribute("nickName", memberDTO.getName());
-					return "redirect:/";
-				
-				
 				}
+				
+				session.setAttribute("login", memberDTO);
+				session.setAttribute("id",memberDTO.getId());	
+				
+				ProfileDTO profiledto = new ProfileDTO();
+				profiledto=profileservice.selectProfileFromMember(memberDTO);
+				
+				if(profiledto==null) {
+					System.out.println("profiledto는 null");
+					session.setAttribute("nickName", memberDTO.getName());
+				}
+				else {
+					session.setAttribute("nickName", profiledto.getNickName());		
+				}
+				
+				return "redirect:/";
+				
+				
 				
 	}
 
