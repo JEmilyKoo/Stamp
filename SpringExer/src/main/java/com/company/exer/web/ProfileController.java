@@ -122,9 +122,10 @@ public class ProfileController {
 		}
 		
 		session.removeAttribute("error");
+
+		session.setAttribute("otherProfile", profileDTO);
 		
-		
-		return "Profile/ProfileMain.do";
+		return "Profile/ProfileMain";
 	}///////////////////insertProfilePOST()
 	
 //ProfileSetting에서 쓰이는 컨트롤러
