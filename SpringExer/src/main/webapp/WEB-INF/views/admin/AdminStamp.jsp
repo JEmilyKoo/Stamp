@@ -270,10 +270,10 @@
 					class="table table-bordered table-hover table-condensed text-center">
 					<tr>
 						<th class="col-md-1 text-center">선택</th>
-						<th class="col-md-1 text-center">스탬프번호</th>
-						<th class="col-md-1 text-center">리뷰글번호</th>
-						<th class="col-md-3 text-center">스탬프 등록일</th>
-						<th class="col-md-1 text-center">만료 유무</th>
+						<th class="col-md-2 text-center">스탬프번호</th>
+						<th class="col-md-2 text-center">리뷰글번호</th>
+						<th class="col-md-5 text-center">스탬프 등록일</th>
+						<th class="col-md-2 text-center">만료 유무</th>
 					</tr>
 					<c:if test="${empty finalDMLists }" var="isEmpty">
 						<tr>
@@ -284,24 +284,12 @@
 						<c:forEach items="${finalDMLists }" var="item" varStatus="loop">
 							<tr>
 								<td><input type="checkbox" name="" ></td>
-								<td><a id ="enterWServer"
-									href="<c:url value="/DMChatBox?id=${item.id }&dmToId=${item.dmToId }"/>">
-										${item.dmToId == sessionScope.id?item.id:item.dmToId }</a></td>
 								<td>${item.dmCtt }</td>
-								<c:if test="${item.dmDate==serverTime}">
-									<td><fmt:formatDate value="${item.dmDate }"
-											pattern="yyyy-MM-dd a HH:mm" /></td>
-								</c:if>
-								<c:if test="${item.dmDate!=serverTime}">
-									<td><fmt:formatDate value="${item.dmDate }"
-											pattern="a HH:mm" /></td>
-								</c:if>
-								<c:if test="${sessionScope.id ==item.id }" >
-								<td>${item.dmChecked }</td>
-								</c:if>
-								<c:if test="${sessionScope.id !=item.id }" >
-								<td></td>
-								</c:if>
+								<td><a id ="enterWServer"
+									href="<c:url value=""/>"> </a></td>
+								<td><fmt:formatDate value="${item.dmDate }" pattern="yyyy-MM-dd a HH:mm" /></td>
+								<td>${item.dmCtt }</td>
+								
 							</tr>
 						</c:forEach>
 					</c:if>
