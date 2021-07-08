@@ -104,7 +104,7 @@ public class IndexController {
 	public String Admin() {
 		//뷰정보 반환]
 		return "/admin/Admin";
-<<<<<<< HEAD
+
 	}///////////////////Test()
 	
 	
@@ -142,8 +142,8 @@ public class IndexController {
 	public String RiviewComMNG() {
 		//뷰정보 반환]
 		return "/admin/RiviewComMNG";
-=======
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
+
+
 	}///////////////////Test()
 	
 	@RequestMapping("/AdminStamp")

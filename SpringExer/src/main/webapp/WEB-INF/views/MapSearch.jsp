@@ -77,8 +77,17 @@ if (navigator.geolocation) {
             			data:{lat,lng},
             			dataType:"text",
             			success:function(data){
-            				if(data != 0){
-            					console.log(data)
+            				if(data == 0){
+								console.log("로그인이 안되어 있습니다.")
+            				}
+            				else if(data == 1){
+            					alert("축하드립니다. ! 스탬프를 획득했습니다.")
+            				}
+            				else if (data == 2){
+            					console.log("위치 정보 확인 중")
+            				}
+            				else{
+            					console.log("이미 스탬프를 획득했습니다.")
             				}
             			}
             		});

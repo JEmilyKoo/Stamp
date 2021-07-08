@@ -42,8 +42,30 @@
 	</insert>
 
 	<select id="stampCheckGet" parameterType="Map" resultType="Int">
-		 select count(*)
+		select count(*)
         From memberstamp m Join stampCheck s ON m.rvNO=s.rvNO
-        where m.nickname = #{nickName} and m.rvno = #{rvNo}
+        where m.nickname = #{nickName} and m.rvno =(select distinct rvno
+											from stampcheck
+											where nickName = #{nickName})
 	</select>
+	
+	
+	<!-- 관리자페이지용 -->
+	<!-- 1. 스탬프 조회 -->
+	 <select id="showStampList" resultType="stampDTO">
+		select * from stamp order by stNo desc;
+	</select>
+	
+	<!-- 2. 스탬프 수정 -->
+	<update id="updateStamp" parameterType="Map">
+		update stamp 
+		set stisexpired = 0
+		where stNo =#{stNo}
+	</update>
+	<!-- 3. 스탬프 삭제 -->
+	<delete id="deleteStamp" parameterType="Map">
+		delete stamp
+		where stNo = #{stNo}
+	</delete>
+	
 </mapper>

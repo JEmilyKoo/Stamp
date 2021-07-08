@@ -112,11 +112,7 @@
                 </a>
               </li>
               <li class="nav-item">
-<<<<<<< HEAD
-                <a class="nav-link " href="<c:url value="/Admin/StampMNG.do"/>">
-=======
                 <a class="nav-link " href="<c:url value="/AdminStamp"/>">
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
                   <i class="material-icons">view_module</i>
                   <span>스탬프관리</span>
                 </a>

@@ -312,6 +312,7 @@
 				</div>
 		</div>
 	</div>
+	
 	<!-- End Top Referrals Component -->
 	</div>
 	</div>
