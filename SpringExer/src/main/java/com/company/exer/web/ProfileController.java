@@ -178,8 +178,8 @@ public class ProfileController {
 		profileDTO.setGender("여자");
 		profileDTO.setBirth("2021-07-05");
 		profileDTO.setPhone("010-2228-3239");
-		profileDTO.setLev("0");
-		profileDTO.setExp("0");
+		profileDTO.setLev(0);
+		profileDTO.setExp(0);
 		profileDTO.setOpenprf(1);
 		System.out.println(profileDTO);
 		session.setAttribute("profile", profileDTO);
@@ -213,7 +213,10 @@ public class ProfileController {
 }///////////////////ProfileSelectProfile()
 	
 	@RequestMapping("SelectMemberProfile.do")
-	public String ProfileSelectMemberProfile(HttpSession session) throws Exception{
+	public ProfileDTO ProfileSelectMemberProfile(HttpSession session) throws Exception{
+		
+		//프로필을 받아와서 멤버로 받아온다
+		
 		
 		MemberDTO mdto = new MemberDTO();
 		mdto=(MemberDTO) session.getAttribute("login");
@@ -221,8 +224,17 @@ public class ProfileController {
 		ProfileDTO dto = new ProfileDTO();
 		dto=service.selectMemberProfile(mdto);
 		
+		if(dto==null) {
+			session.setAttribute("nickName", mdto.getName());
+			
+		}
+		else {
+			
+		}
 		session.setAttribute("profile", dto);
-		return "Profile/ProfileMain";
+		session.setAttribute("nickName", dto.getNickName());
+		
+		return dto;
 	}///////////////////ProfileSelectMemberProfile()
 
 	@RequestMapping("UpdateProfile.do")

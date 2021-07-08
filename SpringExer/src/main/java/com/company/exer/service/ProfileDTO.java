@@ -20,7 +20,7 @@ public class ProfileDTO {
 	private String gender;
 	private String birth;
 	private String phone;
-	private String lev;
-	private String exp;
+	private int lev;
+	private int exp;
 	private int openprf;
 }

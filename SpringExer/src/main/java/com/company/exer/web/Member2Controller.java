@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpEntity;
@@ -28,6 +29,8 @@ import com.company.exer.service.MemberDTO;
 import com.company.exer.service.MemberService;
 import com.company.exer.service.NaverOAuthToken;
 import com.company.exer.service.NaverProfile;
+import com.company.exer.service.ProfileDTO;
+import com.company.exer.service.ProfileService;
 import com.company.exer.service.KakaoOAuthToken;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -39,6 +42,11 @@ public class Member2Controller {
 	
 	@Resource(name="memberService")
 	private MemberService memberService;
+	
+
+	@Inject // 자동 주입
+	ProfileService profileservice;
+
 	/*
 	@RequestMapping(value="1Join.do",method = RequestMethod.GET)
 	public String Join() {
@@ -182,19 +190,41 @@ public class Member2Controller {
 			//session.removeAttribute("id");
 			
 			memberService.getMember(memberDTO);
-			session.setAttribute("login", memberDTO);
-			session.setAttribute("id",memberDTO.getId());
-
-			
-			return "redirect:/";
 			}
 
 		//비 가입자
 		else {
 			memberService.memberJoin(memberDTO);
+			session.setAttribute("login", memberDTO);
 			session.setAttribute("id",memberDTO.getId());
-			return "redirect:/";
+			return "redirect:/Profile/ProfileNewSetting";
 		}
+		
+		
+		session.setAttribute("login", memberDTO);
+		session.setAttribute("id",memberDTO.getId());
+		/*세션의 프로필에 멤버에서 나온 걸로 프로필 박음*/
+		ProfileDTO profiledto = new ProfileDTO();
+		
+		profiledto=profileservice.selectMemberProfile(memberDTO);
+		//프로필DTO는 프로필 DTO로 받음
+		
+		session.setAttribute("profile", profiledto);
+		
+		if(profiledto==null) {
+			
+			session.setAttribute("nickName", memberDTO.getName());
+		}
+		else{
+			session.setAttribute("nickName", profiledto.getNickName());
+		}
+		
+		
+		session.setAttribute("profile", profiledto);
+		return "redirect:/";
+		
+		
+		
 	}
 	
 	//////////네이버 로그인

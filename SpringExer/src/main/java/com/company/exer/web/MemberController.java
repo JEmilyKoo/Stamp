@@ -99,6 +99,14 @@ public class MemberController {
 			ProfileDTO profiledto = new ProfileDTO();
 			profiledto=profileservice.selectMemberProfile(dto);
 			session.setAttribute("profile", profiledto);
+			
+			if(profiledto==null) {
+				
+				session.setAttribute("nickName", memberDTO.getName());
+			}
+			session.setAttribute("nickName", profiledto.getNickName());
+			
+			session.setAttribute("profile", profiledto);
 			session.removeAttribute("error");
 			System.out.println(profiledto);
 			}

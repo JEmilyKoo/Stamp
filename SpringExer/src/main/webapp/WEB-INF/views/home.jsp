@@ -8,8 +8,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Polaroid Stack to Grid Intro Animation | Demo: Default |
-	Codrops</title>
+<title>찍GO</title>
 <meta name="description"
 	content="Demo of the tutorial on how to re-create a similar effect of the takeitapp.co website." />
 <meta name="keywords"
@@ -33,14 +32,11 @@
 	href="${pageContext.request.contextPath}/css/css.css" />
 
 
-<!--[if IE]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 <script>
 	document.documentElement.className = 'js';
 </script>
 </head>
-<body>
+<body style="overflow-x:hidden;">
 
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 	<div class="view">
@@ -62,7 +58,7 @@
 			<div class="page__title">
 				<h2 class=" font_5 page__title-main color_5">추천 리뷰</h2>
 				<p class="page__title-sub font_7">
-					<a href="<c:url value="/Review/TripBoard.do"/>">인기 리뷰</a>를 확인하세요
+					카테고리별 <a href="<c:url value="/Review/TripBoard.do"/>">인기 리뷰</a>를 확인하세요
 				</p>
 			</div>
 			<ul class="grid">

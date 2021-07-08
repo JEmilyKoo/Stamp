@@ -1,4 +1,26 @@
 @charset "UTF-8";
+
+
+
+/*tripboard*/
+.searchNav{
+	
+	display:flex;
+	
+}
+.search-input{
+	
+	width:200px;
+	position: relative;
+}
+.searchButton{
+	
+	position:relative;
+	z-index:3;
+}
+/*tripboard*/
+
+
 @media all and (min-width:768px) {
 	.profileContainer {
 		margin: 90px 10px 10px 10px;
