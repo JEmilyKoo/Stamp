@@ -28,86 +28,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- render-head end   style="height: auto;position: absolute; left:200px; top:80px "-->
 
-<Style>
-@media all and (min-width:768px) {
-	.profileCard {
-		width: 250px;
-		height: 235px;
-		box-sizing: border-box;
-		background-color: rgb(255, 255, 255);
-		border-width: 1px;
-		border-color: rgba(0, 0, 0, 0.2);
-		border-style: solid;
-		pointer-events: none;
-		min-width: 250px;
-		z-index: -332;
-		positon: flex;
-		display: opacity;
-		justify-content: center;
-		margin: 0px 30px 30px 0px;
-		position: sticky;
-		top: 90px;
-		z-index: 100;
-	}
-	.profileCardImage {
-		box-sizing: border-box;
-		outline: 0;
-		border-color: rgb(255, 255, 255);
-		width: 90px;
-		height: 90px;
-		min-width: 90px;
-		min-height: 90px;
-		margin: auto;
-		z-index: 1;
-		border-radius: 50%;
-		overflow: hidden;
-		positon: relative;
-	}
-	li {
-		style ="padding: 0px 5px 13px 20px"
-	}
-	ul {
-		
-	}
-	.sideMenu {
-		position: sticky;
-		top: 380px;
-		z-index: 100;
-	}
-	.profileSettingButton {
-		position: relative;
-		right: 30px;
-		top: 3px;
-		z-index: 100;
-		"
-	}
-}
-/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
-@media all and (max-width:767px) {
-	profileCard {
-		box-sizing: border-box;
-		background-color: white;
-		border-color: rgba(0, 0, 0, 0.2);
-		border-style: solid;
-		pointer-events: none;
-		margin: 30px 30px 30px 30px;
-	}
-	.profileCardImage {
-		box-sizing: border-box;
-		outline: 0;
-		border-color: rgb(255, 255, 255);
-		width: 90px;
-		height: 90px;
-		min-width: 90px;
-		min-height: 90px;
-		margin: auto;
-		z-index: 1;
-		border-radius: 50%;
-		overflow: hidden;
-		positon: relative;
-	}
-}
-</Style>
+
+
 </head>
 <body>
 	<div class=" profileCard comp-kpndp2z9 _1rug6 osdAp" dir="ltr">
@@ -141,13 +63,13 @@
 
 	<nav id="comp-kpndp7iz" class="_3rKL6 _25-B7 sideMenu"
 		style="background-color: white; width: 100%; postion: flex; z-index: 4;">
-		<ul class="-SaFH" style="padding: 30px 0px 30px 0px">
+		<ul class="sideBarUl -SaFH" style="padding: 30px 0px 30px 0px">
 			<li>
 
 				<div style="display: flex; justify-content: space-between;">
 					<a href="<c:url value="/Profile/Main.do"/>"
 						target="_self" class="XOxx5  _3Cpo0 _16rQy _3VyKd"
-						style="font: var(- -font_7)">프로필</a>
+						style="font: var(--font_7)">프로필</a>
 
 					<c:set var="otherProfileid" value="${otherProfile.id}" />
 					<c:set var="profileid" value="${profile.id}" />
@@ -165,24 +87,24 @@
 			</li>
 			<li><a href="<c:url value="/Profile/Main.do"/>#scrollSpyStamp"
 				target="_self" class=" _3Cpo0 _16rQy _3VyKd scroll"
-				style="font: var(- -font_7)">스탬프</a></li>
+				style="font: var(--font_7)">스탬프</a></li>
 			<li><a href="<c:url value="/Profile/Main.do"/>#scrollSpyBadge"
 				target="_self" class="XOxx5  _3Cpo0 _16rQy _3VyKd scroll"
-				style="font: var(- -font_7)">뱃지</a></li>
+				style="font: var(--font_7)">뱃지</a></li>
 			<li><a href="<c:url value="/Profile/Main.do"/>#scrollSpyAchievement"
 				target="_self" class="XOxx5  _3Cpo0 _16rQy _3VyKd scroll"
-				style="font: var(- -font_7)">업적 </a></li>
+				style="font: var(--font_7)">업적 </a></li>
 			<li><a href="<c:url value="/Profile/Review.do"/>"
 				target="_self" class=" XOxx5  _3Cpo0 _16rQy _3VyKd"
-				style="font: var(- -font_7)">올린 리뷰<span class="_3JSHe">(1)</span>
+				style="font: var(--font_7)">올린 리뷰<span class="_3JSHe">(1)</span>
 			</a></li>
 			<li><a href="<c:url value="/Profile/Comment.do"/>"
 				target="_self" class="XOxx5  _3Cpo0_16rQy _3VyKd"
-				style="font: var(- -font_7)">올린 댓글<span class="_3JSHe">(2)</span>
+				style="font: var(--font_7)">올린 댓글<span class="_3JSHe">(2)</span>
 			</a></li>
 			<li><a href="<c:url value="/Profile/Like.do"/>"
 				target="_self" class=" XOxx5 _3Cpo0 _16rQy  _3VyKd"
-				style="font: var(- -font_7)">즐겨찾기<span class="_3JSHe">(1)</span>
+				style="font: var(--font_7)">즐겨찾기<span class="_3JSHe">(1)</span>
 			</a></li>
 
 
@@ -192,7 +114,7 @@
 
 					<div style="display: flex; justify-content: space-between;">
 						<a href="<c:url value="/Profile/Alarm.do"/>" target="_self"
-							class="XOxx5  _3Cpo0 _16rQy _3VyKd" style="font: var(- -font_7)">알림</a>
+							class="XOxx5  _3Cpo0 _16rQy _3VyKd" style="font: var(--font_7)">알림</a>
 						<a href="<c:url value="/Profile/AlarmSetting.do"/>">
 							<button class="profileSettingButton">
 								<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"

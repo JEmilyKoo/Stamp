@@ -1,47 +1,199 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
 <!DOCTYPE html>
-<html class="enable-scroll" lang="ko"><head>
-  </head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" id="wixDesktopViewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!--내가 추가한 코드-->
-  <script src="${pageContext.request.contextPath}/stampGO_files/bundle.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/profile-card-tpa-ooi/1.277.0/ProfileCardViewerWidget.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/ProfileCardViewerWidget.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/pro-gallery-santa-wrapper/1.1612.0/viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/viewer.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/communities-forum-client/1.432.0/forum-app-viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/forum-app-viewer.js"></script><!-- base href="https://jemilykoo.wixsite.com/website/" -->
-  <meta name="generator" content="Wix\.com Website Builder"><!--내가 추가한 코드-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home</title>
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/modalcss.css" >
+
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/memberPagesVendor.css" >
   
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/memberPagesCommons.css" >
+  
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/member-posts-page.css" >
+  
+  
 
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/profileSetting.css" >
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+.homeBody {
+	overflow: auto;
+}
+</style>
+
+<script>
+	document.documentElement.className = 'js';
+</script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body class="homeBody">
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
+	<!-- 메인페이지에만 있는 사이트맵 -->
+<div class="profileContainer">
+<div class="profileSideBar">
+<jsp:include page="/WEB-INF/views/templates/ProfileSideBar.jsp" />
+</div>
+		
 
 
-<title>userID | Forum Posts</title>
-  <link rel="canonical" href="https://jemilykoo.wixsite.com/website/stamp">
-  <meta property="og:title" content="스탬프 | 찍GO">
-  <meta property="og:url" content="https://jemilykoo.wixsite.com/website/profile/userID/forum-posts">
-  <meta property="og:site_name" content="찍GO">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="스탬프 | 찍GO">
-<script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-common.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-classic.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/Container_RectangleArea.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/VerticalMenu_VerticalMenuSolidColorSkin.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/LoginSocialBar.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-responsive.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/MeshGroup.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/FreemiumBannerDesktop.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/SkipToContentButton.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/WPhoto_CirclePhoto.js"></script><script src="${pageContext.request.contextPath}/stampGO_files/requirejs.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/HtmlComponent.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/HtmlComponent.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/proGallery_videoScrollHelper.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/ItemActions.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/proGallery_videoItem.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/AsyncEventHandler.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/ProGalleryInfoElement.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/proGallery_reactPlayer.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/HlsPlayer.js"></script><style data-emotion=""></style><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/common-site-members-dialogs.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/common-site-members-dialogs.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/forum-rce-frameless.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/forum-rce-frameless.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/0.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/73.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/53.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/member-card-async-frameless.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/member-card-async-frameless.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/report-post-modal.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/report-post-modal.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/TPAPopup.css" crossorigin="anonymous"></head>
-<body class="_1Arx3 _1Fqrx" style="">
 
-	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
+	<div id="root">
+		<div id="direction-provider-wrapper">
+			<div dir="ltr">
+				<div id="content-wrapper">
+					<div
+						class="_1PiV8 app-desktop page-background-color page-border-color">
+						<div>
+							<div data-hook="message" aria-live="polite"></div>
+						</div>
+						<div tabindex="-1" aria-labelledby="frm-ma-header"
+							class="_1_wLP focus-visible" data-focus-visible-added="">
+							<div class="_165yv">
+								<h3 id="frm-ma-header"
+									class="page-title-color _399uX page-title-font members-text-color">게시판
+									게시물</h3>
+							</div>
+							<div>
+								<div class="_1SJtR" data-hook="animated-loader__container">
+									<div>
+										<div>
+											<div>
+												<div>
+													<div class="_2Cz6Q">
+														<div
+															class="_9wT8F HSoPg forum-content-classic-font forum-text-color forum-card-background-color forum-card-border-color post-list-item"
+															style="border-width: 1px" role="article"
+															data-hook="post-list-item">
+															<div class="_2-ZiX s8Do1 post-header">
+																<a
+																	href="https://jemilykoo.wixsite.com/website/profile/userID/profile/"
+																	class="A61te forum-link-hover-color"><div
+																		class="_3Xmhm forum-text-color avatar">
+																		<div class="A61te">
+																			<div data-hook="mcl-showable-content"></div>
+																			<span class="gLbMq avatar-image"><div
+																					class="B9z5- fluid-avatar-image"></div></span>
+																		</div>
+																		<div class="_2Xl4Q">
+																			<div class="_2W9fe">
+																				<span
+																					class="_2NGa1 forum-text-color forum-link-hover-color"
+																					data-hook="avatar__name">userID</span>
+																			</div>
+																			<span class="trQTR" data-hook="quick-user-info"><span
+																				class="_1LhGv">대시</span><span
+																				class="_3uT17 _2Sbm- time-ago" data-hook="time-ago">6월
+																					23일</span></span>
+																		</div>
+																	</div></a><span class="ZVwdW"><div class="_1fFV8"></div></span><span
+																	class="NoBT7"></span>
+																<div class="igysc">
+																	<div class="_3VHHm more-button" data-hook="more-button">
+																		<button
+																			class="_3VtFf button-hover-fill forum-icon-fill"
+																			id="more-button-60d2f33a126c2b00487266ac"
+																			aria-label="More actions" aria-haspopup="true"
+																			aria-expanded="false">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="19"
+																				viewBox="0 0 19 19" role="img">
+																				<path
+																					d="M17.444 6A1.5 1.5 0 1 1 19 4.5 1.528 1.528 0 0 1 17.444 6zm0 5A1.5 1.5 0 1 1 19 9.5a1.528 1.528 0 0 1-1.556 1.5zm0 5A1.5 1.5 0 1 1 19 14.5a1.528 1.528 0 0 1-1.556 1.5z"></path></svg>
+																		</button>
+																	</div>
+																</div>
+															</div>
+															<a class="forum-link-hover-color forum-text-color"
+																tabindex="-1"
+																href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/ddeoneun-geosdo-eoryeobda"
+																target="_top"><h2
+																	class="_3RjE5 _9U6O6 forum-title-classic-font post-title"
+																	data-hook="post-title">
+																	<div class="_2d7LQ">
+																		<object type="communities/link">
+																			<a style="color: inherit"
+																				href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/ddeoneun-geosdo-eoryeobda"
+																				target="_top">떼오는 것도 어렵다</a>
+																		</object>
+																	</div>
+																</h2>
+																<div class="_1MXGV">
+																	<div class="_19wh5 _39XLG" data-hook="post-description">
+																		<div>
+																			<div class="l0h59">이왜진</div>
+																		</div>
+																	</div>
+																</div> </a> <a tabindex="-1"
+																href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/ddeoneun-geosdo-eoryeobda"
+																target="_top"></a>
+															<div>
+																<div class="_3v-GW _2SxZ2">
+																	<div class="_3McQ1">
+																		<div class="_1jh9Z">
+																			<object type="communities/link" class="_3fUVF">
+																				<a
+																					class="zkXTz forum-text-color forum-link-hover-color"
+																					data-hook="post-list-item__comment-count"
+																					href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/ddeoneun-geosdo-eoryeobda"
+																					target="_top">댓글 0개</a>
+																			</object>
+																			<div class="_2cFfG _3fUVF post-list-item__view-count"
+																				data-hook="post-list-item__view-count">조회수 1회</div>
+																		</div>
+																		<div class="_3b0-N">
+																			<span class="Cg6Mq forum-text-color"
+																				data-hook="post-list-item__like-count"
+																				aria-hidden="true">0개</span>
+																			<button class="_2rJzt" aria-live="assertive"
+																				data-hook="post-list-item__like-button">
+																				<div class="_3hDG4" aria-label="좋아요 0개 Is unliked"
+																					data-hook="like-button">
+																					<div class="FFLzJ">
+																						<div class="_2d2bJ"></div>
+																					</div>
+																					<div class="_1fVR3">
+																						<div class="_2d2bJ"></div>
+																					</div>
+																					<div class="_3vv94">
+																						<div class="_2d2bJ"></div>
+																					</div>
+																					<div class="_1tXxG">
+																						<div class="_2d2bJ"></div>
+																					</div>
+																					<div class="_2qAdm"></div>
+																					<svg width="18" viewBox="0 0 19 19">
+																						<path id="a"
+																							d="M17.234 5.47a3.919 3.919 0 0 0-2.315-2.263c-2.022-.6-4.21.137-5.424 1.827C8.291 3.38 6.15 2.646 4.152 3.207a3.76 3.76 0 0 0-2.405 2.35 4.94 4.94 0 0 0 .57 4.264c1.603 2.698 6.76 5.927 6.938 6.092a.454.454 0 0 0 .534 0c.267-.174 5.343-3.229 6.938-6.092a5.16 5.16 0 0 0 .507-4.352z"></path></svg>
+																				</div>
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div id="SITE_CONTAINER" class="focus-ring-active"><div id="main_MF"><div id="BACKGROUND_GROUP"><div><div id="pageBackground_포럼포스트아이디" data-media-height-override-type="" data-media-position-override="false" class="_2AO2a"><div id="bgLayers_pageBackground_포럼포스트아이디" class="확인용7"><div id="bgMedia_pageBackground_포럼포스트아이디" class="높이백"></div></div></div></div></div><div id="site-root"><div id="마스터페이지" class="메시레이아웃"><header tabindex="-1" id="SITE_HEADER_WRAPPER"><div id="SITE_HEADER" class="_26XlU"><div class="_2_pp6"><div class="_1MBwI"><div data-mesh-id="SITE_HEADERinlineContent" data-testid="inline-content" ></div></div></div></div></header><main id="PAGES_CONTAINER" tabindex="-1"><div id="SITE_PAGES"><div class="스트레치"><div id="포럼포스트아이디" class="확인용2"><div class="확인용3"></div><div class="확인용4"><div id="Container포럼포스트아이디" class="확인용5"><div data-mesh-id="Container포럼포스트아이디inlineContent" data-testid="inline-content" ><div data-mesh-id="Container포럼포스트아이디inlineContent-gridContainer" data-testid="mesh-container-content"><section id="comp-kpnfe0e3" class="확인용6"><div data-testid="columns" class="확인용8"><div id="comp-kpnfe0e4" class="릴레이티브비지블"><div data-mesh-id="comp-kpnfe0e4inlineContent" data-testid="inline-content" ><div data-mesh-id="comp-kpnfe0e4inlineContent-gridContainer" data-testid="mesh-container-content"></div></div></div></div></section><div id="TPAMultiSection_kpndqbt5" class="_2JOHk" style="overflow: hidden; height: 315px;">
-
-<jsp:include page="/WEB-INF/views/templates/member-posts-page.jsp"/>
-
-</div></div></div></div></div></div></div></div></main><div id="soapAfterPagesContainer" class="page-with-sosp"><div data-mesh-id="soapAfterPagesContainerinlineContent" data-testid="inline-content" ><div data-mesh-id="soapAfterPagesContainerinlineContent-gridContainer" data-testid="mesh-container-content"><div id="SOSP_CONTAINER_CUSTOM_ID" class="_2_2nr"><div class="_3oi4n" data-testid="container-bg"></div><div data-mesh-id="SOSP_CONTAINER_CUSTOM_IDinlineContent" data-testid="inline-content" ><div data-mesh-id="SOSP_CONTAINER_CUSTOM_IDinlineContent-gridContainer" data-testid="mesh-container-content"><div id="comp-kpndp2z9" style="height: auto;"><div class="comp-kpndp2z9">
-
-
-<div data-hook="ProfileCard-wrapper" dir="ltr"><div data-hook="ProfileCard-verticalWidget"><div class="_24V6U"><div class="_31rtG"></div><div class="_1rug6 osdAp"><div class="_1jsW2"><div data-hook="ProfileCard-profilePhoto" class="_21JiY _1HjbT _3ZWaZ"><div class="_2oQc- _1w3no"><div class="_2oQc- _3wTA0"><svg width="71%" height="78%" viewBox="0 0 61 67" xmlns="http://www.w3.org/2000/svg" class="_1RgGn"><g><path d="M0,65.4388545 C0,47.7801858 10.7105078,38 30.332158,38 C49.9538082,38 60.6643159,47.7801858 60.75,65.4388545 L60.75,67.25 L0,67.25 L0,65.4388545 Z"></path><path d="M46.5,16.3421053 C46.5,25.9342105 39.4125,33.75 30.75,33.75 C22.0875,33.75 15,25.9342105 15,16.3421053 C15,7.01644737 21.7375,0 30.75,0 C39.7625,0 46.5,7.01644737 46.5,16.3421053 Z"></path></g></svg><div class="_2oQc- _3ZWaZ"></div><div class="_2oQc- _2Uvzj _3ZWaZ"></div><div class="_2ebCT"></div></div></div></div><div class="_pvtp"><div class="N_MN9"><div data-hook="ProfileCard-memberName" class="_3AkkR"><div class="_2_TEk"><span class="_2xV_H kl2Hr">userID</span><div class="_3rxad"></div></div></div><div data-hook="ProfileCard-followersFollowing" class="_2XRvR"><div data-hook="ProfileCard-followers" class="_18463"><button class="_2rBmt _3y1t9" type="button" tabindex="0"><span>0</span><div class="_3TgFJ">팔로워</div></button></div><div class="_25aDC"></div><div data-hook="ProfileCard-following"><button class="_2rBmt _2QmZl" type="button" tabindex="0"><span>0</span><div class="_3TgFJ">팔로잉</div></button></div></div></div><div class="_2Lfft"><div class="_1-zoY"><button class="_2rBmt UND4Z _3CtSz _1Yavx" data-hook="ProfileCard-editProfileCTA" type="button" tabindex="0">편집</button></div></div><div data-hook="ProfileCard-moreActionsWrapper" class="_1QY3s"><button data-hook="ProfileCard-moreActionsCTA" type="button" class="_1N5G0 rCNdV" aria-pressed="false" aria-haspopup="menu"><div class="_2GIz3"><div><div aria-label="more-button.more-actions" class="_17-Rt"><svg xmlns="http://www.w3.org/2000/svg" width="4" height="15.406" viewBox="0 0 4 15.406" style="fill-rule: evenodd;" class="_2ZqjF"><path d="M1000,381.719a1.928,1.928,0,1,1,2-1.927A1.964,1.964,0,0,1,1000,381.719Zm0-5.78a1.928,1.928,0,1,1,2-1.927A1.964,1.964,0,0,1,1000,375.939Zm0,7.706a1.928,1.928,0,1,1-2,1.927A1.968,1.968,0,0,1,1000,383.645Z" transform="translate(-998 -372.094)"></path></svg></div></div></div></button></div></div></div></div></div></div></div></div></div><nav aria-label="Site" id="comp-kpndp7iz" class="_3rKL6 _25-B7"><ul class="-SaFH"><li class="XOxx5"><div data-testid="itemContentWrapper-0" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-0" href="https://jemilykoo.wixsite.com/website/profile/userID/profile" target="_self" class="_3VyKd" tabindex="0">프로필</a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-1" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-1" href="https://jemilykoo.wixsite.com/website/profile/userID/blog-comments" target="_self" class="_3VyKd" tabindex="0">Blog Comments </a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-2" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-2" href="https://jemilykoo.wixsite.com/website/profile/userID/blog-likes" target="_self" class="_3VyKd" tabindex="0">Blog Likes</a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-3" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-3" href="https://jemilykoo.wixsite.com/website/profile/userID/forum-comments" target="_self" class="_3VyKd" tabindex="0">Forum Comments<span class="_3JSHe">(2)</span></a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-4" class="_3Cpo0 _3MLhF"><span class="_16rQy"><a data-testid="linkElement-4" href="https://jemilykoo.wixsite.com/website/profile/userID/forum-posts" target="_self" class="_3VyKd" tabindex="0">Forum Posts<span class="_3JSHe">(1)</span></a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-5" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-5" href="https://jemilykoo.wixsite.com/website/account/my-account" target="_self" class="_3VyKd" tabindex="0">내 계정</a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-6" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-6" href="https://jemilykoo.wixsite.com/website/account/notifications" target="_self" class="_3VyKd" tabindex="0">알림</a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-7" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-7" href="https://jemilykoo.wixsite.com/website/account/settings" target="_self" class="_3VyKd" tabindex="0">설정</a></span></div></li></ul></nav></div></div></div></div></div></div></div></div><div id="tpapopup-1624437618982_rtby_TPAMultiSection_kpndqbt5" class="_1L9WT _1vOqW" style="position: fixed; display: block; width: 100%; height: 0px; margin-left: -50%; margin-top: 0px; left: 50%; top: 50%;"><div class="WF3Qj"></div>
-
-</div></div></div>
-
-
-</body></html>
+</div>
+</body>
+</html>

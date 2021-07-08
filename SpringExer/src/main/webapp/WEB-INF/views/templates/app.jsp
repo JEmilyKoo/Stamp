@@ -56,26 +56,7 @@ pageEncoding="UTF-8"%>
 
   <style wix-style="">
     /* Styles */
-    .notifications-text-color { color: #171717; }
-    .notifications-text-color { color: #000000; }
-    .notifications-primary-text-color { color: #236fff; }
-    .notifications-primary-text-color { color: #193669; }
-    .notifications-primary-disabled-text-color { color: #c7c7c7; }
-    .notifications-primary-disabled-text-color { color: #808080; }
-    .notifications-separator-color { background-color: #171717; }
-    .notifications-separator-color { background-color: #000000; }
-    .notifications-title-font { font:500 26px/1.31 'HelveticaNeueW01-45', sans-serif; line-height: normal; }
-    .notifications-title-font { font:500 50px/1.34em 'Noto Sanse KR',sans-serif; line-height: normal; }
-    .notifications-title-font { font-size: 26px; }
-    .notifications-primary-font { font:500 14px/1.43 'ProximaNova', sans-serif; line-height: normal; }
-    .notifications-primary-font { font:500 18px/1.75em 'Noto Sans KR', sans-serif; line-height: normal; }
-    .notifications-primary-font { font-size: 14px; }
-    .notifications-indicator-bg-color { background-color: #236fff;}
-    .notifications-indicator-bg-color { background-color: #193669; }
-    .notifications-background-color { background-color: #FFFFFF; }
-    .notifications-border-color { border-color: #BFBFBF; }
-    .notifications-border-width { border-width: 0px; }
-    .notifications-border-width { border-width: style.borderWithpx; }
+  
   </style>
 <style wix-style="">.Title{ font:500 22px/1.41em 'Noto Sans KR', sans-serif; } .Menu{ font:500 14px/1.79em 'Noto Sans KR', sans-serif; } .Page-title{ font:500 28px/1.375em 'Noto Sanse KR',sans-serif; } .Heading-XL{ font:500 88px/1.2em 'Noto Sanse KR',sans-serif; } .Heading-L{ font:500 72px/1.25em 'Noto Sanse KR',sans-serif; } .Heading-M{ font:500 50px/1.34em 'Noto Sanse KR',sans-serif; } .Heading-S{ font:500 40px/1.35em 'Noto Sanse KR',sans-serif; } .Body-L{ font:500 20px/1.67em 'Noto Sans KR', sans-serif; } .Body-M{ font:500 18px/1.75em 'Noto Sans KR', sans-serif; } .Body-S{ font:500 15px/1.875em 'Noto Sans KR', sans-serif; } .Body-XS{ font:500 14px/1.79em 'Noto Sans KR', sans-serif; } }</style><link type="text/css" rel="stylesheet" href="index_data/css.css" id="wix-google-fonts"><link type="text/css" rel="stylesheet" href="index_data/languages-woff2.css"><style>:focus {
     outline: none;
@@ -89,6 +70,8 @@ pageEncoding="UTF-8"%>
 </style><script src="index_data/focus-visible.js" id="dynamic_script_FOCUS_VISIBLE"></script><script src="pm-rpc.js" id="dynamic_script_PM_RPC"></script></head>
 <body class="_1itz9 js-focus-visible">
   <div id="root"><div data-reactroot="" id="direction-provider-wrapper"><div dir="ltr"><div id="content-wrapper" class="_1QInq app-desktop"><!-- react-empty: 4 --><div tabindex="0" aria-label="알림" class="_1gIu- notifications-background-color notifications-border-width notifications-border-color"><div class="_17f3-"><h2 class="_1pKDh notifications-text-color  notifications-title-font">알림</h2></div><div class="_1Kuww"><div><div ><div class="_8CaVR notifications-text-color "><div class="-Ym2E notifications-separator-color"></div><div><a target="_top" href="https://jemilykoo.wixsite.com/website/forum/main/comment/60d2f547c77e9200159bc67f?postId=60d2f33a126c2b00487266ac&amp;origin=notification&amp;commentId=60d2f547c77e9200159bc67f"><div class="_3Uw8k notifications-text-color "><div class="_3_Y79"><span class="_3Y6KM _2xN1_ avatar-image"><div class="_25ma8" style="background-image: url(&quot;https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c&quot;);"></div></span></div><div class="_1Oc8t"><div class="_5ZglU notifications-primary-font">정은 구님이 다음 게시물에 댓글을 남겼습니다: "떼오는 것도 어렵다"</div><span class="fsKb- notifications-primary-font time-ago">몇 초 전</span></div><div class="_2lWCN"></div></div></a><div class="-Ym2E notifications-separator-color"></div></div><div><a target="_top" href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/ddeoneun-geosdo-eoryeobda?postId=60d2f33a126c2b00487266ac&amp;origin=notification"><div class="_3Uw8k notifications-text-color "><div class="_3_Y79"><span class="_3Y6KM _2xN1_ avatar-image"><div class="_25ma8" style="background-image: url(&quot;https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c&quot;);"></div></span></div><div class="_1Oc8t"><div class="_5ZglU notifications-primary-font">정은 구님이 다음 게시물을 좋아합니다: "떼오는 것도 어렵다"</div><span class="fsKb- notifications-primary-font time-ago">몇 초 전</span></div><div class="_2lWCN"></div></div></a><div class="-Ym2E notifications-separator-color"></div></div></div></div></div></div></div></div></div></div></div>
+  
+  
   <script>
     window.__BASEURL__ = '/communities-notifications-app/';
     window.__LOCALE__ = 'ko';

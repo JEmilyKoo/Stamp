@@ -9,245 +9,29 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Home</title>
-		
-		
-<style>
 
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/settings-app.css" >
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/commons.css" >
 
-.homeBody {
-	overflow: auto;
-}
-/*
-.homeContainer {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	background-color: red;
-	text-align: center;
-	margin-bottom: 60px;
-	display: flex;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-.homeContainerMenu {
-	display: flex;
-	flex-direction: row;
-}
-
-.homeContainer.child {
-	
-}
-
-.himeContainerItem {
-	align-items: center;
-	margin: 0 auto:      
-	flex: 1 1 0;
-}
-
-.customoverlay {
-	position: relative;
-	bottom: 85px;
-	border-radius: 6px;
-	border: 1px solid #ccc;
-	border-bottom: 2px solid #ddd;
-	float: left;
-}
-
-.customoverlay:nth-of-type(n) {
-	border: 0;
-	box-shadow: 0px 1px 2px #888;
-}
-
-.customoverlay a {
-	display: block;
-	text-decoration: none;
-	color: #000;
-	text-align: center;
-	border-radius: 6px;
-	font-size: 14px;
-	font-weight: bold;
-	overflow: hidden;
-	background: #d95050;
-	background: #d95050
-		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
-		no-repeat right 14px center;
-}
-
-.customoverlay .title {
-	display: block;
-	text-align: center;
-	background: #fff;
-	margin-right: 35px;
-	padding: 10px 15px;
-	font-size: 14px;
-	font-weight: bold;
-}
-
-.customoverlay:after {
-	content: '';
-	position: absolute;
-	margin-left: -12px;
-	left: 50%;
-	bottom: -12px;
-	width: 22px;
-	height: 12px;
-	background:
-		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
-}
-
-body {
-	background: #eee;
-}
-
-h3 {
-	font-size: 20px;
-	text-align: center;
-	padding: 10px 0;
-	margin-top: 20px;
-}
-
-.photo_container {
-	margin: 0 auto;
-}
-
-.photo_list {
-	display: flex;
-	border: 3px solid #000;
-	align-content: space-around;
-	justify-content: space-around;
-}
-
-.photo_list.column {
-	flex-flow: row wrap;
-}
-
-.photo_box {
-	display: flex;
-	flex-direction: column;
-	width: 250px;
-	height: 180px;
-	background: #fff;
-	margin: 10px
-}
-
-.photo {
-	width: 100%;
-	height: 120px;
-	background-color: gray;
-}
-
-.description {
-	flex: auto;
-}
-
-.gnb, .logo, .search {
-	flex: none;
-}
-
-.gnb {
-	margin-left: auto;
-}
-
-.logo, .gnb {
-	padding: 10px 10px;
-	background-color: rgba(0, 0, 0, .4);
-}
-
-.search {
-	display: flex;
-	padding: 10px 0;
-	margin-left: 10px;
-}
-*/
-</style>
-
-<script>
-	document.documentElement.className = 'js';
-</script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-	$(function() {
-		//페이지 최초 로드시 내용 숨기기]
-		$(".siteMap").hide();
-		$(".moreButton").click(function() {
-			console.log($(this).next().css('display'));
-			//클릭한 제목의 내용이 숨겨져 있다면
-			if ($(this).next().css('display') == 'none') {
-				$(".actions").fadeOut(200);//열린 모든 내용 숨기기
-				$(this).next().fadeIn(200);//해당 제목의 내용 보이기
 
-			} else {
-				$(this).next().fadeOut(200);
-			}
-		});
-
-	});
-</script>
 </head>
 
 <body class="homeBody">
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 	<!-- 메인페이지에만 있는 사이트맵 -->
-	
-	
-<!-- 
-	<div class="homeContainer">
-		<div class="homeContainerMenu">
-
-			<div class="photo_container" style="width: 1090px">
-				<div class="photo_list column" style="width: 100%">
-					<div class="logo">
-						<p class="font_8 color_5" style="text-align: center;">추천 리뷰</p>
-					</div>
-					<div class="search"></div>
-					<div class="gnb">
-						<p class="font_9 color_5" style="text-align: center;">더보기</p>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="homeContainerMenu"
-			style="flex-wrap: wrap; background-color: yellow; justify-content: space-around;">
-			<div class="ui_box">
-				<div class="photo_container" style="max-width: 1190px">
-					<ul class="photo_list column">
-						<li class="photo_box">
-							<div class="photo"></div>
-							<div class="description">Title1</div>
-						</li>
-						<li class="photo_box">
-							<div class="photo"></div>
-							<div class="description">Title2</div>
-						</li>
-						<li class="photo_box">
-							<div class="photo"></div>
-							<div class="description">Title3</div>
-						</li>
-						<li class="photo_box">
-							<div class="photo"></div>
-							<div class="description">Title4</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-		</div>
-
-
-		<div class="homeContainerItem"
-			style="background-color: yellow; height: 60px">빈칸</div>
-		<div class="homeContainerItem" style="background-color: yellow">카테고리보기
- -->
-<!-- 카테고리시작 -->
-<!-- 카테고리끝 
-		
-		<div class="homeContainerItem"
-			style="background-color: yellow; height: 60px">빈칸</div>
-	
--->
+<div class="profileContainer">
+<div class="profileSideBar">
+<jsp:include page="/WEB-INF/views/templates/ProfileSideBar.jsp" />
+</div> <div id="root"><div data-reactroot="" id="direction-provider-wrapper"><div dir="ltr"><div id="content-wrapper" class="_1QInq app-desktop"><!-- react-empty: 5 --><div tabindex="0" aria-label="알림 설정" class="_1gIu- nsa-background-color nsa-border-width nsa-border-color"><div class="_17f3-"><h2 class="_1pKDh nsa-title-font nsa-text-color">알림 설정</h2></div><div><div><div class="_16BaH"><div class="-Ym2E nsa-separator-color"></div><div class="_3Trmj"><div><div class="_1zYoy nsa-title-font nsa-text-color nsa-section-title">블로그 구독</div><div class="_2cmev nsa-primary-font nsa-text-color nsa-subscription-text">새 게시물 및 업데이트 발생 시 이메일로 알려줍니다.</div></div><button class="ihwp9 nsa-primary-font nsa-subscription-text nsa-button-border-color nsa-button-secondary-text-color _3YK2G"><span>구독 해제</span></button></div><div class="-Ym2E nsa-separator-color"></div></div><table class="_2xXKC"><thead><tr><td class="_3vLkx nsa-title-font nsa-text-color nsa-section-title">블로그 알림</td><td class="_3vLkx nsa-primary-font nsa-text-color nsa-primary-text">이메일 알림</td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></thead><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">좋아요</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">내 게시물 및 댓글에 좋아요가 추가되면 알려줍니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="내 게시물 및 댓글에 좋아요가 추가되면 알려줍니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">댓글</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">내 게시물에 댓글이 추가되면 알려줍니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="내 게시물에 댓글이 추가되면 알려줍니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">팔로우</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">팔로우 회원 및 게시물에 업데이트 발생 시 알려줍니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="팔로우 회원 및 게시물에 업데이트 발생 시 알려줍니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody></table></div><div class="-Ym2E nsa-separator-color _3CUlD"></div></div><div><div><table class="_34bul _1dS3-"><thead><tr><td class="_3vLkx nsa-title-font nsa-text-color nsa-section-title">게시판 요약</td><td class="_3vLkx nsa-primary-font nsa-text-color nsa-primary-text">이메일 알림</td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></thead><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">일간 또는 주간 이메일</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">모든 게시판 작업에 대한 요약 정보를 확인하세요.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="모든 게시판 작업에 대한 요약 정보를 확인하세요."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr></tbody><tbody><tr><td colspan="2"><label class="_1iW9G nsa-text-color"><span class="_36oDz nsa-primary-font" role="checkbox" aria-checked="true" aria-label="매일 이메일이 발송됩니다."><input type="radio" class="uF0P6" tabindex="-1" name="digestPeriod" value="daily" checked="checked"><label class="_1PxBo nsa-button-border-color" tabindex="0"><span class="_2E86e nsa-button-background-color nsa-primary-font"></span></label></span><!-- react-text: 236 -->매일 이메일이 발송됩니다.<!-- /react-text --></label><label class="_1iW9G nsa-text-color"><span class="_36oDz" role="checkbox" aria-checked="false" aria-label="매주 이메일이 발송됩니다."><input type="radio" class="uF0P6" tabindex="-1" name="digestPeriod" value="weekly"><label class="_1PxBo nsa-button-border-color" tabindex="0"><span class="_2E86e nsa-button-background-color"></span></label></span><!-- react-text: 242 -->매주 이메일이 발송됩니다.<!-- /react-text --></label></td></tr></tbody><tbody><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tbody></table><table class="_34bul"><thead><tr><td class="_3vLkx nsa-title-font nsa-text-color nsa-section-title">게시판 실시간 알림</td><td class="_3vLkx nsa-primary-font nsa-text-color nsa-primary-text">이메일 알림</td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></thead><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">좋아요, 베스트 답변, 공감 및 비공감</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">좋아요, 베스트 답변, 답변 공감이 추가되면 알림이 발송됩니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="좋아요, 베스트 답변, 답변 공감이 추가되면 알림이 발송됩니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">댓글 또는 답변</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">자신이 작성한 게시물에 대한 댓글 또는 질문에 대한 답변이 추가되면 알림이 발송됩니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="자신이 작성한 게시물에 대한 댓글 또는 질문에 대한 답변이 추가되면 알림이 발송됩니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">팔로잉</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">팔로우 중인 회원 또는 게시물이 업데이트되면 알림이 발송됩니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="팔로우 중인 회원 또는 게시물이 업데이트되면 알림이 발송됩니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">새로운 게시물, 신고 및 언급</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">새로운 게시물, 신고 및 언급이 추가되면 알림이 발송됩니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="새로운 게시물, 신고 및 언급이 추가되면 알림이 발송됩니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody></table></div><div class="-Ym2E nsa-separator-color _3CUlD"></div></div><div><table class="_2xXKC"><thead><tr><td class="_3vLkx nsa-title-font nsa-text-color nsa-section-title">채팅 알림</td><td class="_3vLkx nsa-primary-font nsa-text-color nsa-primary-text">이메일 알림</td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></thead><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">메시지</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">사용 중이 아닌 상태에서 회원이 메시지를 보내면 알림을 수신합니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="사용 중이 아닌 상태에서 회원이 메시지를 보내면 알림을 수신합니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody></table></div></div></div></div></div></div>
+ 
+</div>
 </body>
 </html>

@@ -1,6 +1,121 @@
 @charset "UTF-8";
 
 
+/* 알림 세팅 */
+  /* Styles */
+    .nsa-text-color { color: #171717; }
+    .nsa-title-font { font:00 50px/1.34em 'Noto Sanse KR',sans-serif; line-height: normal; }
+    .nsa-title-font { font-size: 26px; }
+    .nsa-primary-font { font:300 18px/1.75em 'Noto Sans KR', sans-serif; line-height: normal; }
+    .nsa-background-color { background-color: #FFFFFF; }
+    .nsa-border-color { border-color: #BFBFBF; }
+    .nsa-border-width { border-width: 0px; }
+    .nsa-button-background-color { background-color: #41BFFF; }
+    .nsa-button-border-color { border-color: #41BFFF; }
+    .nsa-button-fill { fill: #41BFFF; }
+    .nsa-button-text-color { color: #FFFFFF; }
+    .nsa-button-secondary-text-color { color: #193669; }
+    .nsa-separator-color { background-color: #171717; }
+    .nsa-section-title { font-size: 18px; }
+    .nsa-option-title { font-size: 20px; }
+    .nsa-subscription-text { font-size: 18px;}
+    .nsa-primary-text { font-size: 18px;}
+/* 알림*/
+
+
+  .notifications-text-color { color: #171717; }
+    .notifications-primary-text-color { color: #236fff; }
+    .notifications-primary-disabled-text-color { color: #808080; }
+    .notifications-separator-color { background-color: #171717; }
+    .notifications-title-font { font:500 50px/1.34em 'Noto Sanse KR',sans-serif; line-height: normal; }
+    .notifications-title-font { font-size: 26px; }
+    .notifications-primary-font { font:500 18px/1.75em 'Noto Sans KR', sans-serif; line-height: normal; }
+    .notifications-indicator-bg-color { background-color: #193669; }
+    .notifications-background-color { background-color: #FFFFFF; }
+    .notifications-border-color { border-color: #BFBFBF; }
+    .notifications-border-width { border-width: 0px; }
+/*profile사이드바*/
+
+
+.sideBarUl>li {
+	padding: 0px 0px 3px 10px;
+
+	}
+@media all and (min-width:768px) {
+	.profileCard {
+		width: 250px;
+		height: 235px;
+		box-sizing: border-box;
+		background-color: rgb(255, 255, 255);
+		border-width: 1px;
+		border-color: rgba(0, 0, 0, 0.2);
+		border-style: solid;
+		pointer-events: none;
+		min-width: 250px;
+		z-index: -332;
+		position: flex;
+		display: opacity;
+		justify-content: center;
+		margin: 0px 30px 30px 0px;
+		position: sticky;
+		top: 90px;
+		z-index: 100;
+	}
+	.profileCardImage {
+		box-sizing: border-box;
+		outline: 0;
+		border-color: rgb(255, 255, 255);
+		width: 90px;
+		height: 90px;
+		min-width: 90px;
+		min-height: 90px;
+		margin: auto;
+		z-index: 1;
+		border-radius: 50%;
+		overflow: hidden;
+		position: relative;
+	}
+	
+	.sideMenu {
+		position: sticky;
+		top: 380px;
+		z-index: 100;
+	}
+	.profileSettingButton {
+		position: relative;
+		right: 30px;
+		
+		z-index: 100;
+		
+	}
+	
+}
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width:767px) {
+	profileCard {
+		box-sizing: border-box;
+		background-color: white;
+		border-color: rgba(0, 0, 0, 0.2);
+		border-style: solid;
+		pointer-events: none;
+		margin: 30px 30px 30px 30px;
+	}
+	.profileCardImage {
+		box-sizing: border-box;
+		outline: 0;
+		border-color: rgb(255, 255, 255);
+		width: 90px;
+		height: 90px;
+		min-width: 90px;
+		min-height: 90px;
+		margin: auto;
+		z-index: 1;
+		border-radius: 50%;
+		overflow: hidden;
+		position: relative;
+	}
+}
+
 
 /*tripboard*/
 .searchNav{
@@ -2260,6 +2375,4 @@ span { z-index: 10 !important }
 
           /* Fixed styles */
           
-          /* Feed styles from design page */
-        
-     
+          /* Feed styles from design page */    
