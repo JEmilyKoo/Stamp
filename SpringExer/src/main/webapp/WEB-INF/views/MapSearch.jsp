@@ -63,7 +63,7 @@ if (navigator.geolocation) {
            setInterval(function(){
               //현재 위치를 조사하는 함수
               navigator.geolocation.getCurrentPosition(function(position){
-                     lat = position.coords.latitude, // 위도
+                   lat = position.coords.latitude, // 위도
                    lng = position.coords.longitude; // 경도
 
               var locPosition = new kakao.maps.LatLng(lat, lng) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
@@ -116,7 +116,9 @@ function displayMarker(locPosition) {
         map: map, 
         position: locPosition
     }); 
-    
+    setInterval(function(){
+    	map.setCenter(locPosition);      
+
 
 }    
 
