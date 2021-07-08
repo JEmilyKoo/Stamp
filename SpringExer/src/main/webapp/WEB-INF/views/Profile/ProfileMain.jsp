@@ -16,7 +16,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
-
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 <title>프로필 | 찍GO</title>
 </head>
 <body>
@@ -26,9 +26,7 @@
 			<jsp:include page="/WEB-INF/views/templates/ProfileSideBar.jsp" />
 		</div>
 		<div class="profileMain">
-			<div> 프로필 출력
-         
-			     </div>
+			
 			<ul class="font_8">
 			
 			
@@ -74,7 +72,7 @@
 				style="text-align: center; display: grid; margin: 0px 0px 40px 0px; gap: 20px; padding: 10px; row-gap: 50px; grid-template-columns: repeat(4, 1fr);">
 				<div >
 					<img
-						src="${pageContext.request.contextPath}/images/stamp/stamp3.png"
+						src="${pageContext.request.contextPath}/images/stamp/stamp1.png"
 						alt="Client 3"
 						style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
 					<h3 class="profileMainEachName">타고</h3>
@@ -90,7 +88,7 @@
 				<!-- 스탬프 반복 -->
 				<div >
 					<img
-						src="${pageContext.request.contextPath}/images/stamp/stamp3.png"
+						src="${pageContext.request.contextPath}/images/stamp/stamp2.png"
 						alt="Client 3"
 						style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
 					<h3 class="profileMainEachName">타고</h3>
@@ -122,7 +120,7 @@
 				</div>
 				<div >
 					<img
-						src="${pageContext.request.contextPath}/images/stamp/stamp3.png"
+						src="${pageContext.request.contextPath}/images/stamp/stamp4.png"
 						alt="Client 3"
 						style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
 					<h3 class="profileMainEachName">타고</h3>
@@ -139,7 +137,7 @@
 
 				<div >
 					<img
-						src="${pageContext.request.contextPath}/images/stamp/stamp3.png"
+						src="${pageContext.request.contextPath}/images/stamp/stamp5.png"
 						alt="Client 3"
 						style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
 					<h3 class="profileMainEachName">타고</h3>
@@ -155,7 +153,7 @@
 				<!-- 스탬프 반복 -->
 				<div >
 					<img
-						src="${pageContext.request.contextPath}/images/stamp/stamp3.png"
+						src="${pageContext.request.contextPath}/images/stamp/stamp6.png"
 						alt="Client 3"
 						style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
 					<h3 class="profileMainEachName">타고</h3>
@@ -171,7 +169,7 @@
 				</div>
 				<div >
 					<img
-						src="${pageContext.request.contextPath}/images/stamp/stamp3.png"
+						src="${pageContext.request.contextPath}/images/stamp/stamp7.png"
 						alt="Client 3"
 						style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
 					<h3 class="profileMainEachName">타고</h3>
@@ -187,7 +185,7 @@
 				</div>
 				<div >
 					<img
-						src="${pageContext.request.contextPath}/images/stamp/stamp3.png"
+						src="${pageContext.request.contextPath}/images/stamp/stamp8.png"
 						alt="Client 3"
 						style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
 					<h3 class="profileMainEachName">타고</h3>
@@ -284,23 +282,21 @@
 				style="text-align: center; margin: 0px 0px 40px 0px">그간의 업적을
 				확인하세요</p>
 			<div class="achievementContainer"
-				style="display: grid; gap: 30px; margin: 0px 0px 40px 0px; padding: 10px; row-gap: 50px; grid-template-columns: 2fr 1fr;">
-				<div>프로그레시브 바</div>
+				style=" display: grid; gap:1s0px; margin: 0px 0px 20px 0px;row-gap: 50px; grid-template-columns: 1fr; ">
 				<!-- 프로그레시브 바 -->
 				<div >
 					<h2 class="font_6"
-						style="text-align: left; line-height: 1.35em; font-size: 40px">
+						style="text-align: left; line-height: 1.35em; font-size: 40px; ">
 						<span class="color_32"><span
 							style="text-transform: uppercase;">서울 스탬프 올클</span></span>
 					</h2>
-					<p class="font_8"
-						style="text-align: left; line-height: 1.75em; font-size: 18px">
-						<span>65% 달성</span>
-					</p>
+					<div style="vertical-align: middle;">
+					 <div class="w3-light-grey">
+  					<div  class="w3-container w3-blue w3-center" style="width:25%">65%</div>
+					</div> </div>
 				</div>
 				<!-- 화이트 -->
 
-				<div>프로그레시브 바</div>
 				<!-- 프로그레시브 바 -->
 				<div >
 					<h2 class="font_6"
@@ -308,25 +304,25 @@
 						<span class="color_32"><span
 							style="text-transform: uppercase;">산 스탬프 5개 모으기</span></span>
 					</h2>
-					<p class="font_8"
-						style="text-align: left; line-height: 1.75em; font-size: 18px">
-						<span>20% 달성</span>
-					</p>
+					<div style="vertical-align: middle;">
+					 <div class="w3-light-grey">
+  					<div  class="w3-container w3-blue w3-center" style="width:25%">20%</div>
+					</div> </div>
 				</div>
 				<!-- 화이트 -->
-
-				<div>프로그레시브 바</div>
-				<!-- 프로그레시브 바 -->
+				
 				<div >
 					<h2 class="font_6"
 						style="text-align: left; line-height: 1.35em; font-size: 40px">
 						<span class="color_32"><span
 							style="text-transform: uppercase;">산 스탬프 100개 모으기</span></span>
 					</h2>
-					<p class="font_8"
-						style="text-align: left; line-height: 1.75em; font-size: 18px">
-						<span>50% 달성</span>
-					</p>
+					<div style="vertical-align: middle;">
+					 <div class="w3-light-grey">
+  					<div  class="w3-container w3-blue w3-center" style="width:25%">50%</div>
+					</div> </div>
+				<!-- 프로그레시브 바 -->
+					
 				</div>
 				<!-- 화이트 -->
 			</div>

@@ -16,8 +16,6 @@
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/member-posts-page.css" >
   
 
-<style>
-</style>
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">

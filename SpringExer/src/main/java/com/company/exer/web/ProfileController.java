@@ -83,6 +83,36 @@ public class ProfileController {
 		return "Profile/ProfileMain";
 	}
 	
+	@RequestMapping("Following.do")
+	public String ProfileFollowing(HttpSession session) {
+		//뷰정보 반환]
+		
+		session.setAttribute("follow", "follow");
+		return "Profile/ProfileFollowing";
+	}///////////////////ProfileFollowing()
+	
+	
+	@RequestMapping("Follower.do")
+	public String ProfileFollower() {
+		//뷰정보 반환]
+		return "Profile/ProfileFollower";
+	}///////////////////ProfileFollower()
+	
+	
+	//치졸함
+	@RequestMapping("FoIlowing.do")
+	public String ProfileFoIlowing() {
+		//뷰정보 반환]
+		return "Profile/ProfileFoIlowing";
+	}///////////////////ProfileFoIlowing()
+	
+	
+	@RequestMapping("FoIlower.do")
+	public String ProfileFoIlower() {
+		//뷰정보 반환]
+		return "Profile/ProfileFoIlower";
+	}///////////////////ProfileFoIlower()
+	
 //ProfileInsert에서 쓰이는 컨트롤러
 // 뷰 생성
 	

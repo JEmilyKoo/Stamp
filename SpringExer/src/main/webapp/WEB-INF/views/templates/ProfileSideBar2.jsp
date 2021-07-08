@@ -47,7 +47,7 @@
 				<span class=" _3AkkR _2_TEk _2xV_H kl2Hr">${sessionScope.otherProfile.nickName}</span>
 				<div class="_2XRvR" style="justify-content: center;">
 					
-					<a href="<c:url value="/Profile/Follower.do"/>" class=" _18463 _2rBmt _3y1t9">
+					<a href="<c:url value="/Profile/FoIlower.do"/>" class=" _18463 _2rBmt _3y1t9">
 						<span>2</span>
 						<div class="_3TgFJ">팔로워</div>
 					</a>
@@ -55,7 +55,7 @@
 					
 					<a href="<c:url value="/Profile/Following.do"/>">
 					<button class="_2rBmt _2QmZl" type="button" tabindex="0">
-						<span>2</span>
+						<span>1</span>
 						<div class="_3TgFJ">팔로잉</div>
 					</button>
 					</a>
