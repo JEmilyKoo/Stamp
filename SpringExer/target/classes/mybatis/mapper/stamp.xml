@@ -29,8 +29,8 @@
 	</delete>
 	
 	<insert id="stampCreate" parameterType="Map">
-		insert into memberStamp(nickname, rvno)
-		select nickname, rvno
+		insert into memberStamp
+		select distinct nickName, rvno
 		from stampcheck
 		where nickName = #{nickName}
 	</insert>

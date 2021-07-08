@@ -10,5 +10,4 @@ public interface StampService {
 	int stampCheckCount(Map map);
 	int stampCheckDelete(Map map);
 	int stampCreate(Map map);
-	int stampCount(Map map);
 }
