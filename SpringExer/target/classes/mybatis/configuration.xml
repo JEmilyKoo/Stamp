@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	
 	<typeAliases>
 		<typeAlias type="com.company.exer.service.MemberDTO" alias="memberDTO"/>	
 		<typeAlias type="com.company.exer.service.ReviewDTO" alias="reviewDTO"/>	
 		<typeAlias type="com.company.exer.service.StampDTO" alias="stampDTO"/>	
 		<typeAlias type="com.company.exer.service.FollowDTO" alias="followDTO"/>
-		
 		<typeAlias type="com.company.exer.service.ProfileDTO" alias="profileDTO"/>
 		<!--
 		<typeAlias type="com.company.exer.service.FreeBoardDTO" alias="freeboardDTO"/>
