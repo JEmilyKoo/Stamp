@@ -94,7 +94,7 @@ if (navigator.geolocation) {
                  
            	});	
            }, 5000);
-           
+
       });
     
 	  
@@ -116,6 +116,8 @@ function displayMarker(locPosition) {
         map: map, 
         position: locPosition
     }); 
+    map.setCenter(locPosition);      
+
 
 }    
 
