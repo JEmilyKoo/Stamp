@@ -146,11 +146,7 @@ public class IndexController {
 
 	}///////////////////Test()
 	
-	@RequestMapping("/AdminStamp")
-	public String AdminStamp() {
-		//뷰정보 반환]
-		return "/admin/AdminStamp";
-	}///////////////////Test()
+	
 	
 	/*
 	[스프링 타일즈 적용시]- 컨트럴러 메소드에서 문자열로 리턴시
