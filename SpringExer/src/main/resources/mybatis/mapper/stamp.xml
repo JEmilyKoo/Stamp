@@ -34,9 +34,5 @@
 		from stampcheck
 		where nickName = #{nickName}
 	</insert>
-	
-	<update id="stampCount" parameterType="Map">
-		update profile
-		set 
-	</update>
+
 </mapper>
