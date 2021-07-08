@@ -197,7 +197,7 @@ public class Member2Controller {
 			memberService.memberJoin(memberDTO);
 			session.setAttribute("login", memberDTO);
 			session.setAttribute("id",memberDTO.getId());
-			return "redirect:/Profile/ProfileNewSetting";
+			return "/";
 		}
 		
 		
