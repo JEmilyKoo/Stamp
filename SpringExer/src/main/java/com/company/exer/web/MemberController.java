@@ -103,6 +103,7 @@ public class MemberController {
 				if(profiledto==null) {
 					System.out.println("profiledto는 null");
 					session.setAttribute("nickName", dto.getName());
+					return "Profile/ProfileInsert";
 				}
 				else {
 					session.setAttribute("nickName", profiledto.getNickName());		

@@ -62,10 +62,10 @@
          공개 여부 :  ${otherProfile.openprf} </span>
 			</p>
 
-
-
 			<!-- 스탬프 리스트 시작 -->
-			<h2 class="font_4 color_32"
+			<div id="scrollSpyStamp" style="height:80px"></div>
+			
+			<h2 class="font_4 color_32" 
 				style="padding: 30px; text-align: center;">스탬프</h2>
 			<p class="font_8 color_5"
 				style="text-align: center; margin: 0px 0px 40px 0px">획득한 스탬프를
@@ -207,8 +207,9 @@
 
 
 
-
+		
 			<!-- 뱃지 시작 -->
+			<div id="scrollSpyBadge" style="height:80px"></div>
 			<h2 class="font_4 color_32"
 				style="padding: 30px; text-align: center;">뱃지</h2>
 			<p class="font_8 color_5"
@@ -276,6 +277,7 @@
 
 
 			<!-- 업적 시작 -->
+			<div id="scrollSpyAchievement" style="height:80px"></div>
 			<h2 class="font_4 color_32"
 				style="padding: 30px; text-align: center;">​업적</h2>
 			<p class="font_8 color_5"
@@ -332,6 +334,9 @@
 
 
 
-		</div></div>
+		</div>
+		<div style="height:80px"></div>
+		</div>
+		
 </body>
 </html>

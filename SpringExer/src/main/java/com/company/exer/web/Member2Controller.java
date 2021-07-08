@@ -195,7 +195,7 @@ public class Member2Controller {
 		//비 가입자
 		else {
 			memberService.memberJoin(memberDTO);
-			
+			return "Profile/ProfileInsert";
 		}
 		
 		
@@ -211,7 +211,7 @@ public class Member2Controller {
 		
 		if(profiledto==null) {
 			
-			session.setAttribute("nickName", memberDTO.getName());
+			return "Profile/ProfileInsert";
 		}
 		else{
 			session.setAttribute("nickName", profiledto.getNickName());

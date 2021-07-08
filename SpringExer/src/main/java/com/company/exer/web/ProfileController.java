@@ -160,13 +160,13 @@ public class ProfileController {
 //Badge에서 쓰이는 컨트롤러
 // 뷰 선택 체크 -> 뱃지 컨트롤러 필요
 
-//ProfilePost에서 쓰이는 컨트롤러
+//ProfileRiew에서 쓰이는 컨트롤러
 // 뷰 선택 -> 리뷰 컨트롤러 필요
 	
-	@RequestMapping("Post.do")
-	public String ProfilePost() {
+	@RequestMapping("Review.do")
+	public String ProfileRiview() {
 		//뷰정보 반환]
-		return "Profile/ProfilePost";
+		return "Profile/ProfileReview";
 	}///////////////////ProfilePost()
 	
 //ProfileComment에서 쓰이는 컨트롤러
