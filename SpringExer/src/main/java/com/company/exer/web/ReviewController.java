@@ -67,18 +67,14 @@ public class ReviewController {
 	//글 작성페이지
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
 	public String Write(Model model,@RequestParam Map map,@ModelAttribute("nickName") String nickName) {
-		ReviewDTO dto = reviewService.selectOne(map);
-		model.addAttribute("dto",dto);
-		System.out.println("nickName:"+map.get("nickName"));
-		System.out.println("nickName2:"+nickName);
+	
 		return "review/Write";
 	}
 	
 	//글 작성
 	@RequestMapping(value="Write.do",method = RequestMethod.POST)
-	public String WriteOk(@RequestParam Map map,@ModelAttribute("id") String id) {
-		
-		map.put("id", id);
+	public String WriteOk(@RequestParam Map map,@ModelAttribute("nickName") String nickName) {
+		map.put("nickName", nickName);
 		reviewService.insert(map);
 		return "forward:/Review/TripBoard.do";
 	}
