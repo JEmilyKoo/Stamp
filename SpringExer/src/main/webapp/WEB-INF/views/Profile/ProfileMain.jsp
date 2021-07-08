@@ -55,7 +55,6 @@
          성별 :  ${otherProfile.gender}
          생일 :  ${otherProfile.birth}
          폰 번호 :  ${otherProfile.phone}
-         레벨 :  
          경험치 :  ${otherProfile.exp}
          공개 여부 :  ${otherProfile.openprf} </span>
 			</p>
@@ -292,7 +291,7 @@
 					</h2>
 					<div style="vertical-align: middle;">
 					 <div class="w3-light-grey">
-  					<div  class="w3-container w3-blue w3-center" style="width:25%">65%</div>
+  					<div  class="w3-container w3-blue w3-center" style="width:50%">50%</div>
 					</div> </div>
 				</div>
 				<!-- 화이트 -->
@@ -306,7 +305,7 @@
 					</h2>
 					<div style="vertical-align: middle;">
 					 <div class="w3-light-grey">
-  					<div  class="w3-container w3-blue w3-center" style="width:25%">20%</div>
+  					<div  class="w3-container w3-blue w3-center" style="width:10%">10%</div>
 					</div> </div>
 				</div>
 				<!-- 화이트 -->
@@ -315,11 +314,11 @@
 					<h2 class="font_6"
 						style="text-align: left; line-height: 1.35em; font-size: 40px">
 						<span class="color_32"><span
-							style="text-transform: uppercase;">산 스탬프 100개 모으기</span></span>
+							style="text-transform: uppercase;">산 스탬프 10개 모으기</span></span>
 					</h2>
 					<div style="vertical-align: middle;">
 					 <div class="w3-light-grey">
-  					<div  class="w3-container w3-blue w3-center" style="width:25%">50%</div>
+  					<div  class="w3-container w3-blue w3-center" style="width:5%">5%</div>
 					</div> </div>
 				<!-- 프로그레시브 바 -->
 					
