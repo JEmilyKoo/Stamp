@@ -154,7 +154,7 @@ for (var i = 0; i < positions.length; i ++) {
         image : markerImage,
     });
     
-    //마커 주변 3km 원 그려주기
+    //마커 주변 0.3km 원 그려주기
     var latlng = positions[i].latlng;
     var circle = new kakao.maps.Circle({ 
         center : latlng, // 원의 중심좌표입니다
