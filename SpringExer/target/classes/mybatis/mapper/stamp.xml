@@ -48,4 +48,24 @@
 											from stampcheck
 											where nickName = #{nickName})
 	</select>
+	
+	
+	<!-- 관리자페이지용 -->
+	<!-- 1. 스탬프 조회 -->
+	 <select id="showStampList" resultType="stampDTO">
+		select * from stamp order by stNo desc;
+	</select>
+	
+	<!-- 2. 스탬프 수정 -->
+	<update id="updateStamp" parameterType="Map">
+		update stamp 
+		set stisexpired = 0
+		where stNo =#{stNo}
+	</update>
+	<!-- 3. 스탬프 삭제 -->
+	<delete id="deleteStamp" parameterType="Map">
+		delete stamp
+		where stNo = #{stNo}
+	</delete>
+	
 </mapper>
