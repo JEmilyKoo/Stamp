@@ -98,7 +98,7 @@
 
 								<form id="myform" name='homeForm' method="post"
 									class="form-horizontal"
-									action="<c:url value="/Profile/NewSetting.do"/>">
+									action="<c:url value="/Profile/Insert.do"/>">
 
 
 									<div class="aonqC">
@@ -142,7 +142,7 @@
 											<div id="trvprpnsDiv" class="_1ggNP">
 												<div id="trvprpnsInput" class="_1FsS0 _36G3j _19QH-">
 													<label for="trvprpns" class="_1qrSw">여행 성향</label>
-													<div class="ABx0f">
+													<div class="ABx0f"> 
 														<input id="trvprpns" name="trvprpns"
 															class="_3rh7f has-custom-focus" type="text" required
 															autocomplete="off" style="font-size: 14px">

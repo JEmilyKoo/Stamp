@@ -56,9 +56,19 @@ public class ReviewController {
 	
 	//상세보기
 	@RequestMapping("ForumPost.do")
-	public String ForumPost(@RequestParam Map map,Model model) {
-		ReviewDTO dto = reviewService.selectOne(map);
-		model.addAttribute("dto",dto);
+	public String ForumPost(@RequestParam Map map,Model model,HttpServletRequest req) {
+		if(req.getSession().getAttribute("nickName")!=null) {
+			String nickName = req.getSession().getAttribute("nickName").toString();
+			map.put("nickName", nickName);
+			int check = reviewService.likeCheck(map);
+			ReviewDTO dto = reviewService.selectOne(map);
+			dto.setRvLikeCheck(check);
+			model.addAttribute("dto",dto);
+			}
+			else {
+				ReviewDTO dto = reviewService.selectOne(map);
+				model.addAttribute("dto",dto);
+			}
 		//뷰정보 반환]
 		return "/ForumPost";
 	}///////////////////ForumPost()
@@ -67,45 +77,59 @@ public class ReviewController {
 	//글 작성페이지
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
 	public String Write(Model model,@RequestParam Map map,@ModelAttribute("nickName") String nickName) {
-		ReviewDTO dto = reviewService.selectOne(map);
-		model.addAttribute("dto",dto);
-		System.out.println("nickName:"+map.get("nickName"));
-		System.out.println("nickName2:"+nickName);
+	
 		return "review/Write";
 	}
 	
 	//글 작성
 	@RequestMapping(value="Write.do",method = RequestMethod.POST)
-	public String WriteOk(@RequestParam Map map,@ModelAttribute("id") String id) {
-		
-		map.put("id", id);
+	public String WriteOk(@RequestParam Map map,@ModelAttribute("nickName") String nickName) {
+		map.put("nickName", nickName);
 		reviewService.insert(map);
 		return "forward:/Review/TripBoard.do";
 	}
 	
 
 	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
-	public String Like(@RequestParam Map map,
-			@ModelAttribute("nickName") String nickName,Model model) throws IOException {
-		map.put("nickName", nickName);
+	public @ResponseBody int Like(@RequestParam Map map) throws IOException {
 		int check = reviewService.likeCheck(map);
-		System.out.println("check:"+check);
-		model.addAttribute("check",check);
 		if(check==0) {
-			System.out.println("11");
-			reviewService.like(map);
+			int like = reviewService.like(map);
 		}
 		else if(check==1){
-			System.out.println("22");
 			reviewService.unlike(map); 
 		}
-		//reviewService.likeCount(map);
-		//ReviewDTO dto=reviewService.selectOne(map);
-		//if(dto.getRvLikeCnt()>=2) {
-		//	reviewService.stampCreate(map);
-		//}
+		reviewService.likeCount(map);
+		ReviewDTO dto=reviewService.selectOne(map);
+		if(dto.getRvLikeCnt()>=2) {
+			reviewService.stampCreate(map);
+		}
+		 
+		return check;
+	}
+	
+	@RequestMapping(value="Edit.do", method = RequestMethod.GET)
+	public String Edit(@RequestParam Map map,Model model ) {
+		ReviewDTO dto = reviewService.selectOne(map);
+		model.addAttribute("dto",dto);
+		return "review/Edit";
+	}
+	
+	@RequestMapping(value="Edit.do",method = RequestMethod.POST)
+	public String EditOk(@RequestParam Map map,Model model) {
+		ReviewDTO dto = reviewService.selectOne(map);
+		model.addAttribute("dto",dto);
+		reviewService.update(map);
 		return "forward:/Review/ForumPost.do";
 	}
+	
+	@RequestMapping("Delete.do")
+	public String delete(@RequestParam Map map) {
+		reviewService.delete(map);
+		return "forward:/Review/TripBoard.do";
+	}
+	
+	
 	
 	/*
 	@RequestMapping("View.do")
@@ -129,27 +153,11 @@ public class ReviewController {
 		return "review/View";
 	}
 	
-	@RequestMapping(value="Edit.do", method = RequestMethod.GET)
-	public String Edit(@RequestParam Map map,Model model ) {
-		ReviewDTO dto = reviewService.selectOne(map);
-		model.addAttribute("dto",dto);
-		return "review/Edit";
-	}
 	
-	@RequestMapping(value="Edit.do",method = RequestMethod.POST)
-	public String EditOk(@RequestParam Map map,Model model) {
-		ReviewDTO dto = reviewService.selectOne(map);
-		model.addAttribute("dto",dto);
-		reviewService.update(map);
-		return "forward:/Review/List.do";
-	}
 	
-	@RequestMapping("Delete.do")
-	public String delete(@RequestParam Map map) {
-		reviewService.delete(map);
-		return "forward:/Review/List.do";
-	}
-	
+
 	
 	*/
+	
+	
 }

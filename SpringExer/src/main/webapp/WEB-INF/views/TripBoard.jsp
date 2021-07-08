@@ -89,21 +89,32 @@
 					
 							<div>					
 <!-- 아래 검색 -->			
+
+
 			<form class="form-inline" method="post"
 				action="<c:url value='/Review/TripBoard.do'/>">
-																<div class="form-group">
-					<select name="searchColumn" class="form-right">
-						<option value="title">제목</option>
-						<option value="name">작성자</option>
-						<option value="content">내용</option>
-					</select>
+				<div class="searchNav"> 
+					<div class="form-group">
+						<select name="searchColumn" class="form-right" style="background-color:white; border:none">
+							<option value="title">제목</option>
+							<option value="name">작성자</option>
+							<option value="content">내용</option>
+						</select>
+					</div>
+					<div class="search-input">
+						<input type="text" name="searchWord" class="form-right _1quPh header-search-text-color header-search-font search-input__input" />
+						
+					</div>
+					<button type="submit" class="searchButton">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 1 24 25"  data-hook="search-icon">
+								<path fill-rule="evenodd" d="M19.854 19.146c.195.196.195.512 0 .708-.196.195-.512.195-.708 0l-3.708-3.709C14.118 17.3 12.391 18 10.5 18 6.358 18 3 14.642 3 10.5 3 6.358 6.358 3 10.5 3c4.142 0 7.5 3.358 7.5 7.5 0 1.891-.7 3.619-1.855 4.938l3.709 3.708zM17 10.5C17 6.91 14.09 4 10.5 4S4 6.91 4 10.5 6.91 17 10.5 17s6.5-2.91 6.5-6.5z"></path>
+							</svg>
+						</button>	
 				</div>
-															<div class="form-group">
-					<input type="text" name="searchWord" class="form-right" />
-				</div>
+			</form>			
 				
-				<button type="submit" class="btn btn-primary">검색</button>
-				</form>											
+				
+												
 															</div>
 															</div>
 															
@@ -282,8 +293,8 @@
 
 																			<div class="vP6YT">
 																				<button class="_3Bdxz post-footer__like-button">
-																					<span class="_3BTGY"> <span class="_8J1xw">0</span>
-																						<!-- 하트 아이콘 시작 -->
+																					<!--<span class="_3BTGY"> <span class="_8J1xw">0</span>
+																						 하트 아이콘 시작
 																						<div class="like-button _7QZoA _1eKPZ"
 																							aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
 																							<a href="<c:url value="/Review/Like.do?rvno=${item.rvNo}"/>"><img src="../images/review/beanH.png" /></a>
@@ -292,7 +303,7 @@
 																								width="19" viewBox="0 0 19 19" role="img">
 
                                         </svg>
-																						</div> <!-- 하트 아이콘 끝 -->
+																						</div> --> <!-- 하트 아이콘 끝 -->
 																					</span>
 																				</button>
 																			</div>

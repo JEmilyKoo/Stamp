@@ -104,6 +104,7 @@ public class IndexController {
 	public String Admin() {
 		//뷰정보 반환]
 		return "/admin/Admin";
+<<<<<<< HEAD
 	}///////////////////Test()
 	
 	
@@ -141,8 +142,15 @@ public class IndexController {
 	public String RiviewComMNG() {
 		//뷰정보 반환]
 		return "/admin/RiviewComMNG";
+=======
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 	}///////////////////Test()
 	
+	@RequestMapping("/AdminStamp")
+	public String AdminStamp() {
+		//뷰정보 반환]
+		return "/admin/AdminStamp";
+	}///////////////////Test()
 	
 	/*
 	[스프링 타일즈 적용시]- 컨트럴러 메소드에서 문자열로 리턴시

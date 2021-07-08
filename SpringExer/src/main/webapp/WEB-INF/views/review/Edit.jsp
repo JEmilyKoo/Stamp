@@ -36,7 +36,7 @@
 		<div class="row">
 		<div class="col-md-12">
 			<form class="form-horizontal" method="post" action="<c:url value='/Review/Edit.do'/>">
-				<input type="hidden" name="no" value="${dto.no }"/>
+				<input type="hidden" name="rvNo" value="${dto.rvNo }"/>
 				<!-- 씨큐리티 적용:csrf취약점 방어용 -->
 					<div class="form-group">
 					<label class="col-sm-2 control-label">제목</label>

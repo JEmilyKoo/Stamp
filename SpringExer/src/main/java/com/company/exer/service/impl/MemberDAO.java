@@ -25,7 +25,10 @@ public class MemberDAO {
 	public void register(MemberDTO memberDTO) throws Exception{}
 	
     public MemberDTO get(MemberDTO memberDTO) throws Exception{
-		return memberDTO;}
+		
+    	return sqlMapper.selectOne("sqlgetmember",memberDTO);
+    	
+    }
    
     public void memberJoin(MemberDTO memberDTO) {
     	sqlMapper.insert("sqlmemberJoin",memberDTO);

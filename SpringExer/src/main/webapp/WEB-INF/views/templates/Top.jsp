@@ -105,7 +105,7 @@ body {
 				$(this).next().fadeOut(200);
 			}
 		});
-		
+
 		$(".siteMap").click(function() {
 			console.log($(".siteMapActions").css('display'));
 			//클릭한 제목의 내용이 숨겨져 있다면
@@ -121,7 +121,8 @@ body {
 </script>
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top ">
+	<nav class="navbar navbar-default navbar-fixed-top "
+		style="width: 100%">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<!--화면 크기가 작을때 보여지는 네비게이션바(모바일용)  -->
@@ -131,20 +132,21 @@ body {
 						class="icon-bar"></span>
 				</button>
 				<!-- CI표시 -->
-				<a class="navbar-brand" href="<c:url value="/"/>"> <span
-					class="glyphicon glyphicon-map-marker"></span> <span
-					class="fontTitle">찍GO</span> <br />
-					<p class="fontSub">지금 바로 떠나세요</p>
+				<a class="navbar-brand" href="<c:url value="/"/>"> 
+				 <img
+					src="${pageContext.request.contextPath}/images/main/logo.png"
+					width="auto" height="40px" />
 				</a>
 			</div>
 			<!-- 화면 크기가 클때 상단에 보여지는 네비게이션바(데스크탑용) -->
 			<div class="collapse navbar-collapse" id="collapse-menu">
 				<!-- 네비게이션바에 폼 추가 -->
 				<ul class="nav navbar-nav navbar-right">
-				
-					<li> <a href="#"><button class="siteMap">사이트맵</button></a>
-					<li><a href="<c:url value="/Review/List.do"/>">여행 리뷰/정보</a></li>
-					
+
+					<li><a href="#"><button class="siteMap">사이트맵</button></a>
+					<li><a href="<c:url value="/Review/TripBoard.do"/>">여행
+							리뷰/정보</a></li>
+
 					<li><a href="<c:url value="/Stamp/MapSearch.do"/>">지도 검색</a></li>
 
 					<li><a href="<c:url value="/Stamp/guide.do"/>">가이드</a></li>
@@ -178,8 +180,8 @@ body {
 										transform="rotate(90, 9.5 9.5)"></use>
 						</svg>
 							</button>
-							
-							
+
+
 							<div class="topActions" role="menu">
 								<div>
 									<a style="text-decoration: none;"
@@ -270,34 +272,12 @@ body {
 
 			</div>
 		</div>
-		
-		
-		<div class="siteMapActions" role="menu">
-							
-
-								<ul class="nav navbar-nav" style="background-color:white">
-
-									<li><a href="<c:url value="/Stamp/CategoryEdit.do"/>">CategoryEdit</a></li>
-									<li><a href="<c:url value="/Stamp/Category.do"/>">Category</a></li>
-									<li><a href="<c:url value="/Stamp/CategoryCreate.do"/>">CategoryCreate</a></li>
-									<li><a href="<c:url value="/Review/ForumPost.do"/>">ForumPost</a></li>
-									<li><a href="<c:url value="/Stamp/ForumPostCreate.do"/>">ForumPostCreate</a></li>
-									<li><a href="<c:url value="/Review/TripBoard.do"/>">TripBoard</a></li>
-									<li><a href="<c:url value="/Stamp/TripBoardEdit.do"/>">TripBoardEdit</a></li>
-									<li><a href="<c:url value="/Stamp/TripBoardReport.do"/>">TripBoardReport</a></li>
-									<li><a href="<c:url value="/Stamp/NewPost.do"/>">NewPost</a></li>
 
 
-									<li><a href="<c:url value="/Stamp/Test.do"/>">Test</a></li>
-									<li><a href="<c:url value="/Profile/StampList.do"/>">ProfileStampList</a></li>
-									<li><a href="<c:url value="/Profile/Main.do"/>">ProfileMain</a></li>
-
-									<li><a href="<c:url value="/Profile/Main/Id.do?id=KOO"/>">KOO의
-											ProfileMain</a></li>
-
-									<li><a href="<c:url value="/Profile/NewSetting.do"/>">프로필값새로입력하는것</a></li>
+		<div class="siteMapActions" role="menu" style="width: 100vw">
 
 
+<<<<<<< HEAD
 									<li><a href="<c:url value="/Stamp/Badge.do"/>">Badge</a></li>
 									<li><a href="<c:url value="/Profile/Like.do"/>">ProfileLike</a></li>
 									<li><a href="<c:url value="/Profile/Comment.do"/>">ProfileComment</a></li>
@@ -305,15 +285,59 @@ body {
 									<li><a href="<c:url value="/Profile/Alarm.do"/>">ProfileAlarm</a></li>
 									<li><a href="<c:url value="/Profile/AlarmSetting.do"/>">ProfileAlarmSetting</a></li>
 									<li><a href="<c:url value="/Admin/Admin.do"/>">관리자페이지</a></li>
+=======
+			<ul class="nav navbar-nav"
+				style="background-color: white; width: 100%">
 
-								</ul>
-						</div>
+				<li><a href="<c:url value="/Stamp/CategoryEdit.do"/>">CategoryEdit</a></li>
+				<li><a href="<c:url value="/Stamp/Category.do"/>">Category</a></li>
+				<li><a href="<c:url value="/Stamp/CategoryCreate.do"/>">CategoryCreate</a></li>
+
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
+
+
+			</ul>
+			<ul class="nav navbar-nav"
+				style="background-color: white; width: 100%">
+				<li class="font_1"><a
+					href="<c:url value="/Review/TripBoard.do"/>">TripBoard</a></li>
+				<li><a href="<c:url value="/Review/ForumPost.do"/>">ForumPost</a></li>
+				<li><a href="<c:url value="/Stamp/TripBoardEdit.do"/>">TripBoardEdit</a></li>
+				<li><a href="<c:url value="/Stamp/TripBoardReport.do"/>">TripBoardReport</a></li>
+				<li><a href="<c:url value="/Stamp/NewPost.do"/>">NewPost</a></li>
+				<li><a href="<c:url value="/Stamp/ForumPostCreate.do"/>">ForumPostCreate</a></li>
+
+
+
+
+			</ul>
+			<ul class="nav navbar-nav "
+				style="background-color: white; width: 100%">
+				<li class="font_1"><a href="<c:url  value="/Profile/Main.do"/>">프로필</a></li>
+				<li><a href="<c:url value="/Profile/StampList.do"/>">스탬프</a></li>
+				<li><a href="<c:url value="/Stamp/Badge.do"/>">뱃지</a></li>
+				<li><a href="<c:url value="/Profile/Insert.do"/>">프로필 생성하기</a></li>
+				<li><a href="<c:url value="/Profile/Review.do"/>">올린 리뷰</a></li>
+				<li><a href="<c:url value="/Profile/Comment.do"/>">올린 댓글</a></li>
+				<li><a href="<c:url value="/Profile/Like.do"/>">즐겨 찾기</a></li>
+				<li><a href="<c:url value="/Profile/Alarm.do"/>">알림</a></li>
+				<li><a href="<c:url value="/Profile/AlarmSetting.do"/>">알림
+						설정</a></li>
+			</ul>
+
+			<ul class="nav navbar-nav "
+				style="background-color: white; width: 100%">
+				<li class="font_1"><a href="<c:url value="/Admin.do"/>">관리자페이지</a></li>
+				<li><a href="<c:url value="/Stamp/Test.do"/>">Test</a></li>
+
+			</ul>
+		</div>
 	</nav>
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 </body>
 </html>

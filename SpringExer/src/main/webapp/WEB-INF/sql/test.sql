@@ -219,6 +219,7 @@ CREATE TABLE RVLIKE
 (
 	rvlNo number NOT NULL,
 	rvNo number NOT NULL,
+	nickname nvarchar2(15) references profile(nickname),
 	rvDate date DEFAULT SYSDATE,
 	PRIMARY KEY (rvlNo)
 );
