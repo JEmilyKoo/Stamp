@@ -293,8 +293,8 @@
 
 																			<div class="vP6YT">
 																				<button class="_3Bdxz post-footer__like-button">
-																					<span class="_3BTGY"> <span class="_8J1xw">0</span>
-																						<!-- 하트 아이콘 시작 -->
+																					<!--<span class="_3BTGY"> <span class="_8J1xw">0</span>
+																						 하트 아이콘 시작
 																						<div class="like-button _7QZoA _1eKPZ"
 																							aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
 																							<a href="<c:url value="/Review/Like.do?rvno=${item.rvNo}"/>"><img src="../images/review/beanH.png" /></a>
@@ -303,7 +303,7 @@
 																								width="19" viewBox="0 0 19 19" role="img">
 
                                         </svg>
-																						</div> <!-- 하트 아이콘 끝 -->
+																						</div> --> <!-- 하트 아이콘 끝 -->
 																					</span>
 																				</button>
 																			</div>

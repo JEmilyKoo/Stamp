@@ -12,7 +12,7 @@ import com.company.exer.service.StampDTO;
 import com.company.exer.service.StampService;
 
 @Repository("stampDAO")
-public class StampDAO /*implements StampService*/ {
+public class StampDAO implements StampService {
 
 	@Resource(name="template")
 	private SqlSessionTemplate sqlMapper;
@@ -36,8 +36,19 @@ public class StampDAO /*implements StampService*/ {
 		return sqlMapper.delete("stampCheckDelete",map);
 	}
 	
-	public int stampCreate(Map map) {
-		return sqlMapper.insert("stampCreate",map);
+	public int stampGet(Map map) {
+		return sqlMapper.insert("stampGet",map);
+	}
+
+
+	public int stampCheckGet(Map map) {
+		return sqlMapper.selectOne("stampCheckGet",map);
+	}
+
+
+	@Override
+	public String stampRvno(Map map) {
+		return sqlMapper.selectOne("stampRvno",map);
 	}
 
 
