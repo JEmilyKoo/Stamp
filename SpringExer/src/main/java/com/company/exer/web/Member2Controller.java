@@ -195,9 +195,7 @@ public class Member2Controller {
 		//비 가입자
 		else {
 			memberService.memberJoin(memberDTO);
-			session.setAttribute("login", memberDTO);
-			session.setAttribute("id",memberDTO.getId());
-			return "/";
+			
 		}
 		
 		
@@ -341,6 +339,18 @@ public class Member2Controller {
 					session.setAttribute("login", memberDTO);
 					session.setAttribute("id",memberDTO.getId());
 
+					ProfileDTO profiledto = new ProfileDTO();
+					profiledto=profileservice.selectMemberProfile(memberDTO);
+					
+					
+					if(profiledto==null) {
+						System.out.println("profiledto는 null");
+						session.setAttribute("nickName", memberDTO.getName());
+					}
+					else {
+						session.setAttribute("nickName", profiledto.getNickName());		
+					}
+					
 					
 					return "redirect:/";
 					}
@@ -348,8 +358,10 @@ public class Member2Controller {
 				//비 가입자
 				else {
 					memberService.memberJoin(memberDTO);
-					session.setAttribute("id",memberDTO.getId());
+					session.setAttribute("nickName", memberDTO.getName());
 					return "redirect:/";
+				
+				
 				}
 				
 	}
