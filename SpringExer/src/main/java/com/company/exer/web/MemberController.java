@@ -108,7 +108,8 @@ public class MemberController {
 				else {
 					session.setAttribute("nickName", profiledto.getNickName());		
 				}
-			
+				session.setAttribute("nickName", profiledto.getNickName());		
+				
 			
 			}
 		

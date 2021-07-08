@@ -214,9 +214,9 @@ public class Member2Controller {
 			return "Profile/ProfileInsert";
 		}
 		else{
-			session.setAttribute("nickName", profiledto.getNickName());
 		}
 		
+		session.setAttribute("nickName", profiledto.getNickName());
 		
 		session.setAttribute("profile", profiledto);
 		return "redirect:/";
