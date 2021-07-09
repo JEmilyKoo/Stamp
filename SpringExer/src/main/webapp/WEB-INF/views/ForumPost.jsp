@@ -66,7 +66,7 @@ pageEncoding="UTF-8"%>
    
      
     <!-- 드롭다운버튼 구현하는 곳 -->
-        
+      <c:if test="${sessionScope.nickName==dto.nickName }">  
     <svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24">
     
     <path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z">
@@ -79,8 +79,16 @@ pageEncoding="UTF-8"%>
 			    <li role="presentation"><a role="menuitem" tabindex="-1" href="<c:url value="/Review/Delete.do?rvNo=${dto.rvNo}"/>">삭제</a></li>
 			   
 		  	</ul>
+   		</c:if>
+    </div>
+    </div>
     
-    </div></div></div></div><h1 id="post-header-yeoreume-gajogi-hamgge-gagi-joheun-hyuyangji-cuceonhaejuseyo" class="_2FqU5 _2-LCm post-title forum-title-classic-font" data-hook="post-title"><div class="_33VI0"><div class="_3N7Rh">
+    </div>
+    </div>
+    
+    <h1 id="post-header-yeoreume-gajogi-hamgge-gagi-joheun-hyuyangji-cuceonhaejuseyo" class="_2FqU5 _2-LCm post-title forum-title-classic-font" data-hook="post-title">
+    <div class="_33VI0">
+    <div class="_3N7Rh">
     <span>${dto.rvTitle }</span></div></div></h1><div class="_2A5VF"><article class="forum-content-classic-font"><div class="post-content__body" tabindex="0"><div><div class="_1xs1G">
     <div dir="ltr" data-id="rich-content-viewer"><div ><p id="viewer-187m1" class="text-ltr"><span class="">
     ${dto.rvCtt }
