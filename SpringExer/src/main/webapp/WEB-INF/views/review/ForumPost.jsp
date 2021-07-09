@@ -137,18 +137,58 @@ pageEncoding="UTF-8"%>
   
  </span></span></div></div></div></div></div></main>
   
+    <!-- 댓글 만들기 구현중 -->
   
-  <div class="_2r1LV forum-card-border-color"><div class="_3Cioj QZ-R_ forum-separator-background-color"></div></div><div class="GNZwK" data-hook="animated-loader__container"><div><div><div class="dGa6G forum-card-border-color"><div id="comments" class="_3Z-pR"><div><div class="_1vGfV" data-hook="comment"><article id="60d2f27a88d0340015ed3abb" class="_3JQ_x forum-content-classic-font forum-text-color forum-card-border-color comment" data-hook="comment" tabindex="-1"><div class="_1XN4n _2IZ0U" style="border-color: rgba(0, 0, 0, 0.2);"><div class="_2bdhY"><div class="_2IYLE _2IGSa comment-header"><div class="_1vv4e"><div data-hook="mcl-showable-content"></div><a href="https://jemilykoo.wixsite.com/website/profile/userID/profile"><div class="_2jNAb _2cJkC"><span class="_14_Ju _28gI0 avatar-image"><div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div></span><div class="_1uKCP forum-text-color"><div class="_1xqeV"><span class="B9kqa forum-text-color forum-link-hover-color comment-avatar__profile-name">userID</span><div class="_34OTI"></div></div></div></div></a></div><span class="_1dO0B"><span class="_2udjW time-ago" data-hook="time-ago">1초</span></span><div class="_2RCpN"><div class="LTwPD more-button" data-hook="more-button"><button class="_2jKCS button-hover-fill forum-icon-fill forum-text-color forum-content-classic-font _2B7gt" aria-label="More actions" id="more-button-60d2f27a88d0340015ed3abb" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z"></path></svg></button></div></div></div></div><div class="_1MbOK comment__content"><div><div class="_1xs1G"><div class="kcuBq _18B2H forum-content-classic-font c5OF0 cNOAl css-1wg9rnj _2x6sh uatYj _1bYoS gOtux" dir="ltr" data-id="rich-content-viewer"><div class="kaqlz _3JyXP _1TaxU"><p id="viewer-foo" class="XzvDs _208Ie _3ogUL _3tcqp _2QAo- _25MYV _2CDc4 public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">fff</span></p></div></div></div></div></div><div class="_39-Jn forum-text-color comment-footer"><span class="_3U6Eq"><button class="KkXMX forum-content-classic-font button-hover-color forum-icon-fill button-hover-fill" aria-label="userID님에게 댓글"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" class="_3Cu5l"><g fill-rule="evenodd"><path d="M19 15a4 4 0 0 0-4 4v1h-1v-1a5 5 0 0 1 5-5l2.293-.003-2.145-2.144a.5.5 0 1 1 .707-.707l3.352 3.351-3.352 3.354a.5.5 0 1 1-.707-.707l2.145-2.147L19 15z"></path><path fill-rule="nonzero" d="M9 18.62l2.744-1.64a.5.5 0 0 1 .512.86l-3.5 2.09A.5.5 0 0 1 8 19.5V17H6.237C4.9 17 4 16.225 4 14.934V7.247C4 5.912 4.785 5 6.077 5h11.82C19.2 5 20 5.861 20 7.18V8.5a.5.5 0 1 1-1 0V7.18C19 6.399 18.63 6 17.898 6H6.078C5.372 6 5 6.434 5 7.247v7.687C5 15.637 5.422 16 6.237 16H8.5a.51.51 0 0 1 .01 0H9v2.62z"></path></g></svg><span data-hook="comment-footer__reply" class="comment-footer__reply">댓글</span></button></span><div class="_2TIT4"><button class="_2UNF9 forum-content-classic-font" actiondetails="[object Object]"><div class="dr0cE" aria-label="좋아요 0개. Is unliked" data-hook="like-button" style="--heart-color:#e84a43;"><div class="_2OWaP"><div class="_1pvT5"></div></div><div class="_2FjpA"><div class="_1pvT5"></div></div><div class="_3YyRC"><div class="_1pvT5"></div></div><div class="_1z3qL"><div class="_1pvT5"></div></div><div class="_3T8La"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 5.5c-1.137 0-2.176.422-2.968 1.118-.321.324-.533.55-.632.682-.087.116-.22.334-.4.655-.18-.32-.313-.54-.4-.655-.098-.131-.31-.357-.63-.68C10.179 5.923 9.139 5.5 8 5.5c-1.243 0-2.368.504-3.182 1.318C4.004 7.632 3.5 8.758 3.5 10c0 1.48.714 2.792 1.813 3.614L12 19.342l6.684-5.73C19.786 12.792 20.5 11.48 20.5 10c0-1.243-.504-2.368-1.318-3.182C18.368 6.004 17.242 5.5 16 5.5z"></path></svg></div></button><span class="_3DfnL post-main-actions__like-count _344s1" data-hook="who-liked-popover-btn">0</span></div></div></div></article><div><div><div class="_1vGfV _1yPdA" data-hook="comment"><article id="60d2f28188d0340015ed3abd" class="_3JQ_x forum-content-classic-font forum-text-color forum-card-border-color comment _3xzB6" data-hook="comment" tabindex="-1"><div class="_1XN4n _1yPdA eFjFZ" style="border-color: rgba(0, 0, 0, 0.2);"><div class="_2bdhY"><div class="_2IYLE _2IGSa comment-header"><div class="_1vv4e"><div data-hook="mcl-showable-content"></div><a href="https://jemilykoo.wixsite.com/website/profile/userID/profile"><div class="_2jNAb _2cJkC"><span class="_14_Ju _28gI0 avatar-image"><div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div></span><div class="_1uKCP forum-text-color"><div class="_1xqeV"><span class="B9kqa forum-text-color forum-link-hover-color comment-avatar__profile-name">userID</span><div class="_34OTI"></div></div></div></div></a></div><span class="_1dO0B"><span class="_2udjW time-ago" data-hook="time-ago">1초</span></span><div class="_2RCpN"><div class="LTwPD more-button" data-hook="more-button"><button class="_2jKCS button-hover-fill forum-icon-fill forum-text-color forum-content-classic-font _2B7gt" aria-label="More actions" id="more-button-60d2f28188d0340015ed3abd" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z"></path></svg></button></div></div></div></div><div class="_1MbOK comment__content"><div><div class="_1xs1G"><div class="kcuBq _18B2H forum-content-classic-font c5OF0 cNOAl css-1wg9rnj _2eog5 uatYj _1bYoS _2aERR" dir="ltr" data-id="rich-content-viewer"><div class="kaqlz _3JyXP _2QDTJ"><p id="viewer-foo" class="XzvDs _208Ie _3ogUL cw1QM _2QAo- _25MYV _2CDc4 public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">fffff</span></p></div></div></div></div></div><div class="_39-Jn forum-text-color comment-footer"><span class="_3U6Eq"><button class="KkXMX forum-content-classic-font button-hover-color forum-icon-fill button-hover-fill" aria-label="userID님에게 댓글"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" class="_3Cu5l"><g fill-rule="evenodd"><path d="M19 15a4 4 0 0 0-4 4v1h-1v-1a5 5 0 0 1 5-5l2.293-.003-2.145-2.144a.5.5 0 1 1 .707-.707l3.352 3.351-3.352 3.354a.5.5 0 1 1-.707-.707l2.145-2.147L19 15z"></path><path fill-rule="nonzero" d="M9 18.62l2.744-1.64a.5.5 0 0 1 .512.86l-3.5 2.09A.5.5 0 0 1 8 19.5V17H6.237C4.9 17 4 16.225 4 14.934V7.247C4 5.912 4.785 5 6.077 5h11.82C19.2 5 20 5.861 20 7.18V8.5a.5.5 0 1 1-1 0V7.18C19 6.399 18.63 6 17.898 6H6.078C5.372 6 5 6.434 5 7.247v7.687C5 15.637 5.422 16 6.237 16H8.5a.51.51 0 0 1 .01 0H9v2.62z"></path></g></svg><span data-hook="comment-footer__reply" class="comment-footer__reply">댓글</span></button></span><div class="_2TIT4"><button class="_2UNF9 forum-content-classic-font" actiondetails="[object Object]"><div class="dr0cE" aria-label="좋아요 0개. Is unliked" data-hook="like-button" style="--heart-color:#e84a43;"><div class="_2OWaP"><div class="_1pvT5"></div></div><div class="_2FjpA"><div class="_1pvT5"></div></div><div class="_3YyRC"><div class="_1pvT5"></div></div><div class="_1z3qL"><div class="_1pvT5"></div></div><div class="_3T8La"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 5.5c-1.137 0-2.176.422-2.968 1.118-.321.324-.533.55-.632.682-.087.116-.22.334-.4.655-.18-.32-.313-.54-.4-.655-.098-.131-.31-.357-.63-.68C10.179 5.923 9.139 5.5 8 5.5c-1.243 0-2.368.504-3.182 1.318C4.004 7.632 3.5 8.758 3.5 10c0 1.48.714 2.792 1.813 3.614L12 19.342l6.684-5.73C19.786 12.792 20.5 11.48 20.5 10c0-1.243-.504-2.368-1.318-3.182C18.368 6.004 17.242 5.5 16 5.5z"></path></svg></div></button><span class="_3DfnL post-main-actions__like-count _344s1" data-hook="who-liked-popover-btn">0</span></div></div></div></article></div></div></div><div class="lrDj7"><div class="_2bKV7" style="border-color: rgba(0, 0, 0, 0.2);"></div></div></div></div></div></div><div class="_1JrdC"><div class="_2lg0m"><div class="_1wL4F" style="border-width: 0px;"><div class="_2KjjO" style="border-width: 1px; border-color: rgba(0, 0, 0, 0.2);" data-hook="post-page-footer"><div class="kIBre _19wZy forum-content-classic-font forum-text-color comment-form" data-hook="comment-form"><div class="_3J3VY"><div class="Nrvl9"><div data-hook="mcl-showable-content"></div><a href="https://jemilykoo.wixsite.com/website/profile/userID/profile" class="_1cpII"><div class="_31l-O forum-text-color _1ccuS avatar"><span class="_14_Ju _1zT4G _28gI0 avatar-image"><div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div></span><div class="-mPAe"><div class="_1d5Ko"><div class="_1_vuc"><span class="LXBdL forum-text-color forum-link-hover-color" data-hook="avatar__name">userID</span></div></div></div></div></a></div></div><div class="_1WAqx" style="border-color: rgba(0, 0, 0, 0.2);"><div class="_302vU"><div class="VjHd2">
+
+  <div class="_2r1LV forum-card-border-color">
+  <div class="_3Cioj QZ-R_ forum-separator-background-color"></div></div>
+
+    <form class="form-inline" id="frm">
+  <div class="GNZwK" data-hook="animated-loader__container"><div><div>
+  <div class="dGa6G forum-card-border-color"><div id="comments" class="_3Z-pR">
+  <div><div class="_1vGfV" data-hook="comment">
+  <article id="60d2f27a88d0340015ed3abb" class="_3JQ_x forum-content-classic-font forum-text-color forum-card-border-color comment" data-hook="comment" tabindex="-1"><div class="_1XN4n _2IZ0U" style="border-color: rgba(0, 0, 0, 0.2);"><div class="_2bdhY"><div class="_2IYLE _2IGSa comment-header"><div class="_1vv4e"><div data-hook="mcl-showable-content"></div><a href="https://jemilykoo.wixsite.com/website/profile/userID/profile"><div class="_2jNAb _2cJkC"><span class="_14_Ju _28gI0 avatar-image"><div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div></span><div class="_1uKCP forum-text-color"><div class="_1xqeV">
+  
+  
+   <!-- 댓글 목록1 -->
+  
+  <span class="B9kqa forum-text-color forum-link-hover-color comment-avatar__profile-name">${dto.comments }</span>
+  
+  <div class="_34OTI"></div></div></div></div></a></div><span class="_1dO0B">
+  <span class="_2udjW time-ago" data-hook="time-ago">1초</span></span>
+  <div class="_2RCpN"><div class="LTwPD more-button" data-hook="more-button"><button class="_2jKCS button-hover-fill forum-icon-fill forum-text-color forum-content-classic-font _2B7gt" aria-label="More actions" id="more-button-60d2f27a88d0340015ed3abb" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z"></path></svg></button></div></div></div></div><div class="_1MbOK comment__content"><div><div class="_1xs1G"><div class="kcuBq _18B2H forum-content-classic-font c5OF0 cNOAl css-1wg9rnj _2x6sh uatYj _1bYoS gOtux" dir="ltr" data-id="rich-content-viewer"><div class="kaqlz _3JyXP _1TaxU"><p id="viewer-foo" class="XzvDs _208Ie _3ogUL _3tcqp _2QAo- _25MYV _2CDc4 public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr">
+  <span class="vkIF2 public-DraftStyleDefault-ltr">fff</span></p></div></div></div></div></div><div class="_39-Jn forum-text-color comment-footer"><span class="_3U6Eq"><button class="KkXMX forum-content-classic-font button-hover-color forum-icon-fill button-hover-fill" aria-label="userID님에게 댓글"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" class="_3Cu5l"><g fill-rule="evenodd"><path d="M19 15a4 4 0 0 0-4 4v1h-1v-1a5 5 0 0 1 5-5l2.293-.003-2.145-2.144a.5.5 0 1 1 .707-.707l3.352 3.351-3.352 3.354a.5.5 0 1 1-.707-.707l2.145-2.147L19 15z"></path><path fill-rule="nonzero" d="M9 18.62l2.744-1.64a.5.5 0 0 1 .512.86l-3.5 2.09A.5.5 0 0 1 8 19.5V17H6.237C4.9 17 4 16.225 4 14.934V7.247C4 5.912 4.785 5 6.077 5h11.82C19.2 5 20 5.861 20 7.18V8.5a.5.5 0 1 1-1 0V7.18C19 6.399 18.63 6 17.898 6H6.078C5.372 6 5 6.434 5 7.247v7.687C5 15.637 5.422 16 6.237 16H8.5a.51.51 0 0 1 .01 0H9v2.62z"></path></g></svg><span data-hook="comment-footer__reply" class="comment-footer__reply">댓글</span></button></span><div class="_2TIT4"><button class="_2UNF9 forum-content-classic-font" actiondetails="[object Object]"><div class="dr0cE" aria-label="좋아요 0개. Is unliked" data-hook="like-button" style="--heart-color:#e84a43;"><div class="_2OWaP"><div class="_1pvT5"></div></div><div class="_2FjpA"><div class="_1pvT5"></div></div><div class="_3YyRC"><div class="_1pvT5"></div></div><div class="_1z3qL"><div class="_1pvT5"></div></div><div class="_3T8La"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 5.5c-1.137 0-2.176.422-2.968 1.118-.321.324-.533.55-.632.682-.087.116-.22.334-.4.655-.18-.32-.313-.54-.4-.655-.098-.131-.31-.357-.63-.68C10.179 5.923 9.139 5.5 8 5.5c-1.243 0-2.368.504-3.182 1.318C4.004 7.632 3.5 8.758 3.5 10c0 1.48.714 2.792 1.813 3.614L12 19.342l6.684-5.73C19.786 12.792 20.5 11.48 20.5 10c0-1.243-.504-2.368-1.318-3.182C18.368 6.004 17.242 5.5 16 5.5z"></path></svg></div></button><span class="_3DfnL post-main-actions__like-count _344s1" data-hook="who-liked-popover-btn">0</span></div></div></div></article><div><div><div class="_1vGfV _1yPdA" data-hook="comment"><article id="60d2f28188d0340015ed3abd" class="_3JQ_x forum-content-classic-font forum-text-color forum-card-border-color comment _3xzB6" data-hook="comment" tabindex="-1"><div class="_1XN4n _1yPdA eFjFZ" style="border-color: rgba(0, 0, 0, 0.2);"><div class="_2bdhY"><div class="_2IYLE _2IGSa comment-header"><div class="_1vv4e"><div data-hook="mcl-showable-content"></div><a href="https://jemilykoo.wixsite.com/website/profile/userID/profile"><div class="_2jNAb _2cJkC"><span class="_14_Ju _28gI0 avatar-image"><div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div></span><div class="_1uKCP forum-text-color"><div class="_1xqeV">
+    
+    
+  <!-- 댓글 목록2 -->
+  
+  
+  <span class="B9kqa forum-text-color forum-link-hover-color comment-avatar__profile-name">userID</span>
+  
+  <div class="_34OTI"></div></div></div></div></a></div><span class="_1dO0B">
+  <span class="_2udjW time-ago" data-hook="time-ago">1초</span></span>
+  <div class="_2RCpN"><div class="LTwPD more-button" data-hook="more-button"><button class="_2jKCS button-hover-fill forum-icon-fill forum-text-color forum-content-classic-font _2B7gt" aria-label="More actions" id="more-button-60d2f28188d0340015ed3abd" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" role="img" width="24" height="24" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22.444 13.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463.821.01 1.482.679 1.482 1.5-.016.844-.712 1.515-1.556 1.5zm0-6.5c-.82-.03-1.464-.716-1.444-1.537.02-.82.697-1.473 1.518-1.463C23.34 4.01 24 4.68 24 5.5c-.016.844-.712 1.515-1.556 1.5zm.112 10c.82.03 1.464.716 1.444 1.537-.02.82-.697 1.473-1.519 1.463-.82-.01-1.48-.679-1.481-1.5.017-.843.713-1.514 1.556-1.5z"></path></svg></button></div></div></div></div><div class="_1MbOK comment__content"><div><div class="_1xs1G"><div class="kcuBq _18B2H forum-content-classic-font c5OF0 cNOAl css-1wg9rnj _2eog5 uatYj _1bYoS _2aERR" dir="ltr" data-id="rich-content-viewer"><div class="kaqlz _3JyXP _2QDTJ"><p id="viewer-foo" class="XzvDs _208Ie _3ogUL cw1QM _2QAo- _25MYV _2CDc4 public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr">
+  
+
+  
+  <span class="vkIF2 public-DraftStyleDefault-ltr">fffff</span></p></div></div></div></div></div><div class="_39-Jn forum-text-color comment-footer"><span class="_3U6Eq"><button class="KkXMX forum-content-classic-font button-hover-color forum-icon-fill button-hover-fill" aria-label="userID님에게 댓글"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" class="_3Cu5l"><g fill-rule="evenodd"><path d="M19 15a4 4 0 0 0-4 4v1h-1v-1a5 5 0 0 1 5-5l2.293-.003-2.145-2.144a.5.5 0 1 1 .707-.707l3.352 3.351-3.352 3.354a.5.5 0 1 1-.707-.707l2.145-2.147L19 15z"></path><path fill-rule="nonzero" d="M9 18.62l2.744-1.64a.5.5 0 0 1 .512.86l-3.5 2.09A.5.5 0 0 1 8 19.5V17H6.237C4.9 17 4 16.225 4 14.934V7.247C4 5.912 4.785 5 6.077 5h11.82C19.2 5 20 5.861 20 7.18V8.5a.5.5 0 1 1-1 0V7.18C19 6.399 18.63 6 17.898 6H6.078C5.372 6 5 6.434 5 7.247v7.687C5 15.637 5.422 16 6.237 16H8.5a.51.51 0 0 1 .01 0H9v2.62z"></path></g></svg><span data-hook="comment-footer__reply" class="comment-footer__reply">댓글</span></button></span><div class="_2TIT4"><button class="_2UNF9 forum-content-classic-font" actiondetails="[object Object]"><div class="dr0cE" aria-label="좋아요 0개. Is unliked" data-hook="like-button" style="--heart-color:#e84a43;"><div class="_2OWaP"><div class="_1pvT5"></div></div><div class="_2FjpA"><div class="_1pvT5"></div></div><div class="_3YyRC"><div class="_1pvT5"></div></div><div class="_1z3qL"><div class="_1pvT5"></div></div><div class="_3T8La"></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 5.5c-1.137 0-2.176.422-2.968 1.118-.321.324-.533.55-.632.682-.087.116-.22.334-.4.655-.18-.32-.313-.54-.4-.655-.098-.131-.31-.357-.63-.68C10.179 5.923 9.139 5.5 8 5.5c-1.243 0-2.368.504-3.182 1.318C4.004 7.632 3.5 8.758 3.5 10c0 1.48.714 2.792 1.813 3.614L12 19.342l6.684-5.73C19.786 12.792 20.5 11.48 20.5 10c0-1.243-.504-2.368-1.318-3.182C18.368 6.004 17.242 5.5 16 5.5z"></path></svg></div></button><span class="_3DfnL post-main-actions__like-count _344s1" data-hook="who-liked-popover-btn">0</span></div></div></div></article></div></div></div><div class="lrDj7"><div class="_2bKV7" style="border-color: rgba(0, 0, 0, 0.2);"></div></div></div></div></div></div><div class="_1JrdC"><div class="_2lg0m"><div class="_1wL4F" style="border-width: 0px;">
+   
+  
+  <div class="_2KjjO" style="border-width: 1px; border-color: rgba(0, 0, 0, 0.2);" data-hook="post-page-footer"><div class="kIBre _19wZy forum-content-classic-font forum-text-color comment-form" data-hook="comment-form"><div class="_3J3VY"><div class="Nrvl9"><div data-hook="mcl-showable-content"></div><a href="https://jemilykoo.wixsite.com/website/profile/userID/profile" class="_1cpII"><div class="_31l-O forum-text-color _1ccuS avatar"><span class="_14_Ju _1zT4G _28gI0 avatar-image"><div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div></span><div class="-mPAe"><div class="_1d5Ko"><div class="_1_vuc"><span class="LXBdL forum-text-color forum-link-hover-color" data-hook="avatar__name">userID</span></div></div></div></div></a></div></div><div class="_1WAqx" style="border-color: rgba(0, 0, 0, 0.2);"><div class="_302vU"><div class="VjHd2">
   <div class="QiJxn LG3cc _18B2H forum-content-classic-font css-1wg9rnj _2x6sh _1LOTO _1bYoS gOtux" dir="ltr" data-id="rce" data-hook="root-editor"><style id="dynamicStyles"></style><div class="Tux6h _3JyXP _1TaxU">
   <div class="DraftEditor-root"><div class="public-DraftEditorPlaceholder-root">
+ 
   
   
-  <!-- 댓글 만들기 구현중 -->
-  
-  <div class="public-DraftEditorPlaceholder-inner" id="placeholder-editor" style="white-space: pre-wrap;" >
+
+  <div name="linecomment" class="public-DraftEditorPlaceholder-inner" id="placeholder-editor" style="white-space: pre-wrap;" >
  댓글을 입력하세요.</div></div><div class="DraftEditor-editorContainer">
-  
-  
+  <input type="hidden" name="nickName"
+						value="${dto.nickName}" /> 
+  <input type="hidden" name="rvNo"
+						value="${dto.rvNo}" />
+  <input type="hidden" name="rvcNo" />
+     
   <div aria-autocomplete="list" aria-describedby="placeholder-editor" aria-expanded="false" class="notranslate public-DraftEditor-content has-custom-focus" role="combobox" spellcheck="true" style="outline: currentcolor none medium; user-select: text; white-space: pre-wrap; overflow-wrap: break-word;" contenteditable="true">
 
   
@@ -260,15 +300,35 @@ pageEncoding="UTF-8"%>
   <div class="_3g02x"><div class="ruYrk"><div class="_2Ysrr">
   <div class="_3-clJ">
   <button class="rFYrt _3ApF8 button-group__primary-button forum-content-classic-font button-background-color button-primary-text-color nfcGU" actiondetails="[object Object]" data-hook="submit-button" disabled="disabled">
+  
+  
+  
   <span class="_3LiYl">게시</span>
-</div></div></div></div></div></div>
+</div></div>
+
+  
+
+</div></div></div></div>
+
+</form>
+
+
   </div></div></div></div></div></div></div></div></div></div>
   <!-- 돌겠네 댓글게시? -->
   
+   
   <aside class="_3EXRF"><div style="top: 62px;" class="_3ZuGb">
   <div class="_3vOwc">
   <section><div class="_3-clJ">
   <button class="rFYrt _2BeRM _1u3rA forum-content-classic-font button-background-color button-primary-text-color nfcGU">
+  
+  
+  <!-- 댓글닫기어디까지냐고 ㅡㅡ -->
+  
+  
+  
+  
+  
   
   
   
@@ -291,6 +351,8 @@ pageEncoding="UTF-8"%>
 
 <script>
 
+
+//좋아요 구현 ajax
 	var nickName = "${sessionScope.nickName}"
 	var rvNo = "${dto.rvNo}"
 	var likecount = Number.parseInt($("#likecount").html())
@@ -317,7 +379,11 @@ pageEncoding="UTF-8"%>
 		})
 	})
 
-
+//댓글 구현중
+	
+	
+	
+	
 		</script>
 
 </body>
