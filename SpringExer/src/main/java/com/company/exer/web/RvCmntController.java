@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.company.exer.service.RvCmntService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+/*
 @SessionAttributes({"nickName"})
 @RestController
 public class RvCmntController {
@@ -82,4 +82,4 @@ public class RvCmntController {
 		return "삭제 성공";
 	}
 
-}
+}*/
