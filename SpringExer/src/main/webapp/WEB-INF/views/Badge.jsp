@@ -38,7 +38,7 @@ bgDate : 획득 날짜 -> ${BADGELIST.bgDate}
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 		<!-- 타이틀 설정 -->
-		<title>숲 뱃지 | 찍GO</title>
+		<title>서울 뱃지 | 찍GO</title>
 		
 	<style type="text/css">
 	
@@ -67,7 +67,7 @@ bgDate : 획득 날짜 -> ${BADGELIST.bgDate}
 			<!-- 뱃지 제목을 호출 : 예시
 			<h1 class="h1Class">${BADGELIST.title}</h1> 
 			 -->
-			<h1 class="h1Class">숲 뱃지</h1> 
+			<h1 class="h1Class">서울 뱃지</h1> 
         </div>
         <!-- 뱃지 제목 종료 -->
        
@@ -82,7 +82,7 @@ bgDate : 획득 날짜 -> ${BADGELIST.bgDate}
 			<p class="font_8"> ${BADGELIST.content}</p>
 			 
 			 -->
-			<p class="font_8"> 숲 많이 가서 획득함 </p>
+			<p class="font_8">서울 카테고리 첫번째 글 작성</p>
 		</div>
         <!-- 뱃지 내용 종료 -->
        
