@@ -14,7 +14,11 @@
 		insert into stampcheck(nickname,rvno,distance)
 		SELECT *
         from (select #{nickName},rvno, CALC_DISTANCE(#{lat},#{lng}, rvlat, rvlng) DISTANCE from review r join profile p on r.nickname=p.nickname)
+<<<<<<< HEAD
 		where DISTANCE <![CDATA[ < ]]> 3 
+=======
+		where DISTANCE <![CDATA[ < ]]> 3
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 	</insert>
 
 	<select id="stampCheckCount" parameterType="Map" resultType="Int">
