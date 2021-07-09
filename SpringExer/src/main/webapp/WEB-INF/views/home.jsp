@@ -54,12 +54,14 @@
 			</div>
 			<p class="title title--sub">스탬프로 여행하세요</p>
 		</div>
-		<section class="page page--static">
-			<div class="page__title">
-				<h2 class=" font_5 page__title-main color_5">추천 리뷰</h2>
+		<section class="page page--static" style=" background-color:#DCFFEE">
+			<div class="page__title" >
+				<div  style="background: linear-gradient(#3796FC, #57BBE1);width:1000px;">
+				<h2 class=" font_5 page__title-main" style="color:white" >추천 리뷰</h2>
 				<p class="page__title-sub font_7">
-					카테고리별 <a href="<c:url value="/Review/TripBoard.do"/>">인기 리뷰</a>를 확인하세요
+					카테고리별 <a href="<c:url value="/Review/TripBoard.do"/>"><span style="color:#FFFFFF">인기 리뷰</span></a>를 확인하세요
 				</p>
+				</div>
 			</div>
 			<ul class="grid">
 
