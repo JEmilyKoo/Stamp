@@ -178,7 +178,7 @@
 											</div>
 											</a>
 											</c:if>
-											<c:if test="${not val }"><h2><span>로그인 후 이용해주세요.</span></h2></c:if>
+											<c:if test="${not val }"><h2><span>글 작성은 로그인 후 이용해주세요.</span></h2></c:if>
 											<!-- 게시물 작성하기 버튼 종료  -->
 											<!-- 카드뷰 -->
 
