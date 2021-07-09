@@ -23,107 +23,11 @@
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
-<<<<<<< HEAD
-        <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
-          <div class="main-navbar">
-            <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
-             <a class="navbar-brand" href="<c:url value="/"/>"> 
-				 <img
-					src="${pageContext.request.contextPath}/images/main/logo.png"
-					width="auto" height="40px" />
-				</a>
-              <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
-                <i class="material-icons">&#xE5C4;</i>
-              </a>
-            </nav>
-          </div>
-          <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
-            <div class="input-group input-group-seamless ml-3">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="fas fa-search"></i>
-                </div>
-              </div>
-              <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
-          </form>
-          <div class="nav-wrapper">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html">
-                  <i class="material-icons">edit</i>
-                  <span>관리자분석</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="<c:url value="/Admin/MemberMNG.do"/>">
-                  <i class="material-icons">vertical_split</i>
-                  <span>회원정보관리</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="<c:url value="/Admin/FollowMNG.do"/>">
-                  <i class="material-icons">note_add</i>
-                  <span>팔로우관리</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="<c:url value="/Stamp/AdminStamp.do"/>">
-                  <i class="material-icons">view_module</i>
-                  <span>스탬프관리</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="<c:url value="/Admin/TagMNG.do"/>">
-                  <i class="material-icons">table_chart</i>
-                  <span>해시태그 관리</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="<c:url value="/Admin/RiviewMNG.do"/>">
-                  <i class="material-icons">person</i>
-                  <span>리뷰 관리</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="<c:url value="/Admin/RiviewComMNG.do"/>">
-                  <i class="material-icons">error</i>
-                  <span>리뷰 댓글 관리</span>
-                </a>
-              </li>
-               <li class="nav-item">
-                <a class="nav-link " href="errors.html">
-                  <i class="material-icons">error</i>
-                  <span>댓글 좋아요 관리</span>
-                </a>
-              </li>
-               <li class="nav-item">
-                <a class="nav-link " href="errors.html">
-                  <i class="material-icons">error</i>
-                  <span>리뷰 좋아요 관리</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="errors.html">
-                  <i class="material-icons">error</i>
-                  <span>대댓글 관리</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="errors.html">
-                  <i class="material-icons">error</i>
-                  <span>신고 관리</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </aside>
-=======
         <jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp"/>
->>>>>>> refs/heads/leessong
         <!-- End Main Sidebar -->
         <jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp"/>
           <!-- / .main-navbar -->
-          <div class="main-content-container container-fluid px-4">
+          <%-- <div class="main-content-container container-fluid px-4">
             <!-- Page Header -->
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
@@ -134,9 +38,7 @@
             <!-- End Page Header -->
             <!-- Small Stats Blocks -->
             <div class="row">
-            
-            
-               <div class="col-lg col-md-6 col-sm-6 mb-4">
+              <div class="col-lg col-md-6 col-sm-6 mb-4">
                 <div class="stats-small stats-small--1 card card-small">
                   <div class="card-body p-0 d-flex">
                     <div class="d-flex flex-column m-auto">
@@ -152,8 +54,6 @@
                   </div>
                 </div>
               </div>
-              
-              
               <div class="col-lg col-md-6 col-sm-6 mb-4">
                 <div class="stats-small stats-small--1 card card-small">
                   <div class="card-body p-0 d-flex">
@@ -462,7 +362,7 @@
               </div>
               <!-- End Top Referrals Component -->
             </div>
-          </div> 
+           --%></div>
           <!-- footer -->
           <jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp"/>
         </main>
