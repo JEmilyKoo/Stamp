@@ -1,5 +1,6 @@
 package com.company.exer;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -101,7 +102,8 @@ public class IndexController {
 	}///////////////////Test()
 	
 	@RequestMapping("/Admin/Admin.do")
-	public String Admin() {
+	public String Admin(HttpServletRequest req) {
+		System.out.println(req.getParameter("pageName"));
 		//뷰정보 반환]
 		return "/admin/Admin";
 
@@ -109,42 +111,35 @@ public class IndexController {
 	
 	
 	@RequestMapping("/Admin/MemberMNG.do")
-	public String MemberMNG() {
+	public String MemberMNG(HttpServletRequest req) {
+		System.out.println(req.getParameter("pageName"));
 		//뷰정보 반환]
 		return "/admin/MemberMNG";
 	}///////////////////Test()
 	
-	@RequestMapping("/Admin/FollowMNG.do")
-	public String FollowMNG() {
-		//뷰정보 반환]
-		return "/admin/FollowMNG";
-	}///////////////////Test()
-	
-	@RequestMapping("/Admin/StampMNG.do")
-	public String StampMNG() {
-		//뷰정보 반환]
-		return "/admin/StampMNG";
-	}///////////////////Test()
-	
 	@RequestMapping("/Admin/TagMNG.do")
-	public String TagMNG() {
+	public String TagMNG(HttpServletRequest req) {
+		System.out.println(req.getParameter("pageName"));
 		//뷰정보 반환]
 		return "/admin/TagMNG";
 	}///////////////////Test()
 	
 	@RequestMapping("/Admin/ReviewMNG.do")
-	public String ReviewMNG() {
+	public String ReviewMNG(HttpServletRequest req) {
+		System.out.println(req.getParameter("pageName"));
 		//뷰정보 반환]
 		return "/admin/ReviewMNG";
 	}///////////////////Test()
 	
-	@RequestMapping("/Admin/ReviewComMNG.do")
-	public String ReviewComMNG() {
+	@RequestMapping("/Admin/errorMNG.do")
+	public String errorMNG(HttpServletRequest req) {
+		System.out.println(req.getParameter("pageName"));
 		//뷰정보 반환]
-		return "/admin/ReviewComMNG";
+		return "/admin/errorMNG";
 
 
 	}///////////////////Test()
+	
 	
 	
 	
