@@ -132,16 +132,16 @@ public class IndexController {
 		return "/admin/TagMNG";
 	}///////////////////Test()
 	
-	@RequestMapping("/Admin/RiviewMNG.do")
-	public String RiviewMNG() {
+	@RequestMapping("/Admin/ReviewMNG.do")
+	public String ReviewMNG() {
 		//뷰정보 반환]
-		return "/admin/RiviewMNG";
+		return "/admin/ReviewMNG";
 	}///////////////////Test()
 	
-	@RequestMapping("/Admin/RiviewComMNG.do")
-	public String RiviewComMNG() {
+	@RequestMapping("/Admin/ReviewComMNG.do")
+	public String ReviewComMNG() {
 		//뷰정보 반환]
-		return "/admin/RiviewComMNG";
+		return "/admin/ReviewComMNG";
 
 
 	}///////////////////Test()
