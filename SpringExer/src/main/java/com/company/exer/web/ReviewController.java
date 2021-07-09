@@ -91,7 +91,7 @@ public class ReviewController {
 	//글 작성페이지
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
 	public String Write(Model model,@RequestParam Map map,@ModelAttribute("nickName") String nickName) {
-	
+		
 		return "review/Write";
 	}
 	

@@ -158,6 +158,7 @@
 											</div>
 											
 											<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
+											<c:if test="${! empty sessionScope.nickName}" var="val">
 											<a href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
 											<div class="_3SBFF undefined LTwPD sameS "
 												style="max-width: 140px;">
@@ -176,6 +177,8 @@
 												
 											</div>
 											</a>
+											</c:if>
+											<c:if test="${not val }"><h2><span>로그인 후 이용해주세요.</span></h2></c:if>
 											<!-- 게시물 작성하기 버튼 종료  -->
 											<!-- 카드뷰 -->
 
