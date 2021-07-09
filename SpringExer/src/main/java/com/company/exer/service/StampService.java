@@ -12,4 +12,9 @@ public interface StampService {
 	int stampGet(Map map);
 	int stampCheckGet(Map map);
 	String stampRvno(Map map);
+	
+	//관리자페이지
+	List<StampDTO> showStampList();
+	int updateAdminStamp(Map map);
+	int deleteAdminStamp(Map map);
 }

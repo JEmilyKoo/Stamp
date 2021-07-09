@@ -2,16 +2,6 @@
 
 /*프로필 업적*/
 
-#bar {
-        width: 95%;
-        height: 3.5rem;
-        text-align: center;
-        color: white;
-        background-image: green;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-    }
 /* 알림 세팅 */
   /* Styles */
     .nsa-text-color { color: #171717; }

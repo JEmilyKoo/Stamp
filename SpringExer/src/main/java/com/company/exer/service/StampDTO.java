@@ -17,4 +17,5 @@ public class StampDTO {
 	String stNo;
 	Date stDate;
 	String rvTitle;
+	String stIsExpired;
 }

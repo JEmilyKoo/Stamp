@@ -14,7 +14,7 @@
 		insert into stampcheck(nickname,rvno,distance)
 		SELECT *
         from (select #{nickName},rvno, CALC_DISTANCE(#{lat},#{lng}, rvlat, rvlng) DISTANCE from review r join profile p on r.nickname=p.nickname)
-		where DISTANCE <![CDATA[ < ]]> 3 
+		where DISTANCE <![CDATA[ < ]]> 1 
 	</insert>
 
 	<select id="stampCheckCount" parameterType="Map" resultType="Int">
@@ -53,17 +53,17 @@
 	<!-- 관리자페이지용 -->
 	<!-- 1. 스탬프 조회 -->
 	 <select id="showStampList" resultType="stampDTO">
-		select * from stamp order by stNo desc;
+		select * from stamp order by stNo desc
 	</select>
 	
 	<!-- 2. 스탬프 수정 -->
-	<update id="updateStamp" parameterType="Map">
+	<update id="updateAdminStamp" parameterType="Map">
 		update stamp 
 		set stisexpired = 0
 		where stNo =#{stNo}
 	</update>
 	<!-- 3. 스탬프 삭제 -->
-	<delete id="deleteStamp" parameterType="Map">
+	<delete id="deleteAdminStamp" parameterType="Map">
 		delete stamp
 		where stNo = #{stNo}
 	</delete>
