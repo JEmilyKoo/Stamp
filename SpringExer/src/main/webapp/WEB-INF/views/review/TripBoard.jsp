@@ -37,7 +37,6 @@
 <body>
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 
-	
 
 
 		<div class="meshContainer">
@@ -153,7 +152,6 @@
 											</div>
 
 											<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
-											<c:if test="${! empty sessionScope.nickName}" var="val">
 												<a
 													href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
 													<div class="_3SBFF undefined LTwPD sameS "
@@ -168,17 +166,23 @@
 																<!-- 게시물 작성하기인데 이동이 안됨 -->
 
 																<span>게시물 작성하기 </span>
+																
 															</div>
 														</button>
 
 													</div>
 												</a>
-											</c:if>
-											<c:if test="${not val }">
-												<h2>
-													<span>글 작성은 로그인 후 이용해주세요.</span>
-												</h2>
-											</c:if>
+											
+	<c:if test="${! empty NotMember }">﻿
+			<div class="row">
+			<div class="col-xs-offset-1 col-xs-6 alert alert-warning fade in">
+				<button class="close" data-dismiss="alert">
+					<span>×</span>
+				</button>
+				${NotMember }
+			</div>
+		</div>
+	</c:if>
 											<!-- 게시물 작성하기 버튼 종료  -->
 											<!-- 카드뷰 -->
 
