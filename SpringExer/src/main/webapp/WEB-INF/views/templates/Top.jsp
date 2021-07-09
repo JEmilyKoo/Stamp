@@ -159,7 +159,7 @@ body {
 								style="text-decoration: none; vertical-align: top; color: white">
 								<span class="_2iDLv avatar-image "> <!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
 									<div class="_1wPNJ fluid-avatar-image topImage"
-										style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
+										style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon${profile.openprf}.jpg');">
 									</div>
 							</span> d
 							</a>
@@ -196,7 +196,7 @@ body {
 												<div style="text-align: left">${sessionScope.profile.exp}
 													exp</div>
 												<div>
-													<progress id="bar" value="20" max="100"></progress>
+													<progress id="bar" value="75" max="100"></progress>
 												</div>
 											</div>
 
@@ -277,15 +277,9 @@ body {
 		<div class="siteMapActions" role="menu" style="width: 100vw">
 
 
-<<<<<<< HEAD
-									<li><a href="<c:url value="/Stamp/Badge.do"/>">Badge</a></li>
-									<li><a href="<c:url value="/Profile/Like.do"/>">ProfileLike</a></li>
-									<li><a href="<c:url value="/Profile/Comment.do"/>">ProfileComment</a></li>
-									<li><a href="<c:url value="/Profile/Post.do"/>">ProfilePost</a></li>
-									<li><a href="<c:url value="/Profile/Alarm.do"/>">ProfileAlarm</a></li>
-									<li><a href="<c:url value="/Profile/AlarmSetting.do"/>">ProfileAlarmSetting</a></li>
-									<li><a href="<c:url value="/Admin/Admin.do"/>">관리자페이지</a></li>
-=======
+
+									
+
 			<ul class="nav navbar-nav"
 				style="background-color: white; width: 100%">
 
@@ -293,7 +287,7 @@ body {
 				<li><a href="<c:url value="/Stamp/Category.do"/>">Category</a></li>
 				<li><a href="<c:url value="/Stamp/CategoryCreate.do"/>">CategoryCreate</a></li>
 
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
+
 
 
 			</ul>

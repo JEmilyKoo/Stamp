@@ -51,16 +51,17 @@
 	<a href="<c:url value="/Profile/FoIlowing.do"/>"><span class="font_9 color_5" style="padding:3px"> </span> </span></a>
 			<div
 			style="flex-direction: column; padding: 30px; position: alsolute; min-height: 37px; z-index: 30">
+			
 			<div class="profileCardImage">
 
 				<img
-					src="${pageContext.request.contextPath}/images/profile/icon/icon1.webp"
+					src="${pageContext.request.contextPath}/images/profile/icon/icon0.jpg"
 					alt="프사"
 					style="width: 100px; height: 100px; object-fit: cover; object-position: 50% 50%;">
 			</div>
 
 			<div style="justify-content: center;">
-				<span class=" _3AkkR _2_TEk _2xV_H kl2Hr">KOO</span>
+				<a href="<c:url value="/Profile/Main/NickName.do?nickName=KOO"/>"><span class=" _3AkkR _2_TEk _2xV_H kl2Hr">KOO</span></a>
 				<div class="_2XRvR" style="justify-content: center;">
 					
 					<a href="<c:url value="/Profile/Follower.do"/>" class=" _18463 _2rBmt _3y1t9">
@@ -89,7 +90,7 @@
 			<div class="profileCardImage">
 
 				<img
-					src="${pageContext.request.contextPath}/images/profile/icon/icon1.webp"
+					src="${pageContext.request.contextPath}/images/profile/icon/icon2.jpg"
 					alt="프사"
 					style="width: 100px; height: 100px; object-fit: cover; object-position: 50% 50%;">
 			</div>

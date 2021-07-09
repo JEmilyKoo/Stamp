@@ -81,7 +81,8 @@ if (navigator.geolocation) {
                         console.log("로그인이 안되어 있습니다.")
                         }
                         else if(data == 1){
-                           alert("축하드립니다. ! 스탬프를 획득했습니다.")
+                           alert("축하드립니다. ! 스탬프를 획득했습니다.\r\n경험치 10 획득했습니다.")
+                           
                         }
                         else if (data == 2){
                            console.log("위치 정보 확인 중")
