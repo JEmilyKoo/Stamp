@@ -257,11 +257,11 @@
 						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
 					<h3 class="profileMainEachName">서울</h3>
 					<p class="font_8 color_5"
-				style="text-align: center; margin: 0px 0px 20px 0px">서울 카테고리 첫번째</p>
+				style="text-align: center; margin: 0px 0px 20px 0px">서울 카테고리 첫번째 글 작성</p>
 					<div id="oneButtonId" aria-disabled="false" class="oneButton"
 						style="padding: 10px; height: 30px; justify-content: center">
 						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
-						<a href="<c:url value="/Profile/Main.do"/>"
+						<a href="<c:url value="/Stamp/Badge.do"/>"
 							class="oneButtonLinkClass"> <span class="oneButtonSpanClass">상세
 								보기</span>
 						</a>
@@ -273,9 +273,9 @@
 						src="${pageContext.request.contextPath}/images/profile/badge/badge2.png"
 						alt="산뱃지"
 						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
-					<h3 class="profileMainEachName">타고</h3>
+					<h3 class="profileMainEachName">인천</h3>
 					<p class="font_8 color_5"
-				style="text-align: center; margin: 0px 0px 20px 0px">바다 많이 가서 획득</p>
+				style="text-align: center; margin: 0px 0px 20px 0px">인천 카테고리 첫번째 글 작성</p>
 					<div id="oneButtonId" aria-disabled="false" class="oneButton"
 						style="padding: 10px; height: 30px; justify-content: center">
 						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
@@ -291,9 +291,9 @@
 						src="${pageContext.request.contextPath}/images/profile/badge/badge3.png"
 						alt="산뱃지"
 						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
-					<h3 class="profileMainEachName">타고</h3>
+					<h3 class="profileMainEachName">경기</h3>
 					<p class="font_8 color_5"
-				style="text-align: center; margin: 0px 0px 20px 0px">산 많이 가서 획득</p>
+				style="text-align: center; margin: 0px 0px 20px 0px">경기 카테고리 첫번째 글 작성</p>
 				<div id="oneButtonId" aria-disabled="false" class="oneButton"
 						style="padding: 10px; height: 30px; justify-content: center">
 						<!-- 누르면 프로필 메인 페이지로 돌아감 -->

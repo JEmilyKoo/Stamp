@@ -10,28 +10,200 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Home</title>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/settings-app.css" >
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/commons.css" >
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/css.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/commons.css">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+	rel="stylesheet">
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
 
+</style>
 </head>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+	rel="stylesheet">
+<title>여행 게시판 | 찍GO</title>
 
-<body class="homeBody">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/tripboard.css">
+
+<script type="text/javascript">
+	var bodyCacheable = true;
+	var exclusionReason = {
+		"shouldRender" : true,
+		"forced" : false
+	};
+	var ssrInfo = {
+		"renderBodyTime" : 1412,
+		"renderTimeStamp" : 1624436335025
+	}
+</script>
+<body>
+
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
-	<!-- 메인페이지에만 있는 사이트맵 -->
-<div class="profileContainer">
-<div class="profileSideBar">
-<jsp:include page="/WEB-INF/views/templates/ProfileSideBar.jsp" />
-</div> <div id="root"><div data-reactroot="" id="direction-provider-wrapper"><div dir="ltr"><div id="content-wrapper" class="_1QInq app-desktop"><!-- react-empty: 5 --><div tabindex="0" aria-label="알림 설정" class="_1gIu- nsa-background-color nsa-border-width nsa-border-color"><div class="_17f3-"><h2 class="_1pKDh nsa-title-font nsa-text-color">알림 설정</h2></div><div><div><div class="_16BaH"><div class="-Ym2E nsa-separator-color"></div><div class="_3Trmj"><div><div class="_1zYoy nsa-title-font nsa-text-color nsa-section-title">블로그 구독</div><div class="_2cmev nsa-primary-font nsa-text-color nsa-subscription-text">새 게시물 및 업데이트 발생 시 이메일로 알려줍니다.</div></div><button class="ihwp9 nsa-primary-font nsa-subscription-text nsa-button-border-color nsa-button-secondary-text-color _3YK2G"><span>구독 해제</span></button></div><div class="-Ym2E nsa-separator-color"></div></div><table class="_2xXKC"><thead><tr><td class="_3vLkx nsa-title-font nsa-text-color nsa-section-title">블로그 알림</td><td class="_3vLkx nsa-primary-font nsa-text-color nsa-primary-text">이메일 알림</td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></thead><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">좋아요</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">내 게시물 및 댓글에 좋아요가 추가되면 알려줍니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="내 게시물 및 댓글에 좋아요가 추가되면 알려줍니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">댓글</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">내 게시물에 댓글이 추가되면 알려줍니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="내 게시물에 댓글이 추가되면 알려줍니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">팔로우</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">팔로우 회원 및 게시물에 업데이트 발생 시 알려줍니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="팔로우 회원 및 게시물에 업데이트 발생 시 알려줍니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody></table></div><div class="-Ym2E nsa-separator-color _3CUlD"></div></div><div><div><table class="_34bul _1dS3-"><thead><tr><td class="_3vLkx nsa-title-font nsa-text-color nsa-section-title">게시판 요약</td><td class="_3vLkx nsa-primary-font nsa-text-color nsa-primary-text">이메일 알림</td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></thead><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">일간 또는 주간 이메일</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">모든 게시판 작업에 대한 요약 정보를 확인하세요.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="모든 게시판 작업에 대한 요약 정보를 확인하세요."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr></tbody><tbody><tr><td colspan="2"><label class="_1iW9G nsa-text-color"><span class="_36oDz nsa-primary-font" role="checkbox" aria-checked="true" aria-label="매일 이메일이 발송됩니다."><input type="radio" class="uF0P6" tabindex="-1" name="digestPeriod" value="daily" checked="checked"><label class="_1PxBo nsa-button-border-color" tabindex="0"><span class="_2E86e nsa-button-background-color nsa-primary-font"></span></label></span><!-- react-text: 236 -->매일 이메일이 발송됩니다.<!-- /react-text --></label><label class="_1iW9G nsa-text-color"><span class="_36oDz" role="checkbox" aria-checked="false" aria-label="매주 이메일이 발송됩니다."><input type="radio" class="uF0P6" tabindex="-1" name="digestPeriod" value="weekly"><label class="_1PxBo nsa-button-border-color" tabindex="0"><span class="_2E86e nsa-button-background-color"></span></label></span><!-- react-text: 242 -->매주 이메일이 발송됩니다.<!-- /react-text --></label></td></tr></tbody><tbody><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tbody></table><table class="_34bul"><thead><tr><td class="_3vLkx nsa-title-font nsa-text-color nsa-section-title">게시판 실시간 알림</td><td class="_3vLkx nsa-primary-font nsa-text-color nsa-primary-text">이메일 알림</td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></thead><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">좋아요, 베스트 답변, 공감 및 비공감</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">좋아요, 베스트 답변, 답변 공감이 추가되면 알림이 발송됩니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="좋아요, 베스트 답변, 답변 공감이 추가되면 알림이 발송됩니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">댓글 또는 답변</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">자신이 작성한 게시물에 대한 댓글 또는 질문에 대한 답변이 추가되면 알림이 발송됩니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="자신이 작성한 게시물에 대한 댓글 또는 질문에 대한 답변이 추가되면 알림이 발송됩니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">팔로잉</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">팔로우 중인 회원 또는 게시물이 업데이트되면 알림이 발송됩니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="팔로우 중인 회원 또는 게시물이 업데이트되면 알림이 발송됩니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">새로운 게시물, 신고 및 언급</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">새로운 게시물, 신고 및 언급이 추가되면 알림이 발송됩니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="새로운 게시물, 신고 및 언급이 추가되면 알림이 발송됩니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody></table></div><div class="-Ym2E nsa-separator-color _3CUlD"></div></div><div><table class="_2xXKC"><thead><tr><td class="_3vLkx nsa-title-font nsa-text-color nsa-section-title">채팅 알림</td><td class="_3vLkx nsa-primary-font nsa-text-color nsa-primary-text">이메일 알림</td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></thead><tbody><tr><td class="_1QblN"><div class="nsa-title-font nsa-text-color nsa-option-title"><h3 class="_3408X">메시지</h3></div><p class="_1wvM5 nsa-primary-font nsa-text-color nsa-primary-text">사용 중이 아닌 상태에서 회원이 메시지를 보내면 알림을 수신합니다.</p></td><td class="hO_vd"><label class="_1NROT"><span class="_37fio bgie3" tabindex="0" role="checkbox" aria-checked="true" aria-label="사용 중이 아닌 상태에서 회원이 메시지를 보내면 알림을 수신합니다."><input type="checkbox" class="K8h_U" tabindex="-1" value="on" checked="checked"><label class="_2Xayf nsa-button-background-color"><span class="_3_xfY nsa-button-border-color"><svg xmlns="http://www.w3.org/2000/svg" width="8" viewBox="0 0 8 6" class="_29NtG nsa-button-fill" style="fill-rule: evenodd;"><path d="M168.152,92.718a0.836,0.836,0,0,0,.335.555l2.8,2.038a0.871,0.871,0,0,0,1.2-.165l3.533-4.556a0.827,0.827,0,0,0-.166-1.176,0.87,0.87,0,0,0-1.2.161l-3.017,3.892-2.115-1.539a0.869,0.869,0,0,0-1.2.17A0.818,0.818,0,0,0,168.152,92.718Z" transform="translate(-168.156 -89.219)"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="8" height="2" viewBox="0 0 8 2" class="_2TTrB nsa-button-fill" style="fill-rule: evenodd;"><rect width="8" height="2"></rect></svg></span></label></span></label></td></tr><tr><td colspan="3"><div class="-Ym2E nsa-separator-color"></div></td></tr></tbody></table></div></div></div></div></div></div>
- 
+<div class="TripBoardContainer">
+	<div class="TitleBoardSearch"> <!-- 여행 정보 > 여행 게시판  V 검색--></div>
+	<div style="padding:10px">
+	<div class="TitleBoardHeader" style="
+	margin: 0 auto;
+	margin: auto 0; background: url(&quot;${pageContext.request.contextPath}/images/main/photos/3.jpg&quot;);">
+		<!--타이틀 이미지 들어감-->
+		<div class="TripBoardTitle"><!-- 타이틀 -->타이틀</div>
+	</div>	
+		
+	</div>
+	<div class="TripBoardCategory"><!--  V카테고리 관리자 작성 버튼--></div>
+
+	<div class="TripBoardContent">
+		<div class="TripBoardSideBar">
+		<!-- 사이드 바 -->
+		</div>
+		<div class="TripBoardMain" style="width: 980px">
+		<!-- 메인 -->
+		
+		<!-- 갯수 맞추기 위해 있어야 하는 코드 시작 -->
+		<!-- 갯수 맞추기 위해 있어야 하는 코드 끝 -->
+
+		<!-- 아이템을 받아와서 반복하면 됨-->
+		<c:if test="${! empty list }" var="val">
+			<c:forEach items="${list}" var="item">
+
+				<div class="item" style="width:300px">
+					<div class="article" >
+						<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
+						<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
+						<a target="_top"
+							href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">
+							<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
+							<div class="cardImage"
+								style="background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
+							</div>
+						</a>
+						<!-- 이미지 받아오는 코드 끝-->
+						<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+
+						<div class="_8noOb BhgSV _2yqBc post-list-item-wrapper _3amSm">
+
+							<div
+								class="_1bO86 _1CSFW blog-post-metadata-font post-header blog-post-description-font"
+								style="font-size: 12px;">
+								<div class="_5bxnE">
+
+									<div class="_33LjI avatar">
+
+										<!-- 사용자에 맞게 프로필을 교체해야 함 -->
+										<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+											style="text-decoration: none"> <span
+											class="_2iDLv avatar-image"> <!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
+												<div class="_1wPNJ fluid-avatar-image"
+													style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');"></div>
+										</span>
+										</a>
+									</div>
+
+									<div class="_2wbeQ">
+
+										<!-- 사용자에 맞게 프로필링크를 교체해야 함  -->
+										<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+											style="text-decoration: none"> <!-- 이름 --> <span
+											style="display: flex">${item.nickName }</span>
+										</a>
+										<!-- 리뷰에 맞게 리뷰 링크 교체해야함 -->
+										<a target="_top" style="text-decoration: none;"
+											href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">
+											<!-- 상세페이지 --> <span style="margin: 0px">${item.rvDate }</span>
+										</a>
+
+									</div>
+								</div>
+							</div>
+
+
+
+							<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 끝-->
+							<!-- 제목과 누르면 리뷰페이지 나오는 부분 코드 시작 -->
+							<!-- 리뷰에 맞게 페이지 링크 수정해야 -->
+							<a target="_top" style="text-decoration: none;"
+								href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">
+								<div style="font-size: 26px;"
+									class="_24zS1 blog-post-title-font BhgSV _2yqBc _1T_VD">
+									<h2
+										class="_2NtDR J-lPk blog-text-color post-title blog-hover-container-element-color">
+										<span class="post-title__text J-lPk"> <!-- 제목 -->
+											<div class="J-lPk font_7"
+												style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; text-align: left">
+												${item.rvTitle }</div>
+										</span>
+									</h2>
+								</div>
+								<div style="font-size: 16px;"
+									class="_2PvFX BhgSV blog-post-description-style-font">
+									<div class="_17sOR post-excerpt">
+										<div
+											style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
+											<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
+											<!-- 뿌려주는 반복문 필요할거 같다 -->
+											<div class="fl4fR">
+												<a href="<c:url value=""/>">#사용자가 설정한 태그 #검색결과뜨게</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+
+							<!--  조회수, 댓글, 좋아요 나오는 페이지 -->
+							<div class="_2tFu- BhgSV">
+								<div class="_2Dps0 _1Pk7K BhgSV blog-separator-background-color"></div>
+								<div style="font-size: 12px;">
+									<div
+										class="fhim2 blog-post-description-font blog-text-color post-footer">
+										<div class="_60xHi">
+											<div class="MEOqZ post-stats">
+												<!-- 조회 -->
+												<span tabindex="0">조회 0</span>
+												<!-- 댓글 -->
+												<span class="_24h-e">댓글 0</span>
+											</div>
+										</div>
+
+										<div class="vP6YT">
+											<button class="_3Bdxz post-footer__like-button">
+												<!--<span class="_3BTGY"> <span class="_8J1xw">0</span>
+																						 하트 아이콘 시작
+																						<div class="like-button _7QZoA _1eKPZ"
+																							aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
+																							<a href="<c:url value="/Review/Like.do?rvno=${item.rvNo}"/>"><img src="../images/review/beanH.png" /></a>
+
+																							<svg xmlns="http://www.w3.org/2000/svg"
+																								width="19" viewBox="0 0 19 19" role="img">
+
+                                        </svg>
+																						</div> -->
+												<!-- 하트 아이콘 끝 -->
+												</span>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 카드뷰 끝. 아래는 테이블에 맞춰 불러올 수 있다면 853번째 줄까지 지워도 됨 -->
+			</c:forEach>
+		</c:if>
+		</div>
+	</div>
 </div>
 </body>
 </html>
