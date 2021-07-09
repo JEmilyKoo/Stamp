@@ -42,8 +42,9 @@
 			<h1 class="font_0" style="line-height: 1.41em; font-size: 22px">
 				<span class="color_32"> 👑LV.${otherProfile.lev}   ${otherProfile.nickName}<span style="font-weight: bold">
 						</span><br></span>
-			</h1>
-
+			</h1><br/>
+<div class="font_2 color_5"> ${otherProfile.pr}
+				</div>
 			<p class="font_8"
 				style="text-align: left; line-height: 1.75em; font-size: 18px">
 				<span>  
@@ -57,8 +58,7 @@
 				<div>여행 성향 : ${otherProfile.trvprpns}
 				</div>
 				
-				<div> PR :  ${otherProfile.pr}
-				</div>
+				
 				
 				<div>성별 :  ${otherProfile.gender}
 				</div>
