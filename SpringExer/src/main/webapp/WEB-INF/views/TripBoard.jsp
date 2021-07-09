@@ -158,6 +158,7 @@
 											</div>
 											
 											<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
+											<c:if test="${! empty sessionScope.nickName}" var="val">
 											<a href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
 											<div class="_3SBFF undefined LTwPD sameS "
 												style="max-width: 140px;">
@@ -176,6 +177,8 @@
 												
 											</div>
 											</a>
+											</c:if>
+											<c:if test="${not val }"><h2><span>글 작성은 로그인 후 이용해주세요.</span></h2></c:if>
 											<!-- 게시물 작성하기 버튼 종료  -->
 											<!-- 카드뷰 -->
 
@@ -188,7 +191,7 @@
 												<!-- 갯수 맞추기 위해 있어야 하는 코드 끝 -->
 
 												<!-- 아이템을 받아와서 반복하면 됨-->
-
+												<c:if test="${! empty list }" var="val">
 												<c:forEach items="${list}" var="item">
 
 													<div class="item">
@@ -317,6 +320,8 @@
 													</div>
 													<!-- 카드뷰 끝. 아래는 테이블에 맞춰 불러올 수 있다면 853번째 줄까지 지워도 됨 -->
 												</c:forEach>
+</c:if>
+
 
 											</div>
 
