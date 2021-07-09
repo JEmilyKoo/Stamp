@@ -188,7 +188,7 @@
 												<!-- 갯수 맞추기 위해 있어야 하는 코드 끝 -->
 
 												<!-- 아이템을 받아와서 반복하면 됨-->
-
+												<c:if test="${! empty list }" var="val">
 												<c:forEach items="${list}" var="item">
 
 													<div class="item">
@@ -317,6 +317,8 @@
 													</div>
 													<!-- 카드뷰 끝. 아래는 테이블에 맞춰 불러올 수 있다면 853번째 줄까지 지워도 됨 -->
 												</c:forEach>
+</c:if>
+
 
 											</div>
 

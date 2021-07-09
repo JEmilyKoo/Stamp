@@ -47,10 +47,24 @@ public class ReviewController {
 	public String TripBoard(Model model) {
 		
 		List<ReviewDTO> list =reviewService.selectList();
-		model.addAttribute("list",list);
-		System.out.println("listsize:"+list.size());
-		System.out.println("list:getNickName"+list.get(0).toString());
-		//뷰정보 반환]
+		
+		try {
+		if(list==null) {
+			model.addAttribute("NoBoard","게시글이 없어요");
+			
+		}
+		else {
+			model.addAttribute("list",list);
+			System.out.println("listsize:"+list.size());
+			System.out.println("list:getNickName"+list.get(0).toString());
+			//뷰정보 반환]
+			
+		}
+		}
+		catch(IndexOutOfBoundsException e){
+			e.getMessage();
+		}
+		
 		return "/TripBoard";
 	}///////////////////TripBoard()
 	
