@@ -321,7 +321,7 @@ body {
 
 			<ul class="nav navbar-nav "
 				style="background-color: white; width: 100%">
-				<li class="font_1"><a href="<c:url value="/Admin.do"/>">관리자페이지</a></li>
+				<li class="font_1"><a href="<c:url value="/Admin/Admin.do"/>">관리자페이지</a></li>
 				<li><a href="<c:url value="/Stamp/Test.do"/>">Test</a></li>
 
 			</ul>
