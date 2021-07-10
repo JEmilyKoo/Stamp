@@ -67,10 +67,11 @@ public class StampController {
 	
 	//관리자페이지용
 	@RequestMapping("AdminStamp.do")
-	public String AdminStamp(Model model) {
+	public String AdminStamp(Model model,HttpServletRequest req) {
 		//뷰정보 반환]
 		List<StampDTO> dto = stampService.showStampList();
 		model.addAttribute("dto", dto);
+		System.out.println(req.getParameter("pageName"));
 		
 		return "/admin/AdminStamp";
 	}///////////////////Test()

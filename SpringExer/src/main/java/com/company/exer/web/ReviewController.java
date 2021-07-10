@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.HttpSessionRequiredException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,14 +35,18 @@ public class ReviewController {
 
 	@Resource(name="reviewService")
 	private ReviewService reviewService;
-/*
-	@RequestMapping("List.do")
-	public String List(Model model) {
-		List<ReviewDTO> list = reviewService.selectList();
-		model.addAttribute("list",list);
-		return "review/List";
+
+	
+	/* 로그인 하지 않고 각 컨트롤러 메소드 실행시 오류:@ModelAttribute("id") String id사용시 */
+	//씨큐리티 사용시에는 아래 예외처리 불필요
+	@ExceptionHandler({HttpSessionRequiredException.class})
+	public String notLogin(Model model) {
+		model.addAttribute("NotMember", "로그인후 이용 바람....");
+		//로그인이 안된경우 로그인 페이지로
+		return "forward:/Review/TripBoard.do";
 	}
-	*/
+	
+	
 	
 	//전체게시물
 	@RequestMapping("TripBoard.do")
@@ -65,7 +71,7 @@ public class ReviewController {
 			e.getMessage();
 		}
 		
-		return "/TripBoard";
+		return "/review/TripBoard";
 	}///////////////////TripBoard()
 	
 	//상세보기
@@ -77,6 +83,7 @@ public class ReviewController {
 			int check = reviewService.likeCheck(map);
 			ReviewDTO dto = reviewService.selectOne(map);
 			dto.setRvLikeCheck(check);
+			dto.setRvCtt(dto.getRvCtt().replace("\r\n","<br/>"));
 			model.addAttribute("dto",dto);
 			}
 			else {
@@ -84,7 +91,7 @@ public class ReviewController {
 				model.addAttribute("dto",dto);
 			}
 		//뷰정보 반환]
-		return "/ForumPost";
+		return "/review/ForumPost";
 	}///////////////////ForumPost()
 	
 	
