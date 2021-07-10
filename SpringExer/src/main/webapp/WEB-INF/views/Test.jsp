@@ -49,8 +49,7 @@
 	}
 </script>
 <body>
-
-	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
+<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 <div class="TripBoardContainer">
 	<div class="TitleBoardSearch"> <!-- 여행 정보 > 여행 게시판  V 검색--></div>
 	<div style="padding:100px">
