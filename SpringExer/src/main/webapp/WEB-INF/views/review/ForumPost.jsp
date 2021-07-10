@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"
 	id="wixDesktopViewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}ForumPost.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}css.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/ForumPost.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
