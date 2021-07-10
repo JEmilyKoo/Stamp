@@ -17,7 +17,8 @@
 <title>${dto.rvTitle }|찍GO</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
+<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
+	
 	<div class="TripBoardContainer">
 		<div class="TitleBoardSearch">
 			<!-- 여행 정보 > 여행 게시판  V 검색-->
@@ -49,7 +50,7 @@
 									src="${pageContext.request.contextPath}/images/svg/search.svg" />
 
 								<form autocomplete="off">
-									<input data-hook="search-input"
+									<input data-hook="search-input" style="border-bottom:black 1px solid"
 										class="_1quPh desktop-header-search-text-color desktop-header-search-font search-input__input"
 										type="text" autocomplete="off" placeholder="&nbsp;">
 								</form>
@@ -181,7 +182,7 @@
 									<div class="_2FVeM">
 										<button class="KkXMX font_9">
 											<img
-												src="${pageContext.request.contextPath}/images/svg/moreButton.svg" />
+												src="${pageContext.request.contextPath}/images/svg/reply.svg" />
 											댓글 (1)
 										</button>
 
@@ -420,7 +421,7 @@
 															<div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div>
 														</span>
 														<div class="-mPAe">
-															<div class="_1d5Ko _1_vuc" style="background-color: aqua">
+															<div class="_1d5Ko _1_vuc" >
 																userID</div>
 														</div>
 													</div>
