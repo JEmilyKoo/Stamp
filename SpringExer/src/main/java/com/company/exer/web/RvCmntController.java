@@ -9,14 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.company.exer.service.ReviewDTO;
+import com.company.exer.service.RvCmntDTO;
 import com.company.exer.service.RvCmntService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-/*
+
 @SessionAttributes({"nickName"})
 @RestController
 public class RvCmntController {
@@ -24,6 +28,20 @@ public class RvCmntController {
 	@Resource(name="rvCmntService")
 	private RvCmntService rvCmntService;
 	
+	@RequestMapping("rvCmntOne.do")
+	public String rvCmntList(Map map) {
+		
+		String insert = rvCmntService.insert(map);
+		
+		
+		return "/";
+	}
+
+	
+	
+	
+	/*
+	 * 
 	@Autowired
 	private ObjectMapper mapper;
 	
@@ -81,5 +99,5 @@ public class RvCmntController {
 		rvCmntService.delete(map);	
 		return "삭제 성공";
 	}
-
-}*/
+*/
+}

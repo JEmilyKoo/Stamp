@@ -166,15 +166,19 @@ public class ReviewController {
 	public String ForumPost(@RequestParam Map map,
 			Model model,
 			HttpServletRequest req) {
-	
-		
-		
 		
 		if(req.getSession().getAttribute("nickName")!=null) {
 			String nickName = req.getSession().getAttribute("nickName").toString();
 			map.put("nickName", nickName);
 			int check = reviewService.likeCheck(map);
+			
+			//댓글 하나만 달 수 있음
 			ReviewDTO dto = reviewService.selectOne(map);
+			
+			//여러개 달 수 있는 로직 생각해봐야 할 듯
+			
+			System.out.println("dto:"+dto.toString());
+			System.out.println("check:"+check);
 			dto.setRvLikeCheck(check);
 			dto.setRvCtt(dto.getRvCtt().replace("\r\n","<br/>"));
 

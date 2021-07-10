@@ -279,7 +279,7 @@
 														class=" kcuBq _18B2H font_9 c5OF0 cNOAl css-1wg9rnj _2x6sh uatYj _1bYoS gOtux"
 														data-id="rich-content-viewer">
 																<div class="font_9">
-																		<div class="_1xs1G">댓글이에요</div>
+																		<div class="_1xs1G">${dto.rvCmnt }</div>
 																	</div>
 																
 															
@@ -441,7 +441,7 @@
 
 												<!--댓글 게시 시작-->
 												<div class="_1tafc _3g02x ruYrk _2Ysrr _3-clJ">
-													<button class="submitButton">게시</button>
+													<a href="<c:url value="/rvCmntOne.do"/>"><button class="submitButton">게시</button></a>
 												</div>
 												<!--댓글 게시 끝 -->
 											</div>
@@ -493,5 +493,15 @@
             	})
             
             //댓글 구현중
+            
+            
+
+   
+            
+            
+            
+            
+            
+            
 	</script>
 </html>

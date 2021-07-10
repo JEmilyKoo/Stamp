@@ -8,13 +8,16 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.company.exer.service.ReviewDTO;
+import com.company.exer.service.RvCmntDTO;
+
 @Repository("rvCmntDAO")
 public class RvCmntDAO {
 	
 	@Resource(name="template")
 	private SqlSessionTemplate sqlMapper;
 	
-	public List<Map> selectList(Map map){
+	public List<RvCmntDTO> selectList(Map map){
 		return sqlMapper.selectList("",map);
 	}
 	

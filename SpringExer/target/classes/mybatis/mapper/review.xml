@@ -19,9 +19,9 @@
 	</insert>
 	
 	<select id="reviewSelectOne" parameterType="Map"  resultType="reviewDTO">
-		select *
-		from review
-		Where rvNo=#{rvNo}
+		select rv.*,rc.rvcmnt
+		from review rv JOIN rvcmnt rc ON rv.rvno=rc.rvno 
+		Where rv.rvNo=#{rvNo}
 	</select>
 	
 	<update id="reviewUpdate" parameterType="Map">

@@ -7,6 +7,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.company.exer.service.ReviewDTO;
+import com.company.exer.service.RvCmntDTO;
 import com.company.exer.service.RvCmntService;
 
 @Service("rvCmntService")
@@ -16,7 +18,7 @@ public class RvCmntServiceImpl implements RvCmntService {
 	private RvCmntDAO dao;
 
 	@Override
-	public List<Map> selectList(Map map) {
+	public List<RvCmntDTO> selectList(Map map) {
 		int rvCno=dao.insert(map);
 		String nickName=dao.findNameById(map.get("nickName").toString());
 		return dao.selectList(map);
