@@ -65,37 +65,40 @@
 				<div class="col-lg col-md-6 col-sm-6 mb-4">
 					<div class="stats-small stats-small--1 card card-small">
 						<div class="card-body p-0 d-flex">
-							<div class="d-flex flex-column m-auto">
+							<div class="d-flex flex-column m-auto container-fluid">
 								<table
-									class="table table-bordered table-hover table-condensed text-center">
+									class="table table-hover table-bordered table-condensed text-center" >
+									<thead>
 									<tr>
-										<th class="col-md-1 text-center">스탬프번호</th>
-										<th class="col-md-1 text-center">리뷰글번호</th>
+										<th class="col-md-2 text-center">스탬프번호</th>
+										<th class="col-md-2 text-center">리뷰글번호</th>
 										<th class="col-md-3 text-center">스탬프 등록일</th>
-										<th class="col-md-0.5 text-center">만료 유무</th>
-										<th class="col-md-3.5 text-center">수정, 삭제</th>
+										<th class="col-md-2 text-center">만료 유무</th>
+										<th class="col-md-3 text-center">수정, 삭제</th>
 									</tr>
+									</thead>
+									<tbody>
 									<c:if test="${empty dto }" var="isEmpty">
-										<tr>
-											<td colspan="5">스탬프가 없어요</td>
+										<tr class="row">
+											<th colspan="12">스탬프가 없어요</th>
 										</tr>
 									</c:if>
 									<c:if test="${not isEmpty }">
 										<c:forEach items="${dto }" var="item" varStatus="loop">
 											<tr>
 
-												<td>${item.stNo }</td>
-												<td><a id=""
+												<th scope="row" class="col-md-2 text-center">${item.stNo }</th>
+												<td class="col-md-2 text-center"><a id=""
 													href="<c:url value="/AdminStamp?rvNo=${item.rvNo }"/>">${item.rvNo }
 												</a></td>
-												<td>${item.stDate }</td>
-												<td>${item.stIsExpired }</td>
-												<td>
-													<button class="float-right">
+												<td class="col-md-3 text-center">${item.stDate }</td>
+												<td class="col-md-2 text-center">${item.stIsExpired }</td>
+												<td class="col-md-3 text-center">
+													<button>
 														<a
 															href="<c:url value="/Stamp/deleteAdminStamp.do?stNo=${item.stNo }"/>">삭제</a>
 													</button>&nbsp;
-													<button class="float-right">
+													<button>
 														<a
 															href="<c:url value="/Stamp/updateAdminStamp.do?stNo=${item.stNo }"/>">수정</a>
 													</button>
@@ -103,6 +106,7 @@
 											</tr>
 										</c:forEach>
 									</c:if>
+									</tbody>
 								</table>
 							</div>
 						</div>
