@@ -58,32 +58,32 @@
 		<ul class="nav flex-column">
 			
 			
-			<li id="analysisPage" class="nav-item"><a class="nav-link active" href="#" onclick="pageHighlightFn('analysisPage')"> 
+			<li id="analysisPage" class="nav-item active"><a class="nav-link " href="#" > 
 			<i class="material-icons">edit</i> <span>분석</span></a></li>
 			
 			
 			
-			<li id="MemberMNG" class="nav-item"><a class="nav-link active" href="#" onclick="pageHighlightFn('MemberMNG')"> 
+			<li id="MemberMNG" class="nav-item active"><a class="nav-link " href="#" > 
 			<i class="material-icons">vertical_split</i><span>회원정보관리</span></a></li>
 			
 			
 			
-			<li id="AdminStamp" class="nav-item"><a class="nav-link active" href="#" onclick="pageHighlightFn('AdminStamp')"> 
+			<li id="AdminStamp" class="nav-item active"><a class="nav-link " href="#" > 
 			<i class="material-icons">view_module</i><span>스탬프관리</span></a></li>
 			
 			
 			
-			<li id="TagMNG" class="nav-item"><a class="nav-link active" href="#" onclick="pageHighlightFn('TagMNG')"> 
+			<li id="TagMNG" class="nav-item active"><a class="nav-link " href="#" > 
 			<i class="material-icons">table_chart</i><span>해시태그 관리</span></a></li>
 			
 			
 			
-			<li id="ReviewMNG" class="nav-item"><a class="nav-link active" href="#" onclick="pageHighlightFn('ReviewMNG')"> 
+			<li id="ReviewMNG" class="nav-item active"><a class="nav-link " href="#" > 
 			<i class="material-icons">person</i><span>리뷰 관리</span></a></li>
 
 
 
-			<li id="errorMNG" class="nav-item"><a class="nav-link active" href="#" onclick="pageHighlightFn('errorMNG')">
+			<li id="errorMNG" class="nav-item active"><a class="nav-link " href="#" >
 			<i class="material-icons">error</i> <span>신고 관리</span></a></li>
 		</ul>
 	</div>
@@ -108,9 +108,13 @@
 	
 	$(function(){
 		$(".nav-item").removeClass("active");
-		console.log("da")
 		var pageName = "<c:out value='${param.pageName}' />";
 		$("#"+pageName).addClass("active");
+		
+		$(".nav-item").click(function(){
+			var menu = $(this).attr("id");
+			pageHighlightFn(menu);
+		})
 	})
 	
 	

@@ -79,6 +79,7 @@
             
             <div class="row">
               <div class="col-lg-6 col-sm-12 mb-4">
+              
                 <div class="card card-small card-post card-post--aside card-post--1">
                   <div class="card-post__image" style="background-image: url('images/content-management/5.jpeg');">
                     <a href="#" class="card-post__category badge badge-pill badge-info">Travel</a>
