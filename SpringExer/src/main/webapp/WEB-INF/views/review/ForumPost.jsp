@@ -5,11 +5,13 @@ pageEncoding="UTF-8"%>
 <html class="enable-scroll" lang="ko"><head>
   <meta name="viewport" content="width=device-width, initial-scale=1" id="wixDesktopViewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <link rel="stylesheet" type="text/css" href="ForumPost.css" >
+<link rel="stylesheet" type="text/css"
+   href="${pageContext.request.contextPath}/css/ForumPost.css">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
       <title>지금 바로 떠나세요 | 찍GO</title>
+    </head> <body>
       <jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
       <div id="SITE_CONTAINER" class="focus-ring-active">
       <div id="main_MF">
@@ -606,7 +608,7 @@ pageEncoding="UTF-8"%>
             	
             		
          </script>
-         </body>
+</body>
 </html>
 
 
