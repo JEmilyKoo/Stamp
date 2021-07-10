@@ -213,7 +213,7 @@ body {
 												</div>
 												<div class="ActionButtonText">알림</div>
 											</div>
-									</button>
+										</button>
 									</a> <a href="<c:url value="/Profile/Main.do"/>">
 										<button class="actionButton" role="menuitem">
 											<div class="postActions">

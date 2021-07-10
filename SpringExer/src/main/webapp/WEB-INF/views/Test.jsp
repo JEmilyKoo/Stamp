@@ -53,12 +53,12 @@
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 <div class="TripBoardContainer">
 	<div class="TitleBoardSearch"> <!-- 여행 정보 > 여행 게시판  V 검색--></div>
-	<div style="padding:10px">
-	<div class="TitleBoardHeader" style="
-	margin: 0 auto;
-	margin: auto 0; background: url(&quot;${pageContext.request.contextPath}/images/main/photos/3.jpg&quot;);">
+	<div style="padding:100px">
+	<div class="TitleBoardHeader" style="margin: auto; position:relative;"
+style="margin: auto 0;" style="background: url(&quot;${pageContext.request.contextPath}/images/tripboard/cover0.png&quot;);">
+
 		<!--타이틀 이미지 들어감-->
-		<div class="TripBoardTitle"><!-- 타이틀 -->타이틀</div>
+		<div class="TripBoardTitle" style="position:absolute"><!-- 타이틀 -->타이틀</div>
 	</div>	
 		
 	</div>
