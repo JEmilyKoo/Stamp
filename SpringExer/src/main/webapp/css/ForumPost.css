@@ -1,4 +1,28 @@
 @charset "UTF-8";
+
+.submitButton{
+
+	position: relative;
+	display: inline-block;
+	height: 42px;
+	vertical-align: middle;
+	white-space: nowrap;
+	min-width: 124px;
+	max-width: 300px;
+	margin: 0;
+	padding: 0 24px;
+	border: 0;
+	border-style: none;
+	border-radius: var(--buttonBorderRadius);
+	cursor: pointer;
+	color: #fff;
+	height: 36px;
+	max-width: 240px;
+	padding: 0 18px;
+	background-color:#193669;
+	z-index: 2;
+}
+
 @media(min-width:940px) {
 	.ruYrk {
 		justify-content: flex-end
@@ -6,11 +30,13 @@
 	._2Ysrr {
 		flex: 0 0 auto
 	}
-	._3ApF8 {
+	.submitButton {
 		width: auto;
 		padding: 0 24px
 	}
 }
+
+
 
 @media only screen and (max-width:640px) {
 	._208Ie {
@@ -44,9 +70,6 @@
 		clear: both;
 		margin: 0
 	}
-	._3-Q-q:hover>button {
-		background-color: transparent
-	}
 	.QiJxn .public-DraftStyleDefault-block {
 		margin-right: 10px
 	}
@@ -58,7 +81,7 @@
 		width: auto;
 		max-width: 100%
 	}
-	.QGwpa:hover>button {
+	.submitButton:hover {
 		background-color: transparent
 	}
 	._208Ie {
@@ -68,8 +91,7 @@
 }
 
 @media(min-width:940px) {
-	._1CQ7D {
-		font-size: 14px
+	
 	}
 	._1-_hG {
 		margin-top: 20px
@@ -81,7 +103,6 @@
 		padding-right: 20px;
 		padding-left: 20px
 	}
-}
 
 @media(min-width:500px) {
 	._2PJfR {
@@ -158,7 +179,7 @@
 	--maxviewportsize: 1920
 }
 
-#SITE_CONTAINER.focus-ring-active :not(.has-custom-focus):not(.ignore-focus):focus {
+#SITE_CONTAINER:focus {
 	box-shadow: 0 0 0 1px #fff, 0 0 0 3px #116dff!important;
 	z-index: 999
 }
@@ -499,7 +520,7 @@ a {
 .kcuBq {
 	box-sizing: border-box;
 	position: relative;
-	height: 100%;
+	min-height: 80px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale
 }
@@ -508,33 +529,6 @@ a {
 	-webkit-tap-highlight-color: transparent
 }
 
-.kcuBq .kaqlz {
-	box-sizing: border-box
-}
-
-.kcuBq .kaqlz *,
-.kcuBq .kaqlz :after,
-.kcuBq .kaqlz :before {
-	box-sizing: inherit
-}
-
-.kaqlz {
-	width: 100%;
-	height: 200px;
-	line-height: 1.5;
-	font-size: 16px;
-	color: var(--ricos-text-color, #212121);
-	white-space: pre-wrap!important;
-	overflow-wrap: break-word;
-	background-color: var(--ricos-bg-color-container, unset)
-}
-
-.kaqlz:after {
-	content: "";
-	display: table;
-	line-height: 0;
-	clear: both
-}
 
 ._208Ie {
 	margin: 0
@@ -577,8 +571,8 @@ a {
 	margin-right: 0
 }
 
-._3-Q-q:hover>button {
-	background-color: #000
+.submitButton:hover {
+	background-color: #0261ff;
 }
 
 ._1FJxh {
@@ -719,6 +713,23 @@ a {
 	outline: none
 }
 
+.linebox {
+	width: 100%;
+	min-height:200px;
+	position: relative;
+	background: #fff;
+	border: 1px solid rgb(185, 178, 178);
+	border-radius: 2px;
+	background-color: var(--ricos-background-color, unset);
+	margin-right: auto;
+	margin-left: auto;
+	overflow-y: visible;
+	z-index: 2;
+	margin-top: 30px;
+
+	padding:50px;
+}
+
 ._3gq3m {
 	width: 100%;
 	z-index: 2;
@@ -797,7 +808,7 @@ a {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	height: 100%;
+	height: 200px;
 	line-height: 1.5;
 	font-size: 16px;
 	color: var(--ricos-text-color, #212121);
@@ -932,8 +943,9 @@ a {
 	margin-right: 0
 }
 
-.QGwpa:hover>button {
-	background-color: #000
+.submitButton:hover {
+	background-color: #0261ff;
+	color:#fff;
 }
 
 ._3zx08 {
@@ -965,7 +977,6 @@ a {
 .kcuBq {
 	box-sizing: border-box;
 	position: relative;
-	height: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale
 }
@@ -984,6 +995,16 @@ a {
 	box-sizing: inherit
 }
 
+.kaqlz {
+	width: 100%;
+	height: 100px;
+	line-height: 1.5;
+	font-size: 16px;
+	color: var(--ricos-text-color, #212121);
+	white-space: pre-wrap!important;
+	overflow-wrap: break-word;
+	background-color: var(--ricos-bg-color-container, unset)
+}
 
 
 .kaqlz:after {
@@ -1121,9 +1142,6 @@ span {
 	text-decoration: none
 }
 
-._3xObj a:hover {
-	text-decoration: underline
-}
 
 ._3xObj span:last-child {
 	overflow: hidden;
@@ -1354,14 +1372,11 @@ span {
 	color: #000
 }
 
-.TPASection_kpndq3bq [dir] .header-background-color {
+.TPASection_kpndq3bq  .header-background-color {
 	background-color: #fff
 }
 
-.TPASection_kpndq3bq .forum-link-hover-color:hover,
-.TPASection_kpndq3bq .button-hover-color:hover {
-	color: #193669
-}
+
 
 .TPASection_kpndq3bq [dir] .forum-card-background-color {
 	background-color: #fff
@@ -1371,13 +1386,6 @@ span {
 	border-color: rgba(0, 0, 0, .25)
 }
 
-.TPASection_kpndq3bq .button-primary-text-color {
-	color: #fff
-}
-
-.TPASection_kpndq3bq .button-hover-fill:hover {
-	fill: #193669
-}
 
 .TPASection_kpndq3bq [dir] .button-background-color {
 	background-color: #193669
@@ -1484,22 +1492,6 @@ span {
 	position: relative
 }
 
-.rFYrt {
-	position: relative;
-	display: inline-block;
-	height: 42px;
-	vertical-align: middle;
-	white-space: nowrap;
-	min-width: 124px;
-	max-width: 300px;
-	margin: 0;
-	padding: 0 24px;
-	border: 0;
-	border-style: none;
-	border-radius: var(--buttonBorderRadius);
-	cursor: pointer
-}
-
 .app-desktop .rFYrt {
 	min-width: 130px
 }
@@ -1536,14 +1528,6 @@ span {
 	left: 0
 }
 
-._3LiYl {
-	height: 100%;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 14px
-}
 
 .GNZwK {
 	width: 100%;
@@ -2019,14 +2003,13 @@ span {
 
 ._2PJfR {
 	display: flex;
-	font-size: 12px
+	font-size: 12px;
 }
 
 ._2PJfR span:not(:first-child) {
 	margin-left: 16px
 }
 
-._1CQ7D,
 ._2Al4k {
 	font-size: 12px;
 	opacity: .8
@@ -2443,7 +2426,6 @@ span {
 .kcuBq {
 	box-sizing: border-box;
 	position: relative;
-	height: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale
 }
@@ -2452,15 +2434,7 @@ span {
 	-webkit-tap-highlight-color: transparent
 }
 
-.kcuBq .kaqlz {
-	box-sizing: border-box
-}
 
-.kcuBq .kaqlz *,
-.kcuBq .kaqlz :after,
-.kcuBq .kaqlz :before {
-	box-sizing: inherit
-}
 
 .kaqlz:after {
 	content: "";
@@ -2682,9 +2656,6 @@ span {
 	padding: 0 32px
 }
 
-._1dmES {
-	padding: 0
-}
 
 .KkXMX {
 	color: inherit;
