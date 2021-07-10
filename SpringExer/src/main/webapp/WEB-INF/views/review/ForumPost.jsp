@@ -20,9 +20,9 @@
 <jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 	
 	<div class="TripBoardContainer">
-		<div class="TitleBoardSearch">
+		<div class="TitleBoardSearch"  style="background-color: #FFA8A5; padding-bottom:10px;">
 			<!-- 여행 정보 > 여행 게시판  V 검색-->
-			<div class="_3B7XB">
+			<div class="_3B7XB" >
 				<nav
 					class="_3xObj font_9 breadcrumbs-text-color">
 					<ol class="_18QAN">
@@ -78,7 +78,7 @@
 		</div>
 		<div class="TripBoardContent">
 			<div class="TripBoardSideBar _1laFb "
-				style="border-color: rgba(0, 0, 0, 0.2); border-width: 1px;">
+				style="border-color: #CD5C5C; border-width: 1px;">
 
 				<!-- 사이드 바 -->
 				<span class="_2Qq4e">카테고리</span> <a
