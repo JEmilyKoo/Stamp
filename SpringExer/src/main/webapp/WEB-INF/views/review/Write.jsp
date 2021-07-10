@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/common/IsLogin.jsp" %>
 
+<%@ page import="java.io.File" %>
+<%@ page import="java.util.Enumeration" %>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,6 +19,7 @@
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
 <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
@@ -38,11 +43,13 @@
 		</div>
 		<div class="row">
 		<div class="col-md-12">
-			<form class="form-horizontal" method="post" action="<c:url value='/Review/Write.do'/>">
+			<form id="testForm" class="form-horizontal" enctype="multipart/form-data" method="post" action="<c:url value='/Review/Write.do'/>">
 			<fieldset>
 		            <div id="map" style="width:500px;height:400px;background-color:yellow;"></div>
 		            <div id="clickLatlng"></div>
 	        </fieldset>
+	        
+	        
 				
 				<!-- 씨큐리티 적용:csrf취약점 방어용 -->
 				<div class="form-group">
@@ -60,10 +67,21 @@
 							<div class="col-sm-8">
 								<textarea class="form-control" name="rvCtt" rows="5"
 									placeholder="내용 입력하세요"></textarea>
+									
 							</div>
 						</div>
+						
 					</div>
 				</div>
+				
+				 
+				      <!-- 파일첨부 -->
+         <!-- <form  action="/springBoard/file/upload.do" method="post"  enctype="multipart/form-data">
+             <input type="file" name="file"/>
+          -->
+
+	<input type="file" id="file"/>
+
 				<input type="hidden" name="rvLat"/>
 				<input type="hidden" name="rvLng"/>
 				<div class="form-group">
@@ -137,6 +155,47 @@
 	        });
         }
       
+        
+        
+        
+        
+        
+      //파일업로드 구현중
+	$(document).ready(function(){
+		$("#button").click(function(event){
+			console.log("찍히니?");
+			console.log("file")
+			event.preventDefault();
+			var form = $("#testForm");
+			var formData = new FormData(form);
+			formData.append("file", $("#file")[0].files[0]);
+			$.ajax({
+				url: 'Review/Write.do',
+				processData: false,
+				contentType: false,
+				data: formData,
+				type: 'POST',
+				success: function(data){
+					console.log(data);
+				}
+			});
+		});
+	});
+</script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 	</script>
 </body>
 </html>

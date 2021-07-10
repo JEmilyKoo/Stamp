@@ -3,6 +3,8 @@ package com.company.exer.service;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +26,7 @@ public class ReviewDTO {
 	private String rvLat;
 	private String rvLng;
 	private String rvVisitCnt;
-	private String rvFile;
+	private MultipartFile rvFile;
 	private int rvLikeCheck;
 	
 	//rvLike 추가

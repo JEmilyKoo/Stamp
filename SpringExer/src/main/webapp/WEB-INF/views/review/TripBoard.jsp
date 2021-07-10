@@ -126,16 +126,21 @@
 												class="_3jp2s default-desktop-header-text-color page-description _1iSUx"
 												style="color: #FFFFFF; height: 300px">
 												<div class="_3Z0vv"
-													style="background-image: url(&quot;https://static.wixstatic.com/media/8bde4fb7e0db407693c87bdcc9150c9e.jpg/v1/fit/w_1920,h_834,al_c,q_80/file.png&quot;); background-size: cover;"
+													style="background-image:; background-size: cover;"
 													alt="">
 													<div class="LTMVp"
-														style="background-color: #000000; opacity: 0.25"
-														data-hook="page-cover"></div>
+														style="background-color: #FFA8A5; "
+														data-hook="page-cover"></div> <!-- opacity: 0.25 -->
 													<div class="_36G23">
 														<div class="_26TAI">
+															
+															
+															
 															<div
 																class="_2POlQ page-description-title-font page-description__title"
 																data-hook="page-description__title">
+																
+																
 																<!-- 타이틀 -->
 																<h1 tabindex="-1" class="_1_JwX">여행 게시판</h1>
 															</div>
@@ -161,7 +166,7 @@
 															aria-label="게시물 작성하기" aria-haspopup="true"
 															aria-expanded="false">
 															<div class="_2RPBu button-primary-text-color"
-																style="box-sizing: inherit; outline: 0; background: transparent; background-color: transparent; background-position-x: 0%; background-position-y: 0%; background-repeat: repeat; background-attachment: scroll; background-image: none; background-size: auto; background-origin: padding-box; background-clip: border-box;">
+																style="box-sizing: inherit; outline: 0; background: transparent; background-color: 	#CD5C5C; background-position-x: 0%; background-position-y: 0%; background-repeat: repeat; background-attachment: scroll; background-image: none; background-size: auto; background-origin: padding-box; background-clip: border-box;">
 
 																<!-- 게시물 작성하기인데 이동이 안됨 -->
 
