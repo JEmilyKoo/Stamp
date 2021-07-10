@@ -64,22 +64,23 @@
 			
 			
 			<li id="MemberMNG" class="nav-item active"><a class="nav-link " href="#" > 
-			<i class="material-icons">vertical_split</i><span>회원정보관리</span></a></li>
+			<i class="material-icons">person</i><span>회원정보 관리</span></a></li>
+			
+			
+			
+			<li id="ReviewMNG" class="nav-item active"><a class="nav-link " href="#" > 
+			<i class="material-icons">view_module</i><span>리뷰 관리</span></a></li>
+			
 			
 			
 			
 			<li id="AdminStamp" class="nav-item active"><a class="nav-link " href="#" > 
-			<i class="material-icons">view_module</i><span>스탬프관리</span></a></li>
-			
+			<i class="material-icons">vertical_split</i><span>스탬프 관리</span></a></li>
 			
 			
 			<li id="TagMNG" class="nav-item active"><a class="nav-link " href="#" > 
 			<i class="material-icons">table_chart</i><span>해시태그 관리</span></a></li>
 			
-			
-			
-			<li id="ReviewMNG" class="nav-item active"><a class="nav-link " href="#" > 
-			<i class="material-icons">person</i><span>리뷰 관리</span></a></li>
 
 
 
