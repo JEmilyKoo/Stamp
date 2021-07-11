@@ -237,14 +237,23 @@ public class ReviewController {
 	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
 	public @ResponseBody int Like(@RequestParam Map map) throws IOException {
 		int check = reviewService.likeCheck(map);
+		//현재까지 좋아요 횟수를 가져온다
+		
 		if(check==0) {
 			int like = reviewService.like(map);
+			// 좋아요 갯수가 0이면 하나 추가한다
+			
 		}
 		else if(check==1){
 			reviewService.unlike(map); 
 		}
 		reviewService.likeCount(map);
-		ReviewDTO dto=reviewService.selectOne(map);
+		//ReviewDTO dto=reviewService.selectOne(map);
+		// 위의 코드는 반드시 여기에 댓글이 있다는 전제 하에 가는 거잖아
+		//좋아요에 댓글이 필수가 아니다
+		
+		ReviewDTO dto=reviewService.noCMNTselectOne(map);
+		//그래서 댓글 없어도 돌아가는 셀렉트 구문 하나 만들음
 		if(dto.getRvLikeCnt()>=2) {
 			reviewService.stampCreate(map);
 		}

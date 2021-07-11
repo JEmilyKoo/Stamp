@@ -44,7 +44,7 @@
 	<select id="reviewLikeCheck" parameterType="Map" resultType="Int">
 		select count(*)
 		from rvLike
-		where rvNo=#{rvNo}
+		where rvNo=#{rvNo} and nickName=#{nickName}
 	</select>
 	
 	<insert id="reviewLike" parameterType="Map">
