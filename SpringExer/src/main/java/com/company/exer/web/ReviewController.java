@@ -176,17 +176,16 @@ public class ReviewController {
 			ReviewDTO dto = reviewService.selectOne(map);
 			
 			//여러개 달 수 있는 로직 생각해봐야 할 듯
+			if(dto!=null) {
+				System.out.println("dto:"+dto.toString());
+				System.out.println("check:"+check);
+				dto.setRvLikeCheck(check);
+				dto.setRvCtt(dto.getRvCtt().replace("\r\n","<br/>"));				
+				model.addAttribute("dto",dto);
+	
+				
+			}
 			
-			System.out.println("dto:"+dto.toString());
-			System.out.println("check:"+check);
-			dto.setRvLikeCheck(check);
-			dto.setRvCtt(dto.getRvCtt().replace("\r\n","<br/>"));
-
-			
-		
-			
-			model.addAttribute("dto",dto);
-
 			
 			}
 			else {
