@@ -12,16 +12,13 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	crossorigin="anonymous"></script>
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-	crossorigin="anonymous"></script>
+	integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-	crossorigin="anonymous"></script>
+	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
@@ -34,8 +31,7 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO">
 <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0"
 	href="<c:url value="/resources/styles/shards-dashboards.1.1.0.min.css"/>">
 <link rel="stylesheet"
@@ -43,18 +39,19 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <style>
-	#btn1{
-		float:right;
-		margin:5px;
-	}
-	#select1{
-		text-align-last:center;
-		width:55px;
-		height:27px;
-		float:right;
-		margin:5px;
-		margin-right:2px;
-	}
+#btn1 {
+	float: right;
+	margin: 5px;
+}
+
+#select1 {
+	text-align-last: center;
+	width: 55px;
+	height: 27px;
+	float: right;
+	margin: 5px;
+	margin-right: 2px;
+}
 </style>
 <body class="h-100">
 	<div class="color-switcher-toggle animated pulse infinite">
@@ -80,64 +77,64 @@
 					<div class="stats-small stats-small--1 card card-small">
 						<div class="card-body p-0 d-flex">
 							<div class="d-flex flex-column m-auto container-fluid">
-								<table
-									class="table table-hover table-bordered table-condensed text-center" >
-									<thead>
+
+								<c:if test="${empty dto }" var="isEmpty">
+									<table
+										class="table table-hover table-bordered table-condensed text-center">
+										<tr>
+											<th class="col-md-12">스탬프가 없어요</th>
+										</tr>
+									</table>
+								</c:if>
+
+								<c:if test="${not isEmpty }">
+
 									<div>
-										
+
 										<button id="btn1">
-												<a href="">변경</a>
-													</button>
-													<select id="select1">
-											<option> 선택 </option>
-											<option> 연장 </option>
-											<option> 만료 </option>
-											<option> 삭제 </option>
+											<a href="">변경</a>
+										</button>
+										<select id="select1">
+											<option>선택</option>
+											<option>연장</option>
+											<option>만료</option>
+											<option>삭제</option>
 										</select>
-									<%-- <c:url value="/Stamp/updateAdminStamp.do?stNo=${item.stNo }"/>
+										<%-- <c:url value="/Stamp/updateAdminStamp.do?stNo=${item.stNo }"/>
 									<c:url value="/Stamp/deleteAdminStamp.do?stNo=${item.stNo }"/> --%>
 									</div>
-									<tr>
-										<th class="col-md-1 text-center"><input type="checkbox" id="selectAll"></th>
-										<th class="col-md-1 text-center">스탬프번호</th>
-										<th class="col-md-1 text-center">리뷰글번호</th>
-										<th class="col-md-4 text-center">스탬프 등록일</th>
-										<th class="col-md-4 text-center">스탬프 만료예정일</th>
-										<th class="col-md-1 text-center">만료 유무</th>
-									</tr>
-									<script>
-										$('#selectAll').click(function(){
-											if($("input:checkbox[id='selectAll']").prop("checked")){
-												$("input[type=checkbox]").prop("checked",true);
-											}else{
-												$("input[type=checkbox]").prop("checked",false);
-											}
-										});
-									</script>
-									</thead>
-									<tbody>
-									<c:if test="${empty dto }" var="isEmpty">
-										<tr class="row">
-											<th colspan="12">스탬프가 없어요</th>
-										</tr>
-									</c:if>
-									<c:if test="${not isEmpty }">
-										<c:forEach items="${dto }" var="item" varStatus="loop">
+									<table
+										class="table table-hover table-bordered table-condensed text-center">
+										<thead>
 											<tr>
-												<th scope="row" class="col-md-1 text-center"><input type="checkbox"></th>
-												<td class="col-md-1 text-center">${item.stNo }</td>
-												<td class="col-md-1 text-center"><a id=""
-													href="<c:url value="/AdminStamp?rvNo=${item.rvNo }"/>">${item.rvNo }
-												</a></td>
-												<td class="col-md-4 text-center">${item.stDate }</td>
-												<td class="col-md-4 text-center">${item.stDate }</td>
-												<td class="col-md-1 text-center">${item.stIsExpired }</td>
-												
+												<th class="col-md-1 text-center"><input type="checkbox"
+													id="selectAll"></th>
+												<th class="col-md-1 text-center">스탬프번호</th>
+												<th class="col-md-1 text-center">리뷰글번호</th>
+												<th class="col-md-4 text-center">스탬프 등록일</th>
+												<th class="col-md-4 text-center">스탬프 만료예정일</th>
+												<th class="col-md-1 text-center">만료 유무</th>
 											</tr>
-										</c:forEach>
-									</c:if>
-									</tbody>
-								</table>
+										</thead>
+										<tbody>
+											<c:forEach items="${dto }" var="item" varStatus="loop">
+												<tr>
+													<th scope="row" class="col-md-1 text-center"><input
+														type="checkbox"></th>
+													<td class="col-md-1 text-center">${item.stNo }</td>
+													<td class="col-md-1 text-center"><a id=""
+														href="<c:url value="/AdminStamp?rvNo=${item.rvNo }"/>">${item.rvNo }
+													</a></td>
+													<td class="col-md-4 text-center">${item.stDate }</td>
+													<td class="col-md-4 text-center">${item.stDate }</td>
+													<td class="col-md-1 text-center">${item.stIsExpired }</td>
+
+												</tr>
+											</c:forEach>
+
+										</tbody>
+									</table>
+								</c:if>
 							</div>
 						</div>
 					</div>
@@ -150,10 +147,19 @@
 		</div>
 	</div>
 	<jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp" />
-	</main>
-	</div>
-	</div>
+
 
 
 </body>
+
+
+<script>
+	$('#selectAll').click(function() {
+		if ($("input:checkbox[id='selectAll']").prop("checked")) {
+			$("input[type=checkbox]").prop("checked", true);
+		} else {
+			$("input[type=checkbox]").prop("checked", false);
+		}
+	});
+</script>
 </html>
