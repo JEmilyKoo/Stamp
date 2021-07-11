@@ -43,7 +43,7 @@ CREATE TABLE PROFILE
 	birth nvarchar2(15),
 	phone nvarchar2(15),
 	exp number DEFAULT 0,
-	lev number DEFAULT 0,
+	lev number DEFAULT 1,
 	openPrf number DEFAULT 1
 );
 
@@ -152,7 +152,7 @@ CREATE TABLE RVCMNT
 (
 	rvcNo number PRIMARY KEY,
 	rvNo number NOT NULL,
-	nickname nvarchar2(15) NOT NULL,
+	nickname nvarchar2(15) ,
 	rvCmnt clob,
 	rvcDate date DEFAULT SYSDATE
 );
@@ -172,7 +172,8 @@ CREATE TABLE STAMP
 	stNo number PRIMARY KEY,
 	rvNo number NOT NULL,
 	stDate date DEFAULT SYSDATE,
-	stIsExpired number DEFAULT 1
+	stIsExpired number DEFAULT 1,
+	STEXPIREDDATE date default Sysdate + 7
 );
 
 
