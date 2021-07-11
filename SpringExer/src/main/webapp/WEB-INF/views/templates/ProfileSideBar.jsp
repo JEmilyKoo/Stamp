@@ -38,7 +38,7 @@
 			<div class="profileCardImage">
 
 				<img
-					src="${pageContext.request.contextPath}/images/profile/icon/icon1.webp"
+					src="${pageContext.request.contextPath}/images/profile/icon/icon${otherProfile.openprf}.jpg"
 					alt="프사"
 					style="width: 100px; height: 100px; object-fit: cover; object-position: 50% 50%;">
 			</div>

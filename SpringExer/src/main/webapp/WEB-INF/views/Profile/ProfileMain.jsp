@@ -42,21 +42,49 @@
 			<h1 class="font_0" style="line-height: 1.41em; font-size: 22px">
 				<span class="color_32"> 👑LV.${otherProfile.lev}   ${otherProfile.nickName}<span style="font-weight: bold">
 						</span><br></span>
-			</h1>
-
+			</h1><br/>
+<div class="font_2 color_5"> ${otherProfile.pr}
+				</div>
 			<p class="font_8"
 				style="text-align: left; line-height: 1.75em; font-size: 18px">
-				<span>   	
-         아이디 :  ${otherProfile.id}
-         이메일 :  ${otherProfile.mail}
-         여행 성향 : ${otherProfile.trvprpns}<span><br/></span>
-         PR :  ${otherProfile.pr}
-         프사 :  ${otherProfile.prfImage}
-         성별 :  ${otherProfile.gender}
-         생일 :  ${otherProfile.birth}
-         폰 번호 :  ${otherProfile.phone}
-         경험치 :  ${otherProfile.exp}
-         공개 여부 :  ${otherProfile.openprf} </span>
+				<span>  
+				
+				<div class="font_9 color_5" style="display: grid; margin: 0px 0px 2px 0px; gap: 0px; padding: 10px; row-gap: 10px; grid-template-columns: repeat(3, 1fr);">
+				<div>  아이디 :  ${otherProfile.id}
+				</div>
+				<div> 이메일 :  ${otherProfile.mail}
+				</div>
+				
+				<div>여행 성향 : ${otherProfile.trvprpns}
+				</div>
+				
+				
+				
+				<div>성별 :  ${otherProfile.gender}
+				</div>
+				
+				<div> 생일 :  ${otherProfile.birth}
+				</div>
+				
+				<div>폰 번호 :  ${otherProfile.phone}
+				</div>
+				
+				<div> 경험치 :  ${otherProfile.exp}
+				</div>
+				
+				<div>공개 여부 :  ${otherProfile.openprf} 
+				</div>
+				</div> 	
+        
+        
+         <span><br/></span>
+        
+         
+         
+        
+         
+        
+         </span>
 			</p>
 
 			<!-- 스탬프 리스트 시작 -->
@@ -74,23 +102,29 @@
 						src="${pageContext.request.contextPath}/images/stamp/stamp1.png"
 						alt="Client 3"
 						style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
-					<h3 class="profileMainEachName">타고</h3>
+					<h3 class="profileMainEachName">대림역 탐방기</h3>
 					<div id="oneButtonId" aria-disabled="false" class="oneButton"
 						style="padding: 10px; height: 30px; justify-content: center">
 						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
-						<a href="<c:url value="/Profile/Main.do"/>"
+						<a href="<c:url value="/Review/ForumPost.do?rvNo=6"/>"
 							class="oneButtonLinkClass"> <span class="oneButtonSpanClass">상세
 								보기</span>
 						</a>
 					</div>
 				</div>
+				
+				<c:set var="otherProfile" value="${profile.id}" />
+					<c:set var="profile" value="1792264232" />
+					<c:if test="${not profile==profile}" var="ddd">
+						
+				
 				<!-- 스탬프 반복 -->
 				<div >
 					<img
 						src="${pageContext.request.contextPath}/images/stamp/stamp2.png"
 						alt="Client 3"
 						style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
-					<h3 class="profileMainEachName">타고</h3>
+					<h3 class="profileMainEachName">차이나타운</h3>
 					<div id="oneButtonId" aria-disabled="false" class="oneButton"
 						style="padding: 10px; height: 30px; justify-content: center">
 						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
@@ -101,6 +135,8 @@
 					</div>
 					<!-- 스탬프 반복 -->
 				</div>
+					
+				
 				<div >
 					<img
 						src="${pageContext.request.contextPath}/images/stamp/stamp3.png"
@@ -198,7 +234,7 @@
 					</div>
 					<!-- 스탬프 반복 -->
 				</div>
-
+</c:if>
 			</div>
 			<!--stamplist 끝-->
 
@@ -219,13 +255,13 @@
 						src="${pageContext.request.contextPath}/images/profile/badge/badge1.png"
 						alt="산뱃지"
 						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
-					<h3 class="profileMainEachName">타고</h3>
+					<h3 class="profileMainEachName">서울</h3>
 					<p class="font_8 color_5"
-				style="text-align: center; margin: 0px 0px 20px 0px">숲 많이 가서 획득</p>
+				style="text-align: center; margin: 0px 0px 20px 0px">서울 카테고리 첫번째 글 작성</p>
 					<div id="oneButtonId" aria-disabled="false" class="oneButton"
 						style="padding: 10px; height: 30px; justify-content: center">
 						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
-						<a href="<c:url value="/Profile/Main.do"/>"
+						<a href="<c:url value="/Stamp/Badge.do"/>"
 							class="oneButtonLinkClass"> <span class="oneButtonSpanClass">상세
 								보기</span>
 						</a>
@@ -237,9 +273,9 @@
 						src="${pageContext.request.contextPath}/images/profile/badge/badge2.png"
 						alt="산뱃지"
 						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
-					<h3 class="profileMainEachName">타고</h3>
+					<h3 class="profileMainEachName">인천</h3>
 					<p class="font_8 color_5"
-				style="text-align: center; margin: 0px 0px 20px 0px">바다 많이 가서 획득</p>
+				style="text-align: center; margin: 0px 0px 20px 0px">인천 카테고리 첫번째 글 작성</p>
 					<div id="oneButtonId" aria-disabled="false" class="oneButton"
 						style="padding: 10px; height: 30px; justify-content: center">
 						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
@@ -255,9 +291,9 @@
 						src="${pageContext.request.contextPath}/images/profile/badge/badge3.png"
 						alt="산뱃지"
 						style="width: 301px; height: 300px; object-fit: contain; object-position: center center;">
-					<h3 class="profileMainEachName">타고</h3>
+					<h3 class="profileMainEachName">경기</h3>
 					<p class="font_8 color_5"
-				style="text-align: center; margin: 0px 0px 20px 0px">산 많이 가서 획득</p>
+				style="text-align: center; margin: 0px 0px 20px 0px">경기 카테고리 첫번째 글 작성</p>
 				<div id="oneButtonId" aria-disabled="false" class="oneButton"
 						style="padding: 10px; height: 30px; justify-content: center">
 						<!-- 누르면 프로필 메인 페이지로 돌아감 -->

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -63,7 +64,29 @@ public class StampController {
 		
 	}
 
-
 	
-	
+	//관리자페이지용
+	@RequestMapping("AdminStamp.do")
+	public String AdminStamp(Model model,HttpServletRequest req) {
+		//뷰정보 반환]
+		List<StampDTO> dto = stampService.showStampList();
+		model.addAttribute("dto", dto);
+		System.out.println(req.getParameter("pageName"));
+		
+		return "/admin/AdminStamp";
+	}///////////////////Test()
+	@RequestMapping("updateAdminStamp.do")
+	public String updateAdminStamp(@RequestParam Map map) {
+		//뷰정보 반환]
+		stampService.updateAdminStamp(map);
+		
+		return "forward:/Stamp/AdminStamp.do";
+	}///////////////////Test()
+	@RequestMapping("deleteAdminStamp.do")
+	public String deleteAdminStamp(@RequestParam Map map) {
+		//뷰정보 반환]
+		stampService.deleteAdminStamp(map);
+		
+		return "forward:/Stamp/AdminStamp.do";
+	}///////////////////Test()
 }

@@ -1,5 +1,6 @@
 package com.company.exer;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -101,7 +102,8 @@ public class IndexController {
 	}///////////////////Test()
 	
 	@RequestMapping("/Admin/Admin.do")
-	public String Admin() {
+	public String Admin(HttpServletRequest req) {
+		System.out.println(req.getParameter("pageName"));
 		//뷰정보 반환]
 		return "/admin/Admin";
 
@@ -109,48 +111,37 @@ public class IndexController {
 	
 	
 	@RequestMapping("/Admin/MemberMNG.do")
-	public String MemberMNG() {
+	public String MemberMNG(HttpServletRequest req) {
+		System.out.println(req.getParameter("pageName"));
 		//뷰정보 반환]
 		return "/admin/MemberMNG";
 	}///////////////////Test()
 	
-	@RequestMapping("/Admin/FollowMNG.do")
-	public String FollowMNG() {
-		//뷰정보 반환]
-		return "/admin/FollowMNG";
-	}///////////////////Test()
-	
-	@RequestMapping("/Admin/StampMNG.do")
-	public String StampMNG() {
-		//뷰정보 반환]
-		return "/admin/StampMNG";
-	}///////////////////Test()
-	
 	@RequestMapping("/Admin/TagMNG.do")
-	public String TagMNG() {
+	public String TagMNG(HttpServletRequest req) {
+		System.out.println(req.getParameter("pageName"));
 		//뷰정보 반환]
 		return "/admin/TagMNG";
 	}///////////////////Test()
 	
-	@RequestMapping("/Admin/RiviewMNG.do")
-	public String RiviewMNG() {
+	@RequestMapping("/Admin/ReviewMNG.do")
+	public String ReviewMNG(HttpServletRequest req) {
+		System.out.println(req.getParameter("pageName"));
 		//뷰정보 반환]
-		return "/admin/RiviewMNG";
+		return "/admin/ReviewMNG";
 	}///////////////////Test()
 	
-	@RequestMapping("/Admin/RiviewComMNG.do")
-	public String RiviewComMNG() {
+	@RequestMapping("/Admin/errorMNG.do")
+	public String errorMNG(HttpServletRequest req) {
+		System.out.println(req.getParameter("pageName"));
 		//뷰정보 반환]
-		return "/admin/RiviewComMNG";
+		return "/admin/errorMNG";
 
 
 	}///////////////////Test()
 	
-	@RequestMapping("/AdminStamp")
-	public String AdminStamp() {
-		//뷰정보 반환]
-		return "/admin/AdminStamp";
-	}///////////////////Test()
+	
+	
 	
 	/*
 	[스프링 타일즈 적용시]- 컨트럴러 메소드에서 문자열로 리턴시
