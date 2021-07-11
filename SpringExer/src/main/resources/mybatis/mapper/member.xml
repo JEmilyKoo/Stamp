@@ -55,6 +55,22 @@
 	</select>
 	
 	
+	
+	<!--  관리자 페이지 -->
+	
+	<select id="adminMemberList" resultType="MemberDTO">
+		SELECT * FROM PROFILE
+		
+		
+	</select>
+	
+	
+	<delete id="deleteAdminMember" parameterType="map">
+		DELETE FROM MEMBER
+		WHERE ID = #{ID}
+	</delete>
+	
+	
 	<!-- 
 	 <insert id="memberJoin" parameterType="Map">
 		Insert into member 

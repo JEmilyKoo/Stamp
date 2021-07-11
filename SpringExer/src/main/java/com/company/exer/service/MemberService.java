@@ -1,5 +1,7 @@
 package com.company.exer.service;
 
+import java.util.List;
+import java.util.Map;
 
 public interface MemberService {
 
@@ -14,4 +16,7 @@ public interface MemberService {
     int followerCnt(MemberDTO memberDTO) throws Exception;
 
 	
+    //관리자 페이지
+	int deleteAdminMember(Map map);
+	public List<MemberDTO> adminMemberList();
 }

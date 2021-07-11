@@ -15,6 +15,12 @@ public class MemberDTO {
 		private String pwd;
 		private String name;
 		private int followCheck;
-		
+		private String nickName;
+		private String mail;
+		private String trvprpns;
+		private String gender;
+		private String birth;
+		private String phone;
+		private String prfImage;
 
 }

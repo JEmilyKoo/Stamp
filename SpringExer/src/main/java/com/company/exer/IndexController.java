@@ -110,12 +110,7 @@ public class IndexController {
 	}///////////////////Test()
 	
 	
-	@RequestMapping("/Admin/MemberMNG.do")
-	public String MemberMNG(HttpServletRequest req) {
-		System.out.println(req.getParameter("pageName"));
-		//뷰정보 반환]
-		return "/admin/MemberMNG";
-	}///////////////////Test()
+	
 	
 	@RequestMapping("/Admin/TagMNG.do")
 	public String TagMNG(HttpServletRequest req) {
