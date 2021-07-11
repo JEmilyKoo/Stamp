@@ -112,7 +112,7 @@
 														<a id="" href="<c:url value="/AdminStamp?rvNo=${item.rvNo }"/>">${item.rvNo } </a>
 													</td>
 													<td class="col-md-4 text-center">${item.stDate }</td>
-													<td class="col-md-4 text-center">${item.stDate }</td>
+													<td class="col-md-4 text-center">${item.stExpiredDate }</td>
 													<td class="col-md-1 text-center">${item.stIsExpired }</td>
 
 												</tr>
