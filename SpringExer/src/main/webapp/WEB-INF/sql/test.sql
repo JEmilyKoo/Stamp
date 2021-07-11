@@ -152,7 +152,7 @@ CREATE TABLE RVCMNT
 (
 	rvcNo number PRIMARY KEY,
 	rvNo number NOT NULL,
-	nickname nvarchar2(15) NOT NULL UNIQUE,
+	nickname nvarchar2(15) NOT NULL,
 	rvCmnt clob,
 	rvcDate date DEFAULT SYSDATE
 );

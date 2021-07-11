@@ -31,9 +31,24 @@
 	 	<websocket:mapping handler="StampServer" path="/chat-ws.do"/>
 	 </websocket:handlers>
 	-->
+	
+	
+	<!-- 파일 -->
 	<context:component-scan base-package="com.company.exer" />
 	 
-	
+<beans:bean id="multipartResolver"
+	class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<beans:property name="maxUploadSize" value="10485760"></beans:property>
+</beans:bean>
+	 
+	 <!-- 업로드 디렉토리 -->
+<beans:bean id = "uploadPath" class="java.lang.String">
+	<beans:constructor-arg value="D:\LHJ\Workspace\Java\.metadata\.plugins\org.eclipse.wst.server.core\tmp3\wtpwebapps\SpringExer\images\profile">
+
+	</beans:constructor-arg>
+</beans:bean>
+
+
 
 <!-- 오류나서 주석처리 
 <interceptors>

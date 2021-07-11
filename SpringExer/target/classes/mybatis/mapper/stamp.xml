@@ -14,6 +14,8 @@
 		insert into stampcheck(nickname,rvno,distance)
 		SELECT *
         from (select #{nickName},rvno, CALC_DISTANCE(#{lat},#{lng}, rvlat, rvlng) DISTANCE from review r join profile p on r.nickname=p.nickname)
+
+
 		where DISTANCE <![CDATA[ < ]]> 3
 	</insert>
 

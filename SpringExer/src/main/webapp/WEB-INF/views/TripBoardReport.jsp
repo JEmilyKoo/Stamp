@@ -20,7 +20,11 @@ pageEncoding="UTF-8"%>
 		<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-		
+$(function(){
+	$(".nav-item").removeClass("active");
+	var pageName = "<c:out value='${param.pageName}' />";
+	$("#"+pageName).addClass("active");
+})
 		function goBack() {
 			  $(".actions").fadeOut();
 		}
