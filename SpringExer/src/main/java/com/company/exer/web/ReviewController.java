@@ -163,20 +163,30 @@ public class ReviewController {
 	
 	//상세보기
 	@RequestMapping("ForumPost.do")
-	public String ForumPost(@RequestParam Map map,
+	public String ForumPost(@RequestParam Map<String, String> map,
 			Model model,
 			HttpServletRequest req) {
 		
 		if(req.getSession().getAttribute("nickName")!=null) {
+			//닉네임은 정상으로 받아짐
 			String nickName = req.getSession().getAttribute("nickName").toString();
+			
+			System.out.println(nickName);
+			//네임도 잘 받아짐
+			
 			map.put("nickName", nickName);
+			//			{rvNo=6, nickName=mmmmm}
+			System.out.println(map);
 			int check = reviewService.likeCheck(map);
+			//좋아요값갯수갖고오는 쿼리
 			
 			//댓글 하나만 달 수 있음
 			ReviewDTO dto = reviewService.selectOne(map);
+			//이 쿼리는 댓글이 있어야 돌아가는 쿼리이다
 			
-			//여러개 달 수 있는 로직 생각해봐야 할 듯
 			if(dto!=null) {
+				//댓글이 하나라도 있을 경우
+				
 				System.out.println("dto:"+dto.toString());
 				System.out.println("check:"+check);
 				dto.setRvLikeCheck(check);
@@ -184,14 +194,20 @@ public class ReviewController {
 				model.addAttribute("dto",dto);
 	
 				
-			}
+			}//if(dto!=null)
+			//댓글이 하나도 없고 닉네임은 받아와지는 경우
 			
+			//댓글이 없을 경우를 대비한 셀렉트를 생성했음
+			dto = reviewService.noCMNTselectOne(map);
+			model.addAttribute("dto",dto);
 			
-			}
+			}//if(req.getSession().getAttribute("nickName")!=null)
 			else {
-				ReviewDTO dto = reviewService.selectOne(map);
+				//댓글도 없고 세션 닉네임도 없을 경우
+				ReviewDTO dto = reviewService.noCMNTselectOne(map);
+				//댓글도 없는데 댓글받으면 어떡함
 				model.addAttribute("dto",dto);
-			}
+			}//else(req.getSession().getAttribute("nickName")!=null)
 		//뷰정보 반환]
 		return "/review/ForumPost";
 	}///////////////////ForumPost()
