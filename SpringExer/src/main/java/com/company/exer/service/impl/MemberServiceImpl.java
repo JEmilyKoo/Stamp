@@ -1,5 +1,8 @@
 package com.company.exer.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -48,5 +51,15 @@ public class MemberServiceImpl implements MemberService {
 	public int followerCnt(MemberDTO memberDTO) {
 		return dao.followerCnt(memberDTO);
 	}
+	
 
+	@Override
+	public List<MemberDTO> adminMemberList() {
+		return dao.adminMemberList();
+	}
+
+	@Override
+	public int deleteAdminMember(Map map) {
+		return dao.deleteAdminMember(map);
+	}
 }

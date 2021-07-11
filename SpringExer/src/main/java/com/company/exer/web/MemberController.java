@@ -1,12 +1,17 @@
 package com.company.exer.web;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.company.exer.service.MemberDTO;
@@ -139,5 +144,24 @@ public class MemberController {
 		return "home";
 	}
 	
+	//멤	버
+	@RequestMapping("MemberMNG.do")
+	public String MemberMNG(Model model) {
+		//뷰정보 반환]
+		List<MemberDTO> dto = service.adminMemberList();
+		model.addAttribute("dto",dto);
+		return "/admin/MemberMNG";
+	}///////////////////Test()
+	
+	
+	// 멤버 회원탈퇴 시키기
+	@RequestMapping("deleteAdminMember.do")
+	public String deleteAdminMember(@RequestParam Map map) {
+		System.out.println("dsfsadfsdfsfd"+map.get("nickName"));
+		service.deleteAdminMember(map);
+		return "forward:/Member/MemberMNG.do";
+	}
+	
 
+	
 }

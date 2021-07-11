@@ -95,7 +95,7 @@
 		if(menu === "analysisPage"){
 			location.href = "<c:url value="/Admin/Admin.do?pageName=analysisPage"/>"
 		}else if(menu === "MemberMNG"){
-			location.href = "<c:url value="/Admin/MemberMNG.do?pageName=MemberMNG"/>"
+			location.href = "<c:url value="/Member/MemberMNG.do?pageName=MemberMNG"/>"
 		}else if(menu === "AdminStamp"){
 			location.href = "<c:url value="/Stamp/AdminStamp.do?pageName=AdminStamp"/>"
 		}else if(menu === "TagMNG"){
