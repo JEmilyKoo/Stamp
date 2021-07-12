@@ -24,6 +24,12 @@
 		Where rv.rvNo=#{rvNo}
 	</select>
 	
+	<select id="reviewNoCMNTSelectOne" parameterType="Map"  resultType="reviewDTO">
+		select *
+		from review 
+		Where rvNo=#{rvNo}
+	</select>
+	
 	<update id="reviewUpdate" parameterType="Map">
 		update review
 		set rvTitle=#{rvTitle}, rvCtt=#{rvCtt}
