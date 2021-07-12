@@ -15,7 +15,7 @@ public interface StampService {
 	
 	//관리자페이지
 	List<StampDTO> showStampList();
-	int extendAdminStamp(Map map);
-	int updateAdminStamp(Map map);
+	int renewAdminStamp(Map map);
+	int expireAdminStamp(Map map);
 	int deleteAdminStamp(Map map);
 }

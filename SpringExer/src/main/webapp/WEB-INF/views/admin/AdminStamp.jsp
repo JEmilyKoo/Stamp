@@ -61,20 +61,20 @@
 						<div class="card-body p-0 d-flex">
 							<div class="d-flex flex-column m-auto container-fluid">
 								<c:if test="${empty dto }" var="isEmpty">
-									<table class="table table-hover table-bordered table-condensed text-center" style="margin-bottom:0px">
-											<tr>
-												<th class="col-md-1 text-center"><input type="checkbox"></th>
-												<th class="col-md-1 text-center">스탬프번호</th>
-												<th class="col-md-1 text-center">리뷰글번호</th>
-												<th class="col-md-4 text-center">스탬프 등록일</th>
-												<th class="col-md-4 text-center">스탬프 만료예정일</th>
-												<th class="col-md-1 text-center">만료 유무</th>
-											</tr>
+									<table class="table table-hover table-bordered table-condensed text-center" style="margin-bottom: 0px">
+										<tr>
+											<th class="col-md-1 text-center"><input type="checkbox"></th>
+											<th class="col-md-1 text-center">스탬프번호</th>
+											<th class="col-md-1 text-center">리뷰글번호</th>
+											<th class="col-md-4 text-center">스탬프 등록일</th>
+											<th class="col-md-4 text-center">스탬프 만료예정일</th>
+											<th class="col-md-1 text-center">만료 유무</th>
+										</tr>
 									</table>
 									<table class="table table-hover table-bordered table-condensed text-center">
-											<tr>
-												<th class="col-md-12">스탬프가 없어요</th>
-											</tr>
+										<tr>
+											<th class="col-md-12">스탬프가 없어요</th>
+										</tr>
 									</table>
 								</c:if>
 								<c:if test="${not isEmpty }">
@@ -82,7 +82,7 @@
 										<button id="btn1" onclick="selectBtn()">변경</button>
 										<select id="select1" name="selectFn">
 											<option value="selectx">선택</option>
-											<option value="extendFn">연장</option>
+											<option value="renewFn">연장</option>
 											<option value="expireFn">만료</option>
 											<option value="deleteFn">삭제</option>
 										</select>
@@ -137,44 +137,53 @@
 	});
 
 	function selectBtn() {
-		if ($("select[name=selectFn]").val() === "extendFn") {
+		if ($("select[name=selectFn]").val() === "renewFn") {
 			pushToArr();
 			$.ajax({
-				url : 'extendAdminStamp.do',
+				url : 'renewAdminStamp.do',
 				type : 'post',
-				dataType : 'json',
+				traditional : true,
 				data : {
 					"selectedArr" : selectedArr
 				},
 				success : function(data) {
 					console.log("성공");
+					location.href = "<c:url value="/Stamp/AdminStamp.do?pageName=AdminStamp"/>";
 				}
+
+				
 			});
 		} else if ($("select[name=selectFn]").val() === "expireFn") {
 			pushToArr();
 			$.ajax({
-				url : 'updateAdminStamp.do',
+				url : 'expireAdminStamp.do',
 				type : 'post',
-				dataType : 'json',
+				traditional : true,
 				data : {
 					"selectedArr" : selectedArr
 				},
 				success : function(data) {
 					console.log("성공");
+					location.href = "<c:url value="/Stamp/AdminStamp.do?pageName=AdminStamp"/>";
 				}
+
+				
 			});
 		} else if ($("select[name=selectFn]").val() === "deleteFn") {
 			pushToArr();
 			$.ajax({
 				url : 'deleteAdminStamp.do',
 				type : 'post',
-				dataType : 'json',
+				traditional : true,
 				data : {
 					"selectedArr" : selectedArr
 				},
 				success : function(data) {
 					console.log("성공");
+					location.href = "<c:url value="/Stamp/AdminStamp.do?pageName=AdminStamp"/>";
 				}
+
+				
 			});
 		} else {
 			alert("사용할 기능을 선택하세요");

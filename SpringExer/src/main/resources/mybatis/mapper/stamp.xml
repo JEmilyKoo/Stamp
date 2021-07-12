@@ -58,16 +58,18 @@
 		select * from stamp order by stNo desc
 	</select>
 	<!-- 2. 스탬프 수정 -->
-	<update id="extendAdminStamp" parameterType="Map">
+	<update id="renewAdminStamp" parameterType="Map">
 		update stamp 
-		set stisexpired = 0
+		set stexpireddate = (select stexpireddate from stamp where stno=#{stNo}) +7,
+		stisexpired = 1
 		where stNo =#{stNo}
 	</update>
 	
 	<!-- 3. 스탬프 만료 -->
-	<update id="updateAdminStamp" parameterType="Map">
+	<update id="expireAdminStamp" parameterType="Map">
 		update stamp 
-		set stisexpired = 0
+		set stisexpired = 0,
+		stexpireddate = sysdate
 		where stNo =#{stNo}
 	</update>
 	<!-- 4. 스탬프 삭제 -->
