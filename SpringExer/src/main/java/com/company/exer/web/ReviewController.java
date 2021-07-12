@@ -4,24 +4,29 @@ import java.io.BufferedReader;
 import java.io.Console;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.HttpSessionRequiredException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,10 +38,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.ReviewService;
 import com.company.exer.service.impl.ReviewServiceImpl;
+import com.company.exer.utils.UploadFileUtils;
 
 @SessionAttributes({"id","nickName"})
 @Controller
@@ -46,6 +54,8 @@ public class ReviewController {
 	@Resource(name="reviewService")
 	private ReviewService reviewService;
 
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	
 	/* 로그인 하지 않고 각 컨트롤러 메소드 실행시 오류:@ModelAttribute("id") String id사용시 */
 	//씨큐리티 사용시에는 아래 예외처리 불필요
@@ -57,10 +67,6 @@ public class ReviewController {
 	}
 	
 
-
-	
-	
-	
 	
 	//전체게시물
 	@RequestMapping("TripBoard.do")
@@ -136,6 +142,9 @@ public class ReviewController {
 				model.addAttribute("dto",dto);
 			}//else(req.getSession().getAttribute("nickName")!=null)
 		//뷰정보 반환]
+		
+		
+		
 		return "/review/ForumPost";
 	}///////////////////ForumPost()
 	
@@ -153,8 +162,12 @@ public class ReviewController {
 	public String WriteOk(@RequestParam Map map,
 			@ModelAttribute("nickName") String nickName) {
 
+		System.out.println(map.get("rvCategory1"));
+		System.out.println(map.get("rvCategory2"));
+		
 		map.put("nickName", nickName);
 		reviewService.insert(map);
+		
 		
 	
 		return "forward:/Review/TripBoard.do";

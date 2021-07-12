@@ -26,7 +26,7 @@ public class ReviewDTO {
 	private String rvLat;
 	private String rvLng;
 	private String rvVisitCnt;
-	private MultipartFile rvFile;
+	private String rvFile;
 	private int rvLikeCheck;
 	
 	//rvLike 추가

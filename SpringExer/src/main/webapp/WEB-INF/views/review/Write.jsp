@@ -2,10 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/common/IsLogin.jsp" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <%@ page import="java.io.File" %>
 <%@ page import="java.util.Enumeration" %>
-
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -18,8 +19,12 @@
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js" defer></script>
+
+
 
 <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
 <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
@@ -27,6 +32,12 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<style>
+	#img {
+	margin:20px 0;
+	}
+</style>
+
 
 </head>
 <body>
@@ -39,7 +50,7 @@
 	<!-- 실제 내용 시작 -->
 	<div class="container">
 		<div class="page-header">
-			<h1>한줄 메모 게시판<small>등록 페이지</small></h1>			
+			<h1>여행 리뷰게시판<small>등록 페이지</small></h1>			
 		</div>
 		<div class="row">
 		<div class="col-md-12">
@@ -59,19 +70,54 @@
 							placeholder="제목을 입력하세요?">
 					</div>
 				</div>
+			
+				
 				<div class="form-group">
 					<label class="col-sm-2 control-label">내용</label>
 					<!-- 중첩 컬럼 사용 -->
 					<div class="col-sm-10">
 						<div class="row">
 							<div class="col-sm-8">
-								<textarea class="form-control" name="rvCtt" rows="5"
+								<textarea id="summernote" class="form-control summernote" name="rvCtt" rows="5"
 									placeholder="내용 입력하세요"></textarea>
 									
 							</div>
 						</div>
 						
+							 
+							 
+							 
+							 
+							 
+						<select name="rvCategory1" id="category1">
+								<option value="">==카테고리 선택==</option>
+								<option value="지역1" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'지역1') }">selected</c:if>>지역1</option>
+								<option value="지역2" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'지역2') }">selected</c:if>>지역2</option>
+						</select>
+							 
+							 
+						<select name="rvCategory2" id="category2">
+								<option value="">==카테고리 선택==</option>
+								<option value="여행지1" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'여행지1') }">selected</c:if>>여행지1</option>
+								<option value="여행지2" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'여행지2') }">selected</c:if>>여행지2</option>
+						</select>
+							 
+							 
+							 
+							 
+							 
+							 
+							 
+							 
+						</div>
+
 					</div>
+						
+				  
 				</div>
 				
 				 
@@ -80,19 +126,27 @@
              <input type="file" name="file"/>
           -->
 
-	<input type="file" id="file"/>
-
+	<label for="gdsImg">이미지</label>
+	<input type="file" id="gdsImg" name="file"/>
+	<img src="" id="img"/>
+<%=request.getRealPath("/") %>
+       
+        
 				<input type="hidden" name="rvLat"/>
 				<input type="hidden" name="rvLng"/>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="submit" class="btn btn-primary">등록</button>
+					
+					
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
-	</div>
+	
+
+	
 	<!-- 실제 내용 끝 -->
 	<!--  푸터 시작 -->
 	<jsp:include page="/WEB-INF/views/templates/Footer.jsp"/>
@@ -155,47 +209,84 @@
 	        });
         }
       
-        
-        
-        
-        
-        
+   
+      
       //파일업로드 구현중
-	$(document).ready(function(){
-		$("#button").click(function(event){
-			console.log("찍히니?");
-			console.log("file")
-			event.preventDefault();
-			var form = $("#testForm");
-			var formData = new FormData(form);
-			formData.append("file", $("#file")[0].files[0]);
-			$.ajax({
-				url: 'Review/Write.do',
-				processData: false,
-				contentType: false,
-				data: formData,
-				type: 'POST',
-				success: function(data){
-					console.log(data);
-				}
-			});
-		});
+	 $("#gdsImg").change(function(){
+		if(this.files && this.files[0]){
+			var reader = new FileReader;
+			reader.onload = function(data){
+				$("#img").attr("src", data.target.result).width(100);
+				
+			}
+			reader.readAsDataURL(this.files[0]);
+		} 
+	 });
+      
+      
+      //썸머노트 구현중
+
+$(document).ready(function() {
+	//여기 아래 부분
+	$('#summernote').summernote({
+		  height: 300,                 // 에디터 높이
+		  minHeight: null,             // 최소 높이
+		  maxHeight: null,             // 최대 높이
+		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+		  lang: "ko-KR",					// 한글 설정
+		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
+          
 	});
+});
+      
+      //카테고리 구현중
+      
+      /*
+    $(document).ready(function () {
+            // 콤보박스가 변경될 때
+            $('#category').change(function () {
+                // 드롭다운리스트에서 선택된 값을 텍스트박스에 출력
+                var selectedText =  $("#category option:selected").text();
+                     //$("option:selected").text();
+                    //$(":selected").text();  // 드롭다운리스트가 하나밖에 없다면 이렇게 써도 됨
+                $('#category').val(selectedText);
+            });
+        });
+  */      
+      
+      /*ajax참고용
+      
+      $("#like").click(function(){
+            		$.ajax({
+            			url:"<c:url value="/Review/Like.do"/>",
+            			type:"post",
+            			data:{nickName, rvNo},
+            			dataType:"text",
+            			success:function(data){
+            				if(data==0){
+            					$("#like").attr("src","../images/review/fullH.png");
+            					$("#likecount").html(++likecount);
+            				}
+            				else{
+            					$("#like").attr("src","../images/review/beanH.png");
+            					$("#likecount").html(--likecount);
+            				}
+            			},
+            			error:function(){
+            				alert("로그인 후 이용해주세요.");
+            			}
+            		});
+            	});
+      
+      */
+      
 </script>
+
+        
+      
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-	</script>
+
 </body>
 </html>
