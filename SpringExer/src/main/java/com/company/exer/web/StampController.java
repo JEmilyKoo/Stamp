@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,47 +69,50 @@ public class StampController {
 		// 뷰정보 반환]
 		List<StampDTO> dto = stampService.showStampList();
 		model.addAttribute("dto", dto);
-		System.out.println(req.getParameter("pageName"));
+		System.out.println("pageName= " + req.getParameter("pageName"));
 
 		return "/admin/AdminStamp";
 	}/////////////////// Test()
-	
-	@RequestMapping("extendAdminStamp.do")
-	public @ResponseBody String extendAdminStamp(@RequestParam Map map,@RequestParam(value="selectedArr[]") List<String> selectedArr) {
+
+	@RequestMapping("renewAdminStamp.do")
+	public @ResponseBody String extendAdminStamp(@RequestParam Map map, HttpServletRequest req) {
 		// 뷰정보 반환]
-		for(String stNos:selectedArr) {
-			map.put("stNo", stNos);
-			stampService.extendAdminStamp(map);
-			System.out.println(stNos);
+		String [] selectedArr = req.getParameterValues("selectedArr");
+		for (String stNo : selectedArr) {
+
+			map.put("stNo", stNo);
+			System.out.println(stNo);
+			stampService.renewAdminStamp(map);
 		}
 
 		return "forward:/Stamp/AdminStamp.do";
 	}/////////////////// Test()
 
-	@RequestMapping("updateAdminStamp.do")
-	public @ResponseBody String updateAdminStamp(@RequestParam Map map,@RequestParam(value="selectedArr[]") List<String> selectedArr) {
+	@RequestMapping("expireAdminStamp.do")
+	public @ResponseBody String expireAdminStamp(@RequestParam Map map, HttpServletRequest req) {
 		// 뷰정보 반환]
-		for(String stNos:selectedArr) {
-			map.put("stNo", stNos);
-			stampService.updateAdminStamp(map);
-			System.out.println(stNos);
+		String [] selectedArr = req.getParameterValues("selectedArr");
+		for (String stNo : selectedArr) {
+
+			map.put("stNo", stNo);
+			System.out.println(stNo);
+			stampService.expireAdminStamp(map);
 		}
 
 		return "forward:/Stamp/AdminStamp.do";
 	}/////////////////// Test()
 
 	@RequestMapping("deleteAdminStamp.do")
-	public @ResponseBody String deleteAdminStamp(@RequestParam Map map,@RequestParam(value="selectedArr[]") List<String> selectedArr) {
-		//뷰정보 반환]
-		for(String stNos:selectedArr) {
-			map.put("stNo", stNos);
+	public @ResponseBody String deleteAdminStamp(@RequestParam Map map, HttpServletRequest req) {
+		// 뷰정보 반환]
+		String [] selectedArr = req.getParameterValues("selectedArr");
+		for (String stNo : selectedArr) {
+
+			map.put("stNo", stNo);
+			System.out.println(stNo);
 			stampService.deleteAdminStamp(map);
-			System.out.println(stNos);
 		}
-		
 		return "forward:/Stamp/AdminStamp.do";
 	}/////////////////// Test()
-
-	
 
 }
