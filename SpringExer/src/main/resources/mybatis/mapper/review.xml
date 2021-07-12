@@ -14,8 +14,11 @@
 	</select>
 	
 	<insert id="reviewInsert" parameterType="Map">
-		insert into review(rvNo,nickName,rvTitle,rvCtt,rvDate,rvLat,rvLng)
-		values(SEQ_review.NEXTVAL,#{nickName},#{rvTitle},#{rvCtt},default,#{rvLat},#{rvLng})
+	
+		insert into review(rvNo,nickName,rvTitle,rvCtt,rvDate,rvLat,rvLng,rvCategory1,rvCategory2)
+		values(SEQ_review.NEXTVAL,#{nickName},#{rvTitle},#{rvCtt},default,#{rvLat},#{rvLng},#{rvCategory1},#{rvCategory2})
+		
+	
 	</insert>
 	
 	<select id="reviewSelectOne" parameterType="Map"  resultType="reviewDTO">
@@ -74,4 +77,6 @@
 		insert into rvcmnt
 		values(seq_rvcmnt.nextval,#{rvNo},#{nickname},#{rvCmnt},sysdate)
 	</insert>
+	
+	
 </mapper>
