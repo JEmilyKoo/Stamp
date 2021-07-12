@@ -58,6 +58,11 @@ public class StampServiceImpl implements StampService {
 	}
 
 	@Override
+	public int extendAdminStamp(Map map) {
+		return dao.extendAdminStamp(map);
+	}
+	
+	@Override
 	public int updateAdminStamp(Map map) {
 		return dao.updateAdminStamp(map);
 	}

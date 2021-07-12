@@ -56,6 +56,9 @@ public class StampDAO{
 			return sqlMapper.selectList("showStampList");
 		}
 		
+		public int extendAdminStamp(Map map) {
+			return sqlMapper.insert("extendAdminStamp",map);
+		}
 		public int updateAdminStamp(Map map) {
 			return sqlMapper.insert("updateAdminStamp",map);
 		}
