@@ -61,24 +61,31 @@
 						<div class="card-body p-0 d-flex">
 							<div class="d-flex flex-column m-auto container-fluid">
 								<c:if test="${empty dto }" var="isEmpty">
+									<table class="table table-hover table-bordered table-condensed text-center" style="margin-bottom:0px">
+											<tr>
+												<th class="col-md-1 text-center"><input type="checkbox"></th>
+												<th class="col-md-1 text-center">스탬프번호</th>
+												<th class="col-md-1 text-center">리뷰글번호</th>
+												<th class="col-md-4 text-center">스탬프 등록일</th>
+												<th class="col-md-4 text-center">스탬프 만료예정일</th>
+												<th class="col-md-1 text-center">만료 유무</th>
+											</tr>
+									</table>
 									<table class="table table-hover table-bordered table-condensed text-center">
-										<tr>
-											<th class="col-md-12">스탬프가 없어요</th>
-										</tr>
+											<tr>
+												<th class="col-md-12">스탬프가 없어요</th>
+											</tr>
 									</table>
 								</c:if>
 								<c:if test="${not isEmpty }">
 									<div>
-										<button id="btn1" onclick="pushToArr()">
-											변경
-										</button>
+										<button id="btn1" onclick="selectBtn()">변경</button>
 										<select id="select1" name="selectFn">
 											<option value="selectx">선택</option>
 											<option value="extendFn">연장</option>
 											<option value="expireFn">만료</option>
 											<option value="deleteFn">삭제</option>
 										</select>
-										
 										<%-- <c:url value="/Stamp/updateAdminStamp.do?stNo=${item.stNo }"/>
 									<c:url value="/Stamp/deleteAdminStamp.do?stNo=${item.stNo }"/> --%>
 									</div>
@@ -120,6 +127,7 @@
 	<jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp" />
 </body>
 <script>
+	var selectedArr = [];
 	$('#selectAll').click(function() {
 		if ($("input:checkbox[id='selectAll']").prop("checked")) {
 			$("input[type=checkbox]").prop("checked", true);
@@ -127,29 +135,55 @@
 			$("input[type=checkbox]").prop("checked", false);
 		}
 	});
-	
-	function selectBtn(){
-		if($("select[name=selectFn]").val()==="extendFn"){
+
+	function selectBtn() {
+		if ($("select[name=selectFn]").val() === "extendFn") {
 			pushToArr();
-			/* location.href = "<c:url value=""/>" */
-		}else if($("select[name=selectFn]").val()==="expireFn"){
+			$.ajax({
+				url : 'extendAdminStamp.do',
+				type : 'post',
+				dataType : 'json',
+				data : {
+					"selectedArr" : selectedArr
+				},
+				success : function(data) {
+					console.log("성공");
+				}
+			});
+		} else if ($("select[name=selectFn]").val() === "expireFn") {
 			pushToArr();
-			/* location.href = "<c:url value=""/>" */
-		}else if($("select[name=selectFn]").val()==="deleteFn"){
+			$.ajax({
+				url : 'updateAdminStamp.do',
+				type : 'post',
+				dataType : 'json',
+				data : {
+					"selectedArr" : selectedArr
+				},
+				success : function(data) {
+					console.log("성공");
+				}
+			});
+		} else if ($("select[name=selectFn]").val() === "deleteFn") {
 			pushToArr();
-			/* location.href = "<c:url value=""/>" */
-		}else{
+			$.ajax({
+				url : 'deleteAdminStamp.do',
+				type : 'post',
+				dataType : 'json',
+				data : {
+					"selectedArr" : selectedArr
+				},
+				success : function(data) {
+					console.log("성공");
+				}
+			});
+		} else {
 			alert("사용할 기능을 선택하세요");
 		}
 	}
-	function pushToArr(){
-		var checkBoxArr = [];
-		$("input:checkbox[name=checkedStamp]:checked").each(function(){
-			checkBoxArr.push($("input:checkbox[name=checkedStamp]:checked").val());
+	function pushToArr() {
+		$("input:checkbox[name=checkedStamp]:checked").each(function() {
+			selectedArr.push($(this).val());
 		})
 	}
-	
-	
-	
 </script>
 </html>
