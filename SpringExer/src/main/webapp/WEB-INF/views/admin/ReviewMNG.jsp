@@ -61,17 +61,40 @@
             <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                 <div class="card card-small card-post card-post--1">
                   <div class="card-post__image" style="background-image: url('images/content-management/1.jpeg');">
-                    <a href="#" class="card-post__category badge badge-pill badge-dark">Business</a>
+                    <a href="#" class="card-post__category badge badge-pill badge-dark">이미지</a>
                     <div class="card-post__author d-flex">
                       <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('images/avatars/0.jpg');">Written by Anna Kunis</a>
                     </div>
                   </div>
                   <div class="card-body">
                     <h5 class="card-title">
-                      <a class="text-fiord-blue" href="#">게시물 불러오기</a>
+                    	<th class="text-center"><a class="text-fiord-blue" href="#">제목</a></th>
                     </h5>
-                    <p class="card-text d-inline-block mb-3">However venture pursuit he am mr cordial. Forming musical am hearing studied be luckily. But in for determine what would see...</p>
-                    <span class="text-muted">28 February 2019</span>
+                    <table
+					class="table table-bordered table-hover table-condensed text-center">
+					<!-- 테이블 컬럼폭은 col-*-*계열로 설정 -->
+					<tr>
+						<th class="col-md-1 text-center">번호</th>
+						<th class="col-md-1 text-center">아이디</th>
+						<th class="col-md-1 text-center">작성자</th>
+						<th class="col-md-1 text-center">좋아요</th>
+					</tr>
+					<!-- 
+						<tr>
+							<td colspan="4">등록된 게시물이 없어요</td>
+						</tr>
+					 -->
+						<c:forEach items="${list}" var="item">
+							<tr>
+								<td>${item.rvNo}</td>								
+								<td class="text-left"><a href="<c:url value="/Review/View.do?rvNo=${item.rvNo }"/>">${item.rvTitle }</a></td>
+								<td><a href="<c:url value="/Member/Mypage.do?id=${item.id }"/>">${item.id }</a></td>
+								<td>${item.name }</td>
+								<td>${item.rvLikeCnt }</td>
+							</tr>
+						</c:forEach>
+					
+				</table>
                   </div>
                 </div>
               </div>

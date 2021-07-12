@@ -25,23 +25,6 @@
     <link rel="stylesheet" href="<c:url value="/resources/styles/extras.1.1.0.min.css"/>">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
-	<div class="main-navbar">
-		<nav
-			class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
-			<a class="navbar-brand w-100 mr-0" href="<c:url value="/Admin/Admin.do"/>"
-				style="line-height: 25px;">
-				<div class="d-table m-auto">
-					<img id="main-logo" class="d-inline-block align-top mr-1"
-						style="max-width: 25px;"
-						src=<c:url value="/resources/images/shards-dashboards-logo.svg"/>
-						alt="Shards Dashboard"> <span
-						class="d-none d-md-inline ml-1">관리자 페이지</span>
-				</div>
-			</a> <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none"> <i
-				class="material-icons">&#xE5C4;</i>
-			</a>
-		</nav>
-	</div>
 	<form action="#"
 		class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
 		<div class="input-group input-group-seamless ml-3">
