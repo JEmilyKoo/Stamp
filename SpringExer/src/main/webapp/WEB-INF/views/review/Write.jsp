@@ -91,10 +91,10 @@
 							 
 						<select name="rvCategory1" id="category1">
 								<option value="">==카테고리 선택==</option>
-								<option value="지역1" name="rvCategory1"
-									<c:if test="${fn:contains(param.category,'지역1') }">selected</c:if>>지역1</option>
-								<option value="지역2" name="rvCategory1"
-									<c:if test="${fn:contains(param.category,'지역2') }">selected</c:if>>지역2</option>
+								<option value="서울" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</option>
+								<option value="경기도" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'경기도') }">selected</c:if>>경기도</option>
 						</select>
 							 
 							 
