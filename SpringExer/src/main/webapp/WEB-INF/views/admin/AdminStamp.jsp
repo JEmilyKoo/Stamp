@@ -106,7 +106,7 @@
 													<th scope="row" class="col-md-1 text-center"><input type="checkbox" name="checkedStamp" value="${item.stNo }"></th>
 													<td class="col-md-1 text-center">${item.stNo }</td>
 													<td class="col-md-1 text-center">
-														<a id="" href="<c:url value="/AdminStamp?rvNo=${item.rvNo }"/>">${item.rvNo } </a>
+														<a id="" href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo } </a>
 													</td>
 													<td class="col-md-4 text-center">${item.stDate }</td>
 													<td class="col-md-4 text-center">${item.stExpiredDate }</td>
