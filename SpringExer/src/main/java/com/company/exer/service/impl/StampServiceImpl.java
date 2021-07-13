@@ -22,20 +22,58 @@ public class StampServiceImpl implements StampService {
 	}
 
 	@Override
-	public int stampUpdate(Map map) {
-		return dao.stampUpdate(map);
+	public int stampCheck(Map map) {
+		return dao.stampCheck(map);
 	}
 
 	@Override
-	public StampDTO stampInsert() {
-		return dao.stampInsert();
+	public int stampCheckCount(Map map) {
+		return dao.stampCheckCount(map);
 	}
 
 	@Override
-	public int stampUpdateDelete(Map map) {
-		return dao.stampUpdateDelete(map);
+	public int stampCheckDelete(Map map) {
+		return dao.stampCheckDelete(map);
+	}
+
+	@Override
+	public int stampGet(Map map) {
+		return dao.stampGet(map);
+	}
+
+	@Override
+	public int stampCheckGet(Map map) {
+		return dao.stampCheckGet(map);
+	}
+
+	@Override
+	public String stampRvno(Map map) {
+		return dao.stampRvno(map);
+	}
+
+	//관리자페이지용
+	@Override
+	public List<StampDTO> showStampList() {
+		return dao.showStampList();
+	}
+
+	@Override
+	public int renewAdminStamp(Map map) {
+		return dao.renewAdminStamp(map);
 	}
 	
+	@Override
+	public int expireAdminStamp(Map map) {
+		return dao.expireAdminStamp(map);
+	}
+
+	@Override
+	public int deleteAdminStamp(Map map) {
+		return dao.deleteAdminStamp(map);
+	}
+
+
+
 	
 
 

@@ -12,35 +12,61 @@ import com.company.exer.service.StampDTO;
 import com.company.exer.service.StampService;
 
 @Repository("stampDAO")
-public class StampDAO /*implements StampService*/ {
+public class StampDAO{
 
 	@Resource(name="template")
 	private SqlSessionTemplate sqlMapper;
 
-
-//	public int stampUp() {
-//		return sqlMapper.insert("stampUp");
-//	}
 
 	public List<StampDTO> stampList() {
 		return sqlMapper.selectList("stampList");
 	}
 
 
-	public int stampUpdate(Map map) {
-		return sqlMapper.insert("stampUpdate",map);
+	public int stampCheck(Map map) {
+		return sqlMapper.insert("stampCheck",map);
 	}
 
 
-	public StampDTO stampInsert() {
-		return sqlMapper.selectOne("stampInsert");
+	public int stampCheckCount(Map map) {
+		return sqlMapper.selectOne("stampCheckCount",map);
 	}
 
-
-	public int stampUpdateDelete(Map map) {
-		return sqlMapper.delete("stampUpdateDelete",map);
+	public int stampCheckDelete(Map map) {
+		return sqlMapper.delete("stampCheckDelete",map);
 	}
 	
+	public int stampGet(Map map) {
+		return sqlMapper.insert("stampGet",map);
+	}
+
+
+	public int stampCheckGet(Map map) {
+		return sqlMapper.selectOne("stampCheckGet",map);
+	}
+
+
+	public String stampRvno(Map map) {
+		return sqlMapper.selectOne("stampRvno",map);
+	}
+
+
+	//관리자페이지
+		public List<StampDTO> showStampList() {
+			return sqlMapper.selectList("showStampList");
+		}
+		
+		public int renewAdminStamp(Map map) {
+			return sqlMapper.insert("renewAdminStamp",map);
+		}
+		public int expireAdminStamp(Map map) {
+			return sqlMapper.insert("expireAdminStamp",map);
+		}
+		
+		public int deleteAdminStamp(Map map) {
+			return sqlMapper.delete("deleteAdminStamp",map);
+		}
+
 
 	
 }

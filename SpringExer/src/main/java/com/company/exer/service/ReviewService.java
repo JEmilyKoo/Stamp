@@ -7,6 +7,8 @@ public interface ReviewService {
 
 	List<ReviewDTO> selectList();
 	ReviewDTO selectOne(Map map);
+
+	ReviewDTO noCMNTselectOne(Map map);
 	int insert(Map map);
 	int update(Map map);
 	int delete(Map map);

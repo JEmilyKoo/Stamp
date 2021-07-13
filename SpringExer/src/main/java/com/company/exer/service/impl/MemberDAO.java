@@ -3,6 +3,9 @@ package com.company.exer.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import com.company.exer.service.MemberDTO;
 
@@ -25,7 +28,10 @@ public class MemberDAO {
 	public void register(MemberDTO memberDTO) throws Exception{}
 	
     public MemberDTO get(MemberDTO memberDTO) throws Exception{
-		return memberDTO;}
+		
+    	return sqlMapper.selectOne("sqlgetmember",memberDTO);
+    	
+    }
    
     public void memberJoin(MemberDTO memberDTO) {
     	sqlMapper.insert("sqlmemberJoin",memberDTO);
@@ -46,5 +52,15 @@ public class MemberDAO {
 
 	public int followerCnt(MemberDTO memberDTO) {
 		return sqlMapper.selectOne("followerCnt",memberDTO);
+	}
+	
+	
+	///////////관리자 페이지
+	public List adminMemberList() {
+		return sqlMapper.selectList("adminMemberList");
+	}
+	
+	public int deleteAdminMember(Map map) {
+		return sqlMapper.delete("deleteAdminMember",map);
 	}
 }

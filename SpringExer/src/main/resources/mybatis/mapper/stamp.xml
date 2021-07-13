@@ -9,19 +9,73 @@
 		from stamp s Join review r On s.rvNo=r.rvNo
 	</select>
 	
-	<insert id="stampUpdate" parameterType="Map">
-		insert into stampCheck
-		values(#{nickName},#{lat},#{lng})
-	</insert>
 	
-	<select id="stampInsert" resultType="stampDTO">
+	<insert id="stampCheck" parameterType="Map">
+		insert into stampcheck(nickname,rvno,distance)
 		SELECT *
-		from (select rvno, CALC_DISTANCE(lat,lng, rvlat, rvlng) DISTANCE from review r Join stampcheck s ON r.nickname = s.nickname)
-		where DISTANCE <![CDATA[ < ]]> 3 
+        from (select #{nickName},rvno, CALC_DISTANCE(#{lat},#{lng}, rvlat, rvlng) DISTANCE from review r join profile p on r.nickname=p.nickname)
+
+
+		where DISTANCE <![CDATA[ < ]]> 3
+	</insert>
+
+	<select id="stampCheckCount" parameterType="Map" resultType="Int">
+		select count(*)
+		from stampcheck
+		where nickName=#{nickName}
 	</select>
 	
-	<delete id="stampUpdateDelete" parameterType="Map">
-		delete stampCheck
-		where nickName = #{nickName}		
+	<select id="stampRvno" parameterType="Map" resultType="String">
+		select distinct rvno
+		from stampcheck
+		where nickName=#{nickName}
+	</select>
+	
+	<delete id="stampCheckDelete" parameterType="Map">
+		delete stampcheck
+		where nickName=#{nickName}
 	</delete>
+	
+	<insert id="stampGet" parameterType="Map">
+		insert into memberStamp
+		select distinct nickName, rvno
+		from stampcheck
+		where nickName = #{nickName}
+	</insert>
+
+	<select id="stampCheckGet" parameterType="Map" resultType="Int">
+		select count(*)
+        From memberstamp m Join stampCheck s ON m.rvNO=s.rvNO
+        where m.nickname = #{nickName} and m.rvno =(select distinct rvno
+											from stampcheck
+											where nickName = #{nickName})
+	</select>
+	
+	
+	<!-- 관리자페이지용 -->
+	<!-- 1. 스탬프 조회 -->
+	 <select id="showStampList" resultType="stampDTO">
+		select * from stamp order by stNo desc
+	</select>
+	<!-- 2. 스탬프 수정 -->
+	<update id="renewAdminStamp" parameterType="Map">
+		update stamp 
+		set stexpireddate = (select stexpireddate from stamp where stno=#{stNo}) +7,
+		stisexpired = 1
+		where stNo =#{stNo}
+	</update>
+	
+	<!-- 3. 스탬프 만료 -->
+	<update id="expireAdminStamp" parameterType="Map">
+		update stamp 
+		set stisexpired = 0,
+		stexpireddate = sysdate
+		where stNo =#{stNo}
+	</update>
+	<!-- 4. 스탬프 삭제 -->
+	<delete id="deleteAdminStamp" parameterType="Map">
+		delete stamp
+		where stNo = #{stNo}
+	</delete>
+	
 </mapper>

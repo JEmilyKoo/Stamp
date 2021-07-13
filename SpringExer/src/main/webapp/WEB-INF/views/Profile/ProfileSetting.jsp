@@ -1,54 +1,284 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html class="enable-scroll" lang="ko"><head>
-  </head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" id="wixDesktopViewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!--내가 추가한 코드-->
-  <script src="${pageContext.request.contextPath}/stampGO_files/bundle.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/profile-card-tpa-ooi/1.277.0/ProfileCardViewerWidget.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/ProfileCardViewerWidget.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/pro-gallery-santa-wrapper/1.1612.0/viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/viewer.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.parastorage.com/services/communities-forum-client/1.432.0/forum-app-viewer.bundle.min.js" src="${pageContext.request.contextPath}/stampGO_files/forum-app-viewer.js"></script><!-- base href="https://jemilykoo.wixsite.com/website/" -->
-  <meta name="generator" content="Wix\.com Website Builder"><!--내가 추가한 코드-->
-  
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/css.css" >
+<html class="enable-scroll" lang="ko">
+<head>
+</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"
+	id="wixDesktopViewport">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--내가 추가한 코드-->
 
-  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/profileSetting.css" >
-  
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/css.css">
+
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/profileSetting.css">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+	rel="stylesheet">
 
-  
-
-
-
-<style data-href="https://static.parastorage.com/services/editor-elements/dist/WPhoto_CirclePhoto.00104e81.chunk.min.css">.-qfs1{width:100%;height:100%;box-sizing:border-box}._1RmI_{min-height:var(--image-min-height);min-width:var(--image-min-width)}._1RmI_ img{-o-object-position:var(--object-position);object-position:var(--object-position);filter:var(--filter-effect-svg-url)}._1Ci6i ._1RmI_ img{position:static;box-shadow:0 0 0 #000;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}._1Ci6i .-qfs1{display:block;box-shadow:var(--shd,0 1px 3px rgba(0,0,0,.5));border-style:solid;border-color:rgba(var(--brd,var(--color_11)),var(--alpha-brd,1));border-width:var(--brw,2px);background-color:rgba(var(--brd,var(--color_11)),var(--alpha-brd,1))}._1Ci6i .-qfs1,._1Ci6i ._1RmI_{border-radius:50%;overflow:hidden}</style>
 <title>내 계정</title>
-  <link rel="canonical" href="https://jemilykoo.wixsite.com/website/stamp">
-  <meta property="og:title" content="스탬프 | 찍GO">
-  <meta property="og:url" content="https://jemilykoo.wixsite.com/website/account/my-account">
-  <meta property="og:site_name" content="찍GO">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="스탬프 | 찍GO">
-<script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-common.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-classic.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/Container_RectangleArea.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/VerticalMenu_VerticalMenuSolidColorSkin.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/LoginSocialBar.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/bootstrap-components-responsive.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/MeshGroup.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/FreemiumBannerDesktop.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/SkipToContentButton.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/WPhoto_CirclePhoto.js"></script><script src="${pageContext.request.contextPath}/stampGO_files/requirejs.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/HtmlComponent.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/HtmlComponent.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/proGallery_videoScrollHelper.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/ItemActions.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/proGallery_videoItem.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/AsyncEventHandler.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/ProGalleryInfoElement.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/proGallery_reactPlayer.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/HlsPlayer.js"></script><style data-emotion=""></style><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/common-site-members-dialogs.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/common-site-members-dialogs.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/forum-rce-frameless.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/forum-rce-frameless.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/0.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/73.js"></script><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/53.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/member-card-async-frameless.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/member-card-async-frameless.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/report-post-modal.css"><script charset="utf-8" src="${pageContext.request.contextPath}/stampGO_files/report-post-modal.js"></script><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stampGO_files/TPAPopup.css" crossorigin="anonymous"></head>
-<body class="_1Arx3 _1Fqrx">
+</head>
+<body>
 
-	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
+	<div class="profileContainer">
+		<div class="profileSideBar">
+			<jsp:include page="/WEB-INF/views/templates/ProfileSideBar.jsp" />
+		</div>
 
-<div id="SITE_CONTAINER" class="focus-ring-active"><div id="main_MF"><div id="BACKGROUND_GROUP"><div><div id="pageBackground_내계정아이디" data-media-height-override-type="" data-media-position-override="false" class="_2AO2a"><div id="bgLayers_pageBackground_내계정아이디" class="확인용7"></div></div></div></div><div id="site-root"><div id="마스터페이지" class="메시레이아웃">
-  
-  <header></header><main id="PAGES_CONTAINER" tabindex="-1"><div id="SITE_PAGES"><div class="스트레치"><div id="내계정아이디" class="확인용2"><div class="확인용3"></div><div class="확인용4"><div id="Container내계정아이디" class="확인용5"><div data-mesh-id="Container내계정아이디inlineContent" data-testid="inline-content" ><div data-mesh-id="Container내계정아이디inlineContent-gridContainer" data-testid="mesh-container-content"><section id="comp-kpndpluf" class="확인용6"><div data-testid="columns" class="확인용8"><div id="comp-kpndplug" class="릴레이티브비지블"><div data-mesh-id="comp-kpndpluginlineContent" data-testid="inline-content" ><div data-mesh-id="comp-kpndpluginlineContent-gridContainer" data-testid="mesh-container-content"></div></div></div></div></section><div id="TPASection_kpndp3jv" style="height: auto;"><div class="TPASection_kpndp3jv"></style>
-<div class="Toast1936151037__root Toast1936151037---skin-7-success Toast1936151037---placement-6-inline Toast661470535__toast Toast661470535--displayNone" role="alert" data-is-shown="false" data-skin="success" data-mobile="false" data-hook="MyAccount-toast"><span role="presentation" class="Toast1936151037__gapBeforeMessage"></span><span class="Toast1936151037__message" data-hook="message"></span><div class="Toast1936151037__closeButtonWrapper"><button class="buttonnext4084022348__root Focusable2573421935__root IconButton455764551__root IconButton455764551---skin-4-line IconButton455764551__skin-line CloseIconButton1848572502__root" data-hook="closeButton" type="button" tabindex="0"><span class="buttonnext4084022348__content"><span class="IconButton455764551__icon"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 18L6 6M6 18L18 6" stroke="#000" fill="none"></path></svg></span></span></button></div></div><div class="Root3224495471__root" data-hook="MyAccount-wrapper" dir="ltr"><form action="#" novalidate=""><div class="Header152996678__root"><div><div class="SectionHeader32289813__root"><div class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__title" aria-hidden="false" data-hook="MyAccount-sectionTitle">내 계정</div><div class="SectionHeader32289813__subtitleWrapper"><span class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__subtitle" aria-hidden="false">아래에서 개인 정보를 확인 및 편집하세요.</span></div></div></div><div><div class="CTAGroup1093696031__root"><div class="CTAGroup1093696031__container"><button data-fullwidth="false" data-mobile="false" data-hook="MyAccount-discardChangesButton" class="buttonnext4084022348__root buttonnext4084022348--disabled Focusable2573421935__root Button4267364078__root Button4267364078---priority-9-secondary Button4267364078--upgrade CTAGroup1093696031__discardButton CTAGroup1093696031--disabled" type="button" disabled="disabled" tabindex="-1" aria-disabled="true"><span class="buttonnext4084022348__content">변경 사항 취소</span></button><button data-fullwidth="false" data-mobile="false" data-hook="MyAccount-saveAccountButton" class="buttonnext4084022348__root buttonnext4084022348--disabled Focusable2573421935__root Button4267364078__root Button4267364078---priority-7-primary Button4267364078--upgrade CTAGroup1093696031__saveButton" type="submit" disabled="disabled" tabindex="-1" aria-disabled="true"><span class="buttonnext4084022348__content">정보 업데이트</span></button></div></div></div></div><div class="Divider1883987836__root"><div class="Divider1883987836__divider"></div></div><div class="Root3224495471__sections"><div class="Account3271963488__root"><div class="SectionHeader32289813__root"><div class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__title" aria-hidden="false" data-hook="MyAccount-sectionTitle">계정</div><div class="SectionHeader32289813__subtitleWrapper"><span class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__subtitle" aria-hidden="false">커뮤니티에 공개할 정보를 업데이트 및 편집하세요.</span></div></div><div class="LoginEmail2399031486__root"><div class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary LoginEmail2399031486__title" aria-hidden="false">로그인 이메일:</div><div class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary LoginEmail2399031486__title" aria-hidden="false">userID@gmail.com</div><div class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary LoginEmail2399031486__subtitle" aria-hidden="false">(로그인 이메일은 변경할 수 없습니다.)</div></div><div class="FieldGroup68759556__root"><div data-hook="customfields.system.firstname"><label for="74419c89-4e5d-41d5-a86a-167455876c4f" class="FieldLabel3716810435__root"><span class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary FieldLabel3716810435__label" aria-hidden="false">First Name  </span></label><div class="TextField2249754734__root TextField2249754734---theme-3-box Text4249898713__field"><div class="Input2288008926__root TextField2249754734__input TextField2249754734---theme-3-box" data-theme="box" data-success="false" data-error="false" data-empty-state="true" data-hook="MyAccount-textField"><input id="74419c89-4e5d-41d5-a86a-167455876c4f" data-theme="box" data-success="false" data-error="false" data-empty-state="true" data-hook="MyAccount-textField" placeholder="Input Text" type="text" errortooltipmaxwidth="2000" class="Input2288008926__nativeInput"></div></div></div><div data-hook="customfields.system.lastname"><label for="21382c59-d3c4-4dc1-9a52-885eb0edb886" class="FieldLabel3716810435__root"><span class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary FieldLabel3716810435__label" aria-hidden="false">Last Name  </span></label><div class="TextField2249754734__root TextField2249754734---theme-3-box Text4249898713__field"><div class="Input2288008926__root TextField2249754734__input TextField2249754734---theme-3-box" data-theme="box" data-success="false" data-error="false" data-empty-state="true" data-hook="MyAccount-textField"><input id="21382c59-d3c4-4dc1-9a52-885eb0edb886" data-theme="box" data-success="false" data-error="false" data-empty-state="true" data-hook="MyAccount-textField" placeholder="Input Text" type="text" errortooltipmaxwidth="2000" class="Input2288008926__nativeInput"></div></div></div><div data-hook="customfields.system.email"><label for="1aeed99e-1a7a-411a-8263-2927264c0a32" class="FieldLabel3716810435__root"><span class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary FieldLabel3716810435__label" aria-hidden="false">Email  </span></label><div class="TextField2249754734__root TextField2249754734---theme-3-box Text4249898713__field"><div class="Input2288008926__root TextField2249754734__input TextField2249754734---theme-3-box" data-theme="box" data-success="false" data-error="false" data-empty-state="false" data-hook="MyAccount-textField"><input id="1aeed99e-1a7a-411a-8263-2927264c0a32" data-theme="box" data-success="false" data-error="false" data-empty-state="false" data-hook="MyAccount-textField" placeholder="Input Text" type="text" errortooltipmaxwidth="2000" class="Input2288008926__nativeInput" value="userID@gmail.com"></div></div></div><div data-hook="customfields.system.phone"><label for="7910d2f2-1404-48a3-9880-716e044147e3" class="FieldLabel3716810435__root"><span class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary FieldLabel3716810435__label" aria-hidden="false">Phone  </span></label><div class="TextField2249754734__root TextField2249754734---theme-3-box Text4249898713__field"><div class="Input2288008926__root TextField2249754734__input TextField2249754734---theme-3-box" data-theme="box" data-success="false" data-error="false" data-empty-state="true" data-hook="MyAccount-textField"><input id="7910d2f2-1404-48a3-9880-716e044147e3" data-theme="box" data-success="false" data-error="false" data-empty-state="true" data-hook="MyAccount-textField" placeholder="Input Text" type="text" errortooltipmaxwidth="2000" class="Input2288008926__nativeInput"></div></div></div></div></div><div class="Root3224495471__ctaGroup"><div class="CTAGroup1093696031__root"><div class="CTAGroup1093696031__container"><button data-fullwidth="false" data-mobile="false" data-hook="MyAccount-discardChangesButton" class="buttonnext4084022348__root buttonnext4084022348--disabled Focusable2573421935__root Button4267364078__root Button4267364078---priority-9-secondary Button4267364078--upgrade CTAGroup1093696031__discardButton CTAGroup1093696031--disabled" type="button" disabled="disabled" tabindex="-1" aria-disabled="true"><span class="buttonnext4084022348__content">변경 사항 취소</span></button><button data-fullwidth="false" data-mobile="false" data-hook="MyAccount-saveAccountButton" class="buttonnext4084022348__root buttonnext4084022348--disabled Focusable2573421935__root Button4267364078__root Button4267364078---priority-7-primary Button4267364078--upgrade CTAGroup1093696031__saveButton" type="submit" disabled="disabled" tabindex="-1" aria-disabled="true"><span class="buttonnext4084022348__content">정보 업데이트</span></button></div></div></div><div class="Divider1883987836__root"><div class="Divider1883987836__divider"></div></div></div></form><div class="AccountSettings2570994765__root"><div class="SectionHeader32289813__root AccountSettings2570994765__sectionHeader"><div class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__title" aria-hidden="false" data-hook="MyAccount-sectionTitle">계정 설정</div><div class="SectionHeader32289813__subtitleWrapper"><span class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__subtitle" aria-hidden="false">커뮤니티에 공개할 정보를 업데이트 및 편집하세요.</span></div></div><div class="Accordion3196983736__root"><div class="Item3479552200__root"><div class="Item3479552200__header"><span class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary CommunityPageUrl1842232732__header" aria-hidden="false" data-hook="MyAccount-profileUrlAccordionHeader">커뮤니티 페이지 URL</span><button class="buttonnext4084022348__root Focusable2573421935__root IconButton455764551__root IconButton455764551---skin-4-line IconButton455764551__skin-line Item3479552200__iconButton" type="button" tabindex="0"><span class="buttonnext4084022348__content"><span class="IconButton455764551__icon"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#000" d="M12 15L6 9.76 6.657 9l5.342 4.666L17.343 9l.657.76z" fill-rule="evenodd" transform-origin="center" transform="rotate(180)"></path></svg></span></span></button></div><div class="Item3479552200__content Item3479552200--open"><div><div data-content-hook="popover-content--undefined" class="Popover1826439104__root Tooltip3287928415__root Tooltip2173016402__root Tooltip2173016402---skin-8-standard CommunityPageUrl1842232732__tooltip"><div class="Popover1826439104__popoverElement" data-hook="popover-element"><div class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary CommunityPageUrl1842232732__content" aria-hidden="false">https://jemilykoo.wixsite.com/website/profile/userID/profile</div></div></div></div><button data-hook="MyAccount-editProfileUrlButton" class="buttonnext4084022348__root Focusable2573421935__root TextButton2311320180__root TextButton2311320180---priority-4-link CommunityPageUrl1842232732__cta" type="button" tabindex="0"><span class="buttonnext4084022348__content">URL 편집</span></button></div><div class="Divider1883987836__root"><div class="Divider1883987836__divider"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></main>
+		<div id="TPASection_kpndp3jv" style="height: auto;">
+			<div class="TPASection_kpndp3jv">
+
+				<div
+					class="Toast1936151037__root Toast1936151037---skin-7-success Toast1936151037---placement-6-inline Toast661470535__toast Toast661470535--displayNone"
+					role="alert" data-is-shown="false" data-skin="success"
+					data-mobile="false" data-hook="MyAccount-toast">
+				
+				</div>
+				<div class="Root3224495471__root" data-hook="MyAccount-wrapper"
+					dir="ltr">
+					<form action="#" novalidate="">
+						<div class="Header152996678__root">
+							<div>
+								<div class="SectionHeader32289813__root">
+									<div
+										class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__title"
+										aria-hidden="false" data-hook="MyAccount-sectionTitle">내
+										계정</div>
+									<div class="SectionHeader32289813__subtitleWrapper">
+										<span
+											class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__subtitle"
+											aria-hidden="false">아래에서 개인 정보를 확인 및 편집하세요.</span>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div class="CTAGroup1093696031__root">
+									<div class="CTAGroup1093696031__container">
+										<button data-fullwidth="false" data-mobile="false"
+											data-hook="MyAccount-discardChangesButton"
+											class="buttonnext4084022348__root buttonnext4084022348--disabled Focusable2573421935__root Button4267364078__root Button4267364078---priority-9-secondary Button4267364078--upgrade CTAGroup1093696031__discardButton CTAGroup1093696031--disabled"
+											type="button" disabled="disabled" tabindex="-1"
+											aria-disabled="true">
+											<span class="buttonnext4084022348__content">변경 사항 취소</span>
+										</button>
+										<button data-fullwidth="false" data-mobile="false"
+											data-hook="MyAccount-saveAccountButton"
+											class="buttonnext4084022348__root buttonnext4084022348--disabled Focusable2573421935__root Button4267364078__root Button4267364078---priority-7-primary Button4267364078--upgrade CTAGroup1093696031__saveButton"
+											type="submit" disabled="disabled" tabindex="-1"
+											aria-disabled="true">
+											<span class="buttonnext4084022348__content">정보 업데이트</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="Divider1883987836__root">
+							<div class="Divider1883987836__divider"></div>
+						</div>
+						<div class="Root3224495471__sections">
+							<div class="Account3271963488__root">
+								<div class="SectionHeader32289813__root">
+									<div
+										class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__title"
+										aria-hidden="false" data-hook="MyAccount-sectionTitle">계정</div>
+									<div class="SectionHeader32289813__subtitleWrapper">
+										<span
+											class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__subtitle"
+											aria-hidden="false">커뮤니티에 공개할 정보를 업데이트 및 편집하세요.</span>
+									</div>
+								</div>
+								<div class="LoginEmail2399031486__root">
+									<div
+										class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary LoginEmail2399031486__title"
+										aria-hidden="false">로그인 이메일:</div>
+									<div
+										class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary LoginEmail2399031486__title"
+										aria-hidden="false">userID@gmail.com</div>
+									<div
+										class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary LoginEmail2399031486__subtitle"
+										aria-hidden="false">(로그인 이메일은 변경할 수 없습니다.)</div>
+								</div>
+								<div class="FieldGroup68759556__root">
+									<div data-hook="customfields.system.firstname">
+										<label for="74419c89-4e5d-41d5-a86a-167455876c4f"
+											class="FieldLabel3716810435__root"><span
+											class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary FieldLabel3716810435__label"
+											aria-hidden="false">First Name </span></label>
+										<div
+											class="TextField2249754734__root TextField2249754734---theme-3-box Text4249898713__field">
+											<div
+												class="Input2288008926__root TextField2249754734__input TextField2249754734---theme-3-box"
+												data-theme="box" data-success="false" data-error="false"
+												data-empty-state="true" data-hook="MyAccount-textField">
+												<input id="74419c89-4e5d-41d5-a86a-167455876c4f"
+													data-theme="box" data-success="false" data-error="false"
+													data-empty-state="true" data-hook="MyAccount-textField"
+													placeholder="Input Text" type="text"
+													errortooltipmaxwidth="2000"
+													class="Input2288008926__nativeInput">
+											</div>
+										</div>
+									</div>
+									<div data-hook="customfields.system.lastname">
+										<label for="21382c59-d3c4-4dc1-9a52-885eb0edb886"
+											class="FieldLabel3716810435__root"><span
+											class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary FieldLabel3716810435__label"
+											aria-hidden="false">Last Name </span></label>
+										<div
+											class="TextField2249754734__root TextField2249754734---theme-3-box Text4249898713__field">
+											<div
+												class="Input2288008926__root TextField2249754734__input TextField2249754734---theme-3-box"
+												data-theme="box" data-success="false" data-error="false"
+												data-empty-state="true" data-hook="MyAccount-textField">
+												<input id="21382c59-d3c4-4dc1-9a52-885eb0edb886"
+													data-theme="box" data-success="false" data-error="false"
+													data-empty-state="true" data-hook="MyAccount-textField"
+													placeholder="Input Text" type="text"
+													errortooltipmaxwidth="2000"
+													class="Input2288008926__nativeInput">
+											</div>
+										</div>
+									</div>
+									<div data-hook="customfields.system.email">
+										<label for="1aeed99e-1a7a-411a-8263-2927264c0a32"
+											class="FieldLabel3716810435__root"><span
+											class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary FieldLabel3716810435__label"
+											aria-hidden="false">Email </span></label>
+										<div
+											class="TextField2249754734__root TextField2249754734---theme-3-box Text4249898713__field">
+											<div
+												class="Input2288008926__root TextField2249754734__input TextField2249754734---theme-3-box"
+												data-theme="box" data-success="false" data-error="false"
+												data-empty-state="false" data-hook="MyAccount-textField">
+												<input id="1aeed99e-1a7a-411a-8263-2927264c0a32"
+													data-theme="box" data-success="false" data-error="false"
+													data-empty-state="false" data-hook="MyAccount-textField"
+													placeholder="Input Text" type="text"
+													errortooltipmaxwidth="2000"
+													class="Input2288008926__nativeInput"
+													value="userID@gmail.com">
+											</div>
+										</div>
+									</div>
+									<div data-hook="customfields.system.phone">
+										<label for="7910d2f2-1404-48a3-9880-716e044147e3"
+											class="FieldLabel3716810435__root"><span
+											class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary FieldLabel3716810435__label"
+											aria-hidden="false">Phone </span></label>
+										<div
+											class="TextField2249754734__root TextField2249754734---theme-3-box Text4249898713__field">
+											<div
+												class="Input2288008926__root TextField2249754734__input TextField2249754734---theme-3-box"
+												data-theme="box" data-success="false" data-error="false"
+												data-empty-state="true" data-hook="MyAccount-textField">
+												<input id="7910d2f2-1404-48a3-9880-716e044147e3"
+													data-theme="box" data-success="false" data-error="false"
+													data-empty-state="true" data-hook="MyAccount-textField"
+													placeholder="Input Text" type="text"
+													errortooltipmaxwidth="2000"
+													class="Input2288008926__nativeInput">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="Root3224495471__ctaGroup">
+								<div class="CTAGroup1093696031__root">
+									<div class="CTAGroup1093696031__container">
+										<button data-fullwidth="false" data-mobile="false"
+											data-hook="MyAccount-discardChangesButton"
+											class="buttonnext4084022348__root buttonnext4084022348--disabled Focusable2573421935__root Button4267364078__root Button4267364078---priority-9-secondary Button4267364078--upgrade CTAGroup1093696031__discardButton CTAGroup1093696031--disabled"
+											type="button" disabled="disabled" tabindex="-1"
+											aria-disabled="true">
+											<span class="buttonnext4084022348__content">변경 사항 취소</span>
+										</button>
+										<button data-fullwidth="false" data-mobile="false"
+											data-hook="MyAccount-saveAccountButton"
+											class="buttonnext4084022348__root buttonnext4084022348--disabled Focusable2573421935__root Button4267364078__root Button4267364078---priority-7-primary Button4267364078--upgrade CTAGroup1093696031__saveButton"
+											type="submit" disabled="disabled" tabindex="-1"
+											aria-disabled="true">
+											<span class="buttonnext4084022348__content">정보 업데이트</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="Divider1883987836__root">
+								<div class="Divider1883987836__divider"></div>
+							</div>
+						</div>
+					</form>
+					<div class="AccountSettings2570994765__root">
+						<div
+							class="SectionHeader32289813__root AccountSettings2570994765__sectionHeader">
+							<div
+								class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__title"
+								aria-hidden="false" data-hook="MyAccount-sectionTitle">계정
+								설정</div>
+							<div class="SectionHeader32289813__subtitleWrapper">
+								<span
+									class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary SectionHeader32289813__subtitle"
+									aria-hidden="false">커뮤니티에 공개할 정보를 업데이트 및 편집하세요.</span>
+							</div>
+						</div>
+						<div class="Accordion3196983736__root">
+							<div class="Item3479552200__root">
+								<div class="Item3479552200__header">
+									<span
+										class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary CommunityPageUrl1842232732__header"
+										aria-hidden="false"
+										data-hook="MyAccount-profileUrlAccordionHeader">커뮤니티
+										페이지 URL</span>
+									<button
+										class="buttonnext4084022348__root Focusable2573421935__root IconButton455764551__root IconButton455764551---skin-4-line IconButton455764551__skin-line Item3479552200__iconButton"
+										type="button" tabindex="0">
+										<span class="buttonnext4084022348__content"><span
+											class="IconButton455764551__icon"><svg width="24px"
+													height="24px" viewBox="0 0 24 24" version="1.1"
+													xmlns="http://www.w3.org/2000/svg">
+																				<path fill="#000"
+														d="M12 15L6 9.76 6.657 9l5.342 4.666L17.343 9l.657.76z"
+														fill-rule="evenodd" transform-origin="center"
+														transform="rotate(180)"></path></svg></span></span>
+									</button>
+								</div>
+								<div class="Item3479552200__content Item3479552200--open">
+									<div>
+										<div data-content-hook="popover-content--undefined"
+											class="Popover1826439104__root Tooltip3287928415__root Tooltip2173016402__root Tooltip2173016402---skin-8-standard CommunityPageUrl1842232732__tooltip">
+											<div class="Popover1826439104__popoverElement"
+												data-hook="popover-element">
+												<div
+													class="Text3970018701__root Text3970018701---typography-11-runningText Text3970018701---priority-7-primary CommunityPageUrl1842232732__content"
+													aria-hidden="false">https://jemilykoo.wixsite.com/website/profile/userID/profile</div>
+											</div>
+										</div>
+									</div>
+									<button data-hook="MyAccount-editProfileUrlButton"
+										class="buttonnext4084022348__root Focusable2573421935__root TextButton2311320180__root TextButton2311320180---priority-4-link CommunityPageUrl1842232732__cta"
+										type="button" tabindex="0">
+										<span class="buttonnext4084022348__content">URL 편집</span>
+									</button>
+								</div>
+								<div class="Divider1883987836__root">
+									<div class="Divider1883987836__divider"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
-<div id="soapAfterPagesContainer" class="page-with-sosp"><div data-mesh-id="soapAfterPagesContainerinlineContent" data-testid="inline-content" ><div data-mesh-id="soapAfterPagesContainerinlineContent-gridContainer" data-testid="mesh-container-content"><div id="SOSP_CONTAINER_CUSTOM_ID" class="_2_2nr"><div class="_3oi4n" data-testid="container-bg"></div><div data-mesh-id="SOSP_CONTAINER_CUSTOM_IDinlineContent" data-testid="inline-content" ><div data-mesh-id="SOSP_CONTAINER_CUSTOM_IDinlineContent-gridContainer" data-testid="mesh-container-content"><div id="comp-kpndp2z9" style="height: auto;"><div class="comp-kpndp2z9">
-<div data-hook="ProfileCard-wrapper" dir="ltr">
-  <div data-hook="ProfileCard-verticalWidget"><div class="_24V6U"><div class="_31rtG"></div><div class="_1rug6 osdAp"><div class="_1jsW2"><div data-hook="ProfileCard-profilePhoto" class="_21JiY _1HjbT _3ZWaZ"><div class="_2oQc- _1w3no"><div class="_2oQc- _3wTA0"><svg width="71%" height="78%" viewBox="0 0 61 67" xmlns="http://www.w3.org/2000/svg" class="_1RgGn"><g><path d="M0,65.4388545 C0,47.7801858 10.7105078,38 30.332158,38 C49.9538082,38 60.6643159,47.7801858 60.75,65.4388545 L60.75,67.25 L0,67.25 L0,65.4388545 Z"></path><path d="M46.5,16.3421053 C46.5,25.9342105 39.4125,33.75 30.75,33.75 C22.0875,33.75 15,25.9342105 15,16.3421053 C15,7.01644737 21.7375,0 30.75,0 C39.7625,0 46.5,7.01644737 46.5,16.3421053 Z"></path></g></svg><div class="_2oQc- _3ZWaZ"></div><div class="_2oQc- _2Uvzj _3ZWaZ"></div><div class="_2ebCT">
+	</div>
 
-</div></div></div></div><div class="_pvtp"><div class="N_MN9"><div data-hook="ProfileCard-memberName" class="_3AkkR"><div class="_2_TEk"><span class="_2xV_H kl2Hr">userID</span><div class="_3rxad"></div></div></div><div data-hook="ProfileCard-followersFollowing" class="_2XRvR"><div data-hook="ProfileCard-followers" class="_18463"><button class="_2rBmt _3y1t9" type="button" tabindex="0"><span>0</span><div class="_3TgFJ">팔로워</div></button></div><div class="_25aDC"></div><div data-hook="ProfileCard-following"><button class="_2rBmt _2QmZl" type="button" tabindex="0"><span>0</span><div class="_3TgFJ">팔로잉</div></button></div></div></div><div class="_2Lfft"><div class="_1-zoY"><button class="_2rBmt UND4Z _3CtSz _1Yavx" data-hook="ProfileCard-editProfileCTA" type="button" tabindex="0">편집</button></div></div><div data-hook="ProfileCard-moreActionsWrapper" class="_1QY3s"><button data-hook="ProfileCard-moreActionsCTA" type="button" class="_1N5G0 rCNdV" aria-pressed="false" aria-haspopup="menu"><div class="_2GIz3"><div><div aria-label="more-button.more-actions" class="_17-Rt"><svg xmlns="http://www.w3.org/2000/svg" width="4" height="15.406" viewBox="0 0 4 15.406" style="fill-rule: evenodd;" class="_2ZqjF"><path d="M1000,381.719a1.928,1.928,0,1,1,2-1.927A1.964,1.964,0,0,1,1000,381.719Zm0-5.78a1.928,1.928,0,1,1,2-1.927A1.964,1.964,0,0,1,1000,375.939Zm0,7.706a1.928,1.928,0,1,1-2,1.927A1.968,1.968,0,0,1,1000,383.645Z" transform="translate(-998 -372.094)"></path></svg></div></div></div></button></div></div></div></div></div></div></div></div></div><nav aria-label="Site" id="comp-kpndp7iz" class="_3rKL6 _25-B7"><ul class="-SaFH"><li class="XOxx5"><div data-testid="itemContentWrapper-0" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-0" href="https://jemilykoo.wixsite.com/website/profile/userID/profile" target="_self" class="_3VyKd" tabindex="0">프로필</a>
-</span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-1" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-1" href="https://jemilykoo.wixsite.com/website/profile/userID/blog-comments" target="_self" class="_3VyKd" tabindex="0">Blog Comments </a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-2" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-2" href="https://jemilykoo.wixsite.com/website/profile/userID/blog-likes" target="_self" class="_3VyKd" tabindex="0">Blog Likes</a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-3" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-3" href="https://jemilykoo.wixsite.com/website/profile/userID/forum-comments" target="_self" class="_3VyKd" tabindex="0">Forum Comments<span class="_3JSHe">(2)</span></a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-4" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-4" href="https://jemilykoo.wixsite.com/website/profile/userID/forum-posts" target="_self" class="_3VyKd" tabindex="0">Forum Posts</a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-5" class="_3Cpo0 _3MLhF"><span class="_16rQy"><a data-testid="linkElement-5" href="https://jemilykoo.wixsite.com/website/account/my-account" target="_self" class="_3VyKd" tabindex="0">내 계정</a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-6" class="_3Cpo0 M1VN5"><span class="_16rQy"><a data-testid="linkElement-6" href="https://jemilykoo.wixsite.com/website/account/notifications" target="_self" class="_3VyKd" tabindex="0">알림</a></span></div></li><li class="XOxx5"><div data-testid="itemContentWrapper-7" class="_3Cpo0"><span class="_16rQy"><a data-testid="linkElement-7" href="https://jemilykoo.wixsite.com/website/account/settings" target="_self" class="_3VyKd" tabindex="0">설정</a></span></div></li></ul></nav></div></div></div></div></div></div></div></div></div></div>
-
-
-</body></html>
+</body>
+</html>

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.ReviewService;
-
 @Repository("reviewDAO")
 public class ReviewDAO {
 	
@@ -21,10 +20,16 @@ public class ReviewDAO {
 		return sqlMapper.selectList("reviewSelectList");
 	}
 
+
 	public ReviewDTO selectOne(Map map) {
 		return sqlMapper.selectOne("reviewSelectOne",map);
 	}
 
+
+	public ReviewDTO noCMNTselectOne(Map map) {
+		return sqlMapper.selectOne("reviewNoCMNTSelectOne",map);
+	}
+	
 	public int insert(Map map) {
 		return sqlMapper.insert("reviewInsert",map);
 	}

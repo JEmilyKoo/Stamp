@@ -27,6 +27,10 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
+	public ReviewDTO noCMNTselectOne(Map map) {
+		return dao.noCMNTselectOne(map);
+	}
+	@Override
 	public int insert(Map map) {
 		return dao.insert(map);
 	}
