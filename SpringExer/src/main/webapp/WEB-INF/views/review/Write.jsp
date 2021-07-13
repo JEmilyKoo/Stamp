@@ -5,9 +5,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
-<%@ page import="java.io.File" %>
-<%@ page import="java.util.Enumeration" %>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,13 +15,16 @@
 <title>Write.jsp</title>
 
 <!-- 부트스트랩 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js" defer></script>
+<!--  -->
 
 
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+
+
+
+<!-- include summernote-ko-KR -->
 
 <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
 <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
@@ -44,7 +44,8 @@
 	<!-- 네비게이션 시작 -->
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
-
+	
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 	<!-- 네비게이션 끝 -->
 	<!-- 실제 내용 시작 -->
@@ -78,8 +79,11 @@
 					<div class="col-sm-10">
 						<div class="row">
 							<div class="col-sm-8">
+							
+							
 								<textarea id="summernote" class="form-control summernote" name="rvCtt" rows="5"
 									placeholder="내용 입력하세요"></textarea>
+									
 									
 							</div>
 						</div>
@@ -138,7 +142,7 @@
 
 	<label for="gdsImg">이미지</label>
 	<input type="file" id="gdsImg" name="file"/>
-	<img src="" id="img"/>
+	<img src="" id="img" name="rvFile"/>
 <%=request.getRealPath("/") %>
        
         
@@ -219,50 +223,38 @@
 	        });
         }
       
-   
-      
-      //파일업로드 구현중
-	 $("#gdsImg").change(function(){
-		if(this.files && this.files[0]){
-			var reader = new FileReader;
-			reader.onload = function(data){
-				$("#img").attr("src", data.target.result).width(100);
-				
-			}
-			reader.readAsDataURL(this.files[0]);
-		} 
-	 });
+
       
       
       //썸머노트 구현중
 
-$(document).ready(function() {
 	//여기 아래 부분
-	$('#summernote').summernote({
-		  height: 300,                 // 에디터 높이
-		  minHeight: null,             // 최소 높이
-		  maxHeight: null,             // 최대 높이
-		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-		  lang: "ko-KR",					// 한글 설정
-		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
-          
-	});
-});
+	
+		
+		
+			$('#summernote').summernote({
+				height: 450,
+				fontNames : [ '맑은고딕', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', ],
+				fontNamesIgnoreCheck : [ '맑은고딕' ],
+				focus: true, 
+				
+				callbacks: {
+				onImageUpload: function(files, editor, welEditable) {
+				            for (var i = files.length - 1; i >= 0; i--) {
+				             sendFile(files[i], this);
+				            }
+				        }
+				}
+				
+			});
+		
+		
+	
+
       
-      //카테고리 구현중
       
-      /*
-    $(document).ready(function () {
-            // 콤보박스가 변경될 때
-            $('#category').change(function () {
-                // 드롭다운리스트에서 선택된 값을 텍스트박스에 출력
-                var selectedText =  $("#category option:selected").text();
-                     //$("option:selected").text();
-                    //$(":selected").text();  // 드롭다운리스트가 하나밖에 없다면 이렇게 써도 됨
-                $('#category').val(selectedText);
-            });
-        });
-  */      
+      
+      //이미지 업ㄹ로드 구현중
       
       /*ajax참고용
       
