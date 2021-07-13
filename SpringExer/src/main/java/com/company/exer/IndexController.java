@@ -1,6 +1,10 @@
 package com.company.exer;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -102,11 +106,26 @@ public class IndexController {
 	}///////////////////Test()
 	
 	@RequestMapping("/Admin/Admin.do")
-	public String Admin(HttpServletRequest req) {
+	public String Admin(HttpServletRequest req, HttpSession session, HttpServletResponse response) throws IOException  {
 		System.out.println(req.getParameter("pageName"));
+
+		
+		
+		//관리자 아이디 확인
+		String id = (String)session.getAttribute("id");
+		if(id ==null || !(id.equals("admin"))) {
+			//alert띄우기
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script language='javascript'>");
+			out.println("alert('관리자가 아닙니다')");
+			out.println("</script>");
+			out.flush();
+			  return "home"; //주소 수정하기
+		}
 		//뷰정보 반환]
 		return "/admin/Admin";
-
+			
 	}///////////////////Test()
 	
 	
