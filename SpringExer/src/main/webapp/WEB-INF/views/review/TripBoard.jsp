@@ -282,8 +282,10 @@
 																					<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
 																					<!-- 뿌려주는 반복문 필요할거 같다 -->
 																					<div class="fl4fR">
-																						<a href="<c:url value=""/>">#사용자가 설정한 태그
-																							#검색결과뜨게</a>
+																						<a href="<c:url value="#"/>">#${item.rvCategory1}
+																							</a>
+																							<a href="<c:url value="#"/>">#${item.rvCategory2}
+																							</a>
 																					</div>
 																				</div>
 																			</div>

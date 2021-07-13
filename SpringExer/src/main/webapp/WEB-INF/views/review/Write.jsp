@@ -90,20 +90,30 @@
 							 
 							 
 						<select name="rvCategory1" id="category1">
-								<option value="">==카테고리 선택==</option>
+								<option value="">==지역 선택==</option>
 								<option value="서울" name="rvCategory1"
 									<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</option>
-								<option value="경기도" name="rvCategory1"
-									<c:if test="${fn:contains(param.category,'경기도') }">selected</c:if>>경기도</option>
+								<option value="인천" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'인천') }">selected</c:if>>인천</option>
+								<option value="경기" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'경기') }">selected</c:if>>경기</option>
 						</select>
 							 
 							 
 						<select name="rvCategory2" id="category2">
-								<option value="">==카테고리 선택==</option>
-								<option value="여행지1" name="rvCategory2"
-									<c:if test="${fn:contains(param.category,'여행지1') }">selected</c:if>>여행지1</option>
-								<option value="여행지2" name="rvCategory2"
-									<c:if test="${fn:contains(param.category,'여행지2') }">selected</c:if>>여행지2</option>
+								<option value="">==여행지 선택==</option>
+								<option value="산" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'산') }">selected</c:if>>산</option>
+								<option value="바다" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'바다') }">selected</c:if>>바다</option>
+								<option value="강" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'강') }">selected</c:if>>강</option>
+								<option value="유적지" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'유적지') }">selected</c:if>>유적지</option>
+								<option value="도심" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'도심') }">selected</c:if>>도심</option>
+								<option value="야경" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'야경') }">selected</c:if>>야경</option>
 						</select>
 							 
 							 

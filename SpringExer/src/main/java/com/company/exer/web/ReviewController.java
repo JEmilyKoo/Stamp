@@ -160,11 +160,10 @@ public class ReviewController {
 	//글 작성
 	@RequestMapping(value="Write.do",method = RequestMethod.POST)
 	public String WriteOk(@RequestParam Map map,
-			@ModelAttribute("nickName") String nickName) {
+			@ModelAttribute("nickName") String nickName,Model model) {
 
 		System.out.println(map.get("rvCategory1"));
 		System.out.println(map.get("rvCategory2"));
-		
 		map.put("nickName", nickName);
 		reviewService.insert(map);
 		
