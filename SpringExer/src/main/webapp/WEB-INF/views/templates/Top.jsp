@@ -14,10 +14,7 @@
    href="${pageContext.request.contextPath}/css/css.css">
 <link rel="stylesheet" type="text/css"
    href="${pageContext.request.contextPath}/css/NewPost.css">
-<link rel="stylesheet" type="text/css"
-   href="${pageContext.request.contextPath}/css/modalcss.css">
-<link rel="stylesheet" type="text/css"
-   href="${pageContext.request.contextPath}/css/languages.css">
+
 <link rel="stylesheet" type="text/css"
    href="${pageContext.request.contextPath}/css/common-member-pages.css">
 <link rel="stylesheet" type="text/css"
