@@ -138,12 +138,6 @@ public class IndexController {
 		return "/admin/TagMNG";
 	}///////////////////Test()
 	
-	@RequestMapping("/Admin/ReviewMNG.do")
-	public String ReviewMNG(HttpServletRequest req) {
-		System.out.println(req.getParameter("pageName"));
-		//뷰정보 반환]
-		return "/admin/ReviewMNG";
-	}///////////////////Test()
 	
 	@RequestMapping("/Admin/errorMNG.do")
 	public String errorMNG(HttpServletRequest req) {
