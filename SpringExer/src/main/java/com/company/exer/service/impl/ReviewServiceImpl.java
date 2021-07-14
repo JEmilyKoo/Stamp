@@ -73,7 +73,7 @@ public class ReviewServiceImpl implements ReviewService{
 
 	@Override
 	public List<ReviewDTO> reviewMNG() {
-		return dao.selectList();
+		return dao.reviewMNG();
 	}
 
 	
