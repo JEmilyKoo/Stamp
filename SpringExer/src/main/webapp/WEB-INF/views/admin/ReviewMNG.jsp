@@ -83,11 +83,11 @@
 							<div class="card-body">
 								<h5 class="card-title">
 									<th class="text-center"><a class="text-fiord-blue"
-										href="<c:url value="/Review/TripBoard.do?reNo=${item.reNo }"/>">${item.rvTitle}</a></th>
+										href="<c:url value="/Review/TripBoard.do?reNo=${item.reNo }"/>">제목</a></th>
 								</h5>
 								<h5 class="card-title">
 									<th class="text-center"><a class="text-fiord-blue"
-										href="#">${item.rvCtt}</a></th>
+										href="#">내용</a></th>
 								</h5>
 								<table
 									class="table table-bordered table-hover table-condensed text-center">
@@ -96,6 +96,9 @@
 										<th class="col-md-1 text-center">번호</th>
 										<th class="col-md-1 text-center">닉네임</th>
 										<th class="col-md-1 text-center">좋아요</th>
+										<th class="col-md-1 text-center">좋아요</th>
+										<th class="col-md-1 text-center">좋아요</th>
+										<th class="col-md-1 text-center">좋아요</th>
 									</tr>
 									<!-- 
 						<tr>
@@ -103,18 +106,20 @@
 						</tr>
 					 -->
 									<tbody>
-										<c:if test="${empty dto }" var="isEmpty">
+										<c:if test="${empty list }" var="isEmpty">
 											<th colspan="12">게시글이 없어요</th>
 										</c:if>
 										<c:if test="${not isEmpty }">
-											<c:forEach items="${dto }" var="item" varStatus="loop">
+											<c:forEach items="${list }" var="item" varStatus="loop">
 												<tr>
+												
 													<td>${item.rvNo}</td>
 													<td class="text-left"><a
-														href="<c:url value="/Review/View.do?rvNo=${item.rvNo }"/>">${item.rvTitle }</a></td>
+														href="<c:url value="/Review/List.do?rvNo=${item.rvNo }"/>">${item.rvTitle }</a></td>
 													<td><a
-														href="<c:url value="/Member/Mypage.do?id=${item.id }"/>">닉네임:${item.nickName }</a></td>
+														href="<c:url value="/Review/List.do?id=${item.id }"/>">닉네임:${item.nickName }</a></td>
 													<td>${item.nickName }</td>
+													<td>${item.id }</td>
 													<td>${item.rvLikeCnt }</td>
 												</tr>
 											</c:forEach>
