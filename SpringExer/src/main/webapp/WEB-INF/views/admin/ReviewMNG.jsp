@@ -96,9 +96,8 @@
 										<th class="col-md-1 text-center">번호</th>
 										<th class="col-md-1 text-center">닉네임</th>
 										<th class="col-md-1 text-center">좋아요</th>
-										<th class="col-md-1 text-center">좋아요</th>
-										<th class="col-md-1 text-center">좋아요</th>
-										<th class="col-md-1 text-center">좋아요</th>
+										<th class="col-md-1 text-center">태그</th>
+										<th class="col-md-1 text-center">작성일</th>
 									</tr>
 									<!-- 
 						<tr>
@@ -114,12 +113,11 @@
 												<tr>
 												
 													<td>${item.rvNo}</td>
+													<td>${item.nickName }</td>
 													<td class="text-left"><a
 														href="<c:url value="/Review/List.do?rvNo=${item.rvNo }"/>">${item.rvTitle }</a></td>
-													<td><a
-														href="<c:url value="/Review/List.do?id=${item.id }"/>">닉네임:${item.nickName }</a></td>
+													
 													<td>${item.nickName }</td>
-													<td>${item.id }</td>
 													<td>${item.rvLikeCnt }</td>
 												</tr>
 											</c:forEach>
