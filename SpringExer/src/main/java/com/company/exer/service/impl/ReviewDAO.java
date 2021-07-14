@@ -62,6 +62,15 @@ public class ReviewDAO {
 		return sqlMapper.delete("stampCreate",map);
 	}
 	
+	////////////////////
+	
+	public List<ReviewDTO> reviewMNG() {
+		return sqlMapper.selectList("reviewMNG");
+	}
+
+
+	
+	
 
 	
 }
