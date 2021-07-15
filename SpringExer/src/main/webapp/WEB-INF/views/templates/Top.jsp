@@ -146,8 +146,6 @@ body {
 
                <li><a href="<c:url value="/Stamp/MapSearch.do"/>">지도 검색</a></li>
 
-               <li><a href="<c:url value="/Stamp/guide.do"/>">가이드</a></li>
-
                <c:if test="${not empty sessionScope.id }" var="isLogin">
                   <!-- 프로필 사진 시작 -->
                   <div class="_33LjI avatar">

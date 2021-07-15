@@ -26,7 +26,6 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
-
 </style>
 </head>
 <link
@@ -50,38 +49,35 @@
 </script>
 <body>
 
-	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
-<div class="TripBoardContainer">
-	<div class="TitleBoardSearch" style="background-color:blue"> <!-- 여행 정보 > 여행 게시판  V 검색--></div>
-	<div style="padding:0px">
-	
-	<div class="TitleBoardHeader" style="color:red;margin: auto; position:relative;background-color:green">
-<img src="${pageContext.request.contextPath}/images/tripboard/header_city1.jpg"/>
-		<!--타이틀 이미지 들어감-->
-	</div>	
-		
-	</div>
-	<div class="TripBoardCategory" style="color:red">카테고리 드롭다운<!--  V카테고리 관리자 작성 버튼--></div>
-	
-	<div class="TripBoardContent" style="background-color:ivory">
+	<jsp:include page="/WEB-INF/views/templates/TopTest.jsp" />
+	<div class="TripBoardContainer">
+		<div style="padding: 0px">
 
+			<div class="TitleBoardHeader"
+				style="color: red; margin: auto; position: relative; background-color: green">
+				<img
+					src="${pageContext.request.contextPath}/images/tripboard/header_city1.jpg" />
+				<!--타이틀 이미지 들어감-->
+			</div>
+
+		</div>
+		<div class="TripBoardContent" style="background-color: ivory">
+			
 			<div class="TripBoardMain"
-				style="display: flex; 
-				justify-content:center;
-				flex-flow: wrap; gap:10px; background-color: red">
+				style="display: flex; justify-content: center; flex-flow: wrap; gap: 10px; background-color: red">
 				<!-- 메인 -->
-				<div style="width: 300px;height:300px; background-color: blue">d</div>
-				<div style="width: 300px;height:300px; background-color: blue">d</div>
-				<div style="width: 300px;height:300px; background-color: blue">d</div>
-				<div style="width: 300px;height:300px; background-color: blue">d</div>
-				<div style="width: 300px;height:300px; background-color: blue">d</div>
-				<div style="width: 300px;height:300px; background-color: blue">d</div>
+				<div style="width: 300px; height: 300px; background-color: blue">d</div>
+				<div style="width: 300px; height: 300px; background-color: blue">d</div>
+				<div style="width: 300px; height: 300px; background-color: blue">d</div>
+				<div style="width: 300px; height: 300px; background-color: blue">d</div>
+				<div style="width: 300px; height: 300px; background-color: blue">d</div>
+				<div style="width: 300px; height: 300px; background-color: blue">d</div>
 				<!-- 갯수 맞추기 위해 있어야 하는 코드 시작 -->
 				<!-- 갯수 맞추기 위해 있어야 하는 코드 끝 -->
 
 
 			</div>
 		</div>
-</div>
+	</div>
 </body>
 </html>
