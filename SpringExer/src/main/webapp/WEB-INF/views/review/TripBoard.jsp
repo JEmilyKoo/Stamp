@@ -38,7 +38,7 @@
 
 	<jsp:include page="/WEB-INF/views/templates/TopTest.jsp" />
 	<div class="TripBoardContainer">
-		<div style="padding: 0px">
+		<div style="padding-bottom: 30px">
 
 			<div class="TitleBoardHeader"
 				style="color: red; margin: auto; position: relative; background-color: green">
