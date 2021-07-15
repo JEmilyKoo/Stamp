@@ -42,6 +42,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.company.exer.service.ProfileService;
 import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.ReviewService;
 import com.company.exer.service.impl.ReviewServiceImpl;
@@ -55,6 +56,10 @@ public class ReviewController {
 
 	@Resource(name="reviewService")
 	private ReviewService reviewService;
+	
+	//경험치를 얻기 위함
+	@Resource(name="profileService")
+	private ProfileService profileService;
 
 	/* 로그인 하지 않고 각 컨트롤러 메소드 실행시 오류:@ModelAttribute("id") String id사용시 */
 	//씨큐리티 사용시에는 아래 예외처리 불필요
@@ -176,7 +181,6 @@ public class ReviewController {
 		//뷰정보 반환]
 		
 		
-		
 		return "/review/ForumPost";
 	}///////////////////ForumPost()
 	
@@ -200,7 +204,8 @@ public class ReviewController {
 		reviewService.insert(map);
 		
 		
-	
+		//글쓰기 경험치 얻기
+		profileService.writeEP(map);
 		return "forward:/Review/TripBoard.do";
 	}
 	
@@ -213,6 +218,7 @@ public class ReviewController {
 		if(check==0) {
 			int like = reviewService.like(map);
 			// 좋아요 갯수가 0이면 하나 추가한다
+			profileService.likeEP(map);
 			
 		}
 		else if(check==1){
@@ -227,6 +233,7 @@ public class ReviewController {
 		//그래서 댓글 없어도 돌아가는 셀렉트 구문 하나 만들음
 		if(dto.getRvLikeCnt()>=2) {
 			reviewService.stampCreate(map);
+			profileService.stampEP(map);
 		}
 		 
 		return check;
