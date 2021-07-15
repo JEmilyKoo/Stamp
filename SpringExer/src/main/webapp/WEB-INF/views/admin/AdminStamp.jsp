@@ -137,12 +137,15 @@
 	});
 	
 	function checkSelectAll(){
+		/* querySelectorAll("선택자") : 주어진 선택자와 일치하는 모든요소 리스트형태로 반환(변수 지정하면 변수명[인덱스]로 접근하거나, 변수명.length 사용가능 )*/
 		const checkboxes = document.querySelectorAll("input[name ='checkedStamp']");
 		
 		const checked = document.querySelectorAll("input[name='checkedStamp']:checked");
 		
+		/* querySelector("선택자") : 주어진 선택자와 일치하는 요소 하나 반환*/
 		const selectAll = document.querySelector("input[id='selectAll']");
 		
+		/* 전체 박스 개수와 선택된 박스 개수 비교해서 checked속성 변경 */
 		if(checkboxes.length == checked.length){
 			selectAll.checked = true;
 		}else {
