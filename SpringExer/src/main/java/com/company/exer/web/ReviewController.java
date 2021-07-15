@@ -4,24 +4,30 @@ import java.io.BufferedReader;
 import java.io.Console;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.HttpSessionRequiredException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,10 +39,14 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.ReviewService;
 import com.company.exer.service.impl.ReviewServiceImpl;
+import com.company.exer.utils.UploadFileUtils;
+import com.google.gson.JsonObject;
 
 @SessionAttributes({"id","nickName"})
 @Controller
@@ -46,7 +56,6 @@ public class ReviewController {
 	@Resource(name="reviewService")
 	private ReviewService reviewService;
 
-	
 	/* 로그인 하지 않고 각 컨트롤러 메소드 실행시 오류:@ModelAttribute("id") String id사용시 */
 	//씨큐리티 사용시에는 아래 예외처리 불필요
 	@ExceptionHandler({HttpSessionRequiredException.class})
@@ -56,84 +65,40 @@ public class ReviewController {
 		return "forward:/Review/TripBoard.do";
 	}
 	
-
-
 	
-	//파일구현시켜줘
-	/*
-	@RequestMapping(value="/test", method=RequestMethod.POST)
-	public @ResponseBody int test(MultipartHttpServletRequest request) {
-		System.out.println("들어오시나요?");
-		
-		MultipartFile file = request.getFile("file1");
-		String name = request.getParameter("name");
-		System.out.println(name);
-		System.out.println(file.getName());
-		System.out.println(file.getOriginalFilename());
-		System.out.println(file.getContentType());
-		
-		String realPath = request.getSession().getServletContext().getRealPath("/resources/upload/");
-		System.out.println(realPath);
-		File dir = new File(realPath);
-		if(!dir.exists()) dir.mkdirs();
-		try {
-			String line;
-			BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream(), "UTF-8"));
-			while((line=br.readLine()) != null) {
-				System.out.println(line);
-			}
-			br.close();
-			
-			file.transferTo(new File(realPath, file.getOriginalFilename()));
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return 1;
+	public void profileUpload(String email, MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	response.setContentType("text/html;charset=utf-8");
+	PrintWriter out = response.getWriter();
+	// 업로드할 폴더 경로
+	String realFolder = request.getSession().getServletContext().getRealPath("profileUpload");
+	UUID uuid = UUID.randomUUID();
+
+	// 업로드할 파일 이름
+	String org_filename = file.getOriginalFilename();
+	String str_filename = uuid.toString() + org_filename;
+
+	System.out.println("원본 파일명 : " + org_filename);
+	System.out.println("저장할 파일명 : " + str_filename);
+
+	String filepath = realFolder + "\\" + email + "\\" + str_filename;
+	System.out.println("파일경로 : " + filepath);
+
+	File f = new File(filepath);
+	if (!f.exists()) {
+	f.mkdirs();
+	}
+	file.transferTo(f);
+	out.println("profileUpload/"+email+"/"+str_filename);
+	out.close();
 	}
 	
 	
-	@Controller public class FileController { @RequestMapping("/file/upload.do") 
-	public String uploadFile(MultipartFile[] upload, HttpServletRequest request) { 
-		
-		//파일이 업로드 될 경로 설정 
-		String saveDir = request.getSession().getServletContext().getRealPath("/resources/upload/file"); 
-		
-		//위에서 설정한 경로의 폴더가 없을 경우 생성 
-		File dir = new File(saveDir); if(!dir.exists()) { dir.mkdirs(); }
-		
-		// 파일 업로드 
-		for(MultipartFile f : upload) { if(!f.isEmpty()) { 
-			
-			// 기존 파일 이름을 받고 확장자 저장
-			String orifileName = f.getOriginalFilename(); 
-			String ext = orifileName.substring(orifileName.lastIndexOf(".")); 
-			
-			// 이름 값 변경을 위한 설정
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS"); 
-			int rand = (int)(Math.random()*1000);
-			
-			// 파일 이름 변경
-			String reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
-			
-			// 파일 저장 
-			try { 
-				f.transferTo(new File(saveDir + "/" + reName)); 
-			}
-			catch (IllegalStateException | IOException e) { e.printStackTrace(); } 
-			} 
-		} 
-		return "uploadEnd"; 
-		} 
-	}
-		
+	
+	
+	
+	
+	
 
-	*/
-	
-	
-	
-	
-	
 	
 	//전체게시물
 	@RequestMapping("TripBoard.do")
@@ -205,10 +170,13 @@ public class ReviewController {
 			else {
 				//댓글도 없고 세션 닉네임도 없을 경우
 				ReviewDTO dto = reviewService.noCMNTselectOne(map);
-				//댓글도 없는데 댓글받으면 어떡함
+				//댓글도 없는데 댓글받으면 어떡함 너무해
 				model.addAttribute("dto",dto);
 			}//else(req.getSession().getAttribute("nickName")!=null)
 		//뷰정보 반환]
+		
+		
+		
 		return "/review/ForumPost";
 	}///////////////////ForumPost()
 	
@@ -224,10 +192,13 @@ public class ReviewController {
 	//글 작성
 	@RequestMapping(value="Write.do",method = RequestMethod.POST)
 	public String WriteOk(@RequestParam Map map,
-			@ModelAttribute("nickName") String nickName) {
+			@ModelAttribute("nickName") String nickName,Model model) {
 
+		System.out.println(map.get("rvCategory1"));
+		System.out.println(map.get("rvCategory2"));
 		map.put("nickName", nickName);
 		reviewService.insert(map);
+		
 		
 	
 		return "forward:/Review/TripBoard.do";
@@ -285,7 +256,27 @@ public class ReviewController {
 	
 	
 	
+/////////////관리자페이지
+@RequestMapping("ReviewMNG.do")
+public String riviewMNG(Model model) {
+
+List<ReviewDTO> list =reviewService.reviewMNG();
+
+
+if(list==null) {
+	model.addAttribute("NoBoard","게시글이 없어요");	
+}
+
+else {
+	model.addAttribute("list",list);
+	System.out.println("listsize:"+list.size());
+	System.out.println("list:getNickName"+list.get(0).toString());
+}
+	//뷰정보 반환]
 	
+
+return "/admin/ReviewMNG";
+}
 	
 	
 	
@@ -332,3 +323,4 @@ public class ReviewController {
 	
 	
 }
+

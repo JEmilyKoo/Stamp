@@ -61,6 +61,16 @@
 						<div class="card-body p-0 d-flex">
 							<div class="d-flex flex-column m-auto container-fluid">
 								<c:if test="${empty dto }" var="isEmpty">
+									<table class="table table-hover table-bordered table-condensed text-center" style="margin-bottom: 0px">
+										<tr>
+											<th class="col-md-1 text-center"><input type="checkbox"></th>
+											<th class="col-md-1 text-center">스탬프번호</th>
+											<th class="col-md-1 text-center">리뷰글번호</th>
+											<th class="col-md-4 text-center">스탬프 등록일</th>
+											<th class="col-md-4 text-center">스탬프 만료예정일</th>
+											<th class="col-md-1 text-center">만료 유무</th>
+										</tr>
+									</table>
 									<table class="table table-hover table-bordered table-condensed text-center">
 										<tr>
 											<th class="col-md-12">스탬프가 없어요</th>
@@ -69,16 +79,13 @@
 								</c:if>
 								<c:if test="${not isEmpty }">
 									<div>
-										<button id="btn1" onclick="pushToArr()">
-											변경
-										</button>
+										<button id="btn1" onclick="selectBtn()">변경</button>
 										<select id="select1" name="selectFn">
 											<option value="selectx">선택</option>
-											<option value="extendFn">연장</option>
+											<option value="renewFn">연장</option>
 											<option value="expireFn">만료</option>
 											<option value="deleteFn">삭제</option>
 										</select>
-										
 										<%-- <c:url value="/Stamp/updateAdminStamp.do?stNo=${item.stNo }"/>
 									<c:url value="/Stamp/deleteAdminStamp.do?stNo=${item.stNo }"/> --%>
 									</div>
@@ -99,7 +106,7 @@
 													<th scope="row" class="col-md-1 text-center"><input type="checkbox" name="checkedStamp" value="${item.stNo }"></th>
 													<td class="col-md-1 text-center">${item.stNo }</td>
 													<td class="col-md-1 text-center">
-														<a id="" href="<c:url value="/AdminStamp?rvNo=${item.rvNo }"/>">${item.rvNo } </a>
+														<a id="" href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo } </a>
 													</td>
 													<td class="col-md-4 text-center">${item.stDate }</td>
 													<td class="col-md-4 text-center">${item.stExpiredDate }</td>
@@ -120,6 +127,7 @@
 	<jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp" />
 </body>
 <script>
+	var selectedArr = [];
 	$('#selectAll').click(function() {
 		if ($("input:checkbox[id='selectAll']").prop("checked")) {
 			$("input[type=checkbox]").prop("checked", true);
@@ -127,29 +135,64 @@
 			$("input[type=checkbox]").prop("checked", false);
 		}
 	});
-	
-	function selectBtn(){
-		if($("select[name=selectFn]").val()==="extendFn"){
+
+	function selectBtn() {
+		if ($("select[name=selectFn]").val() === "renewFn") {
 			pushToArr();
-			/* location.href = "<c:url value=""/>" */
-		}else if($("select[name=selectFn]").val()==="expireFn"){
+			$.ajax({
+				url : 'renewAdminStamp.do',
+				type : 'post',
+				traditional : true,
+				data : {
+					"selectedArr" : selectedArr
+				},
+				success : function(data) {
+					console.log("성공");
+					location.href = "<c:url value="/Stamp/AdminStamp.do?pageName=AdminStamp"/>";
+				}
+
+				
+			});
+		} else if ($("select[name=selectFn]").val() === "expireFn") {
 			pushToArr();
-			/* location.href = "<c:url value=""/>" */
-		}else if($("select[name=selectFn]").val()==="deleteFn"){
+			$.ajax({
+				url : 'expireAdminStamp.do',
+				type : 'post',
+				traditional : true,
+				data : {
+					"selectedArr" : selectedArr
+				},
+				success : function(data) {
+					console.log("성공");
+					location.href = "<c:url value="/Stamp/AdminStamp.do?pageName=AdminStamp"/>";
+				}
+
+				
+			});
+		} else if ($("select[name=selectFn]").val() === "deleteFn") {
 			pushToArr();
-			/* location.href = "<c:url value=""/>" */
-		}else{
+			$.ajax({
+				url : 'deleteAdminStamp.do',
+				type : 'post',
+				traditional : true,
+				data : {
+					"selectedArr" : selectedArr
+				},
+				success : function(data) {
+					console.log("성공");
+					location.href = "<c:url value="/Stamp/AdminStamp.do?pageName=AdminStamp"/>";
+				}
+
+				
+			});
+		} else {
 			alert("사용할 기능을 선택하세요");
 		}
 	}
-	function pushToArr(){
-		var checkBoxArr = [];
-		$("input:checkbox[name=checkedStamp]:checked").each(function(){
-			checkBoxArr.push($("input:checkbox[name=checkedStamp]:checked").val());
+	function pushToArr() {
+		$("input:checkbox[name=checkedStamp]:checked").each(function() {
+			selectedArr.push($(this).val());
 		})
 	}
-	
-	
-	
 </script>
 </html>

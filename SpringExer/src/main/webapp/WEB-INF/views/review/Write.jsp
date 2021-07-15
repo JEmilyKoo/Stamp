@@ -2,9 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/common/IsLogin.jsp" %>
-
-<%@ page import="java.io.File" %>
-<%@ page import="java.util.Enumeration" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
 <!DOCTYPE html>
@@ -17,9 +15,16 @@
 <title>Write.jsp</title>
 
 <!-- 부트스트랩 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--  -->
+
+
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+
+
+
+<!-- include summernote-ko-KR -->
 
 <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
 <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
@@ -27,19 +32,26 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<style>
+	#img {
+	margin:20px 0;
+	}
+</style>
+
 
 </head>
 <body>
 	<!-- 네비게이션 시작 -->
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
-
+	
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 	<!-- 네비게이션 끝 -->
 	<!-- 실제 내용 시작 -->
 	<div class="container">
 		<div class="page-header">
-			<h1>한줄 메모 게시판<small>등록 페이지</small></h1>			
+			<h1>여행 리뷰게시판<small>등록 페이지</small></h1>			
 		</div>
 		<div class="row">
 		<div class="col-md-12">
@@ -59,19 +71,67 @@
 							placeholder="제목을 입력하세요?">
 					</div>
 				</div>
+			
+				
 				<div class="form-group">
 					<label class="col-sm-2 control-label">내용</label>
 					<!-- 중첩 컬럼 사용 -->
 					<div class="col-sm-10">
 						<div class="row">
 							<div class="col-sm-8">
-								<textarea class="form-control" name="rvCtt" rows="5"
+							
+							
+								<textarea id="summernote" class="form-control summernote" name="rvCtt" rows="5"
 									placeholder="내용 입력하세요"></textarea>
+									
 									
 							</div>
 						</div>
 						
+							 
+							 
+							 
+							 
+							 
+						<select name="rvCategory1" id="category1">
+								<option value="">==지역 선택==</option>
+								<option value="서울" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</option>
+								<option value="인천" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'인천') }">selected</c:if>>인천</option>
+								<option value="경기" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'경기') }">selected</c:if>>경기</option>
+						</select>
+							 
+							 
+						<select name="rvCategory2" id="category2">
+								<option value="">==여행지 선택==</option>
+								<option value="산" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'산') }">selected</c:if>>산</option>
+								<option value="바다" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'바다') }">selected</c:if>>바다</option>
+								<option value="강" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'강') }">selected</c:if>>강</option>
+								<option value="유적지" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'유적지') }">selected</c:if>>유적지</option>
+								<option value="도심" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'도심') }">selected</c:if>>도심</option>
+								<option value="야경" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'야경') }">selected</c:if>>야경</option>
+						</select>
+							 
+							 
+							 
+							 
+							 
+							 
+							 
+							 
+						</div>
+
 					</div>
+						
+				  
 				</div>
 				
 				 
@@ -80,19 +140,27 @@
              <input type="file" name="file"/>
           -->
 
-	<input type="file" id="file"/>
-
+	<label for="gdsImg">이미지</label>
+	<input type="file" id="gdsImg" name="file"/>
+	<img src="" id="img" name="rvFile"/>
+<%=request.getRealPath("/") %>
+       
+        
 				<input type="hidden" name="rvLat"/>
 				<input type="hidden" name="rvLng"/>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="submit" class="btn btn-primary">등록</button>
+					
+					
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
-	</div>
+	
+
+	
 	<!-- 실제 내용 끝 -->
 	<!--  푸터 시작 -->
 	<jsp:include page="/WEB-INF/views/templates/Footer.jsp"/>
@@ -155,47 +223,72 @@
 	        });
         }
       
-        
-        
-        
-        
-        
-      //파일업로드 구현중
-	$(document).ready(function(){
-		$("#button").click(function(event){
-			console.log("찍히니?");
-			console.log("file")
-			event.preventDefault();
-			var form = $("#testForm");
-			var formData = new FormData(form);
-			formData.append("file", $("#file")[0].files[0]);
-			$.ajax({
-				url: 'Review/Write.do',
-				processData: false,
-				contentType: false,
-				data: formData,
-				type: 'POST',
-				success: function(data){
-					console.log(data);
+
+      
+      
+      //썸머노트 구현중
+
+	//여기 아래 부분
+	
+		
+		
+			$('#summernote').summernote({
+				height: 450,
+				fontNames : [ '맑은고딕', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', ],
+				fontNamesIgnoreCheck : [ '맑은고딕' ],
+				focus: true, 
+				
+				callbacks: {
+				onImageUpload: function(files, editor, welEditable) {
+				            for (var i = files.length - 1; i >= 0; i--) {
+				             sendFile(files[i], this);
+				            }
+				        }
 				}
+				
 			});
-		});
-	});
+		
+		
+	
+
+      
+      
+      
+      //이미지 업ㄹ로드 구현중
+      
+      /*ajax참고용
+      
+      $("#like").click(function(){
+            		$.ajax({
+            			url:"<c:url value="/Review/Like.do"/>",
+            			type:"post",
+            			data:{nickName, rvNo},
+            			dataType:"text",
+            			success:function(data){
+            				if(data==0){
+            					$("#like").attr("src","../images/review/fullH.png");
+            					$("#likecount").html(++likecount);
+            				}
+            				else{
+            					$("#like").attr("src","../images/review/beanH.png");
+            					$("#likecount").html(--likecount);
+            				}
+            			},
+            			error:function(){
+            				alert("로그인 후 이용해주세요.");
+            			}
+            		});
+            	});
+      
+      */
+      
 </script>
+
+        
+      
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-	</script>
+
 </body>
 </html>

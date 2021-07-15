@@ -14,10 +14,7 @@
    href="${pageContext.request.contextPath}/css/css.css">
 <link rel="stylesheet" type="text/css"
    href="${pageContext.request.contextPath}/css/NewPost.css">
-<link rel="stylesheet" type="text/css"
-   href="${pageContext.request.contextPath}/css/modalcss.css">
-<link rel="stylesheet" type="text/css"
-   href="${pageContext.request.contextPath}/css/languages.css">
+
 <link rel="stylesheet" type="text/css"
    href="${pageContext.request.contextPath}/css/common-member-pages.css">
 <link rel="stylesheet" type="text/css"
@@ -148,8 +145,6 @@ body {
                      리뷰/정보</a></li>
 
                <li><a href="<c:url value="/Stamp/MapSearch.do"/>">지도 검색</a></li>
-
-               <li><a href="<c:url value="/Stamp/guide.do"/>">가이드</a></li>
 
                <c:if test="${not empty sessionScope.id }" var="isLogin">
                   <!-- 프로필 사진 시작 -->
@@ -325,6 +320,9 @@ body {
             <li><a href="<c:url value="/Stamp/Test.do"/>">Test</a></li>
 
          </ul>
+         
+         
+         
       </div>
    </nav>
 
