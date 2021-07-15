@@ -79,4 +79,10 @@
 	</insert>
 	
 	
+	<select id="reviewMNG" resultType="reviewDTO">
+		select *
+		from review 
+		order by rvNo desc
+	</select>
+	
 </mapper>

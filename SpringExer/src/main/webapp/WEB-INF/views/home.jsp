@@ -8,6 +8,10 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- alert창 꾸미기 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
 <title>찍GO</title>
 <meta name="description"
 	content="Demo of the tutorial on how to re-create a similar effect of the takeitapp.co website." />

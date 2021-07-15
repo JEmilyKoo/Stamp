@@ -84,7 +84,7 @@
 		}else if(menu === "TagMNG"){
 			location.href = "<c:url value="/Admin/TagMNG.do?pageName=TagMNG"/>"
 		}else if(menu === "ReviewMNG"){
-			location.href = "<c:url value="/Admin/ReviewMNG.do?pageName=ReviewMNG"/>"
+			location.href = "<c:url value="/Review/ReviewMNG.do?pageName=ReviewMNG"/>"
 		}else  if(menu === "errorMNG"){
 			location.href = "<c:url value="/Admin/errorMNG.do?pageName=errorMNG"/>"
 		}
