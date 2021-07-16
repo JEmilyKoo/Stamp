@@ -36,7 +36,7 @@
 
 <body>
 
-	<jsp:include page="/WEB-INF/views/templates/TopTest.jsp" />
+	<jsp:include page="/WEB-INF/views/templates/TopTripBoard.jsp" />
 	<div class="TripBoardContainer">
 		<div style="padding-bottom: 30px">
 
