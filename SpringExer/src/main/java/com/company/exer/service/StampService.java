@@ -11,8 +11,8 @@ public interface StampService {
 	int stampCheckDelete(Map map);
 	int stampGet(Map map);
 	int stampCheckGet(Map map);
-	String stampRvno(Map map);
-	
+	String stampCheckRvNo(Map map);
+
 	//관리자페이지
 	List<StampDTO> showStampList();
 	int renewAdminStamp(Map map);
