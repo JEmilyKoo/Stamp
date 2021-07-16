@@ -101,7 +101,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach items="${dto }" var="item" varStatus="loop">
+											<c:forEach items="${dto.lists }" var="item" varStatus="loop">
 												<tr>
 													<th scope="row" class="col-md-1 text-center"><input type="checkbox" name="checkedStamp" value="${item.stNo }" onclick="checkSelectAll()"></th>
 													<td class="col-md-1 text-center">${item.stNo }</td>
@@ -116,6 +116,9 @@
 										</tbody>
 									</table>
 								</c:if>
+								<div>
+								 ${dto.pagingString }
+								</div>
 							</div>
 						</div>
 					</div>
