@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.company.exer.service.ProfileService;
 import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.StampDTO;
 import com.company.exer.service.StampService;
@@ -27,6 +28,10 @@ public class StampController {
 	@Resource(name = "stampService")
 	private StampService stampService;
 
+	//경험치를 얻기 위함
+	@Resource(name="profileService")
+	private ProfileService profileService;
+	
 	@RequestMapping("MapSearch.do")
 	public String stampCreate(Model model) {
 
@@ -38,7 +43,6 @@ public class StampController {
 
 	@RequestMapping("StampCheck.do")
 	public @ResponseBody int stampCheck(@RequestParam Map map, HttpSession session) {
-
 		if (session.getAttribute("nickName") != null) { // 로그인 되어 있을 경우
 			String nickName = session.getAttribute("nickName").toString();
 			map.put("nickName", nickName);
@@ -50,17 +54,16 @@ public class StampController {
 			}
 			if (Count >= 5) {// 30초 동안 스탬프 주변에 있을 경우 스탬프를 얻을 수 있따.
 				stampService.stampGet(map); // 멤버 스탬프에 등록
+				profileService.stampAchEP(map);
 				stampService.stampCheckDelete(map); // stampCheck insert한 내용 삭제
 				return 1;
 			}
 			return 2;
 		}
-
 		else {/// 로그인 안되어있다면 아무 일 없다.
 			System.out.println("로그인 안되어있음");
 			return 0;
 		}
-
 	}
 
 	// 관리자페이지용
