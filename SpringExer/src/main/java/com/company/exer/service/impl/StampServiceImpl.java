@@ -47,9 +47,10 @@ public class StampServiceImpl implements StampService {
 	}
 
 	@Override
-	public String stampRvno(Map map) {
-		return dao.stampRvno(map);
+	public String stampCheckRvNo(Map map) {
+		return dao.stampCheckRvNo(map);
 	}
+
 
 	//관리자페이지용
 	@Override
@@ -71,6 +72,7 @@ public class StampServiceImpl implements StampService {
 	public int deleteAdminStamp(Map map) {
 		return dao.deleteAdminStamp(map);
 	}
+
 
 
 
