@@ -111,9 +111,8 @@
 										<c:if test="${not isEmpty }">
 											<c:forEach items="${list }" var="item" varStatus="loop">
 												<tr>
-												<td class="text-left"><a
-														href="<c:url value="/Review/List.do?rvNo=${item.rvNo }"/>">
-													${item.rvNo}</a></td>
+												<td class="text-left">
+												<a href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo } </a></td>
 													<td>${item.nickName }</td>
 													<td>${item.rvLikeCnt }</td>
 													<td>${item.rvCategory1 },${item.rvCategory2 }</td>
