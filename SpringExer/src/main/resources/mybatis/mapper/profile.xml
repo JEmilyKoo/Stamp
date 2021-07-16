@@ -54,4 +54,32 @@
 		SELECT count(*) FROM PROFILE
 		WHERE NICKNAME = #{nickName}
 	</select>
+	
+	<!-- 글쓰기 경험치 -->
+	<update id="writeEP" parameterType="map">
+		UPDATE PROFILE
+		SET exp = exp + 10
+		WHERE NICKNAME = #{nickName}	
+	</update>
+	
+	<!-- 좋아요 경험치  -->
+	<update id="likeEP" parameterType="map">
+		UPDATE PROFILE
+		SET exp = exp + 5
+		WHERE NICKNAME = (SELECT NICKNAME FROM REVIEW WHERE rvNO = #{rvNo})	
+	</update>
+	
+	<!-- 스탬프 등록 경험치  -->
+	<update id="stampEP" parameterType="map">
+		UPDATE PROFILE
+		SET exp = exp + 20
+		WHERE NICKNAME = (SELECT NICKNAME FROM REVIEW WHERE rvNO = #{rvNo})
+	</update>
+	<!-- 스탬프 획득 경험치  -->
+	<update id="stampAchEP" parameterType="map">
+		UPDATE PROFILE
+		SET exp = exp + 20
+		WHERE NICKNAME = (SELECT NICKNAME FROM MEMBERSTAMP WHERE rvNO = #{rvNo} and nickName=#{nickName})
+	</update>
+	
 </mapper>

@@ -3,13 +3,16 @@ package com.company.exer.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.company.exer.service.MemberDTO;
 import com.company.exer.service.ProfileDTO;
+import com.company.exer.service.ProfileService;
 
 @Repository("profileDAO")
-public class ProfileDAO {
+public class ProfileDAO  {
 	
 	@Autowired
 	private SqlSessionTemplate sqlMapper;
@@ -42,5 +45,25 @@ public class ProfileDAO {
     public int NickNameCheck(ProfileDTO profileDTO)  throws Exception {
     	return sqlMapper.selectOne("sqlNickNameCheck",profileDTO);
 	}// 해당 닉네임의 프로필이 있는지 중복 여부 체크(1이라면 있다/ 0이라면 없다) NickNameCheck
+
+////글쓰기 경험치
+	public int writeEP(Map map) {
+		return sqlMapper.update("writeEP",map);
+	}
+
+///좋아요 경험치	
+	public int likeEP(Map map) {
+		return sqlMapper.update("likeEP",map);
+	}
+
+///스탬프 등록 경험치	
+	public int stampEP(Map map) {
+		return sqlMapper.update("stampEP",map);
+	}
+
+///스탬프 획득 경험치	
+	public int stampAchEP(Map map) {
+		return sqlMapper.update("stampAchEP",map);
+	}
     
 }

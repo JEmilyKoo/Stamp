@@ -103,7 +103,7 @@
 										<tbody>
 											<c:forEach items="${dto }" var="item" varStatus="loop">
 												<tr>
-													<th scope="row" class="col-md-1 text-center"><input type="checkbox" name="checkedStamp" value="${item.stNo }"></th>
+													<th scope="row" class="col-md-1 text-center"><input type="checkbox" name="checkedStamp" value="${item.stNo }" onclick="checkSelectAll()"></th>
 													<td class="col-md-1 text-center">${item.stNo }</td>
 													<td class="col-md-1 text-center">
 														<a id="" href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo } </a>
@@ -135,7 +135,24 @@
 			$("input[type=checkbox]").prop("checked", false);
 		}
 	});
-
+	
+	function checkSelectAll(){
+		/* querySelectorAll("선택자") : 주어진 선택자와 일치하는 모든요소 리스트형태로 반환(변수 지정하면 변수명[인덱스]로 접근하거나, 변수명.length 사용가능 )*/
+		const checkboxes = document.querySelectorAll("input[name ='checkedStamp']");
+		
+		const checked = document.querySelectorAll("input[name='checkedStamp']:checked");
+		
+		/* querySelector("선택자") : 주어진 선택자와 일치하는 요소 하나 반환*/
+		const selectAll = document.querySelector("input[id='selectAll']");
+		
+		/* 전체 박스 개수와 선택된 박스 개수 비교해서 checked속성 변경 */
+		if(checkboxes.length == checked.length){
+			selectAll.checked = true;
+		}else {
+			selectAll.checked = false;
+		}
+	}
+	
 	function selectBtn() {
 		if ($("select[name=selectFn]").val() === "renewFn") {
 			pushToArr();
