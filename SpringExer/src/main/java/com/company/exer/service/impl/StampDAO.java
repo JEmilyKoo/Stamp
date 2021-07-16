@@ -50,8 +50,13 @@ public class StampDAO{
 	}
 
 	//관리자페이지
-		public List<StampDTO> showStampList() {
-			return sqlMapper.selectList("showStampList");
+		public List<StampDTO> showStampList(Map map) {
+			return sqlMapper.selectList("showStampList",map);
+		}
+		
+		public int getStampCnt(Map map) {
+			
+			return sqlMapper.selectOne("getStampCnt",map);
 		}
 		
 		public int renewAdminStamp(Map map) {
