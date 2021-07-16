@@ -20,6 +20,7 @@ import com.company.exer.service.ProfileService;
 import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.StampDTO;
 import com.company.exer.service.StampService;
+import com.company.exer.utils.ListPagingData;
 
 @Controller
 @RequestMapping("/Stamp/")
@@ -70,11 +71,10 @@ public class StampController {
 
 	// 관리자페이지용
 	@RequestMapping("AdminStamp.do")
-	public String AdminStamp(Model model, HttpServletRequest req) {
+	public String AdminStamp(Model model, @RequestParam Map map, HttpServletRequest req, @RequestParam(required = false, defaultValue = "1") int nowPage) {
 		// 뷰정보 반환]
-		List<StampDTO> dto = stampService.showStampList();
+		ListPagingData<StampDTO> dto = stampService.showStampList(map,req, nowPage);
 		model.addAttribute("dto", dto);
-		System.out.println("pageName= " + req.getParameter("pageName"));
 
 		return "/admin/AdminStamp";
 	}/////////////////// Test()
