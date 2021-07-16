@@ -45,11 +45,9 @@ public class StampDAO{
 		return sqlMapper.selectOne("stampCheckGet",map);
 	}
 
-
-	public String stampRvno(Map map) {
-		return sqlMapper.selectOne("stampRvno",map);
+	public String stampCheckRvNo(Map map) {
+		return sqlMapper.selectOne("stampCheckRvNo", map);
 	}
-
 
 	//관리자페이지
 		public List<StampDTO> showStampList() {

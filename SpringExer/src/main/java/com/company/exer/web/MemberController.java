@@ -3,6 +3,7 @@ package com.company.exer.web;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,7 @@ import com.company.exer.service.MemberDTO;
 import com.company.exer.service.MemberService;
 import com.company.exer.service.ProfileDTO;
 import com.company.exer.service.ProfileService;
+import com.company.exer.service.StampService;
 
 @Controller
 @RequestMapping("/Member/")
@@ -28,6 +30,10 @@ public class MemberController {
 	MemberService service;
 	@Inject // 자동 주입
 	ProfileService profileservice;
+	
+	//로그아웃 하면 임시 스탬프 테이블 다 삭제위함
+	@Resource(name = "stampService")
+	private StampService stampService;
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 		
@@ -139,7 +145,10 @@ public class MemberController {
 
 	// 로그아웃시 세션 초기화후 로그인 화면 리다이렉트
 	@RequestMapping(value = "Logout.do")
-	public String logout(HttpSession session) {
+	public String logout(@RequestParam Map map, HttpSession session) {
+		String nickName = session.getAttribute("nickName").toString();
+		map.put("nickName", nickName);
+		stampService.stampCheckDelete(map); // stampCheck insert한 내용 삭제
 		session.invalidate();
 		return "home";
 	}
