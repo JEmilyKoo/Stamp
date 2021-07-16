@@ -34,19 +34,24 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
   <body class="h-100">
+  
+  <jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp"/>
+  
+        <jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp"/>
+<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
     <div class="color-switcher-toggle animated pulse infinite">
       <i class="material-icons">settings</i>
     </div>
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
-        <jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp"/>
         <!-- End Main Sidebar -->
-        <jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp"/>
           <!-- / .main-navbar -->
-          <%-- <div class="main-content-container container-fluid px-4">
+          
+          
+          <div class="main-content-container container-fluid px-4">
             <!-- Page Header -->
-            <div class="page-header row no-gutters py-4">
+          <%--   <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">Dashboard</span>
                 <h3 class="page-title">Blog Overview</h3>
@@ -380,11 +385,11 @@
               <!-- End Top Referrals Component -->
             </div>
            --%></div>
+      </div>
+    </div>
           <!-- footer -->
           <jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp"/>
         </main>
-      </div>
-    </div>
     
   </body>
 </html>

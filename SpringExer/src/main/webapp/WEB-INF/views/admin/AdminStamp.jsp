@@ -36,18 +36,23 @@
 	margin-right: 2px;
 }
 </style>
-<body class="h-100">
-	<div class="color-switcher-toggle animated pulse infinite">
-		<i class="material-icons">settings</i>
-	</div>
-	<div class="container-fluid">
-		<div class="row">
-			<!-- Main Sidebar -->
-			<jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp" />
-			<!-- End Main Sidebar -->
-			<jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp" />
-			<!-- / .main-navbar -->
-			<div class="main-content-container container-fluid px-4">
+ <body class="h-100">
+  
+  <jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp"/>
+  
+        <jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp"/>
+<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <div class="color-switcher-toggle animated pulse infinite">
+      <i class="material-icons">settings</i>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Sidebar -->
+        <!-- End Main Sidebar -->
+          <!-- / .main-navbar -->
+          
+          
+          <div class="main-content-container container-fluid px-4">
 				<!-- Page Header -->
 				<div class="page-header row no-gutters py-4">
 					<div class="col-12 col-sm-4 text-center text-sm-left mb-0">
@@ -65,10 +70,10 @@
 										<tr>
 											<th class="col-md-1 text-center"><input type="checkbox"></th>
 											<th class="col-md-1 text-center">스탬프번호</th>
-											<th class="col-md-1 text-center">리뷰글번호</th>
-											<th class="col-md-4 text-center">스탬프 등록일</th>
-											<th class="col-md-4 text-center">스탬프 만료예정일</th>
-											<th class="col-md-1 text-center">만료 유무</th>
+											<th class="col-md-2 text-center">리뷰글번호</th>
+											<th class="col-md-3 text-center">스탬프 등록일</th>
+											<th class="col-md-3 text-center">스탬프 만료예정일</th>
+											<th class="col-md-2 text-center">만료 유무</th>
 										</tr>
 									</table>
 									<table class="table table-hover table-bordered table-condensed text-center">
@@ -94,10 +99,10 @@
 											<tr>
 												<th class="col-md-1 text-center"><input type="checkbox" id="selectAll"></th>
 												<th class="col-md-1 text-center">스탬프번호</th>
-												<th class="col-md-1 text-center">리뷰글번호</th>
-												<th class="col-md-4 text-center">스탬프 등록일</th>
-												<th class="col-md-4 text-center">스탬프 만료예정일</th>
-												<th class="col-md-1 text-center">만료 유무</th>
+												<th class="col-md-2 text-center">리뷰글번호</th>
+												<th class="col-md-3 text-center">스탬프 등록일</th>
+												<th class="col-md-3 text-center">스탬프 만료예정일</th>
+												<th class="col-md-2 text-center">만료 유무</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -105,12 +110,12 @@
 												<tr>
 													<th scope="row" class="col-md-1 text-center"><input type="checkbox" name="checkedStamp" value="${item.stNo }" onclick="checkSelectAll()"></th>
 													<td class="col-md-1 text-center">${item.stNo }</td>
-													<td class="col-md-1 text-center">
+													<td class="col-md-2 text-center">
 														<a id="" href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo } </a>
 													</td>
-													<td class="col-md-4 text-center">${item.stDate }</td>
-													<td class="col-md-4 text-center">${item.stExpiredDate }</td>
-													<td class="col-md-1 text-center">${item.stIsExpired }</td>
+													<td class="col-md-3 text-center">${item.stDate }</td>
+													<td class="col-md-3 text-center">${item.stExpiredDate }</td>
+													<td class="col-md-2 text-center">${item.stIsExpired }</td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -127,8 +132,9 @@
 			<!-- End Top Referrals Component -->
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp" />
-</body>
+	<jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp" /></main>
+	
+	
 <script>
 	var selectedArr = [];
 	$('#selectAll').click(function() {
@@ -215,4 +221,7 @@
 		})
 	}
 </script>
+
+
+</body>
 </html>

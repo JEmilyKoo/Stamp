@@ -24,7 +24,7 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="<c:url value="/resources/styles/shards-dashboards.1.1.0.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/resources/styles/extras.1.1.0.min.css"/>">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-<aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+<aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0" style="z-index:14;">
 	<form action="#"
 		class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
 		<div class="input-group input-group-seamless ml-3">

@@ -43,17 +43,22 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body class="h-100">
-	<div class="color-switcher-toggle animated pulse infinite">
-		<i class="material-icons">settings</i>
-	</div>
-	<div class="container-fluid">
-		<div class="row">
-			<!-- Main Sidebar -->
-			<jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp" />
-			<!-- End Main Sidebar -->
-			<jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp" />
-			<!-- / .main-navbar -->
-			<div class="main-content-container container-fluid px-4">
+  
+  <jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp"/>
+  
+        <jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp"/>
+<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <div class="color-switcher-toggle animated pulse infinite">
+      <i class="material-icons">settings</i>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Sidebar -->
+        <!-- End Main Sidebar -->
+          <!-- / .main-navbar -->
+          
+          
+          <div class="main-content-container container-fluid px-4">
 				<!-- Page Header -->
 				<div class="page-header row no-gutters py-4">
 					<div class="col-12 col-sm-4 text-center text-sm-left mb-0">
@@ -62,17 +67,8 @@
 					</div>
 				</div>
 
-
 				<!-- End Page Header -->
 				<div class="row">
-
-
-
-
-
-
-
-
 
 
 					<!-- 예시 만들기 -->
@@ -124,28 +120,27 @@
 										<table
 											class="table table-bordered table-hover table-condensed text-center">
 
-											<tr>
-												<th class="col-md-1 text-center">번호</th>
-												<th class="col-md-1 text-center">닉네임</th>
-												<th class="col-md-1 text-center">좋아요</th>
-												<th class="col-md-1 text-center">태그</th>
-												<th class="col-md-1 text-center">작성일</th>
-											</tr>
-
-
-
 											<tbody>
-												<tr>
-													<td class="text-left"><a
-														href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo }
-													</a></td>
-													<td>${item.nickName }</td>
-													<td>${item.rvLikeCnt }</td>
-													<td>${item.rvCategory1 },${item.rvCategory2 }</td>
+											<tr>
+												<th class="col-md-6 text-center">번호</th>
+												<td class="text-left"><a
+													href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo }
+												</a></td>
+
+											</tr>
+											<tr>
+												<th class="col-md-6 text-center">닉네임</th>
+												<td>${item.nickName }</td></tr>
+<tr><th class="col-md-6 text-center">좋아요</th><td>${item.rvLikeCnt }</td></tr>
+											<tr> <th class="col-md-6 text-center">태그</th>
+													<td>${item.rvCategory1 },${item.rvCategory2 }</td></tr>
+											<tr>
+											
+											
+											<th class="col-md-6 text-center">작성일</th>
 													<td>${item.rvDate }</td>
-
-												</tr>
-
+											</tr>
+								
 											</tbody>
 										</table>
 									</div>
@@ -155,10 +150,6 @@
 
 						</c:forEach>
 					</c:if>
-
-
-
-
 
 
 					<div class="row">
@@ -188,18 +179,8 @@
 									<span class="text-muted">29 February 2019</span>
 								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-
-
-
-
-
-
-				<jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp" />
-				</main>
+						</div></div></div></div>
 			</div>
-		</div>
+		</div></main>
 </body>
 </html>
