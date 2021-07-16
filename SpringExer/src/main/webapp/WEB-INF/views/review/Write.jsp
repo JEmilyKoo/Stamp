@@ -189,7 +189,8 @@ body {
 					
 					<div class="w3-white categoryDropDown">
 					<h3 class="   w3-blue categoryDropDown  " style="padding:10px">지역</h3>
-						<a href="#" class="w3-bar-item w3-button w3-hover-blue">서울</a> <a
+						<div  value="서울" name="rvCategory1" class="w3-bar-item w3-button w3-hover-blue"<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</div> 
+						<a
 							href="#" class="w3-bar-item w3-button w3-hover-blue">인천</a> <a
 							href="#" class="w3-bar-item w3-button w3-hover-blue">경기</a> 
 					</div>
