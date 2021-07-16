@@ -12,12 +12,17 @@
 	
 	<insert id="stampCheck" parameterType="Map">
 		insert into stampcheck(nickname,rvno,distance)
-		SELECT *
-        from (select #{nickName},rvno, CALC_DISTANCE(#{lat},#{lng}, rvlat, rvlng) DISTANCE from review r join profile p on r.nickname=p.nickname)
-
-
-		where DISTANCE <![CDATA[ < ]]> 3
+			SELECT *
+	        from (select #{nickName},rvno, CALC_DISTANCE(#{lat},#{lng}, rvlat, rvlng) DISTANCE from review r join profile p on r.nickname=p.nickname)
+			where DISTANCE <![CDATA[ < ]]> 3 
 	</insert>
+	
+		
+	<select id="stampCheckRvNo" parameterType="Map" resultType="String">
+		select distinct rvNo
+		from stampcheck
+		where nickName=#{nickName}
+	</select>
 
 	<select id="stampCheckCount" parameterType="Map" resultType="Int">
 		select count(*)
@@ -25,11 +30,7 @@
 		where nickName=#{nickName}
 	</select>
 	
-	<select id="stampRvno" parameterType="Map" resultType="String">
-		select distinct rvno
-		from stampcheck
-		where nickName=#{nickName}
-	</select>
+
 	
 	<delete id="stampCheckDelete" parameterType="Map">
 		delete stampcheck
@@ -50,6 +51,7 @@
 											from stampcheck
 											where nickName = #{nickName})
 	</select>
+
 	
 	
 	<!-- 관리자페이지용 -->

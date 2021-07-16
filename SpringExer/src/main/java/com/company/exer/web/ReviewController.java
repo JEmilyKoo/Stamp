@@ -187,16 +187,22 @@ public class ReviewController {
 	
 	//글 작성페이지
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
-	public String Write(Model model,@RequestParam Map map,@ModelAttribute("nickName") String nickName) {
+	public String Write(Model model,@RequestParam Map map,@ModelAttribute("nickName") String nickName,HttpServletResponse response) throws IOException {
 		
-		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+
+	      out.println("<script language='javascript'>");
+	      out.println("alert('축하드립니다.\r\n 경험치 10 획득했습니다. ');");
+	      out.println("</script>");
+	      out.flush();
 		return "review/Write";
 	}
 	
 	//글 작성
 	@RequestMapping(value="Write.do",method = RequestMethod.POST)
 	public String WriteOk(@RequestParam Map map,
-			@ModelAttribute("nickName") String nickName,Model model) {
+			@ModelAttribute("nickName") String nickName,Model model,HttpServletResponse response) throws IOException {
 
 		System.out.println(map.get("rvCategory1"));
 		System.out.println(map.get("rvCategory2"));
@@ -206,6 +212,13 @@ public class ReviewController {
 		
 		//글쓰기 경험치 얻기
 		profileService.writeEP(map);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+
+	      out.println("<script language='javascript'>");
+	      out.println("alert('축하드립니다.\r\n 경험치 10 획득했습니다. ');");
+	      out.println("</script>");
+	      out.flush();
 		return "forward:/Review/TripBoard.do";
 	}
 	
