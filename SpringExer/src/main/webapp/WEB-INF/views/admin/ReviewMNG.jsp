@@ -70,7 +70,10 @@
 				<!-- End Page Header -->
 				<div class="row">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 					<!-- 예시 만들기 -->
 
 
@@ -107,19 +110,31 @@
 
 										<h5 class="card-title">
 											<th class="text-center"><a class="text-fiord-blue"
-												href="<c:url value="/Review/TripBoard.do?rvNo=${item.rvNo }"/>">제목
+												href="<c:url value="/Review/TripBoard.do?rvNo=${item.rvNo }"/>">
 													${item.rvTitle }</a></th>
 										</h5>
 
 										<h5 class="card-title">
 											<th class="text-center"><a class="text-fiord-blue"
-												href="#">내용</a></th>
+												href="<c:url value="/Review/TripBoard.do?rvNo=${item.rvNo }"/>">
+													${item.rvCtt }</a></th>
 										</h5>
 
 
 										<table
 											class="table table-bordered table-hover table-condensed text-center">
 
+<<<<<<< HEAD
+=======
+											<tr>
+												<th class="col-md-1 text-center">번호</th>
+												<th class="col-md-1 text-center">닉네임</th>
+												<th class="col-md-1 text-center">좋아요</th>
+												<th class="col-md-1 text-center">태그</th>
+												<th class="col-md-1 text-center">작성일</th>
+											</tr>
+
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 											<tbody>
 											<tr>
 												<th class="col-md-6 text-center">번호</th>
@@ -139,8 +154,16 @@
 											
 											<th class="col-md-6 text-center">작성일</th>
 													<td>${item.rvDate }</td>
+<<<<<<< HEAD
 											</tr>
 								
+=======
+												</tr>
+											</tbody>
+
+											</tr>
+
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 											</tbody>
 										</table>
 									</div>
@@ -152,9 +175,14 @@
 					</c:if>
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 					<div class="row">
 						<div class="col-lg-6 col-sm-12 mb-4">
-
 							<div
 								class="card card-small card-post card-post--aside card-post--1">
 								<div class="card-post__image"
