@@ -128,16 +128,6 @@ body {
 	}
 }
 
-.fontTitle {
-	font: 700 22px/22px 'Noto Sans KR', sans-serif !important;
-	color: DodgerBlue !important;
-}
-
-.fontSub {
-	font: 300 15px/1.875em 'Noto Sans KR', sans-serif !important;
-	text-align: left;
-	line-height: 1.875em;
-}
 </style>
 
 <script>

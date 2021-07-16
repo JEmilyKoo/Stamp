@@ -66,50 +66,75 @@
 				<!-- End Page Header -->
 				<div class="row">
 
+
+
+
+
+
+
+
+
+
 					<!-- 예시 만들기 -->
-					<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-						<div class="card card-small card-post card-post--1">
-							<div class="card-post__image"
-								style="background-image: url('images/content-management/1.jpeg');">
-								<a href="#"
-									class="card-post__category badge badge-pill badge-dark">이미지</a>
-								<div class="card-post__author d-flex">
-									<a href="#"
-										class="card-post__author-avatar card-post__author-avatar--small"
-										style="background-image: url('images/avatars/0.jpg');">Written
-										by Anna Kunis</a>
-								</div>
-							</div>
-							<div class="card-body">
-								<h5 class="card-title">
-									<th class="text-center"><a class="text-fiord-blue"
-										href="<c:url value="/Review/TripBoard.do?reNo=${item.reNo }"/>">제목</a></th>
-								</h5>
-								<h5 class="card-title">
-									<th class="text-center"><a class="text-fiord-blue"
-										href="#">내용</a></th>
-								</h5>
-								<table
-									class="table table-bordered table-hover table-condensed text-center">
-									<!-- 테이블 컬럼폭은 col-*-*계열로 설정 -->
-									<tr>
-										<th class="col-md-1 text-center">번호</th>
-										<th class="col-md-1 text-center">닉네임</th>
-										<th class="col-md-1 text-center">좋아요</th>
-										<th class="col-md-1 text-center">태그</th>
-										<th class="col-md-1 text-center">작성일</th>
-									</tr>
-									<!-- 
+
+
+					<!-- 테이블 컬럼폭은 col-*-*계열로 설정 -->
+
+					<!-- 
 						<tr>
 							<td colspan="4">등록된 게시물이 없어요</td>
 						</tr>
 					 -->
-									<tbody>
-										<c:if test="${empty list }" var="isEmpty">
-											<th colspan="12">게시글이 없어요</th>
-										</c:if>
-										<c:if test="${not isEmpty }">
-											<c:forEach items="${list }" var="item" varStatus="loop">
+					<c:if test="${empty list }" var="isEmpty">
+						<th colspan="12">게시글이 없어요</th>
+					</c:if>
+					<c:if test="${not isEmpty }">
+
+						<c:forEach items="${list }" var="item" varStatus="loop">
+
+							<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+								<div class="card card-small card-post card-post--1">
+
+									<div class="card-post__image"
+										style="background-image: url('images/content-management/1.jpeg');">
+										<a href="#"
+											class="card-post__category badge badge-pill badge-dark">이미지</a>
+										<div class="card-post__author d-flex">
+											<a href="#"
+												class="card-post__author-avatar card-post__author-avatar--small"
+												style="background-image: url('images/avatars/0.jpg');">Written
+												by Anna Kunis</a>
+										</div>
+									</div>
+
+									<div class="card-body">
+
+										<h5 class="card-title">
+											<th class="text-center"><a class="text-fiord-blue"
+												href="<c:url value="/Review/TripBoard.do?rvNo=${item.rvNo }"/>">제목
+													${item.rvTitle }</a></th>
+										</h5>
+
+										<h5 class="card-title">
+											<th class="text-center"><a class="text-fiord-blue"
+												href="#">내용</a></th>
+										</h5>
+
+
+										<table
+											class="table table-bordered table-hover table-condensed text-center">
+
+											<tr>
+												<th class="col-md-1 text-center">번호</th>
+												<th class="col-md-1 text-center">닉네임</th>
+												<th class="col-md-1 text-center">좋아요</th>
+												<th class="col-md-1 text-center">태그</th>
+												<th class="col-md-1 text-center">작성일</th>
+											</tr>
+
+
+
+											<tbody>
 												<tr>
 													<td class="text-left"><a
 														href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo }
@@ -118,15 +143,29 @@
 													<td>${item.rvLikeCnt }</td>
 													<td>${item.rvCategory1 },${item.rvCategory2 }</td>
 													<td>${item.rvDate }</td>
+<<<<<<< HEAD
 												</tr>
 											</c:forEach>
 										</c:if>
 									</tbody>
+=======
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 
-								</table>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+
+								</div>
 							</div>
-						</div>
-					</div>
+
+						</c:forEach>
+					</c:if>
+
+
+
+
 
 					<div class="row">
 						<div class="col-lg-6 col-sm-12 mb-4">

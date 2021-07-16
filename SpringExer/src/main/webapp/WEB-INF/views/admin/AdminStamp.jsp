@@ -152,9 +152,12 @@
 </body>
 <script>
 	var selectedArr = [];
+	var nowPage = ${dto.nowPage};
+	
 	$('#selectAll').click(function() {
 		if ($("input:checkbox[id='selectAll']").prop("checked")) {
 			$("input[type=checkbox]").prop("checked", true);
+			console.log(nowPage);
 		} else {
 			$("input[type=checkbox]").prop("checked", false);
 		}
@@ -189,7 +192,7 @@
 				},
 				success : function(data) {
 					console.log("성공");
-					location.href = "<c:url value="/Stamp/AdminStamp.do?pageName=AdminStamp"/>";
+					location.href = "<c:url value='/Stamp/AdminStamp.do?pageName=AdminStamp&nowPage="+nowPage+"'/>";
 				}
 
 				
@@ -205,7 +208,7 @@
 				},
 				success : function(data) {
 					console.log("성공");
-					location.href = "<c:url value="/Stamp/AdminStamp.do?pageName=AdminStamp"/>";
+					location.href = "<c:url value='/Stamp/AdminStamp.do?pageName=AdminStamp&nowPage="+nowPage+"'/>";
 				}
 
 				
@@ -221,7 +224,7 @@
 				},
 				success : function(data) {
 					console.log("성공");
-					location.href = "<c:url value="/Stamp/AdminStamp.do?pageName=AdminStamp"/>";
+					location.href = "<c:url value='/Stamp/AdminStamp.do?pageName=AdminStamp&nowPage="+nowPage+"'/>";
 				}
 
 				
