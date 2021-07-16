@@ -193,7 +193,7 @@ public class ReviewController {
 		PrintWriter out = response.getWriter();
 
 	      out.println("<script language='javascript'>");
-	      out.println("alert('축하드립니다.\r\n 경험치 10 획득했습니다. ');");
+	      out.println("alert('축하드립니다!!. 경험치 10 획득했습니다. ');");
 	      out.println("</script>");
 	      out.flush();
 		return "review/Write";
