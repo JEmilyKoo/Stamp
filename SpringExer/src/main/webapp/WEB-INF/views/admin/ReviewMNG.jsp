@@ -111,13 +111,13 @@
 										<c:if test="${not isEmpty }">
 											<c:forEach items="${list }" var="item" varStatus="loop">
 												<tr>
-												<td class="text-left">
-												<a href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo } </a></td>
+													<td class="text-left"><a
+														href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo }
+													</a></td>
 													<td>${item.nickName }</td>
 													<td>${item.rvLikeCnt }</td>
 													<td>${item.rvCategory1 },${item.rvCategory2 }</td>
 													<td>${item.rvDate }</td>
-													
 												</tr>
 											</c:forEach>
 										</c:if>
@@ -128,10 +128,8 @@
 						</div>
 					</div>
 
-
 					<div class="row">
 						<div class="col-lg-6 col-sm-12 mb-4">
-
 							<div
 								class="card card-small card-post card-post--aside card-post--1">
 								<div class="card-post__image"
