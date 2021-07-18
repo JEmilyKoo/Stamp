@@ -65,6 +65,7 @@ public class StampController {
 
 		return "/admin/AdminStamp";
 	}/////////////////// Test()
+	
 
 	@RequestMapping("renewAdminStamp.do")
 	public @ResponseBody String extendAdminStamp(@RequestParam Map map, HttpServletRequest req) {
