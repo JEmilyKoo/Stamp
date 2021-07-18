@@ -7,6 +7,8 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>관리자 페이지</title>
+
+<!-- 필요 스크립트 -->
 <meta name="description"
 	content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
 <meta name="viewport"
@@ -48,11 +50,11 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row">
-			<!-- Main Sidebar -->
+			<!-- Left -->
 			<jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp" />
-			<!-- End Main Sidebar -->
+			<!-- Top -->
 			<jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp" />
-			<!-- / .main-navbar -->
+
 			<div class="main-content-container container-fluid px-4">
 				<!-- Page Header -->
 				<div class="page-header row no-gutters py-4">
@@ -63,59 +65,8 @@
 				</div>
 
 
-				<!-- End Page Header -->
+				<!-- 회원정보 불러오기 -->
 				<div class="row">
-
-					<!-- 예시 만들기 -->
-
-					<tbody>
-						<c:if test="${empty dto }" var="isEmpty">
-							<tr class="row">
-								<th colspan="12">회원정보가 없어요</th>
-							</tr>
-						</c:if>
-						<c:if test="${not isEmpty }">
-							<c:forEach items="${dto }" var="item" varStatus="loop">
-								<tr>
-									<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-										<div class="card card-small card-post card-post--1">
-
-											<div class="card-body">
-												<td class="col-md-2 text-center">프로필 이미지${item.prfImage }</td>
-												<br>
-												<th scope="row" class="col-md-2 text-center">아이디:${item.id }</th>
-												<br>
-												<!--  누르면 프로필 페이지 보기?
-							<td class="col-md-2 text-center"><a id=""
-								href="<c:url value="/MemberMNG?rvid=${item.id }"/>">${item.id }
-							</a></td> 
-							 -->
-												<td class="col-md-2 text-center">닉네임:${item.nickName }</td>
-												<br>
-												<td class="col-md-2 text-center">이메일:${item.mail }</td>
-												<br>
-												<td class="col-md-1 text-center">성별:${item.gender }</td>
-												<br>
-												<td class="col-md-2 text-center">생일:${item.birth }</td>
-												<br>
-												<td class="col-md-2 text-center">전환번호:${item.phone }</td>
-												<br>
-												<td class="col-md-1 text-center">여행성향:${item.trvprpns }</td>
-												<td class="col-md-1 text-center"><a
-													href="<c:url value="/Member/deleteAdminMember.do?id=${item.id }"/>"><button>삭제</button></a>
-												</td>
-											</div>
-										</div>
-									</div>
-								</tr>
-							</c:forEach>
-						</c:if>
-					</tbody>
-
-					<!--  --------------------------------------------------------------------------------------------------------- -->
-
-
-
 					<table
 						class="table table-hover table-bordered table-condensed text-center">
 						<thead>
@@ -141,12 +92,8 @@
 								<c:forEach items="${dto }" var="item" varStatus="loop">
 									<tr>
 										<td class="col-md-2 text-center">${item.prfImage }</td>
-										<th scope="row" class="col-md-2 text-center">${item.id }</th>
-										<!--  누르면 프로필 페이지 보기?
-							<td class="col-md-2 text-center"><a id=""
-								href="<c:url value="/MemberMNG?rvid=${item.id }"/>">${item.id }
-							</a></td> 
-							 -->
+										<!-- 누르면 프로필 페이지 이동 -->
+										<th scope="row" class="col-md-2 text-center"><a href="<c:url value="/Profile/Main.do?nickName=${item.nickName }"/>">${item.id }</a></th>
 										<td class="col-md-2 text-center">${item.nickName }</td>
 										<td class="col-md-2 text-center">${item.mail }</td>
 										<td class="col-md-1 text-center">${item.gender }</td>
@@ -155,16 +102,14 @@
 										<td class="col-md-1 text-center">${item.trvprpns }</td>
 										<td class="col-md-1 text-center"><a
 											href="<c:url value="/Member/deleteAdminMember.do?id=${item.id }"/>"><button>삭제</button></a>
-
 										</td>
 									</tr>
 								</c:forEach>
 							</c:if>
 						</tbody>
-
 					</table>
-
 				</div>
+				
 				<jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp" />
 			</div>
 		</div>
