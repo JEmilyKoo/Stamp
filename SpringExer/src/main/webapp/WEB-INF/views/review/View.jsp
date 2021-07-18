@@ -94,6 +94,8 @@
 						<li><a href="<c:url value='/Review/Delete.do?rvNo=${dto.rvNo}'/>" class="btn btn-success">삭제</a></li>
 					</c:if>
 						<li><a href="<c:url value='/Review/List.do'/>" class="btn btn-success">목록</a></li> 
+						<li><a href="<c:url value='/Review/List.do'/>" class="btn btn-success">신고하기</a></li> 
+						
 				</ul>
 			</div>
 		</div>	​
