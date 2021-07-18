@@ -13,7 +13,9 @@
 	<insert id="stampCheck" parameterType="Map">
 		insert into stampcheck(nickname,rvno,distance)
 			SELECT *
-	        from (select #{nickName},rvno, CALC_DISTANCE(#{lat},#{lng}, rvlat, rvlng) DISTANCE from review r join profile p on r.nickname=p.nickname)
+	        from (select #{nickName},r.rvno, CALC_DISTANCE(#{lat},#{lng}, rvlat, rvlng) DISTANCE 
+	        					from review r JOIN stamp s ON r.rvNo=s.rvNo
+	        					where s.stisexpired=1)
 			where DISTANCE <![CDATA[ < ]]> 3 
 	</insert>
 	
@@ -33,7 +35,7 @@
 
 	
 	<delete id="stampCheckDelete" parameterType="Map">
-		delete stampcheck
+		delete from stampcheck
 		where nickName=#{nickName}
 	</delete>
 	
