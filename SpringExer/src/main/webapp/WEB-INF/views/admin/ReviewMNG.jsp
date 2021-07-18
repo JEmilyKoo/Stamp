@@ -66,15 +66,6 @@
 				<!-- End Page Header -->
 				<div class="row">
 
-
-
-
-
-
-
-
-
-
 					<!-- 예시 만들기 -->
 
 
@@ -111,13 +102,14 @@
 
 										<h5 class="card-title">
 											<th class="text-center"><a class="text-fiord-blue"
-												href="<c:url value="/Review/TripBoard.do?rvNo=${item.rvNo }"/>">제목
+												href="<c:url value="/Review/TripBoard.do?rvNo=${item.rvNo }"/>">
 													${item.rvTitle }</a></th>
 										</h5>
 
 										<h5 class="card-title">
 											<th class="text-center"><a class="text-fiord-blue"
-												href="#">내용</a></th>
+												href="<c:url value="/Review/TripBoard.do?rvNo=${item.rvNo }"/>">
+													${item.rvCtt }</a></th>
 										</h5>
 
 
@@ -132,8 +124,6 @@
 												<th class="col-md-1 text-center">작성일</th>
 											</tr>
 
-
-
 											<tbody>
 												<tr>
 													<td class="text-left"><a
@@ -143,8 +133,10 @@
 													<td>${item.rvLikeCnt }</td>
 													<td>${item.rvCategory1 },${item.rvCategory2 }</td>
 													<td>${item.rvDate }</td>
-
 												</tr>
+											</tbody>
+
+											</tr>
 
 											</tbody>
 										</table>
@@ -160,10 +152,8 @@
 
 
 
-
 					<div class="row">
 						<div class="col-lg-6 col-sm-12 mb-4">
-
 							<div
 								class="card card-small card-post card-post--aside card-post--1">
 								<div class="card-post__image"
