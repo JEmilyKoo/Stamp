@@ -387,17 +387,13 @@ body {
 							</button>
 
 
-
-
-
 						</li>
 
-
-
+	
 						<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
 						<li>
 							<div
-								class="_3SBFF undefined LTwPD sameS w3-button w3-blue w3-border-white  w3-round-large "
+								class=" w3-button w3-blue w3-border-white  w3-round-large "
 								style="max-width: 140px;">
 								<a id=tripBoardCreateButton
 									href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">

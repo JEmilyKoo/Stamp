@@ -169,7 +169,7 @@ body {
 					style="display: none; z-index: 5" id="mySidebar">
 
 					<button class="w3-bar-item w3-button w3-xlarge categoryDropDown"
-						onclick="w3_close()">카테고리 &times;</button>
+						onclick="w3_close()">지역 &times;</button>
 
 
 
@@ -354,16 +354,13 @@ body {
 					</span></li>
 					<li onclick="w3_open()"><a href="#">
 
-							<button
-								class="w3-button w3-white w3-border w3-border-blue w3-round-large">카테고리
-								선택</button>
+						<button
+						class="w3-button w3-white w3-border w3-border-blue w3-round-large">카테고리
+						선택</button>
 
-
-
-					</a></li>
+					</a>
+					</li>
 				</ul>
-
-				<!--  프로필 그거 그대로 퍼옴 -->
 
 				<!-- 프로필 그거 그대로 퍼옴 -->
 				<form class="form-inline navbar-trip" method="post"
@@ -413,7 +410,7 @@ body {
 									<button id=tripBoardCreateButton
 										class="w3-button w3-blue w3-border-white  w3-round-large"
 										aria-label="게시물 작성하기" aria-haspopup="true"
-										aria-expanded="false">리뷰 작성</button>
+										aria-expanded="false">등록하기</button>
 
 								</div>
 						</a></li>
@@ -685,9 +682,6 @@ body {
 		
 		 */
 	</script>
-
-
-
 
 
 	<script>
