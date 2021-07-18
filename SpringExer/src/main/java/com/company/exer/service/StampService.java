@@ -25,7 +25,7 @@ public interface StampService {
 	//관리자페이지
 	ListPagingData<StampDTO> showStampList(Map map,HttpServletRequest req,int nowPage);
 	int getStampCnt(Map map);
-	int renewAdminStamp(Map map);
-	int expireAdminStamp(Map map);
-	int deleteAdminStamp(Map map);
+	int renewStampMNG(Map map);
+	int expireStampMNG(Map map);
+	int deleteStampMNG(Map map);
 }
