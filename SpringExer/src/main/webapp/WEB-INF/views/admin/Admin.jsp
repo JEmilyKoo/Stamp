@@ -34,21 +34,16 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
   <body class="h-100">
-  
-  <jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp"/>
-  
-        <jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp"/>
-<main class="main-content col-lg-9 col-md-8 col-sm-12 p-0 offset-lg-3 offset-md-4" >
     <div class="color-switcher-toggle animated pulse infinite">
       <i class="material-icons">settings</i>
     </div>
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
+        <jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp"/>
         <!-- End Main Sidebar -->
+        <jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp"/>
           <!-- / .main-navbar -->
-          
-          
           <div class="main-content-container container-fluid px-4">
             <!-- Page Header -->
             <div class="page-header row no-gutters py-4">
@@ -391,9 +386,8 @@
           </div> 
           <!-- footer -->
           <jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp"/>
-        
+        </main>
       </div>
     </div>
-    </main>
   </body>
 </html>
