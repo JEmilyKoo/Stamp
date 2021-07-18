@@ -46,7 +46,7 @@
 	justify-content:center;
 }
 .pagination li{
-	pad
+	padding-right:5px;
 }
 </style>
 <body class="h-100">
