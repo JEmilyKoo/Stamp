@@ -151,6 +151,11 @@ body {
 
 </head>
 <body>
+<form id="testForm" class="form-horizontal"
+					enctype="multipart/form-data" method="post"
+					action="<c:url value='/Review/Write.do'/>">
+				
+	
 	<nav class="navbar navbar-default navbar-fixed-top "
 		style="width: 100%">
 		<div>
@@ -363,51 +368,18 @@ body {
 				</ul>
 
 				<!-- 프로필 그거 그대로 퍼옴 -->
-				<form class="form-inline navbar-trip" method="post"
-					action="<c:url value='/Review/TripBoard.do'/>">
-					<ul class="nav navbar-nav navbar-trip  ">
+				<ul class="nav navbar-nav navbar-trip  ">
 
-						<li>
-							<!-- 아래 검색 -->
-
-
-
-
-
-							<div class="form-group  ">
-								<select name="searchColumn"
-									style="background-color: white; border: none">
-									<option value="title" class="w3-blue w3-hover-blue">제목</option>
-									<option value="name" class="w3-blue w3-hover-white">작성자</option>
-									<option value="content" class="w3-blue w3-hover-white">내용</option>
-								</select>
-							</div>
-						</li>
-						<li><input type="text" name="searchWord"
-							class=" _1quPh  header-search-font   w3-border w3-round-large"
-							style="padding: 8px 16px; width: 200px; position: relative;" />
-
-						</li>
-						<li>
-							<button type="submit" class="searchButton">
-								<img
-									src="${pageContext.request.contextPath}/images/svg/search.svg" />
-							</button>
-
-
-
-
-
-						</li>
-
+					
 
 
 						<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
 						<li><a
 							href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
+								dd
 								<div class="_3SBFF undefined LTwPD sameS "
 									style="max-width: 140px;">
-									<button id=tripBoardCreateButton
+									<button id=tripBoardCreateButton  type="submit" 
 										class="w3-button w3-blue w3-border-white  w3-round-large"
 										aria-label="게시물 작성하기" aria-haspopup="true"
 										aria-expanded="false">등록하기</button>
@@ -415,7 +387,7 @@ body {
 								</div>
 						</a></li>
 					</ul>
-				</form>
+				
 			</div>
 		</div>
 
@@ -479,15 +451,17 @@ body {
 
 
 
+	
 	<!-- 네비게이션 시작 -->
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
-
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 	<!-- 네비게이션 끝 -->
 	<!-- 실제 내용 시작 -->
+	
 	<div class="container">
 		<div class="page-header">
 			<h1>
@@ -496,9 +470,6 @@ body {
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<form id="testForm" class="form-horizontal"
-					enctype="multipart/form-data" method="post"
-					action="<c:url value='/Review/Write.do'/>">
 					<fieldset>
 						<div id="map"
 							style="width: 500px; height: 400px; background-color: yellow;"></div>
@@ -556,7 +527,7 @@ body {
 					<input type="hidden" name="rvLat" /> <input type="hidden"
 						name="rvLng" />
 				
-			</form>
+			
 					
 			</div>
 			<!-- <form  action="/springBoard/file/upload.do" method="post"  enctype="multipart/form-data">
@@ -567,7 +538,7 @@ body {
 	</div>
 
 
-
+</form>
 	<!-- 실제 내용 끝 -->
 	<!--  푸터 시작 -->
 	<jsp:include page="/WEB-INF/views/templates/Footer.jsp" />

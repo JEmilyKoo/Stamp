@@ -201,8 +201,7 @@ public class ReviewController {
 		System.out.println(map.get("rvCategory2"));
 		map.put("nickName", nickName);
 		reviewService.insert(map);
-		
-		
+		System.out.println("dddd");
 		//글쓰기 경험치 얻기
 		profileService.writeEP(map);
 		response.setContentType("text/html; charset=UTF-8");
