@@ -311,7 +311,13 @@ body {
 
          <ul class="nav navbar-nav "
             style="background-color: white; width: 100%">
+            
+            <!-- admin아이디 아니면 관리자 페이지 안보이기 -->
+            <c:if test="${id eq 'admin'}">
             <li class="font_1"><a href="<c:url value="/Admin/Admin.do?pageName=analysisPage"/> ">관리자페이지</a></li>
+            </c:if>
+            <!-- -------------------------------------------------- -->
+              
               <li><a href="<c:url value="/Stamp/Test.do"/>">Guide</a></li>
             <li><a href="<c:url value="/Stamp/guide.do"/>">Test</a></li>
 
