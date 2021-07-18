@@ -69,7 +69,7 @@
 		select count(*) from stamp order by stNo desc
 	</select>
 	<!-- 3. 스탬프 수정 -->
-	<update id="renewAdminStamp" parameterType="Map">
+	<update id="renewStampMNG" parameterType="Map">
 		update stamp 
 		set stexpireddate = (select stexpireddate from stamp where stno=#{stNo}) +7,
 		stisexpired = 1
@@ -77,14 +77,14 @@
 	</update>
 	
 	<!-- 4. 스탬프 만료 -->
-	<update id="expireAdminStamp" parameterType="Map">
+	<update id="expireStampMNG" parameterType="Map">
 		update stamp 
 		set stisexpired = 0,
 		stexpireddate = sysdate
 		where stNo =#{stNo}
 	</update>
 	<!-- 5. 스탬프 삭제 -->
-	<delete id="deleteAdminStamp" parameterType="Map">
+	<delete id="deleteStampMNG" parameterType="Map">
 		delete stamp
 		where stNo = #{stNo}
 	</delete>

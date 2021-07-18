@@ -141,7 +141,7 @@ public class StampServiceImpl implements StampService {
 		map.put("end", end);
 		// 글 전체 목록 얻기
 		List lists = dao.showStampList(map);
-		String pagingString = PagingUtil.pagingBootStrapStyle(getStampCnt, pageSize, blockPage, nowPage, req.getContextPath() + "/Stamp/AdminStamp.do?pageName=AdminStamp&");
+		String pagingString = PagingUtil.pagingBootStrapStyle(getStampCnt, pageSize, blockPage, nowPage, req.getContextPath() + "/Stamp/StampMNG.do?pageName=StampMNG&");
 
 		ListPagingData<StampDTO> listPagingData = ListPagingData.builder().lists(lists).nowPage(nowPage).pageSize(pageSize).pagingString(pagingString).getStampCnt(getStampCnt).build();
 
@@ -154,18 +154,18 @@ public class StampServiceImpl implements StampService {
 	}
 
 	@Override
-	public int renewAdminStamp(Map map) {
-		return dao.renewAdminStamp(map);
+	public int renewStampMNG(Map map) {
+		return dao.renewStampMNG(map);
 	}
 
 	@Override
-	public int expireAdminStamp(Map map) {
-		return dao.expireAdminStamp(map);
+	public int expireStampMNG(Map map) {
+		return dao.expireStampMNG(map);
 	}
 
 	@Override
-	public int deleteAdminStamp(Map map) {
-		return dao.deleteAdminStamp(map);
+	public int deleteStampMNG(Map map) {
+		return dao.deleteStampMNG(map);
 	}
 
 

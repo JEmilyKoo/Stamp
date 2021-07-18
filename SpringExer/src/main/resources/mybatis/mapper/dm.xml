@@ -8,15 +8,15 @@
 <mapper namespace="mybatis.mapper.dm">
 	
 	<resultMap 
-		type="com.company.exer.service.DmDTO"
-		id="DmDTOResult">
+		type="com.company.exer.service.DMDTO"
+		id="DMDTOResult">
 
-		<result column="dmno" property="dmNo" />
+		<result column="dmno" property="dMNo" />
 		<result column="nickname" property="nickname" />
-		<result column="dmtonickname" property="dmToNickname" />
-		<result column="dmctt" property="dmCtt" />
-		<result column="dmdate" property="dmDate" />
-		<result column="dmchecked" property="dmChecked" />
+		<result column="dmtonickname" property="dMToNickname" />
+		<result column="dmctt" property="dMCtt" />
+		<result column="dmdate" property="dMDate" />
+		<result column="dmchecked" property="dMChecked" />
 	</resultMap>
 	<!--  회원가입 및 로그인 시작 -->
 	<!-- 회원가입 확인용 -->
@@ -29,61 +29,61 @@
 
 	<!-- 1. DM 테이블 INSERT -->
 	<insert id="sendDM"
-		parameterType="com.company.exer.service.DmDTO">
+		parameterType="com.company.exer.service.DMDTO">
 		
 		INSERT INTO DM VALUES(
 		SEQ_DM.NEXTVAL,
 		#{nickname},
-		#{dmCtt},
-		#{dmToNickname},
+		#{dMCtt},
+		#{dMToNickname},
 		default,
 		default,
 		default)
 	</insert>
 	
 	<!-- 2. DM 전체 메세지함 쿼리문 -->
-	<select id="DMList" parameterType="Map"
-		resultType="com.company.exer.service.DmDTO">
+	<select id="dMList" parameterType="Map"
+		resultType="com.company.exer.service.DMDTO">
 		
-		SELECT nickname,dmToNickname,max(dmDate) dmDate FROM dm
-		WHERE nickname = #{nickname} OR dmToNickname = #{nickname}
-		GROUP BY nickname, dmToNickname
+		SELECT nickname,dMToNickname,max(dMDate) dMDate FROM dm
+		WHERE nickname = #{nickname} OR dMToNickname = #{nickname}
+		GROUP BY nickname, dMToNickname
 	</select>
 	
 	<!-- 3. 최신 발신내역 가져오는 쿼리문 -->
 	<select id="getDMSendList" parameterType="Map"
-		resultMap="DmDTOResult">
+		resultMap="DMDTOResult">
 		
 		SELECT *
 		FROM (SELECT * FROM dm ORDER BY ROWNUM DESC)
-		WHERE (nickname,dmToNickname) IN
-		((#{nickname},#{dmToNickname}),(#{dmToNickname},#{nickname})) 
+		WHERE (nickname,dMToNickname) IN
+		((#{nickname},#{dMToNickname}),(#{dMToNickname},#{nickname})) 
 		AND ROWNUM = 1
 	</select> 
 	
 	<!-- 4. DM 1:1대화목록 쿼리문 -->
 	<select id="DMChatList" parameterType="Map"
-		resultType="com.company.exer.service.DmDTO">
+		resultType="com.company.exer.service.DMDTO">
 		
 		SELECT *
 		FROM dm 
-		WHERE (nickname,dmToNickname) IN
-		((#{nickname},#{dmToNickname}),(#{dmToNickname},#{nickname}))
+		WHERE (nickname,dMToNickname) IN
+		((#{nickname},#{dMToNickname}),(#{dMToNickname},#{nickname}))
 	</select>
 	
 	<!-- 5. 읽음 처리 쿼리문 -->
-	<update id="checkDM" parameterType="com.company.exer.service.DmDTO" >
+	<update id="checkDM" parameterType="com.company.exer.service.DMDTO" >
 	
 		UPDATE dm 
-		SET dmChecked = ' '
-		WHERE nickname= #{nickname} AND  dmToNickname = #{dmToNickname}
+		SET dMChecked = ' '
+		WHERE nickname= #{nickname} AND  dMToNickname = #{dMToNickname}
 	</update>
 	<select id="cntNewDM"
-		parameterType="com.company.exer.service.DmDTO" resultType="int">
+		parameterType="com.company.exer.service.DMDTO" resultType="int">
 		
-		SELECT COUNT(dmChecked) 
+		SELECT COUNT(dMChecked) 
 		FROM DM 
-		WHERE nickname= #{nickname} AND  dmToNickname = #{dmToNickname}
-		AND dmChecked='1'
+		WHERE nickname= #{nickname} AND  dMToNickname = #{dMToNickname}
+		AND dMChecked='1'
 	</select>
 </mapper>
