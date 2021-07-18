@@ -195,6 +195,7 @@ public class Member2Controller {
 		//비 가입자
 		else {
 			memberService.memberJoin(memberDTO);
+			session.setAttribute("id",memberDTO.getId());
 			return "Profile/ProfileInsert";
 		}
 		
