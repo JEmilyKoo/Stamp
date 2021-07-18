@@ -79,13 +79,13 @@
 						<c:forEach items="${list}" var="item">
 
 							<div class="item">
-								<div class="article">
+								<div class="article" style="max-height:450px">
 									<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
 									<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
 									<a target="_top"
 										href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">
 										<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
-										<div class="cardImage" style="background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
+										  <div   class="cardImage" style="height:200px ;background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
 										</div>
 									</a>
 									<!-- 이미지 받아오는 코드 끝-->

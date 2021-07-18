@@ -387,17 +387,13 @@ body {
 							</button>
 
 
-
-
-
 						</li>
 
-
-
+	
 						<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
 						<li>
 							<div
-								class="_3SBFF undefined LTwPD sameS w3-button w3-blue w3-border-white  w3-round-large "
+								class=" w3-button w3-blue w3-border-white  w3-round-large "
 								style="max-width: 140px;">
 								<a id=tripBoardCreateButton
 									href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
@@ -457,8 +453,10 @@ body {
 
 			<ul class="nav navbar-nav "
 				style="background-color: white; width: 100%">
+				 <c:if test="${id eq 'admin'}">
 				<li class="font_1"><a
 					href="<c:url value="/Admin/Admin.do?pageName=analysisPage"/> ">관리자페이지</a></li>
+					</c:if>
 				<li><a href="<c:url value="/Stamp/guide.do"/>">Guide</a></li>
 				<li><a href="<c:url value="/Stamp/Test.do"/>">Test</a></li>
 

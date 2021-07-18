@@ -315,6 +315,11 @@
 												</tr>
 											</tbody>
 										</table>
+										<div align="right" >
+										<td class="col-md-1 text-center"><a
+											href="<c:url value="/Review/DeleteMNG.do?rvNo=${item.rvNo }"/>"><button>삭제</button></a>
+										</td>
+										</div>
 									</div>
 								</div>
 							</div>

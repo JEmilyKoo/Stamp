@@ -201,8 +201,7 @@ public class ReviewController {
 		System.out.println(map.get("rvCategory2"));
 		map.put("nickName", nickName);
 		reviewService.insert(map);
-		
-		
+		System.out.println("dddd");
 		//글쓰기 경험치 얻기
 		profileService.writeEP(map);
 		response.setContentType("text/html; charset=UTF-8");
@@ -284,24 +283,24 @@ public String riviewMNG(Model model) {
 
 List<ReviewDTO> list =reviewService.reviewMNG();
 
-
 if(list==null) {
 	model.addAttribute("NoBoard","게시글이 없어요");	
 }
-
 else {
 	model.addAttribute("list",list);
 	System.out.println("listsize:"+list.size());
 	System.out.println("list:getNickName"+list.get(0).toString());
 }
-	//뷰정보 반환]
-	
-
+//뷰정보 반환]
 return "/admin/ReviewMNG";
 }
 	
 	
-	
+@RequestMapping("DeleteMNG.do")
+public String deleteMNG(@RequestParam Map map) {
+	reviewService.delete(map);
+	return "forward:/Review/ReviewMNG.do";
+}
 	
 	
 	

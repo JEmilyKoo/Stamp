@@ -45,7 +45,6 @@ public class StampController {
 		// stampService.stampUp();
 		List<StampDTO> list = stampService.stampList();
 		model.addAttribute("list", list);
-		logger.info("list값들 불러오자"+list.get(0));
 		
 		return "MapSearch";
 	}
