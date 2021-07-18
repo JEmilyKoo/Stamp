@@ -1,14 +1,19 @@
 package com.company.exer.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.company.exer.utils.ListPagingData;
 
 public interface StampService {
 	//int stampUp();
+	
+	int procStampInsert(HashMap<String, Object> map, HttpSession session) throws Exception;
+	
 	List<StampDTO> stampList();
 	int stampCheck(Map map);
 	int stampCheckCount(Map map);

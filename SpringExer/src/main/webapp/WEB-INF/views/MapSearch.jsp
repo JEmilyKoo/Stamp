@@ -40,7 +40,6 @@
 </head>
 
 <body>
-<div style="height:90px"></div>
    <jsp:include page="/WEB-INF/views/templates/Top.jsp"/>
    
    <div id="map" style="width:100%;height:700px;"></div>
@@ -130,31 +129,33 @@ var imageSrc = '<c:url value="/images/stamp.png"/>'
 var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
 
 var index=0
-var positions = [
-   <c:forEach items="${list}" var="item">
-       {
-           title: '${item.stNo}', 
-           latlng: new kakao.maps.LatLng(${item.rvLat}, ${item.rvLng}),
-           content :
-           '<div class="wrap">' + 
-            '    <div class="info">' + 
-            '        <div class="title">' + 
-           '        <a href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">' +
-           '          <span style = "text-align : center" class="title">${item.rvTitle}</span>' +
-           '        </a>' +
-            '            <div class="close" onclick="closeOverlay('+(index++)+')" title="닫기"></div>' + 
-            '        </div>' + 
-            '        <div class="body">' + 
-            '            <div class="img">' +
-            '                <img src="" width="73" height="70">' +
-            '           </div>' + 
-            '        </div>' + 
-            '    </div>' +    
-            '</div>'
-       },
-   </c:forEach>
-];
 
+var positions = [
+<c:forEach items="${list}" var="item">
+	<c:if test="${item.stIsExpired==1}">
+	       {
+	           title: '${item.stNo}', 
+	           latlng: new kakao.maps.LatLng(${item.rvLat}, ${item.rvLng}),
+	           content :
+	           '<div class="wrap">' + 
+	            '    <div class="info">' + 
+	            '        <div class="title">' + 
+	           '        <a href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">' +
+	           '          <span style = "text-align : center" class="title">${item.rvTitle}</span>' +
+	           '        </a>' +
+	            '            <div class="close" onclick="closeOverlay('+(index++)+')" title="닫기"></div>' + 
+	            '        </div>' + 
+	            '        <div class="body">' + 
+	            '            <div class="img">' +
+	            '                <img src="" width="73" height="70">' +
+	            '           </div>' + 
+	            '        </div>' + 
+	            '    </div>' +    
+	            '</div>'
+	       },
+      </c:if>
+  </c:forEach>
+];
 var ArrOverlay = [];
 var MarkOverlay = [];
 for (var i = 0; i < positions.length; i ++) {
@@ -174,7 +175,7 @@ for (var i = 0; i < positions.length; i ++) {
         strokeOpacity: 0.1, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
         strokeStyle: 'solid', // 선의 스타일입니다
         fillColor: '#00a0e9', // 채우기 색깔입니다
-        fillOpacity: 0.2  // 채우기 불투명도입니다 
+        fillOpacity: 0.5  // 채우기 불투명도입니다 
     });
     
     marker.setMap(map);

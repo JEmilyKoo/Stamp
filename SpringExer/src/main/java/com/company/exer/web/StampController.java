@@ -1,5 +1,6 @@
 package com.company.exer.web;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,6 +8,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
@@ -20,6 +23,7 @@ import com.company.exer.service.ProfileService;
 import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.StampDTO;
 import com.company.exer.service.StampService;
+import com.company.exer.service.impl.StampServiceImpl;
 import com.company.exer.utils.ListPagingData;
 
 @Controller
@@ -28,6 +32,8 @@ public class StampController {
 
 	@Resource(name = "stampService")
 	private StampService stampService;
+	
+	private static final Logger logger = LoggerFactory.getLogger(StampController.class);
 
 	//경험치를 얻기 위함
 	@Resource(name="profileService")
@@ -39,34 +45,15 @@ public class StampController {
 		// stampService.stampUp();
 		List<StampDTO> list = stampService.stampList();
 		model.addAttribute("list", list);
+		logger.info("list값들 불러오자"+list.get(0));
+		
 		return "MapSearch";
 	}
 
+	//스탬프 획득
 	@RequestMapping("StampCheck.do")
-	public @ResponseBody int stampCheck(@RequestParam Map map, HttpSession session) {
-		if (session.getAttribute("nickName") != null) { // 로그인 되어 있을 경우
-			String nickName = session.getAttribute("nickName").toString();
-			map.put("nickName", nickName);
-			int abc=stampService.stampCheck(map); // 실시간 위치를 가지고 3km이내 스탬프가 있으면 stampCheck 닉네임, 글 번호 5초마다 insert해줌
-			String rvNo = stampService.stampCheckRvNo(map);//글 번호 얻어오기 경험치를 얻기 위함
-			map.put("rvNo",rvNo);//글 번호 Map에 넣기
-			int Count = stampService.stampCheckCount(map); //
-			int CheckGet = stampService.stampCheckGet(map);
-			if (CheckGet >= 1) {
-				return 3;
-			}
-			if (Count >= 5) {// 30초 동안 스탬프 주변에 있을 경우 스탬프를 얻을 수 있따.
-				stampService.stampGet(map); // 멤버 스탬프에 등록
-				profileService.stampAchEP(map); //스탬프 경험치
-				stampService.stampCheckDelete(map); // stampCheck insert한 내용 삭제
-				return 1;
-			}
-			return 2;
-		}
-		else {/// 로그인 안되어있다면 아무 일 없다.
-			System.out.println("로그인 안되어있음");
-			return 0;
-		}
+	public @ResponseBody int stampCheck(@RequestParam HashMap<String, Object> map, HttpSession session) throws Exception {
+		return stampService.procStampInsert(map, session);
 	}
 
 	// 관리자페이지용

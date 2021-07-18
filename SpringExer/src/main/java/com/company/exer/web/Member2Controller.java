@@ -211,7 +211,6 @@ public class Member2Controller {
 		session.setAttribute("profile", profiledto);
 		
 		if(profiledto==null) {
-			
 			return "Profile/ProfileInsert";
 		}
 		else{
