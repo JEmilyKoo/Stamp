@@ -27,6 +27,12 @@ public class DmController {
 	@Autowired  // @Autowired로 서비스 주입
 	private DmServiceImpl service;
 
+
+	@RequestMapping("/DM/DM.do")
+	public String DM() {
+		//뷰정보 반환]
+		return "DM/DM";
+	}///////////////////guide()
 /*	
 	// 1. getDMBox
 	@RequestMapping("/DMBox")
