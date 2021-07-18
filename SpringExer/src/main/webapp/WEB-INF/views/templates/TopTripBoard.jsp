@@ -119,7 +119,7 @@ body {
 	.navbar-nav {
 		padding: 0px 0px;
 		margin: 0px 0px;
-		width:100vw;
+		width: 100vw;
 	}
 	.navbar-collapse {
 		max-width: 100vw;
@@ -127,7 +127,6 @@ body {
 		margin: 0;
 	}
 }
-
 </style>
 
 <script>
@@ -351,13 +350,13 @@ body {
 
 
 					</a></li>
-					</ul>
-					
-					<!--  프로필 그거 그대로 퍼옴 -->
+				</ul>
 
-					<!-- 프로필 그거 그대로 퍼옴 -->
-					<form class="form-inline navbar-trip" method="post"
-						action="<c:url value='/Review/TripBoard.do'/>">
+				<!--  프로필 그거 그대로 퍼옴 -->
+
+				<!-- 프로필 그거 그대로 퍼옴 -->
+				<form class="form-inline navbar-trip" method="post"
+					action="<c:url value='/Review/TripBoard.do'/>">
 					<ul class="nav navbar-nav navbar-trip  ">
 
 						<li>
@@ -368,7 +367,7 @@ body {
 
 
 							<div class="form-group  ">
-								<select name="searchColumn" 
+								<select name="searchColumn"
 									style="background-color: white; border: none">
 									<option value="title" class="w3-blue w3-hover-blue">제목</option>
 									<option value="name" class="w3-blue w3-hover-white">작성자</option>
@@ -392,23 +391,21 @@ body {
 
 
 						</li>
-					
 
 
-					<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
-					<li><a
-						href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
-							<div class="_3SBFF undefined LTwPD sameS "
+
+						<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
+						<li>
+							<div
+								class="_3SBFF undefined LTwPD sameS w3-button w3-blue w3-border-white  w3-round-large "
 								style="max-width: 140px;">
-								<button id=tripBoardCreateButton
-									class="w3-button w3-blue w3-border-white  w3-round-large"
-									aria-label="게시물 작성하기" aria-haspopup="true"
-									aria-expanded="false">리뷰 작성</button>
-
+								<a id=tripBoardCreateButton
+									href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
+									리뷰 작성 </a>
 							</div>
-					</a></li>
-				</ul>
-</form>
+						</li>
+					</ul>
+				</form>
 			</div>
 		</div>
 

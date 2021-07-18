@@ -34,7 +34,6 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
   <body class="h-100">
-  
     <div class="color-switcher-toggle animated pulse infinite">
       <i class="material-icons">settings</i>
     </div>
@@ -45,8 +44,6 @@
         <!-- End Main Sidebar -->
         <jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp"/>
           <!-- / .main-navbar -->
-          
-<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
           <div class="main-content-container container-fluid px-4">
             <!-- Page Header -->
             <div class="page-header row no-gutters py-4">
@@ -75,18 +72,18 @@
                 <div class="card card-small card-post card-post--1">
                   
                   <div class="card-body">
-							<td class="col-md-2 text-center">프로필 이미지${item.prfImage }</td>
-							<th scope="row" class="col-md-2 text-center">아이디:${item.id }</th>
+							<td class="col-md-2 text-center">프로필 이미지${item.prfImage }</td><br>
+							<th scope="row" class="col-md-2 text-center">아이디:${item.id }</th><br>
 							<!--  누르면 프로필 페이지 보기?
 							<td class="col-md-2 text-center"><a id=""
 								href="<c:url value="/MemberMNG?rvid=${item.id }"/>">${item.id }
 							</a></td> 
 							 -->
-							<td class="col-md-2 text-center">닉네임:${item.nickName }</td>
-							<td class="col-md-2 text-center">이메일:${item.mail }</td>
-							<td class="col-md-1 text-center">성별:${item.gender }</td>
-							<td class="col-md-2 text-center">생일:${item.birth }</td>
-							<td class="col-md-2 text-center">전환번호:${item.phone }</td>
+							<td class="col-md-2 text-center">닉네임:${item.nickName }</td><br>
+							<td class="col-md-2 text-center">이메일:${item.mail }</td><br>
+							<td class="col-md-1 text-center">성별:${item.gender }</td><br>
+							<td class="col-md-2 text-center">생일:${item.birth }</td><br>
+							<td class="col-md-2 text-center">전환번호:${item.phone }</td><br>
 							<td class="col-md-1 text-center">여행성향:${item.trvprpns }</td>
 							<td class="col-md-1 text-center">
 									<a href="<c:url value="/Member/deleteAdminMember.do?id=${item.id }"/>"><button>삭제</button></a>
@@ -155,7 +152,6 @@
             
           </div>
           <jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp"/>
-          </div></main>
         </div>
     </div>
     
