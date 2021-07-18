@@ -7,10 +7,7 @@
 		<typeAlias type="com.company.exer.service.StampDTO" alias="stampDTO"/>	
 		<typeAlias type="com.company.exer.service.FollowDTO" alias="followDTO"/>
 		<typeAlias type="com.company.exer.service.ProfileDTO" alias="profileDTO"/>
-		<!--
-		<typeAlias type="com.company.exer.service.FreeBoardDTO" alias="freeboardDTO"/>
-		
-		  <typeAlias type="com.company.exer.service.DmDTO" alias="DmDTO"/> -->
+		<typeAlias type="com.company.exer.service.DMDTO" alias="DMDTO"/> 
 	</typeAliases>
 	<!-- 매퍼파일(SQL쿼리 결과와 자바빈 매핑)의 위치정보 설정 -->
 	<mappers>
@@ -19,8 +16,6 @@
 		<mapper resource="mybatis/mapper/stamp.xml" />
 		<mapper resource="mybatis/mapper/follow.xml" />
 		<mapper resource="mybatis/mapper/profile.xml" />
-		<!--  
-		
-		 <mapper resource="mybatis/mapper/dm.xml" />-->
+		<mapper resource="mybatis/mapper/dm.xml" />
 	</mappers>
 </configuration>

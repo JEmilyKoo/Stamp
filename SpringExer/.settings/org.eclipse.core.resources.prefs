@@ -2,6 +2,6 @@ eclipse.preferences.version=1
 encoding//src/main/webapp/WEB-INF/views/Category.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/Test.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/TripBoardReport.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/admin/AdminStamp.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/admin/StampMNG.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/review/Write.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/templates/Top.jsp=UTF-8

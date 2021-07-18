@@ -59,15 +59,15 @@ public class StampDAO{
 			return sqlMapper.selectOne("getStampCnt",map);
 		}
 		
-		public int renewAdminStamp(Map map) {
-			return sqlMapper.insert("renewAdminStamp",map);
+		public int renewStampMNG(Map map) {
+			return sqlMapper.insert("renewStampMNG",map);
 		}
-		public int expireAdminStamp(Map map) {
-			return sqlMapper.insert("expireAdminStamp",map);
+		public int expireStampMNG(Map map) {
+			return sqlMapper.insert("expireStampMNG",map);
 		}
 		
-		public int deleteAdminStamp(Map map) {
-			return sqlMapper.delete("deleteAdminStamp",map);
+		public int deleteStampMNG(Map map) {
+			return sqlMapper.delete("deleteStampMNG",map);
 		}
 
 
