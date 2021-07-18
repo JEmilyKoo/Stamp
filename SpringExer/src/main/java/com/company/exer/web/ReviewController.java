@@ -187,15 +187,8 @@ public class ReviewController {
 	
 	//글 작성페이지
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
-	public String Write(Model model,@RequestParam Map map,@ModelAttribute("nickName") String nickName,HttpServletResponse response) throws IOException {
+	public String Write(Model model,@RequestParam Map map,@ModelAttribute("nickName") String nickName) throws IOException {
 		
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-
-	      out.println("<script language='javascript'>");
-	      out.println("alert('축하드립니다!!. 경험치 10 획득했습니다. ');");
-	      out.println("</script>");
-	      out.flush();
 		return "review/Write";
 	}
 	

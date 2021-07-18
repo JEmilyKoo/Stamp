@@ -7,6 +7,11 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>관리자 페이지</title>
+
+<!-- 맵 key -->
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
+<!-- 맵 스타잉ㄹ -->
 <style>
 .info {
 	position: relative;
@@ -197,6 +202,7 @@
 }
 </style>
 
+<!-- 메인에 필요한 script -->
 <meta name="description"
 	content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
 <meta name="viewport"
@@ -233,125 +239,62 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body class="h-100">
-  
-  <jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp"/>
-  
-        <jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp"/>
-<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
-    <div class="color-switcher-toggle animated pulse infinite">
-      <i class="material-icons">settings</i>
-    </div>
-    <div class="container-fluid">
-      <div class="row">
-        <!-- Main Sidebar -->
-        <!-- End Main Sidebar -->
-          <!-- / .main-navbar -->
-          
-          
-          <div class="main-content-container container-fluid px-4">
+	<div class="color-switcher-toggle animated pulse infinite">
+		<i class="material-icons">settings</i>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Left -->
+			<jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp" />
+			<!-- Top -->
+			<jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp" />
+
+			<div class="main-content-container container-fluid px-4">
 				<!-- Page Header -->
 				<div class="page-header row no-gutters py-4">
-					<div class="col-12 col-sm-4 text-center text-sm-left mb-4">
+					<div class="col-12 col-sm-4 text-center text-sm-left mb-0">
 						<span class="text-uppercase page-subtitle">리뷰,댓글,좋아요 관리</span>
 						<h3 class="page-title">리뷰 관리 페이지</h3>
 					</div>
 				</div>
 
-				<!-- End Page Header -->
+				<!-- 게시글 시작 -->
 				<div class="row">
-
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
-					<!-- 예시 만들기 -->
-
-
-					<!-- 테이블 컬럼폭은 col-*-*계열로 설정 -->
-
-					<!-- 
-						<tr>
-							<td colspan="4">등록된 게시물이 없어요</td>
-						</tr>
-					 -->
 					<c:if test="${empty list }" var="isEmpty">
 						<th colspan="12">게시글이 없어요</th>
 					</c:if>
 					<c:if test="${not isEmpty }">
-
 						<c:forEach items="${list }" var="item" varStatus="loop">
-
 							<div class="col-lg-6 col-sm-12 mb-4">
 								<div class="card card-small card-post card-post--1">
 
-									<div class="card-post__image"
-										style="background-image: url('images/content-management/1.jpeg');">
+									<div class="card-post__image">
 
-										<div class="card-post__author d-flex">
-
-											<div id="map" style="width: 100%; height: 700px;"></div>
-											<script type="text/javascript"
-												src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
-											<script>
-													var mapContainer = document.getElementById('map'),  
-													    mapOption = { 
-													      center: new kakao.maps.LatLng(37.56681519680827, 126.97867489950377), 
-													        level: 7
-													        };
-													        
-													
-													var lat, lng
-													//지도에 마커와 인포윈도우를 표시하는 함수입니다
-													function displayMarker(locPosition) {
-													    // 마커를 생성합니다
-													    var marker = new kakao.maps.Marker({  
-													        map: map, 
-													        position: locPosition
-													    }); 
-
-													}    
-
-													        
-													var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-													var imageSrc = '<c:url value="/images/stamp.png"/>',
-													    imageSize = new kakao.maps.Size(50, 50),
-													    imageOption = {offset: new kakao.maps.Point(27, 69)};
-
-													var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
-													var positions = [
-													           latlng: new kakao.maps.LatLng(${item.rvLat}, ${item.rvLng}),
-														]
-													for (var i = 0; i < positions.length; i ++) {
-													    var marker = new kakao.maps.Marker({
-													        position: positions[i].latlng,
-													        image : markerImage
-													    });
-													}
-													</script>
-										</div>
+										<!-- 맵 불러오기 -->
+										<div id="map${loop.index}"
+											style="width: 480px; height: 200px;"></div>
+										<div class="card-post__author d-flex"></div>
 									</div>
 
-									<div class="card-body">
 
+									<!-- 리뷰 관리 게시글 -->
+									<div class="card-body">
 										<h5 class="card-title">
+											<!-- 제목 -->
 											<th class="text-center"><a class="text-fiord-blue"
 												href="<c:url value="/Review/TripBoard.do?rvNo=${item.rvNo }"/>">
 													${item.rvTitle }</a></th>
 										</h5>
-
+										<!-- 내용 -->
 										<h5 class="card-title">
 											<th class="text-center"><a class="text-fiord-blue"
 												href="<c:url value="/Review/TripBoard.do?rvNo=${item.rvNo }"/>">
 													${item.rvCtt }</a></th>
 										</h5>
 
-
+										<!-- 테이블 시작, 필요정보 -->
 										<table
 											class="table table-bordered table-hover table-condensed text-center">
-
-<<<<<<< HEAD
-=======
 											<tr>
 												<th class="col-md-1 text-center">번호</th>
 												<th class="col-md-1 text-center">닉네임</th>
@@ -360,95 +303,74 @@
 												<th class="col-md-1 text-center">작성일</th>
 											</tr>
 
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 											<tbody>
-											<tr>
-												<th class="col-md-6 text-center">번호</th>
-												<td class="text-left"><a
-													href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo }
-												</a></td>
-
-											</tr>
-											<tr>
-												<th class="col-md-6 text-center">닉네임</th>
-												<td>${item.nickName }</td></tr>
-<tr><th class="col-md-6 text-center">좋아요</th><td>${item.rvLikeCnt }</td></tr>
-											<tr> <th class="col-md-6 text-center">태그</th>
-													<td>${item.rvCategory1 },${item.rvCategory2 }</td></tr>
-											<tr>
-											
-											
-											<th class="col-md-6 text-center">작성일</th>
+												<tr>
+													<td class="text-left"><a
+														href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo }
+													</a></td>
+													<td>${item.nickName }</td>
+													<td>${item.rvLikeCnt }</td>
+													<td>${item.rvCategory1 },${item.rvCategory2 }</td>
 													<td>${item.rvDate }</td>
-<<<<<<< HEAD
-											</tr>
-								
-=======
 												</tr>
-											</tbody>
-
-											</tr>
-
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 											</tbody>
 										</table>
 									</div>
-
 								</div>
 							</div>
-
 						</c:forEach>
 					</c:if>
-					</script>
-					
-
-
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
-
-
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
-					<div class="row">
-						<div class="col-lg-6 col-sm-12 mb-4">
-							<div
-								class="card card-small card-post card-post--aside card-post--1">
-								<div class="card-post__image"
-									style="background-image: url('images/content-management/5.jpeg');">
-									<a href="#"
-										class="card-post__category badge badge-pill badge-info">Travel</a>
-									<div class="card-post__author d-flex">
-										<a href="#"
-											class="card-post__author-avatar card-post__author-avatar--small"
-											style="background-image: url('images/avatars/0.jpg');">Written
-											by Anna Ken</a>
-									</div>
-								</div>
-								<div class="card-body">
-									<h5 class="card-title">
-										<a class="text-fiord-blue" href="#">게시물 불러오기</a>
-									</h5>
-									<p class="card-text d-inline-block mb-3">Conviction up
-										partiality as delightful is discovered. Yet jennings resolved
-										disposed exertion you off. Left did fond drew fat head poor
-										jet pan flying over...</p>
-									<span class="text-muted">29 February 2019</span>
-								</div>
-							</div>
-						</div></div></div></div>
-=======
-					
-
-
-
-
-
-
-				<jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp" />
-				</main>
->>>>>>> refs/heads/ksb
+				</div>
 			</div>
-		</div></main>
+
+
+
+
+
+			<jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp" />
+		</div>
+	</div>
+
+
+	<!-- 맵 스크립트(제어) -->
+	<script>
+	 		//기본지도 불러오기
+ 			<c:forEach items="${list}" var="item" varStatus="loop">			   
+	 			var mapContainer = document.getElementById('map${loop.index}'), // 지도를 표시할 div 
+			    mapOption = { 
+			        center: new kakao.maps.LatLng(${item.rvLat},${item.rvLng}), // 지도의 중심좌표
+			        level: 5 // 지도의 확대 레벨
+			    };	
+				var map = new kakao.maps.Map(mapContainer, mapOption);
+
+				//마커 표시, 마커중심
+				var positions = [
+						       { //저장된 위도,경도값 불러오기
+						           latlng: new kakao.maps.LatLng(${item.rvLat}, ${item.rvLng}),
+						       },
+						       ]
+				
+			    //마커 이미지 삽입
+				var imageSrc = '<c:url value="/images/stamp.png"/>'; 
+			    
+				for (var i = 0; i < positions.length; i ++) {
+				    
+				    // 마커 이미지의 이미지 크기 입니다
+				    var imageSize = new kakao.maps.Size(30, 30); 
+				    
+				    // 마커 이미지를 생성합니다    
+				    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+				    
+				    // 마커를 생성합니다
+				    var marker = new kakao.maps.Marker({
+				        map: map, // 마커를 표시할 지도
+				        position: positions[i].latlng, // 마커를 표시할 위치
+				        image : markerImage // 마커 이미지 
+				    });
+				}
+				
+				
+			</c:forEach>
+	    </script>
 </body>
 </html>
