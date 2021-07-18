@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO">
 <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="<c:url value="/resources/styles/shards-dashboards.1.1.0.min.css"/>">
 <link rel="stylesheet" href="<c:url value="/resources/styles/extras.1.1.0.min.css"/>">
@@ -25,6 +26,22 @@
 <script type="text/javascript" src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
 <script type="text/javascript" async defer src="https://buttons.github.io/buttons.js"></script>
+=======
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<!-- integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" -->
+<link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="<c:url value="/resources/styles/shards-dashboards.1.1.0.min.css"/>">
+<link rel="stylesheet" href="<c:url value="/resources/styles/extras.1.1.0.min.css"/>">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<!-- integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" -->
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+<script type="text/javascript" src="https://buttons.github.io/buttons.js"></script>
+>>>>>>> refs/heads/leessong
 </head>
 <style>
 #btn1 {
@@ -39,6 +56,15 @@
 	float: right;
 	margin: 5px;
 	margin-right: 2px;
+}
+
+.pagination{
+	display: inline=block;
+	display:flex;
+	justify-content:center;
+}
+.pagination li{
+	padding-right:5px;
 }
 </style>
 <body class="h-100">
@@ -72,7 +98,7 @@
 											<th class="col-md-1 text-center">스탬프번호</th>
 											<th class="col-md-1 text-center">리뷰글번호</th>
 											<th class="col-md-4 text-center">스탬프 등록일</th>
-											<th class="col-md-4 text-center">스탬프 만료예정일</th>
+											<th class="col-md-4 text-center">스탬프 만료일</th>
 											<th class="col-md-1 text-center">만료 유무</th>
 										</tr>
 									</table>
@@ -91,8 +117,6 @@
 											<option value="expireFn">만료</option>
 											<option value="deleteFn">삭제</option>
 										</select>
-										<%-- <c:url value="/Stamp/updateAdminStamp.do?stNo=${item.stNo }"/>
-									<c:url value="/Stamp/deleteAdminStamp.do?stNo=${item.stNo }"/> --%>
 									</div>
 									<table class="table table-hover table-bordered table-condensed text-center">
 										<thead>
@@ -101,7 +125,7 @@
 												<th class="col-md-1 text-center">스탬프번호</th>
 												<th class="col-md-1 text-center">리뷰글번호</th>
 												<th class="col-md-4 text-center">스탬프 등록일</th>
-												<th class="col-md-4 text-center">스탬프 만료예정일</th>
+												<th class="col-md-4 text-center">스탬프 만료일</th>
 												<th class="col-md-1 text-center">만료 유무</th>
 											</tr>
 										</thead>
@@ -121,12 +145,16 @@
 										</tbody>
 									</table>
 								</c:if>
+<<<<<<< HEAD
 								<div>${dto.pagingString }</div>
 								<div>
 									<table id="jqGrid">Grid
 									</table>
 									<div id="paging">paging</div>
 								</div>
+=======
+								<div class="paging">${dto.pagingString }</div>
+>>>>>>> refs/heads/leessong
 							</div>
 						</div>
 					</div>
@@ -139,10 +167,14 @@
 </body>
 <script type="text/javascript">
 	var selectedArr = [];
+<<<<<<< HEAD
 	var nowPage = $
 	{
 		dto.nowPage
 	};
+=======
+	var nowPage = ${dto.nowPage};
+>>>>>>> refs/heads/leessong
 
 	$('#selectAll').click(function() {
 		if ($("input:checkbox[id='selectAll']").prop("checked")) {
