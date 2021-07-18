@@ -7,196 +7,6 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>관리자 페이지</title>
-<style>
-.info {
-	position: relative;
-	top: 5px;
-	left: 5px;
-	border-radius: 6px;
-	border: 1px solid #ccc;
-	border-bottom: 2px solid #ddd;
-	font-size: 12px;
-	padding: 5px;
-	background: #fff;
-	list-style: none;
-	margin: 0;
-}
-
-.info:nth-of-type(n) {
-	border: 0;
-	box-shadow: 0px 1px 2px #888;
-}
-
-.info .label {
-	display: inline-block;
-	width: 50px;
-}
-
-.number {
-	font-weight: bold;
-	color: #00a0e9;
-}
-
-.customoverlay {
-	position: relative;
-	bottom: 85px;
-	border-radius: 6px;
-	border: 1px solid #ccc;
-	border-bottom: 2px solid #ddd;
-	float: left;
-}
-
-.customoverlay:nth-of-type(n) {
-	border: 0;
-	box-shadow: 0px 1px 2px #888;
-}
-
-.customoverlay a {
-	display: block;
-	text-decoration: none;
-	color: #000;
-	text-align: center;
-	border-radius: 6px;
-	font-size: 14px;
-	font-weight: bold;
-	overflow: hidden;
-	background: #d95050;
-	background: #d95050
-		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
-		no-repeat right 14px center;
-}
-
-.customoverlay .title {
-	display: block;
-	text-align: center;
-	background: #fff;
-	margin-right: 35px;
-	padding: 10px 15px;
-	font-size: 14px;
-	font-weight: bold;
-}
-
-.customoverlay:after {
-	content: '';
-	position: absolute;
-	margin-left: -12px;
-	left: 50%;
-	bottom: -12px;
-	width: 22px;
-	height: 12px;
-	background:
-		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
-}
-
-.wrap {
-	position: absolute;
-	left: 0;
-	bottom: 40px;
-	width: 288px;
-	height: 132px;
-	margin-left: -144px;
-	text-align: left;
-	overflow: hidden;
-	font-size: 12px;
-	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
-	line-height: 1.5;
-}
-
-.wrap * {
-	padding: 0;
-	margin: 0;
-}
-
-.wrap .info {
-	width: 286px;
-	height: 120px;
-	border-radius: 5px;
-	border-bottom: 2px solid #ccc;
-	border-right: 1px solid #ccc;
-	overflow: hidden;
-	background: #fff;
-}
-
-.wrap .info:nth-child(1) {
-	border: 0;
-	box-shadow: 0px 1px 2px #888;
-}
-
-.info .title {
-	padding: 5px 0 0 10px;
-	height: 30px;
-	background: #eee;
-	border-bottom: 1px solid #ddd;
-	font-size: 18px;
-	font-weight: bold;
-}
-
-.info .close {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	color: #888;
-	width: 17px;
-	height: 17px;
-	background:
-		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');
-}
-
-.info .close:hover {
-	cursor: pointer;
-}
-
-.info .body {
-	position: relative;
-	overflow: hidden;
-}
-
-.info .desc {
-	position: relative;
-	margin: 13px 0 0 90px;
-	height: 75px;
-}
-
-.desc .ellipsis {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-.desc .jibun {
-	font-size: 11px;
-	color: #888;
-	margin-top: -2px;
-}
-
-.info .img {
-	position: absolute;
-	top: 6px;
-	left: 5px;
-	width: 73px;
-	height: 71px;
-	border: 1px solid #ddd;
-	color: #888;
-	overflow: hidden;
-}
-
-.info:after {
-	content: '';
-	position: absolute;
-	margin-left: -12px;
-	left: 50%;
-	bottom: 0;
-	width: 22px;
-	height: 12px;
-	background:
-		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
-}
-
-.info .link {
-	color: #5085BB;
-}
-</style>
-
 <meta name="description"
 	content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
 <meta name="viewport"
@@ -233,37 +43,29 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body class="h-100">
-  
-  <jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp"/>
-  
-        <jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp"/>
-<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
-    <div class="color-switcher-toggle animated pulse infinite">
-      <i class="material-icons">settings</i>
-    </div>
-    <div class="container-fluid">
-      <div class="row">
-        <!-- Main Sidebar -->
-        <!-- End Main Sidebar -->
-          <!-- / .main-navbar -->
-          
-          
-          <div class="main-content-container container-fluid px-4">
+	<div class="color-switcher-toggle animated pulse infinite">
+		<i class="material-icons">settings</i>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Main Sidebar -->
+			<jsp:include page="/WEB-INF/views/adminTemplates/Left.jsp" />
+			<!-- End Main Sidebar -->
+			<jsp:include page="/WEB-INF/views/adminTemplates/Top.jsp" />
+			<!-- / .main-navbar -->
+			<div class="main-content-container container-fluid px-4">
 				<!-- Page Header -->
 				<div class="page-header row no-gutters py-4">
-					<div class="col-12 col-sm-4 text-center text-sm-left mb-4">
+					<div class="col-12 col-sm-4 text-center text-sm-left mb-0">
 						<span class="text-uppercase page-subtitle">리뷰,댓글,좋아요 관리</span>
 						<h3 class="page-title">리뷰 관리 페이지</h3>
 					</div>
 				</div>
 
+
 				<!-- End Page Header -->
 				<div class="row">
 
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 					<!-- 예시 만들기 -->
 
 
@@ -286,49 +88,9 @@
 
 									<div class="card-post__image"
 										style="background-image: url('images/content-management/1.jpeg');">
-
+										
 										<div class="card-post__author d-flex">
-
-											<div id="map" style="width: 100%; height: 700px;"></div>
-											<script type="text/javascript"
-												src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
-											<script>
-													var mapContainer = document.getElementById('map'),  
-													    mapOption = { 
-													      center: new kakao.maps.LatLng(37.56681519680827, 126.97867489950377), 
-													        level: 7
-													        };
-													        
-													
-													var lat, lng
-													//지도에 마커와 인포윈도우를 표시하는 함수입니다
-													function displayMarker(locPosition) {
-													    // 마커를 생성합니다
-													    var marker = new kakao.maps.Marker({  
-													        map: map, 
-													        position: locPosition
-													    }); 
-
-													}    
-
-													        
-													var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-													var imageSrc = '<c:url value="/images/stamp.png"/>',
-													    imageSize = new kakao.maps.Size(50, 50),
-													    imageOption = {offset: new kakao.maps.Point(27, 69)};
-
-													var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
-													var positions = [
-													           latlng: new kakao.maps.LatLng(${item.rvLat}, ${item.rvLng}),
-														]
-													for (var i = 0; i < positions.length; i ++) {
-													    var marker = new kakao.maps.Marker({
-													        position: positions[i].latlng,
-													        image : markerImage
-													    });
-													}
-													</script>
+											
 										</div>
 									</div>
 
@@ -350,8 +112,6 @@
 										<table
 											class="table table-bordered table-hover table-condensed text-center">
 
-<<<<<<< HEAD
-=======
 											<tr>
 												<th class="col-md-1 text-center">번호</th>
 												<th class="col-md-1 text-center">닉네임</th>
@@ -360,36 +120,20 @@
 												<th class="col-md-1 text-center">작성일</th>
 											</tr>
 
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 											<tbody>
-											<tr>
-												<th class="col-md-6 text-center">번호</th>
-												<td class="text-left"><a
-													href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo }
-												</a></td>
-
-											</tr>
-											<tr>
-												<th class="col-md-6 text-center">닉네임</th>
-												<td>${item.nickName }</td></tr>
-<tr><th class="col-md-6 text-center">좋아요</th><td>${item.rvLikeCnt }</td></tr>
-											<tr> <th class="col-md-6 text-center">태그</th>
-													<td>${item.rvCategory1 },${item.rvCategory2 }</td></tr>
-											<tr>
-											
-											
-											<th class="col-md-6 text-center">작성일</th>
+												<tr>
+													<td class="text-left"><a
+														href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">${item.rvNo }
+													</a></td>
+													<td>${item.nickName }</td>
+													<td>${item.rvLikeCnt }</td>
+													<td>${item.rvCategory1 },${item.rvCategory2 }</td>
 													<td>${item.rvDate }</td>
-<<<<<<< HEAD
-											</tr>
-								
-=======
 												</tr>
 											</tbody>
 
 											</tr>
 
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 											</tbody>
 										</table>
 									</div>
@@ -399,46 +143,13 @@
 
 						</c:forEach>
 					</c:if>
-					</script>
+
+
+
+
+
 					
-
-
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
-
-
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
-					<div class="row">
-						<div class="col-lg-6 col-sm-12 mb-4">
-							<div
-								class="card card-small card-post card-post--aside card-post--1">
-								<div class="card-post__image"
-									style="background-image: url('images/content-management/5.jpeg');">
-									<a href="#"
-										class="card-post__category badge badge-pill badge-info">Travel</a>
-									<div class="card-post__author d-flex">
-										<a href="#"
-											class="card-post__author-avatar card-post__author-avatar--small"
-											style="background-image: url('images/avatars/0.jpg');">Written
-											by Anna Ken</a>
-									</div>
-								</div>
-								<div class="card-body">
-									<h5 class="card-title">
-										<a class="text-fiord-blue" href="#">게시물 불러오기</a>
-									</h5>
-									<p class="card-text d-inline-block mb-3">Conviction up
-										partiality as delightful is discovered. Yet jennings resolved
-										disposed exertion you off. Left did fond drew fat head poor
-										jet pan flying over...</p>
-									<span class="text-muted">29 February 2019</span>
-								</div>
-							</div>
-						</div></div></div></div>
-=======
-					
+				</div>
 
 
 
@@ -447,8 +158,7 @@
 
 				<jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp" />
 				</main>
->>>>>>> refs/heads/ksb
 			</div>
-		</div></main>
+		</div>
 </body>
 </html>
