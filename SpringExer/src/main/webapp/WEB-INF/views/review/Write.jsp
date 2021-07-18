@@ -1,9 +1,9 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="/WEB-INF/views/common/IsLogin.jsp" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ include file="/WEB-INF/views/common/IsLogin.jsp"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 
 <html lang="ko">
@@ -55,15 +55,17 @@ pageEncoding="UTF-8"%>
 
 
 <!-- include summernote css/js -->
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+	rel="stylesheet">
 
 
 
 <style>
-	#img {
-	margin:20px 0;
-	}
-</style>     
+#img {
+	margin: 20px 0;
+}
+</style>
 <!-- 자바스크립트도 안 만들어놨다-->
 <!-- 일단 시트를 여기에 만들었다-->
 <style>
@@ -137,7 +139,7 @@ body {
 	.navbar-nav {
 		padding: 0px 0px;
 		margin: 0px 0px;
-		width:100vw;
+		width: 100vw;
 	}
 	.navbar-collapse {
 		max-width: 100vw;
@@ -145,7 +147,6 @@ body {
 		margin: 0;
 	}
 }
-
 </style>
 
 </head>
@@ -169,34 +170,35 @@ body {
 
 					<button class="w3-bar-item w3-button w3-xlarge categoryDropDown"
 						onclick="w3_close()">카테고리 &times;</button>
-					
-					
-					
-							 
-						<select name="rvCategory1" id="category1">
-								<option value="">==지역 선택==</option>
-								<option value="서울" name="rvCategory1"
-									<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</option>
-								<option value="인천" name="rvCategory1"
-									<c:if test="${fn:contains(param.category,'인천') }">selected</c:if>>인천</option>
-								<option value="경기" name="rvCategory1"
-									<c:if test="${fn:contains(param.category,'경기') }">selected</c:if>>경기</option>
-						</select>
-							 
-							 
-							 
-					
-					
+
+
+
+
+					<select name="rvCategory1" id="category1">
+						<option value="">==지역 선택==</option>
+						<option value="서울" name="rvCategory1"
+							<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</option>
+						<option value="인천" name="rvCategory1"
+							<c:if test="${fn:contains(param.category,'인천') }">selected</c:if>>인천</option>
+						<option value="경기" name="rvCategory1"
+							<c:if test="${fn:contains(param.category,'경기') }">selected</c:if>>경기</option>
+					</select>
+
+
+
+
+
 					<div class="w3-white categoryDropDown">
-					<h3 class="   w3-blue categoryDropDown  " style="padding:10px">지역</h3>
-						<div  value="서울" name="rvCategory1" class="w3-bar-item w3-button w3-hover-blue"<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</div> 
-						<a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">인천</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">경기</a> 
+						<h3 class="   w3-blue categoryDropDown  " style="padding: 10px">지역</h3>
+						<div value="서울" name="rvCategory1"
+							class="w3-bar-item w3-button w3-hover-blue"
+							<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</div>
+						<a href="#" class="w3-bar-item w3-button w3-hover-blue">인천</a> <a
+							href="#" class="w3-bar-item w3-button w3-hover-blue">경기</a>
 					</div>
-					<div class="w3-white categoryDropDown" >
-					<h3 class=" categoryDropDown  w3-blue" style="padding:10px">여행지</h3><a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">산</a> <a
+					<div class="w3-white categoryDropDown">
+						<h3 class=" categoryDropDown  w3-blue" style="padding: 10px">여행지</h3>
+						<a href="#" class="w3-bar-item w3-button w3-hover-blue">산</a> <a
 							href="#" class="w3-bar-item w3-button w3-hover-blue">바다</a> <a
 							href="#" class="w3-bar-item w3-button w3-hover-blue">강</a> <a
 							href="#" class="w3-bar-item w3-button w3-hover-blue">유적지</a> <a
@@ -359,13 +361,13 @@ body {
 
 
 					</a></li>
-					</ul>
-					
-					<!--  프로필 그거 그대로 퍼옴 -->
+				</ul>
 
-					<!-- 프로필 그거 그대로 퍼옴 -->
-					<form class="form-inline navbar-trip" method="post"
-						action="<c:url value='/Review/TripBoard.do'/>">
+				<!--  프로필 그거 그대로 퍼옴 -->
+
+				<!-- 프로필 그거 그대로 퍼옴 -->
+				<form class="form-inline navbar-trip" method="post"
+					action="<c:url value='/Review/TripBoard.do'/>">
 					<ul class="nav navbar-nav navbar-trip  ">
 
 						<li>
@@ -376,7 +378,7 @@ body {
 
 
 							<div class="form-group  ">
-								<select name="searchColumn" 
+								<select name="searchColumn"
 									style="background-color: white; border: none">
 									<option value="title" class="w3-blue w3-hover-blue">제목</option>
 									<option value="name" class="w3-blue w3-hover-white">작성자</option>
@@ -400,23 +402,23 @@ body {
 
 
 						</li>
-					
 
 
-					<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
-					<li><a
-						href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
-							<div class="_3SBFF undefined LTwPD sameS "
-								style="max-width: 140px;">
-								<button id=tripBoardCreateButton
-									class="w3-button w3-blue w3-border-white  w3-round-large"
-									aria-label="게시물 작성하기" aria-haspopup="true"
-									aria-expanded="false">리뷰 작성</button>
 
-							</div>
-					</a></li>
-				</ul>
-</form>
+						<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
+						<li><a
+							href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
+								<div class="_3SBFF undefined LTwPD sameS "
+									style="max-width: 140px;">
+									<button id=tripBoardCreateButton
+										class="w3-button w3-blue w3-border-white  w3-round-large"
+										aria-label="게시물 작성하기" aria-haspopup="true"
+										aria-expanded="false">리뷰 작성</button>
+
+								</div>
+						</a></li>
+					</ul>
+				</form>
 			</div>
 		</div>
 
@@ -481,57 +483,49 @@ body {
 
 
 	<!-- 네비게이션 시작 -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
-	
-	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1543cd28a4530c70758ba5ea975b33a"></script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 	<!-- 네비게이션 끝 -->
 	<!-- 실제 내용 시작 -->
 	<div class="container">
 		<div class="page-header">
-			<h1>여행 리뷰/정보<small>등록 페이지</small></h1>			
+			<h1>
+				여행 리뷰/정보<small>등록 페이지</small>
+			</h1>
 		</div>
 		<div class="row">
-		<div class="col-md-12">
-			<form id="testForm" class="form-horizontal" enctype="multipart/form-data" method="post" action="<c:url value='/Review/Write.do'/>">
-			<fieldset>
-		            <div id="map" style="width:500px;height:400px;background-color:yellow;"></div>
-		            <div id="clickLatlng"></div>
-	        </fieldset>
-	        
-	        
-				
-				<!-- 씨큐리티 적용:csrf취약점 방어용 -->
-				<div class="form-group">
-					<label class="col-sm-2 control-label">제목</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" name="rvTitle"
-							placeholder="제목을 입력하세요?">
-					</div>
-				</div>
-			
-				
-				<div class="form-group">
-					<label class="col-sm-2 control-label">내용</label>
-					<!-- 중첩 컬럼 사용 -->
-					<div class="col-sm-10">
-						<div class="row">
-							<div class="col-sm-8">
-							
-							
-								<textarea id="summernote" class="form-control summernote" name="rvCtt" rows="5"
-									placeholder="내용 입력하세요"></textarea>
-									
-									
-							</div>
+			<div class="col-md-12">
+				<form id="testForm" class="form-horizontal"
+					enctype="multipart/form-data" method="post"
+					action="<c:url value='/Review/Write.do'/>">
+					<fieldset>
+						<div id="map"
+							style="width: 500px; height: 400px; background-color: yellow;"></div>
+						<div id="clickLatlng"></div>
+					</fieldset>
+					<!-- 씨큐리티 적용:csrf취약점 방어용 -->
+					<div class="form-group">
+						<label class="col-sm-2 control-label">제목</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="rvTitle"
+								placeholder="제목을 입력하세요?">
 						</div>
-						
-							 
-							 
-							 
-							 
-							 
-						<select name="rvCategory1" id="category1">
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">내용</label>
+						<!-- 중첩 컬럼 사용 -->
+						<div class="col-sm-10">
+							<div class="row">
+								<div class="col-sm-8">
+									<textarea id="summernote" class="form-control summernote"
+										name="rvCtt" rows="5" placeholder="내용 입력하세요"></textarea>
+								</div>
+							</div>
+							<select name="rvCategory1" id="category1">
 								<option value="">==지역 선택==</option>
 								<option value="서울" name="rvCategory1"
 									<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</option>
@@ -539,10 +533,7 @@ body {
 									<c:if test="${fn:contains(param.category,'인천') }">selected</c:if>>인천</option>
 								<option value="경기" name="rvCategory1"
 									<c:if test="${fn:contains(param.category,'경기') }">selected</c:if>>경기</option>
-						</select>
-							 
-							 
-						<select name="rvCategory2" id="category2">
+							</select> <select name="rvCategory2" id="category2">
 								<option value="">==여행지 선택==</option>
 								<option value="산" name="rvCategory2"
 									<c:if test="${fn:contains(param.category,'산') }">selected</c:if>>산</option>
@@ -556,176 +547,149 @@ body {
 									<c:if test="${fn:contains(param.category,'도심') }">selected</c:if>>도심</option>
 								<option value="야경" name="rvCategory2"
 									<c:if test="${fn:contains(param.category,'야경') }">selected</c:if>>야경</option>
-						</select>
-							 
-							 
-							 
-							 
-							 
-							 
-							 
-							 
+							</select>
 						</div>
-
 					</div>
-						
-				  
-				</div>
+
+
+
+					<label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
+						name="file" /> <img src="" id="img" name="rvFile" />
+					<!--request.getRealPath("/")/") %>  -->
+					<input type="hidden" name="rvLat" /> <input type="hidden"
+						name="rvLng" />
 				
-				 
-				      <!-- 파일첨부 -->
-         <!-- <form  action="/springBoard/file/upload.do" method="post"  enctype="multipart/form-data">
+			</form>
+					
+			</div>
+			<!-- <form  action="/springBoard/file/upload.do" method="post"  enctype="multipart/form-data">
              <input type="file" name="file"/>
           -->
 
-	<label for="gdsImg">이미지</label>
-	<input type="file" id="gdsImg" name="file"/>
-	<img src="" id="img" name="rvFile"/>
-<%=request.getRealPath("/") %>
-       
-        
-				<input type="hidden" name="rvLat"/>
-				<input type="hidden" name="rvLng"/>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-primary">등록</button>
-					
-					
-					</div>
-				</div>
-			</form>
 		</div>
 	</div>
-	
 
-	
+
+
 	<!-- 실제 내용 끝 -->
 	<!--  푸터 시작 -->
-	<jsp:include page="/WEB-INF/views/templates/Footer.jsp"/>
+	<jsp:include page="/WEB-INF/views/templates/Footer.jsp" />
 	<!-- 푸터 끝 -->
-	    <script>
-	    if(navigator.geolocation){//브라우저에 Geolocation 지원 여부 판단
-            //PositionOptions객체 설정용]
-            var options = {timeout:3000,maxinumAge:5000};
-            //현재 위치 정보 딱 한번만 얻기
-            navigator.geolocation.getCurrentPosition(successCallback);           
-        }
-        //위치 정보를 얻었을 때 자동으로 호출되는 콜백 함수 : 인자는 Position객체
-        function successCallback(position){
-            //위도/경도얻기
-            var lat = position.coords.latitude;
-            var lng = position.coords.longitude;
-            //div에 지도 표시하기
-            dispalyKakaomap(lat,lng);
-        }///////successCallback
-        function dispalyKakaomap(lat,lng){
+	<script>
+		if (navigator.geolocation) {//브라우저에 Geolocation 지원 여부 판단
+			//PositionOptions객체 설정용]
+			var options = {
+				timeout : 3000,
+				maxinumAge : 5000
+			};
+			//현재 위치 정보 딱 한번만 얻기
+			navigator.geolocation.getCurrentPosition(successCallback);
+		}
+		//위치 정보를 얻었을 때 자동으로 호출되는 콜백 함수 : 인자는 Position객체
+		function successCallback(position) {
+			//위도/경도얻기
+			var lat = position.coords.latitude;
+			var lng = position.coords.longitude;
+			//div에 지도 표시하기
+			dispalyKakaomap(lat, lng);
+		}///////successCallback
+		function dispalyKakaomap(lat, lng) {
 
 			var container = document.getElementById('map');
 			var options = {
-				center: new kakao.maps.LatLng(lat, lng),
-				level: 5
+				center : new kakao.maps.LatLng(lat, lng),
+				level : 5
 			};
 			var map = new kakao.maps.Map(container, options);
-			
-	        var zoomControl = new kakao.maps.ZoomControl();
-	        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
+			var zoomControl = new kakao.maps.ZoomControl();
+			map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
-	        // 지도를 클릭한 위치에 표출할 마커입니다
-	        var marker = new kakao.maps.Marker({ 
-	            // 지도 중심좌표에 마커를 생성합니다 
-	            position: map.getCenter() 
-	        }); 
-	        // 지도에 마커를 표시합니다
-	        marker.setMap(map);
-	        
-	        // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
-
-	        // 지도에 클릭 이벤트를 등록합니다
-	        // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-	        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
-	            
-	            // 클릭한 위도, 경도 정보를 가져옵니다 
-	            var latlng = mouseEvent.latLng; 
-	            
-	            // 마커 위치를 클릭한 위치로 옮깁니다
-	            marker.setPosition(latlng);
-	         
-	            var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-	            message += '경도는 ' + latlng.getLng() + ' 입니다';
-	            
-	            var resultDiv = document.getElementById('clickLatlng'); 
-	            resultDiv.innerHTML = message;
-	            $("input[name=rvLat]").val(latlng.getLat());
-	            $("input[name=rvLng]").val(latlng.getLng());
-	        });
-        }
-      
-
-      
-      
-      //썸머노트 구현중
-
-	//여기 아래 부분
-	
-		
-		
-			$('#summernote').summernote({
-				height: 450,
-				fontNames : [ '맑은고딕', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', ],
-				fontNamesIgnoreCheck : [ '맑은고딕' ],
-				focus: true, 
-				
-				callbacks: {
-				onImageUpload: function(files, editor, welEditable) {
-				            for (var i = files.length - 1; i >= 0; i--) {
-				             sendFile(files[i], this);
-				            }
-				        }
-				}
-				
+			// 지도를 클릭한 위치에 표출할 마커입니다
+			var marker = new kakao.maps.Marker({
+				// 지도 중심좌표에 마커를 생성합니다 
+				position : map.getCenter()
 			});
-		
-		
-	
+			// 지도에 마커를 표시합니다
+			marker.setMap(map);
 
-      
-      
-      
-      //이미지 업ㄹ로드 구현중
-      
-      /*ajax참고용
-      
-      $("#like").click(function(){
-            		$.ajax({
-            			url:"<c:url value="/Review/Like.do"/>",
-            			type:"post",
-            			data:{nickName, rvNo},
-            			dataType:"text",
-            			success:function(data){
-            				if(data==0){
-            					$("#like").attr("src","../images/review/fullH.png");
-            					$("#likecount").html(++likecount);
-            				}
-            				else{
-            					$("#like").attr("src","../images/review/beanH.png");
-            					$("#likecount").html(--likecount);
-            				}
-            			},
-            			error:function(){
-            				alert("로그인 후 이용해주세요.");
-            			}
-            		});
-            	});
-      
-      */
-      
-</script>
+			// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 
-        
-      
-        
-   
+			// 지도에 클릭 이벤트를 등록합니다
+			// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+			kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+
+				// 클릭한 위도, 경도 정보를 가져옵니다 
+				var latlng = mouseEvent.latLng;
+
+				// 마커 위치를 클릭한 위치로 옮깁니다
+				marker.setPosition(latlng);
+
+				var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+				message += '경도는 ' + latlng.getLng() + ' 입니다';
+
+				var resultDiv = document.getElementById('clickLatlng');
+				resultDiv.innerHTML = message;
+				$("input[name=rvLat]").val(latlng.getLat());
+				$("input[name=rvLng]").val(latlng.getLng());
+			});
+		}
+
+		//썸머노트 구현중
+
+		//여기 아래 부분
+
+		$('#summernote').summernote(
+				{
+					height : 450,
+					fontNames : [ '맑은고딕', 'Arial', 'Arial Black',
+							'Comic Sans MS', 'Courier New', ],
+					fontNamesIgnoreCheck : [ '맑은고딕' ],
+					focus : true,
+
+					callbacks : {
+						onImageUpload : function(files, editor, welEditable) {
+							for (var i = files.length - 1; i >= 0; i--) {
+								sendFile(files[i], this);
+							}
+						}
+					}
+
+				});
+
+		//이미지 업ㄹ로드 구현중
+
+		/*ajax참고용
+		
+		$("#like").click(function(){
+		      		$.ajax({
+		      			url:"<c:url value="/Review/Like.do"/>",
+		      			type:"post",
+		      			data:{nickName, rvNo},
+		      			dataType:"text",
+		      			success:function(data){
+		      				if(data==0){
+		      					$("#like").attr("src","../images/review/fullH.png");
+		      					$("#likecount").html(++likecount);
+		      				}
+		      				else{
+		      					$("#like").attr("src","../images/review/beanH.png");
+		      					$("#likecount").html(--likecount);
+		      				}
+		      			},
+		      			error:function(){
+		      				alert("로그인 후 이용해주세요.");
+		      			}
+		      		});
+		      	});
+		
+		 */
+	</script>
+
+
+
+
+
 	<script>
 		function w3_open() {
 			document.getElementById("mySidebar").style.display = "block";
@@ -739,39 +703,39 @@ body {
 	</script>
 
 
-        
-<script>
-	$(function() {
-		//페이지 최초 로드시 내용 숨기기]
-		$(".topActions").hide();
-		$(".siteMapActions").hide();
-		$(".moreButton").click(function() {
-			console.log($(this).next().css('display'));
-			//클릭한 제목의 내용이 숨겨져 있다면
-			if ($(this).next().css('display') == 'none') {
-				$(".dddd").css('transform', 'rotate(180deg)');//열린 모든 내용 숨기기
-				$(".topActions").fadeOut(200);//열린 모든 내용 숨기기
-				$(this).next().fadeIn(200);//해당 제목의 내용 보이기
 
-			} else {
-				$(".dddd").css('transform', 'rotate(0deg)');
-				$(this).next().fadeOut(200);
-			}
+	<script>
+		$(function() {
+			//페이지 최초 로드시 내용 숨기기]
+			$(".topActions").hide();
+			$(".siteMapActions").hide();
+			$(".moreButton").click(function() {
+				console.log($(this).next().css('display'));
+				//클릭한 제목의 내용이 숨겨져 있다면
+				if ($(this).next().css('display') == 'none') {
+					$(".dddd").css('transform', 'rotate(180deg)');//열린 모든 내용 숨기기
+					$(".topActions").fadeOut(200);//열린 모든 내용 숨기기
+					$(this).next().fadeIn(200);//해당 제목의 내용 보이기
+
+				} else {
+					$(".dddd").css('transform', 'rotate(0deg)');
+					$(this).next().fadeOut(200);
+				}
+			});
+
+			$(".siteMap").click(function() {
+				console.log($(".siteMapActions").css('display'));
+				//클릭한 제목의 내용이 숨겨져 있다면
+				if ($(".siteMapActions").css('display') == 'none') {
+					$(".siteMapActions").fadeIn(200);//해당 제목의 내용 보이기
+
+				} else {
+					$(".siteMapActions").fadeOut(200);
+				}
+			});
+
 		});
-
-		$(".siteMap").click(function() {
-			console.log($(".siteMapActions").css('display'));
-			//클릭한 제목의 내용이 숨겨져 있다면
-			if ($(".siteMapActions").css('display') == 'none') {
-				$(".siteMapActions").fadeIn(200);//해당 제목의 내용 보이기
-
-			} else {
-				$(".siteMapActions").fadeOut(200);
-			}
-		});
-
-	});
-</script>
+	</script>
 
 </body>
 </html>

@@ -219,9 +219,18 @@ public class ReviewController {
 	      out.println("alert('축하드립니다.\r\n 경험치 10 획득했습니다. ');");
 	      out.println("</script>");
 	      out.flush();
-		return "forward:/Review/TripBoard.do";
+	     // return "Profile/ProfileMain";
+		///	return "forward:/Review/TripBoardWrite.do";
+	      return "forward:/Review/TripBoard.do";
 	}
 	
+	
+	//전체게시물
+		@RequestMapping("TripBoardWrite.do")
+		public String TripBoardWrite(Model model) {
+			return "/review/TripBoard";
+		}///////////////////TripBoard()
+		
 
 	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
 	public @ResponseBody int Like(@RequestParam Map map) throws IOException {

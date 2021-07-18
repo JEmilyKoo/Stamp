@@ -312,7 +312,8 @@ body {
          <ul class="nav navbar-nav "
             style="background-color: white; width: 100%">
             <li class="font_1"><a href="<c:url value="/Admin/Admin.do?pageName=analysisPage"/> ">관리자페이지</a></li>
-            <li><a href="<c:url value="/Stamp/Test.do"/>">Test</a></li>
+              <li><a href="<c:url value="/Stamp/Test.do"/>">Guide</a></li>
+            <li><a href="<c:url value="/Stamp/guide.do"/>">Test</a></li>
 
          </ul>
          

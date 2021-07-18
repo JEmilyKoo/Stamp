@@ -85,8 +85,7 @@
 									<a target="_top"
 										href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">
 										<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
-										<div class="cardImage"
-											style="background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
+										<div class="cardImage" style="background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
 										</div>
 									</a>
 									<!-- 이미지 받아오는 코드 끝-->
