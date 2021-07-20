@@ -114,6 +114,7 @@ public class DMController {
 	@RequestMapping(value = "/DMChatBox.do")
 	public String DMChatList(@RequestParam Map map, @ModelAttribute("nickName") String nickName, Model model,HttpServletRequest req) {
 		List<DMDTO> checkDMChatLists =new ArrayList<DMDTO>();
+		
 		if(map.get("nickName")==req.getSession().getAttribute("nickName")) { //이전 페이지(DMBOX)에서 map으로 전달받은 nickName값이 현재 로그인한 nickName와 같으면
 			map.put("nickName", req.getSession().getAttribute("nickName")); //map 의 "nickName"키값으로 현재 로그인한 nickName 저장 
 		}
@@ -132,9 +133,11 @@ public class DMController {
 			}
 			
 		});//checkDMChatLists리스트 model에 넣기 전 최종 정렬
-		model.addAttribute("checkDMChatLists", checkDMChatLists);	//model에 "checkDMChatLists"라는 키값으로 정렬된 checkDMChatLists 리스트를 전달
-		model.addAttribute("getDMToNickName",checkDMChatLists.get(0).getDMToNickName());	//model에 "getDMToNickName"라는 키값으로 checkDMChatLists.get(0).getDMToNickName()를 전달
-		model.addAttribute("getNickName",checkDMChatLists.get(0).getNickName());	//model에 "getNickName"라는 키값으로 checkDMChatLists.get(0).getNickName()를 전달
+		model.addAttribute("checkDMChatLists", checkDMChatLists);
+		System.out.println(checkDMChatLists);
+		//model에 "checkDMChatLists"라는 키값으로 정렬된 checkDMChatLists 리스트를 전달
+		//model.addAttribute("getDMToNickName",checkDMChatLists.get(0).getDMToNickName());	//model에 "getDMToNickName"라는 키값으로 checkDMChatLists.get(0).getDMToNickName()를 전달
+		//model.addAttribute("getNickName",checkDMChatLists.get(0).getNickName());	//model에 "getNickName"라는 키값으로 checkDMChatLists.get(0).getNickName()를 전달
 		return "/DM/DMChatBox";
 	}//DMChatList
 
@@ -155,7 +158,6 @@ public class DMController {
 		Object DMCtt = map.get("DMCtt");
 		map.put("DMToNickName", DMToNickName);
 		map.put("DMCtt", DMCtt);
-		
 		int data = DMService.sendDM(map);
 		
 		return data;
