@@ -25,8 +25,8 @@ public class RvCmntServiceImpl implements RvCmntService {
 	}
 
 	@Override
-	public String insert(Map map) {
-		return null;
+	public int rvcInsert(Map map) {
+		return dao.rvcInsert(map);
 	}
 
 	@Override

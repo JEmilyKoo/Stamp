@@ -21,9 +21,9 @@ public class RvCmntDAO {
 		return sqlMapper.selectList("rvcSelectList",map);
 	}
 	
-	public int insert(Map map) {
-		sqlMapper.insert("",map);
-		return Integer.parseInt(map.get("rvcNo").toString());
+	public int rvcInsert(Map map) {
+		return sqlMapper.insert("rvcInsert",map);
+		//return Integer.parseInt(map.get("rvcNo").toString());
 	}
 	
 	public String findNameById(String id) {

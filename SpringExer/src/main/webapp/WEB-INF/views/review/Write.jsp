@@ -376,7 +376,7 @@ body {
 						<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
 						<li><a
 							href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
-								dd
+								
 								<div class="_3SBFF undefined LTwPD sameS "
 									style="max-width: 140px;">
 									<button id=tripBoardCreateButton  type="submit" 

@@ -105,6 +105,20 @@ public class ReviewController {
 	}
 	
 
+	@RequestMapping("rvCmntOne.do")
+	public String rvcInsert(@RequestParam Map map) {
+		
+		System.out.println("rvc rvNo22:"+map.get("rvNo"));
+		int check = rvCmntService.rvcInsert(map);
+		System.out.println("insert33:"+check);
+		
+		return "forward:/Review/ForumPost.do";
+	}
+
+	
+	
+	
+	
 	
 	//전체게시물
 	@RequestMapping("TripBoard.do")
@@ -191,7 +205,6 @@ public class ReviewController {
 				//댓글받는쿼리
 				List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
 				model.addAttribute("rvcDto",rvcDto);
-				
 			}//else(req.getSession().getAttribute("nickName")!=null)
 		
 		

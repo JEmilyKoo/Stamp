@@ -6,7 +6,7 @@ import java.util.Map;
 public interface RvCmntService {
 
 
-	String insert(Map map);
+	int rvcInsert(Map map);
 	int delete(Map map);
 	int update(Map map);
 

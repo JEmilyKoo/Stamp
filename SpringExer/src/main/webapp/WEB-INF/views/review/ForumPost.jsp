@@ -16,6 +16,9 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
+	
+	
+	
 <title>${dto.rvTitle }|찍GO</title>
 </head>
 <body>
@@ -230,7 +233,8 @@
 <form id="myform"  name='homeForm' method="post"  class="form-horizontal" action="<c:url value="/Member/LoginCheck.do"/>">
 				
 -->
-					<form class="form-inline" id="frm">
+					<form class="form-inline" id="frm"
+						action="<c:url value="/Review/rvCmntOne.do?rvNo=${rvNo }"/>">
 						<div class="GNZwK" data-hook="animated-loader__container">
 							<div class="dGa6G forum-card-border-color">
 								<div id="comments" class="_3Z-pR">
@@ -411,57 +415,61 @@
 
 
 		대댓글 끝-->
+
+										</c:if>
+									</div>
+									<div class=" lrDj7 _2bKV7"
+										style="border-color: rgba(0, 0, 0, 0.2);"></div>
+
+									<!--선긋기-->
+
+									<div
+										style="border-width: 1px; border-color: rgba(0, 0, 0, 0.2);">
+										<div class="kIBre  font_9  comment-form">
+											<a
+												href="https://jemilykoo.wixsite.com/website/profile/userID/profile"
+												class="_1cpII">
+												<div class="_31l-O  _1ccuS avatar">
+													<span class="_14_Ju _1zT4G _28gI0 avatar-image">
+														<div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div>
+													</span>
+													<div class="-mPAe">
+														<!-- 여기가 댓글작성자 닉네임 -->
+														<div class="_1d5Ko _1_vuc">${sessionScope.nickName}</div>
+													</div>
+												</div>
+											</a>
+										</div>
+
+										<div class="lineboxContainer">
+											<!--아래 div는 textarea와 같은 역할을 합니다. -->
+											<div class="linebox" >
+											<textarea rows="5" cols="30" name="rvCmnt"></textarea>
+												<input type="hidden"
+													name="nickName" value="${dto.nickName}" /> <input
+													type="hidden" name="rvNo" value="${dto.rvNo}" /> <input
+													type="hidden" name="rvcNo" />
+											</div>
+											<div style="height: 50px"></div>
+											<!-- textarea 끝-->
+
+											<!--댓글 게시 시작-->
+											<div class="_1tafc _3g02x ruYrk _2Ysrr _3-clJ">
+												<button
+														class="submitButton" type="submit">게시</button>
+											</div>
+											<!--댓글 게시 끝 -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				</form></div>
+				
+			</div>
+		</div>
+	</div>
 	
-	</c:if></div>
-	<div class=" lrDj7 _2bKV7" style="border-color: rgba(0, 0, 0, 0.2);"></div>
-
-	<!--선긋기-->
-
-	<div style="border-width: 1px; border-color: rgba(0, 0, 0, 0.2);">
-		<div class="kIBre  font_9  comment-form">
-			<a
-				href="https://jemilykoo.wixsite.com/website/profile/userID/profile"
-				class="_1cpII">
-				<div class="_31l-O  _1ccuS avatar">
-					<span class="_14_Ju _1zT4G _28gI0 avatar-image">
-						<div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div>
-					</span>
-					<div class="-mPAe">
-						<!-- 여기가 댓글작성자 닉네임 -->
-						<div class="_1d5Ko _1_vuc">${sessionScope.nickName}</div>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="lineboxContainer">
-			<!--아래 div는 textarea와 같은 역할을 합니다. -->
-			<div class="linebox" id="textarea" contenteditable>
-				<span>텍스트 위치입니다 이게 입력이 되어야 합니다</span> <input type="hidden"
-					name="nickName" value="${dto.nickName}" /> <input type="hidden"
-					name="rvNo" value="${dto.rvNo}" /> <input type="hidden"
-					name="rvcNo" />
-			</div>
-			<div style="height: 50px"></div>
-			<!-- textarea 끝-->
-
-			<!--댓글 게시 시작-->
-			<div class="_1tafc _3g02x ruYrk _2Ysrr _3-clJ">
-				<a href="<c:url value="/rvCmntOne.do"/>"><button
-						class="submitButton">게시</button></a>
-			</div>
-			<!--댓글 게시 끝 -->
-		</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</form>
-	</div>
-	</div>
-	</div>
-	</div>
 
 
 </body>

@@ -14,4 +14,10 @@
 	order by rvcNo desc
 </select>
 
+<insert id="rvcInsert" parameterType="Map">
+	insert into rvcmnt
+	values(seq_rvcmnt.nextval,#{rvNo},#{nickName},#{rvCmnt},sysdate)
+
+</insert>
+
 </mapper>
