@@ -109,21 +109,19 @@
 					class="button-color" bilocation="post_sidebar">전체 카테고리 보기</a>
 
 			</div>
-			<div class="TripBoardMain" style="width: 980px">
+			<div class="TripBoardMain" style="width: 780px">
 				<!-- 메인 -->
 
 				<!--여기서부터 게시글 시작-->
-				<div class="">
+				<div class="" style="width: 780px">
 					<div
 						class="_1W1_h _1AA4r _2cpHr font_9 forum-card-background-color forum-card-border-colo _36m3S">
 						<div class="GNZwK ">
-							<main class="_1zsKH hHz9Y forum-card-border-color "
-								style="border-width: 1px;">
+							<main class="_1zsKH hHz9Y forum-card-border-color " style="border-width: 1px;">
 								<div class="eGv_z">
 									<div class="_2uwD1 xsS9i ">
 										<div class="Nrvl9">
-											<a
-												href="https://jemilykoo.wixsite.com/website/profile/jemilykoo/profile"
+											<a href="https://jemilykoo.wixsite.com/website/profile/jemilykoo/profile"
 												class="_1cpII">
 												<div class="_31l-O  _1ccuS avatar">
 													<span class="_14_Ju _1zT4G _28gI0">
@@ -210,9 +208,10 @@
 
 
 								</div>
+						</main>
 						</div>
 					</div>
-					</main>
+					
 					<!-- 댓글 만들기 구현중 -->
 					<div class="_2r1LV forum-card-border-color">
 						<div class="_3Cioj QZ-R_ forum-separator-background-color"></div>
@@ -233,7 +232,7 @@
 									<div class="_1vGfV">
 
 										<!-- 댓글 시작-->
-										<c:if test="${! empty rvcDto}">
+										<c:if test="${! empty SS}">
 										<c:forEach items="${rvcDto }" var="item2">
 										<article
 											class="_3JQ_x font_9  forum-card-border-color comment">
