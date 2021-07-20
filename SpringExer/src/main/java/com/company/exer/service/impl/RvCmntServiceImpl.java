@@ -30,13 +30,18 @@ public class RvCmntServiceImpl implements RvCmntService {
 	}
 
 	@Override
-	public int delete(Map map) {
-		return dao.delete(map);
+	public int rvcDelete(Map map) {
+		return dao.rvcDelete(map);
 	}
 
 	@Override
 	public int update(Map map) {
 		return dao.update(map);
+	}
+
+	@Override
+	public int rvcCount(Map map) {
+		return dao.rvcCount(map);
 	}
 
 	

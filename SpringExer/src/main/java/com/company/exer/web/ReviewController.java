@@ -105,16 +105,7 @@ public class ReviewController {
 	}
 	
 
-	@RequestMapping("rvCmntOne.do")
-	public String rvcInsert(@RequestParam Map map) {
-		
-		System.out.println("rvc rvNo22:"+map.get("rvNo"));
-		int check = rvCmntService.rvcInsert(map);
-		System.out.println("insert33:"+check);
-		
-		return "forward:/Review/ForumPost.do";
-	}
-
+	
 	
 	
 	
@@ -169,7 +160,7 @@ public class ReviewController {
 			System.out.println("댓글1");
 			ReviewDTO dto = reviewService.selectOne(map);
 			System.out.println("2");
-			System.out.println("dto:"+dto.toString());
+			
 			//이 쿼리는 댓글이 있어야 돌아가는 쿼리이다
 			
 			//if(rvcDto!=null) {
@@ -206,6 +197,10 @@ public class ReviewController {
 				List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
 				model.addAttribute("rvcDto",rvcDto);
 			}//else(req.getSession().getAttribute("nickName")!=null)
+		
+			int num =rvCmntService.rvcCount(map);
+			model.addAttribute("num",num);
+			System.out.println(num);
 		
 		
 		

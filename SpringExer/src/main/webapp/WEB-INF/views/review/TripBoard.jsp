@@ -177,9 +177,9 @@
 													<div class="_60xHi">
 														<div class="MEOqZ post-stats">
 															<!-- 조회 -->
-															<span tabindex="0">조회 0</span>
+															<span tabindex="0"></span>
 															<!-- 댓글 -->
-															<span class="_24h-e">댓글 0</span>
+															<span class="_24h-e"></span>
 														</div>
 													</div>
 

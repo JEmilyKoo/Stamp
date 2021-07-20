@@ -29,15 +29,29 @@ public class RvCmntController {
 	@Resource(name="rvCmntService")
 	private RvCmntService rvCmntService;
 	
-	//("rvCmntOne.do")
-	//public String rvCmntList(Map map) {
-	//	System.out.println("rvc rvNo:"+map.get("rvNo"));
-	//	int insert = rvCmntService.insert(map);
-	//	System.out.println(insert);
-		
-	//	return "forward:/Review/ForumPost.do";
-	//}
 
+
+	@RequestMapping("/rvCmntOne.do")
+	public String rvcInsert(@RequestParam Map map) {
+		
+		System.out.println("rvc rvNo22:"+map.get("rvNo"));
+		int check = rvCmntService.rvcInsert(map);
+		System.out.println("insert33:"+check);
+		
+		return "forward:/Review/ForumPost.do";
+	}
+
+	@RequestMapping("/rvcEdit.do")
+	public String rvcEdit(@RequestParam Map map) {
+		
+		return "forward:/Review/ForumPost.do";
+	}
+	
+	@RequestMapping("/rvcDelete")
+	public String rvcdelete(@RequestParam Map map) {
+		rvCmntService.rvcDelete(map);
+		return "forward:/Review/ForumPost.do";
+	}
 	
 	
 	
