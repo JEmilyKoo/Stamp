@@ -43,7 +43,8 @@ public class RvCmntController {
 
 	@RequestMapping("/rvcEdit.do")
 	public String rvcEdit(@RequestParam Map map) {
-		
+		int check = rvCmntService.rvcUpdate(map);
+		System.out.println("update - check"+check);
 		return "forward:/Review/ForumPost.do";
 	}
 	

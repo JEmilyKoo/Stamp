@@ -285,6 +285,10 @@ public class ReviewController {
 	public String Edit(@RequestParam Map map,Model model ) {
 		ReviewDTO dto = reviewService.selectOne(map);
 		model.addAttribute("dto",dto);
+		System.out.println("Edit - dto.toString():"+dto.toString());
+		dto.setRvCtt(dto.getRvCtt().replace("<p>","\n"));	
+		dto.setRvCtt(dto.getRvCtt().replace("</p>",""));	
+
 		return "review/Edit";
 	}
 	
@@ -292,7 +296,9 @@ public class ReviewController {
 	public String EditOk(@RequestParam Map map,Model model) {
 		ReviewDTO dto = reviewService.selectOne(map);
 		model.addAttribute("dto",dto);
+		
 		reviewService.update(map);
+		
 		return "forward:/Review/ForumPost.do";
 	}
 	

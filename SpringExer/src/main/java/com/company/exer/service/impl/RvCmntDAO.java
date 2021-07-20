@@ -34,8 +34,8 @@ public class RvCmntDAO {
 		return sqlMapper.delete("rvcDelete",map);
 	}
 	
-	public int update(Map map) {
-		return sqlMapper.update("",map);
+	public int rvcUpdate(Map map) {
+		return sqlMapper.update("rvcUpdate",map);
 	}
 
 	public int rvcCount(Map map) {

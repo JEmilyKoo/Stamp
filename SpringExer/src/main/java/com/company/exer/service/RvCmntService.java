@@ -8,7 +8,7 @@ public interface RvCmntService {
 
 	int rvcInsert(Map map);
 	int rvcDelete(Map map);
-	int update(Map map);
+	int rvcUpdate(Map map);
 	
 	int rvcCount(Map map);
 	List<RvCmntDTO> selectList(Map map);

@@ -35,8 +35,8 @@ public class RvCmntServiceImpl implements RvCmntService {
 	}
 
 	@Override
-	public int update(Map map) {
-		return dao.update(map);
+	public int rvcUpdate(Map map) {
+		return dao.rvcUpdate(map);
 	}
 
 	@Override

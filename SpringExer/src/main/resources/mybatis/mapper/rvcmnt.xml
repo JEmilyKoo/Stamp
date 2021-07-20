@@ -31,4 +31,11 @@
 	where rvcno=#{rvcNo}
 </delete>
 
+<update id="rvcUpdate" parameterType="Map">
+	update rvcmnt
+		set rvCmnt=#{rvCmnt}
+		Where rvcNo=#{rvcNo}
+
+</update>
+
 </mapper>
