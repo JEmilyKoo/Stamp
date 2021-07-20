@@ -11,12 +11,12 @@
 		type="com.company.exer.service.DMDTO"
 		id="DMDTOResult">
 
-		<result column="dmno" property="dMNo" />
-		<result column="nickname" property="nickname" />
-		<result column="dmtonickname" property="dMToNickname" />
-		<result column="dmctt" property="dMCtt" />
-		<result column="dmdate" property="dMDate" />
-		<result column="dmchecked" property="dMChecked" />
+		<result column="dmno" property="DMNo" />
+		<result column="nickName" property="nickName" />
+		<result column="dmtonickName" property="DMToNickName" />
+		<result column="dmctt" property="DMCtt" />
+		<result column="dmdate" property="DMDate" />
+		<result column="dmchecked" property="DMChecked" />
 	</resultMap>
 	<!--  회원가입 및 로그인 시작 -->
 	<!-- 회원가입 확인용 -->
@@ -33,21 +33,21 @@
 		
 		INSERT INTO DM VALUES(
 		SEQ_DM.NEXTVAL,
-		#{nickname},
-		#{dMCtt},
-		#{dMToNickname},
+		#{nickName},
+		#{DMCtt},
+		#{DMToNickName},
 		default,
 		default,
 		default)
 	</insert>
 	
 	<!-- 2. DM 전체 메세지함 쿼리문 -->
-	<select id="dMList" parameterType="Map"
+	<select id="DMList" parameterType="Map"
 		resultType="com.company.exer.service.DMDTO">
 		
-		SELECT nickname,dMToNickname,max(dMDate) dMDate FROM dm
-		WHERE nickname = #{nickname} OR dMToNickname = #{nickname}
-		GROUP BY nickname, dMToNickname
+		SELECT nickName,DMToNickName,max(DMDate) DMDate FROM dm
+		WHERE nickName = #{nickName} OR DMToNickName = #{nickName}
+		GROUP BY nickName, DMToNickName
 	</select>
 	
 	<!-- 3. 최신 발신내역 가져오는 쿼리문 -->
@@ -56,8 +56,8 @@
 		
 		SELECT *
 		FROM (SELECT * FROM dm ORDER BY ROWNUM DESC)
-		WHERE (nickname,dMToNickname) IN
-		((#{nickname},#{dMToNickname}),(#{dMToNickname},#{nickname})) 
+		WHERE (nickName,DMToNickName) IN
+		((#{nickName},#{DMToNickName}),(#{DMToNickName},#{nickName})) 
 		AND ROWNUM = 1
 	</select> 
 	
@@ -67,23 +67,23 @@
 		
 		SELECT *
 		FROM dm 
-		WHERE (nickname,dMToNickname) IN
-		((#{nickname},#{dMToNickname}),(#{dMToNickname},#{nickname}))
+		WHERE (nickName,DMToNickName) IN
+		((#{nickName},#{DMToNickName}),(#{DMToNickName},#{nickName}))
 	</select>
 	
 	<!-- 5. 읽음 처리 쿼리문 -->
 	<update id="checkDM" parameterType="com.company.exer.service.DMDTO" >
 	
 		UPDATE dm 
-		SET dMChecked = ' '
-		WHERE nickname= #{nickname} AND  dMToNickname = #{dMToNickname}
+		SET DMChecked = ' '
+		WHERE nickName= #{nickName} AND  DMToNickName = #{DMToNickName}
 	</update>
 	<select id="cntNewDM"
 		parameterType="com.company.exer.service.DMDTO" resultType="int">
 		
-		SELECT COUNT(dMChecked) 
+		SELECT COUNT(DMChecked) 
 		FROM DM 
-		WHERE nickname= #{nickname} AND  dMToNickname = #{dMToNickname}
-		AND dMChecked='1'
+		WHERE nickName= #{nickName} AND  DMToNnickName = #{DMToNickName}
+		AND DMChecked='1'
 	</select>
 </mapper>

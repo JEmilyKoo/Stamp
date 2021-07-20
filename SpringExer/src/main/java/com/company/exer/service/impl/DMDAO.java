@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.company.exer.service.DMDTO;
 
 
-@Repository("dMDAO")
+@Repository("DMDAO")
 public class DMDAO {
 
 	@Resource(name="template")
@@ -26,9 +26,9 @@ public class DMDAO {
 	}
 	
 //	2. DM 전체 메세지함 쿼리문
-	public List<DMDTO> dMList(Map map) {
+	public List<DMDTO> DMList(Map map) {
 
-		return sqlMapper.selectList("dMList", map);
+		return sqlMapper.selectList("DMList", map);
 	}
 	
 //	3. 최신 발신내역 가져오는 쿼리문
@@ -38,9 +38,9 @@ public class DMDAO {
 	}
 	
 //	4. DM 1:1대화목록 쿼리문
-	public List<DMDTO> dMChatList(Map map) {
+	public List<DMDTO> DMChatList(Map map) {
 
-		return sqlMapper.selectList("dMChatList", map);
+		return sqlMapper.selectList("DMChatList", map);
 	}
 	
 //	5. 읽음 처리 쿼리문

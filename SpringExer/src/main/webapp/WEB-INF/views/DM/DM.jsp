@@ -20,7 +20,13 @@
 	
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 		<div class="body-container" >
-		<div><!-- -여기에 팔로워 들어감 -->팔로워들어갈 창</div>
+		<div><!-- -여기에 팔로워 들어감 -->팔로워들어갈 창
+		${finalDMLists.nickName}
+		
+		${cntNewDMs }
+		</div>
+		
+		
 		<div> <!--  여기에 디엠 들어감 -->
 			<header class="header">
 				<div class="header-items">

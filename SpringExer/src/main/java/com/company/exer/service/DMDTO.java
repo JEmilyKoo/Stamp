@@ -7,10 +7,10 @@ import lombok.Data;
 @Data
 public class DMDTO {
 
-	private String dMNo;
-	private String nickname;
-	private String dMToNickname;
-	private String dMCtt;
-	private Timestamp dMDate;
-	private String dMChecked;
+	private String DMNo;
+	private String nickName;
+	private String DMToNickName;
+	private String DMCtt;
+	private Timestamp DMDate;
+	private String DMChecked;
 }
