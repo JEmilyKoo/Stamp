@@ -501,7 +501,9 @@ body {
 									<c:if test="${fn:contains(param.category,'인천') }">selected</c:if>>인천</option>
 								<option value="경기" name="rvCategory1"
 									<c:if test="${fn:contains(param.category,'경기') }">selected</c:if>>경기</option>
-							</select> <select name="rvCategory2" id="category2">
+							</select> 
+							
+							<select name="rvCategory2" id="category2">
 								<option value="">==여행지 선택==</option>
 								<option value="산" name="rvCategory2"
 									<c:if test="${fn:contains(param.category,'산') }">selected</c:if>>산</option>
