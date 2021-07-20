@@ -34,7 +34,7 @@ public class RvCmntController {
 		String insert = rvCmntService.insert(map);
 		
 		
-		return "/";
+		return "/home";
 	}
 
 	
