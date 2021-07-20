@@ -18,7 +18,7 @@ public class RvCmntDAO {
 	private SqlSessionTemplate sqlMapper;
 	
 	public List<RvCmntDTO> selectList(Map map){
-		return sqlMapper.selectList("",map);
+		return sqlMapper.selectList("rvcSelectList",map);
 	}
 	
 	public int insert(Map map) {

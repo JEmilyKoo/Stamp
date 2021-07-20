@@ -233,6 +233,8 @@
 									<div class="_1vGfV">
 
 										<!-- 댓글 시작-->
+										<c:if test="${! empty rvcDto}">
+										<c:forEach items="${rvcDto }" var="item2">
 										<article
 											class="_3JQ_x font_9  forum-card-border-color comment">
 											<div class="_1XN4n _2IZ0U"
@@ -251,13 +253,13 @@
 																		<div class="_1xqeV">
 																			<!-- 댓글 목록1 -->
 																			<span
-																				class="B9kqa  forum-link-hover-color comment-avatar__profile-name">닉네임이에요</span>
+																				class="B9kqa  forum-link-hover-color comment-avatar__profile-name">${item2.nickName }</span>
 																		</div>
-																	</div>
+																	</div> 
 																</div>
 															</a>
 														</div>
-														<span class="_1dO0B">생성시간이에요</span>
+														<span class="_1dO0B">${item2.rvcDate }</span>
 														<div class="_2RCpN">
 															<div class="LTwPD more-button" data-hook="more-button">
 																<button
@@ -279,7 +281,7 @@
 														class=" kcuBq _18B2H font_9 c5OF0 cNOAl css-1wg9rnj _2x6sh uatYj _1bYoS gOtux"
 														data-id="rich-content-viewer">
 																<div class="font_9">
-																		<div class="_1xs1G">${dto.rvCmnt }</div>
+																		<div class="_1xs1G">${item2.rvCmnt }</div>
 																	</div>
 																
 															
@@ -310,6 +312,7 @@
 												</div>
 											</div>
 										</article>
+										</c:forEach>
 										<!-- 댓글 끝 -->
 										<!--대댓글 컨테이너 시작-->
 										<div class="_1vGfV _1yPdA" data-hook="comment">
@@ -403,7 +406,7 @@
 											</article>
 
 										</div>
-
+</c:if>
 										<!-- 대댓글 끝-->
 										<div class=" lrDj7 _2bKV7"
 											style="border-color: rgba(0, 0, 0, 0.2);"></div>
@@ -421,8 +424,9 @@
 															<div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div>
 														</span>
 														<div class="-mPAe">
+														<!-- 여기가 댓글작성자 닉네임 -->
 															<div class="_1d5Ko _1_vuc" >
-																userID</div>
+																${sessionScope.nickName}</div>
 														</div>
 													</div>
 												</a>
@@ -431,7 +435,7 @@
 											<div class="lineboxContainer">
 												<!--아래 div는 textarea와 같은 역할을 합니다. -->
 												<div class="linebox" id="textarea" contenteditable>
-													<span>기본 기능만 구현하기로 했습니다.</span> <input type="hidden"
+													<span>텍스트 위치입니다 이게 입력이 되어야 합니다</span> <input type="hidden"
 														name="nickName" value="${dto.nickName}" /> <input
 														type="hidden" name="rvNo" value="${dto.rvNo}" /> <input
 														type="hidden" name="rvcNo" />

@@ -5,9 +5,11 @@ import java.util.Map;
 
 public interface RvCmntService {
 
-	List<RvCmntDTO> selectList(Map map);
-	
+
 	String insert(Map map);
 	int delete(Map map);
 	int update(Map map);
+
+	List<RvCmntDTO> selectList(Map map);
+
 }

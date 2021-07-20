@@ -45,6 +45,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.company.exer.service.ProfileService;
 import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.ReviewService;
+import com.company.exer.service.RvCmntDTO;
+import com.company.exer.service.RvCmntService;
 import com.company.exer.service.impl.ReviewServiceImpl;
 import com.company.exer.utils.UploadFileUtils;
 import com.google.gson.JsonObject;
@@ -61,6 +63,11 @@ public class ReviewController {
 	@Resource(name="profileService")
 	private ProfileService profileService;
 
+	//댓글얻기위함
+	@Resource(name="rvCmntService")
+	private RvCmntService rvCmntService;
+	
+	
 	/* 로그인 하지 않고 각 컨트롤러 메소드 실행시 오류:@ModelAttribute("id") String id사용시 */
 	//씨큐리티 사용시에는 아래 예외처리 불필요
 	@ExceptionHandler({HttpSessionRequiredException.class})
@@ -96,12 +103,6 @@ public class ReviewController {
 		out.println("profileUpload/"+email+"/"+str_filename);
 		out.close();
 	}
-	
-	
-	
-	
-	
-	
 	
 
 	
@@ -141,7 +142,7 @@ public class ReviewController {
 			//닉네임은 정상으로 받아짐
 			String nickName = req.getSession().getAttribute("nickName").toString();
 			
-			System.out.println(nickName);
+			//System.out.println(nickName);
 			//네임도 잘 받아짐
 			
 			map.put("nickName", nickName);
@@ -151,34 +152,53 @@ public class ReviewController {
 			//좋아요값갯수갖고오는 쿼리
 			
 			//댓글 하나만 달 수 있음
+			System.out.println("댓글1");
 			ReviewDTO dto = reviewService.selectOne(map);
+			System.out.println("2");
+			System.out.println("dto:"+dto.toString());
 			//이 쿼리는 댓글이 있어야 돌아가는 쿼리이다
 			
-			if(dto!=null) {
+			//if(rvcDto!=null) {
 				//댓글이 하나라도 있을 경우
 				
-				System.out.println("dto:"+dto.toString());
-				System.out.println("check:"+check);
-				dto.setRvLikeCheck(check);
-				dto.setRvCtt(dto.getRvCtt().replace("\r\n","<br/>"));				
+				//System.out.println("dto:"+rvcDto.toString());
+				//System.out.println("check:"+check);
+				//rvcDto.setRvLikeCheck(check);
+				//rvcDto.setRvCtt(rvcDto.getRvCtt().replace("\r\n","<br/>"));				
 				model.addAttribute("dto",dto);
-	
 				
-			}//if(dto!=null)
+				List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
+				model.addAttribute("rvcDto",rvcDto);
+				
+			
+				System.out.println("rvNo11:"+map.get("rvNo"));
+			//}//if(dto!=null)
 			//댓글이 하나도 없고 닉네임은 받아와지는 경우
 			
 			//댓글이 없을 경우를 대비한 셀렉트를 생성했음
-			dto = reviewService.noCMNTselectOne(map);
-			model.addAttribute("dto",dto);
+			//ReviewDTO dto = reviewService.noCMNTselectOne(map);
+			//model.addAttribute("dto",dto);
 			
 			}//if(req.getSession().getAttribute("nickName")!=null)
 			else {
-				//댓글도 없고 세션 닉네임도 없을 경우
+			//	//댓글도 없고 세션 닉네임도 없을 경우
 				ReviewDTO dto = reviewService.noCMNTselectOne(map);
 				//댓글도 없는데 댓글받으면 어떡함 너무해
+				
 				model.addAttribute("dto",dto);
+				
+				System.out.println("rvNo22:"+map.get("rvNo"));
+				//댓글받는쿼리
+				List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
+				model.addAttribute("rvcDto",rvcDto);
+				
 			}//else(req.getSession().getAttribute("nickName")!=null)
+		
+		
+		
 		//뷰정보 반환]
+		
+	
 		
 		
 		return "/review/ForumPost";
