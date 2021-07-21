@@ -87,7 +87,7 @@
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px">KOO</span>
+										style="vertical-align: top; position: relative; left: 10px"></span>
 									</a>
 								</div>
 							</div>
@@ -140,7 +140,7 @@
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px">KOO</span>
+										style="vertical-align: top; position: relative; left: 10px"></span>
 									</a>
 								</div>
 							</div>
@@ -192,7 +192,7 @@
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px">KOO</span>
+										style="vertical-align: top; position: relative; left: 10px"></span>
 									</a>
 								</div>
 							</div>
@@ -244,7 +244,7 @@
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px">KOO</span>
+										style="vertical-align: top; position: relative; left: 10px"></span>
 									</a>
 								</div>
 							</div>
@@ -296,7 +296,7 @@
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px">KOO</span>
+										style="vertical-align: top; position: relative; left: 10px"> </span>
 									</a>
 								</div>
 							</div>
@@ -348,7 +348,7 @@
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px">KOO</span>
+										style="vertical-align: top; position: relative; left: 10px"> </span>
 									</a>
 								</div>
 							</div>
