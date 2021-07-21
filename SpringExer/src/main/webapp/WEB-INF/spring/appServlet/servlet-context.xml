@@ -32,7 +32,7 @@ http://www.springframework.org/schema/websocket http://www.springframework.org/s
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	<websocket:handlers allowed-origins="*">
-		<websocket:mapping path="/chat-ws.do"
+		<websocket:mapping path="/websocket/chat-ws.do"
 			handler="StampServer" />
 	</websocket:handlers>
 	<beans:bean id="StampServer"
