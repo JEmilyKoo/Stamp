@@ -22,9 +22,10 @@
 	</insert>
 	
 	<select id="reviewSelectOne" parameterType="Map"  resultType="reviewDTO">
-		select rv.*,rc.rvcmnt
-		from review rv JOIN rvcmnt rc ON rv.rvno=rc.rvno 
-		Where rv.rvNo=#{rvNo}
+		select *
+		from review
+
+		Where rvNo=#{rvNo}
 	</select>
 	
 	<select id="reviewNoCMNTSelectOne" parameterType="Map"  resultType="reviewDTO">
@@ -72,13 +73,7 @@
 		from review
 		where rvNo=#{rvNo}
 	</insert>
-	
-	<insert id="reviewCmnt" parameterType="Map">
-		insert into rvcmnt
-		values(seq_rvcmnt.nextval,#{rvNo},#{nickname},#{rvCmnt},sysdate)
-	</insert>
-	
-	
+
 	<select id="reviewMNG" resultType="reviewDTO">
 		select *
 		from review 

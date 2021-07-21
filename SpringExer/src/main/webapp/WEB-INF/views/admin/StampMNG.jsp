@@ -127,7 +127,7 @@
 										</tbody>
 									</table>
 								</c:if>
-								<div class="paging">${dto.pagingString }</div>
+								<div class="paging">${dto.pagingString } <button>이동</button></div>
 							</div>
 						</div>
 					</div>
@@ -172,7 +172,7 @@
 		if ($("select[name=selectFn]").val() === "renewFn") {
 			pushToArr();
 			$.ajax({
-				url : 'renewAdminStamp.do',
+				url : 'renewStampMNG.do',
 				type : 'post',
 				traditional : true,
 				data : {
@@ -180,14 +180,14 @@
 				},
 				success : function(data) {
 					console.log("성공");
-					location.href = "<c:url value='/Stamp/AdminStamp.do?pageName=AdminStamp&nowPage=" + nowPage + "'/>";
+					location.href = "<c:url value='/Stamp/StampMNG.do?pageName=StampMNG&nowPage=" + nowPage + "'/>";
 				}
 
 			});
 		} else if ($("select[name=selectFn]").val() === "expireFn") {
 			pushToArr();
 			$.ajax({
-				url : 'expireAdminStamp.do',
+				url : 'expireStampMNG.do',
 				type : 'post',
 				traditional : true,
 				data : {
@@ -195,14 +195,14 @@
 				},
 				success : function(data) {
 					console.log("성공");
-					location.href = "<c:url value='/Stamp/AdminStamp.do?pageName=AdminStamp&nowPage=" + nowPage + "'/>";
+					location.href = "<c:url value='/Stamp/StampMNG.do?pageName=StampMNG&nowPage=" + nowPage + "'/>";
 				}
 
 			});
 		} else if ($("select[name=selectFn]").val() === "deleteFn") {
 			pushToArr();
 			$.ajax({
-				url : 'deleteAdminStamp.do',
+				url : 'deleteStampMNG.do',
 				type : 'post',
 				traditional : true,
 				data : {
@@ -210,7 +210,7 @@
 				},
 				success : function(data) {
 					console.log("성공");
-					location.href = "<c:url value='/Stamp/AdminStamp.do?pageName=AdminStamp&nowPage=" + nowPage + "'/>";
+					location.href = "<c:url value='/Stamp/StampMNG.do?pageName=StampMNG&nowPage=" + nowPage + "'/>";
 				}
 
 			});

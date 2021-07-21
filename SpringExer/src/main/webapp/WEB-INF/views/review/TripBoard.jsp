@@ -79,13 +79,13 @@
 						<c:forEach items="${list}" var="item">
 
 							<div class="item">
-								<div class="article">
+								<div class="article" style="max-height:450px">
 									<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
 									<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
 									<a target="_top"
 										href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">
 										<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
-										<div class="cardImage" style="background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
+										  <div   class="cardImage" style="height:200px ;background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
 										</div>
 									</a>
 									<!-- 이미지 받아오는 코드 끝-->
@@ -152,10 +152,16 @@
 														style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
 														<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
 														<!-- 뿌려주는 반복문 필요할거 같다 -->
+														
 														<div class="fl4fR">
-															<a href="<c:url value="#"/>">#${item.rvCategory1} </a> <a
-																href="<c:url value="#"/>">#${item.rvCategory2} </a>
+														<c:if test="${! empty item.rvCategory1 }">
+															<a href="<c:url value="#"/>">#${item.rvCategory1} </a> 
+														</c:if>
+														<c:if test="${! empty item.rvCategory2 }">
+															<a href="<c:url value="#"/>">#${item.rvCategory2} </a>
+														</c:if>
 														</div>
+														
 													</div>
 												</div>
 											</div>
@@ -171,9 +177,9 @@
 													<div class="_60xHi">
 														<div class="MEOqZ post-stats">
 															<!-- 조회 -->
-															<span tabindex="0">조회 0</span>
+															<span tabindex="0"></span>
 															<!-- 댓글 -->
-															<span class="_24h-e">댓글 0</span>
+															<span class="_24h-e"></span>
 														</div>
 													</div>
 

@@ -42,7 +42,7 @@
 					<label class="col-sm-2 control-label">제목</label>
 					<div class="col-sm-4">
 						<input type="text" class="form-control" name="rvTitle"
-							placeholder="제목을 입력하세요?">
+							placeholder="제목을 입력하세요?" value="${dto.rvTitle }">
 					</div>
 				</div>
 
@@ -54,7 +54,7 @@
 						<div class="row">
 							<div class="col-sm-8">
 								<textarea class="form-control" name="rvCtt" rows="5"
-									placeholder="내용 입력하세요"></textarea>
+									placeholder="내용 입력하세요">${dto.rvCtt}</textarea>
 							</div>
 						</div>
 					</div>

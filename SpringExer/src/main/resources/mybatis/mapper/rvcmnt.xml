@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
+<mapper namespace="mybatis.mapper.rvcmnt">
+
+<select id="rvcSelectList" resultType="rvCmntDTO" parameterType="Map">
+	select rc.* 
+	from rvcmnt rc JOIN review re ON re.rvno=rc.rvno
+	where re.rvno=#{rvNo}
+	order by rvcNo desc
+</select>
+
+<insert id="rvcInsert" parameterType="Map">
+	insert into rvcmnt
+	values(seq_rvcmnt.nextval,#{rvNo},#{nickName},#{rvCmnt},sysdate)
+
+</insert>
+
+<select id="rvcCount" parameterType="Map" resultType="Int">
+	select count(*)
+	from rvcmnt
+	where rvno=#{rvNo}
+</select>
+
+<delete id="rvcDelete" parameterType="Map">
+	delete from rvcmnt
+	where rvcno=#{rvcNo}
+</delete>
+
+<update id="rvcUpdate" parameterType="Map">
+	update rvcmnt
+		set rvCmnt=#{rvCmnt}
+		Where rvcNo=#{rvcNo}
+
+</update>
+
+</mapper>

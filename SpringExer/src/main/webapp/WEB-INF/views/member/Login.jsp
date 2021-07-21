@@ -87,117 +87,125 @@
 
 						</button>
 
-		<c:if test="${! empty NotMember }">﻿
+						<c:if test="${! empty NotMember }">﻿
 			<div class="row">
-				<div class="col-xs-offset-1 col-xs-6 alert alert-warning fade in">
-					<button class="close" data-dismiss="alert">
-						<span>×</span>
-					</button>
-					${NotMember }
-				</div>
-			</div>
-		</c:if>
-
-<div id="SM_ROOT_COMP12" class="_2nKSe">
-					<h1 id="signUpHeadline_SM_ROOT_COMP12" class="_15DDX"
-						data-testid="signUp.headline">로그인</h1>
-					<div class="_6UDPd _14jSF _2QSEv">
-						<div class="_1axeK"></div>
-		<div class="row">
-			<c:if test="${not empty sessionScope.id }" var="isLogin">
-				<div class="col-xs-offset-1 col-xs-6 alert alert-success">${sessionScope.id }님
-					즐겁게 여행하세요</div>
-			</c:if>
-
-			<c:if test="${not isLogin }">
-				<!--로그인하면 이 화면을 뿌려주어야 함-->
-				
-<form id="myform"  name='homeForm' method="post"  class="form-horizontal" action="<c:url value="/Member/LoginCheck.do"/>">
-							<div class="aonqC">
-
-								<div class="MQAj0">
-									<div id="idDiv" class="_1ggNP">
-										<div id="idInput" class="_1FsS0 _36G3j _19QH-">
-											<label for="id" class="_1qrSw">아이디</label>
-											<div class="ABx0f">
-												<input id="id" name="id" class="_3rh7f has-custom-focus"
-													type="text" required autocomplete="off"
-													style="font-size: 14px">
-											</div>
-											<c:if test="${not empty sessionScope.error }" var="error">
-                									    <div class="joinError">다시 입력해주세요</div>
-				
-				    								</c:if>	
-										</div>
-									</div>
-								</div>
-
-
-								<div class="_1RlXb">
-									<div id="pwdDiv" class="_1ggNP">
-										<div id="pwdInput" class="_1FsS0 _36G3j _19QH-">
-											<label for="pwd" class="_1qrSw"
-											style="font-size: 14px">비밀번호</label>
-											<div class="ABx0f">
-												<input id="pwd" name="pwd" class="_3rh7f has-custom-focus"
-													type="password" required autocomplete="off" value=""
-													style="font-size: 14px">
-											</div><c:if test="${error}">
-												    <div class="joinError">다시 입력해주세요</div>
-													</c:if>	
-				    								
-										</div>
-									</div>
-								</div>
-
-
-							</div>
-
-							<div class=" _2KYMK">
-								<div id="okButton_SM_ROOT_COMP12" aria-disabled="false"
-									class="oneButton">
-									<button type="submit" class="oneButtonLinkClass boxButton">
-										<span class="oneButtonSpanClass">로그인하기</span>
+								<div
+									class="col-xs-offset-1 col-xs-6 alert alert-warning fade in">
+									<button class="close" data-dismiss="alert">
+										<span>×</span>
 									</button>
+									${NotMember }
 								</div>
 							</div>
-							
+						</c:if>
 
-						</form>
+						<div id="SM_ROOT_COMP12" class="_2nKSe">
+							<h1 id="signUpHeadline_SM_ROOT_COMP12" class="_15DDX"
+								data-testid="signUp.headline">로그인</h1>
+							<div class="_6UDPd _14jSF _2QSEv">
+								<div class="_1axeK"></div>
+								<div class="row">
+									<c:if test="${not empty sessionScope.id }" var="isLogin">
+										<div class="col-xs-offset-1 col-xs-6 alert alert-success">${sessionScope.id }님
+											즐겁게 여행하세요</div>
+									</c:if>
 
-			</c:if>
-		</div>
-		
+									<c:if test="${not isLogin }">
+										<!--로그인하면 이 화면을 뿌려주어야 함-->
 
-	<!-- 새 폼 끝-->
+										<form id="myform" name='homeForm' method="post"
+											class="form-horizontal"
+											action="<c:url value="/Member/LoginCheck.do"/>">
+											<div class="aonqC">
 
-						<div>
-							<div class="_1q-e7 _3fqFH">
-								<span>SNS 계정으로 로그인</span>
-							</div>
-							<!-- 카카오 로그인 창 -->
-							<div>
-								<a href="https://kauth.kakao.com/oauth/authorize?client_id=0e3ca3b3a449e6e1a12a17795f6d775b&redirect_uri=http://localhost:9090/exer/Member/KakaoLogin.do
+												<div class="MQAj0">
+													<div id="idDiv" class="_1ggNP">
+														<div id="idInput" class="_1FsS0 _36G3j _19QH-">
+															<label for="id" class="_1qrSw">아이디</label>
+															<div class="ABx0f">
+																<input id="id" name="id" class="_3rh7f has-custom-focus"
+																	type="text" required autocomplete="off"
+																	style="font-size: 14px">
+															</div>
+															<c:if test="${not empty sessionScope.error }" var="error">
+																<div class="joinError">다시 입력해주세요</div>
+
+															</c:if>
+														</div>
+													</div>
+												</div>
+
+
+												<div class="_1RlXb">
+													<div id="pwdDiv" class="_1ggNP">
+														<div id="pwdInput" class="_1FsS0 _36G3j _19QH-">
+															<label for="pwd" class="_1qrSw" style="font-size: 14px">비밀번호</label>
+															<div class="ABx0f">
+																<input id="pwd" name="pwd"
+																	class="_3rh7f has-custom-focus" type="password"
+																	required autocomplete="off" value=""
+																	style="font-size: 14px">
+															</div>
+															<c:if test="${error}">
+																<div class="joinError">다시 입력해주세요</div>
+															</c:if>
+
+														</div>
+													</div>
+												</div>
+
+
+											</div>
+
+											<div class=" _2KYMK">
+												<div id="okButton_SM_ROOT_COMP12" aria-disabled="false"
+													class="oneButton">
+													<button type="submit" class="oneButtonLinkClass boxButton">
+														<span class="oneButtonSpanClass">로그인하기</span>
+													</button>
+												</div>
+											</div>
+
+
+										</form>
+
+									</c:if>
+								</div>
+
+
+								<!-- 새 폼 끝-->
+
+								<div>
+									<div class="_1q-e7 _3fqFH">
+										<span>SNS 계정으로 로그인</span>
+									</div>
+									<!-- 카카오 로그인 창 -->
+									<div>
+										<a
+											href="https://kauth.kakao.com/oauth/authorize?client_id=0e3ca3b3a449e6e1a12a17795f6d775b&redirect_uri=http://localhost:9090/exer/Member/KakaoLogin.do
 									&response_type=code">
-									<img
-									src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
-									width="222" />
-								</a>
-							</div>
-							
-							<div>
-								<!-- 네이버 로그인 창 -->
-								<a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=OKVhsE6FDsMVPSDUedj7&state=STATE_STRING&redirect_uri=http://localhost:9090/exer/Member/NaverLogin.do">
-									<img src="<c:url value="/images/naver.png"/>" width="222" /> 
-								</a>
+											<img
+											src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+											width="222" />
+										</a>
+									</div>
+
+									<div>
+										<!-- 네이버 로그인 창 -->
+										<a
+											href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=OKVhsE6FDsMVPSDUedj7&state=STATE_STRING&redirect_uri=http://localhost:9090/exer/Member/NaverLogin.do">
+											<img src="<c:url value="/images/naver.png"/>" width="222" />
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+					<div></div>
 				</div>
 			</div>
-			<div></div>
 		</div>
-	</div></div></div>
+	</div>
 	<script>
 		function goBack() {
 			window.history.back();
