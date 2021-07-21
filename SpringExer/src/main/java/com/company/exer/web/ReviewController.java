@@ -223,26 +223,31 @@ public class ReviewController {
 
 	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
 	public @ResponseBody int Like(@RequestParam Map map) throws IOException {
-		//현재까지 좋아요 횟수를 가져온다
+		//접속유저의 좋아요 여부 체크
 		int check = reviewService.likeCheck(map);
 
 		if(check==0) {
+			//좋아요 갯수가 0이면 하나 추가한다
 			int like = reviewService.like(map);
-			// 좋아요 갯수가 0이면 하나 추가한다
+			//좋아요 받은 게시글의 작성자에게 경험치 부여
 			profileService.likeEP(map);
 			
 		}
 		else if(check==1){
+			//좋아요가 1이면 없앤다
 			reviewService.unlike(map); 
 		}
+		//좋아요 갯수 체크
 		reviewService.likeCount(map);
 	
+		//게시글 불러오기
 		ReviewDTO dto=reviewService.noCMNTselectOne(map);
 
 		//좋아요가 두개 이상이면
 		if(dto.getRvLikeCnt()>=2) {
 			//스탬프 생성 쿼리
 			reviewService.stampCreate(map);
+			//스탬프생성 경험치 
 			profileService.stampEP(map);
 		}
 		 
