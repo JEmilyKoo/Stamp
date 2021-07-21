@@ -143,72 +143,43 @@ public class ReviewController {
 			Model model,
 			HttpServletRequest req) {
 		
+		//닉네임 있을 때
 		if(req.getSession().getAttribute("nickName")!=null) {
-			//닉네임은 정상으로 받아짐
 			String nickName = req.getSession().getAttribute("nickName").toString();
-			
-			//System.out.println(nickName);
-			//네임도 잘 받아짐
-			
 			map.put("nickName", nickName);
-			//			{rvNo=6, nickName=mmmmm}
-			System.out.println(map);
+
+			//좋아요값 갯수 갖고 오는 쿼리
 			int check = reviewService.likeCheck(map);
-			//좋아요값갯수갖고오는 쿼리
-			
-			//댓글 하나만 달 수 있음
-			System.out.println("댓글1");
+
+			//게시물 하나 갖고 오는 쿼리
 			ReviewDTO dto = reviewService.selectOne(map);
-			System.out.println("2");
-			
-			//이 쿼리는 댓글이 있어야 돌아가는 쿼리이다
-			
-			//if(rvcDto!=null) {
-				//댓글이 하나라도 있을 경우
+					
+			model.addAttribute("dto",dto);
 				
-				//System.out.println("dto:"+rvcDto.toString());
-				//System.out.println("check:"+check);
-				//rvcDto.setRvLikeCheck(check);
-				//rvcDto.setRvCtt(rvcDto.getRvCtt().replace("\r\n","<br/>"));				
-				model.addAttribute("dto",dto);
-				
-				List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
-				model.addAttribute("rvcDto",rvcDto);
-				
-			
-				System.out.println("rvNo11:"+map.get("rvNo"));
-			//}//if(dto!=null)
-			//댓글이 하나도 없고 닉네임은 받아와지는 경우
-			
-			//댓글이 없을 경우를 대비한 셀렉트를 생성했음
-			//ReviewDTO dto = reviewService.noCMNTselectOne(map);
-			//model.addAttribute("dto",dto);
-			
+			//게시물 댓글 갖고 오는 쿼리
+			List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
+			model.addAttribute("rvcDto",rvcDto);
+		
 			}//if(req.getSession().getAttribute("nickName")!=null)
-			else {
-			//	//댓글도 없고 세션 닉네임도 없을 경우
-				ReviewDTO dto = reviewService.noCMNTselectOne(map);
-				//댓글도 없는데 댓글받으면 어떡함 너무해
-				
-				model.addAttribute("dto",dto);
-				
-				System.out.println("rvNo22:"+map.get("rvNo"));
-				//댓글받는쿼리
-				List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
-				model.addAttribute("rvcDto",rvcDto);
-			}//else(req.getSession().getAttribute("nickName")!=null)
+			
+		else {//댓글도 없고 세션 닉네임도 없을 경우
 		
-			int num =rvCmntService.rvcCount(map);
-			model.addAttribute("num",num);
-			System.out.println(num);
+			//게시물 갖고 오는 쿼리
+			ReviewDTO dto = reviewService.noCMNTselectOne(map);
+			
+			model.addAttribute("dto",dto);
+			
+			//댓글 받는 쿼리
+			List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
+			model.addAttribute("rvcDto",rvcDto);
+			
+		}//else(req.getSession().getAttribute("nickName")!=null)
 		
-		
-		
+		//댓글 갯수 가져오는 쿼리
+		int num =rvCmntService.rvcCount(map);
+		model.addAttribute("num",num);
+
 		//뷰정보 반환]
-		
-	
-		
-		
 		return "/review/ForumPost";
 	}///////////////////ForumPost()
 	
@@ -225,11 +196,9 @@ public class ReviewController {
 	public String WriteOk(@RequestParam Map map,
 			@ModelAttribute("nickName") String nickName,Model model,HttpServletResponse response) throws IOException {
 
-		System.out.println(map.get("rvCategory1"));
-		System.out.println(map.get("rvCategory2"));
 		map.put("nickName", nickName);
 		reviewService.insert(map);
-		System.out.println("dddd");
+		
 		//글쓰기 경험치 얻기
 		profileService.writeEP(map);
 		response.setContentType("text/html; charset=UTF-8");
@@ -254,9 +223,9 @@ public class ReviewController {
 
 	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
 	public @ResponseBody int Like(@RequestParam Map map) throws IOException {
-		int check = reviewService.likeCheck(map);
 		//현재까지 좋아요 횟수를 가져온다
-		
+		int check = reviewService.likeCheck(map);
+
 		if(check==0) {
 			int like = reviewService.like(map);
 			// 좋아요 갯수가 0이면 하나 추가한다
@@ -267,13 +236,12 @@ public class ReviewController {
 			reviewService.unlike(map); 
 		}
 		reviewService.likeCount(map);
-		//ReviewDTO dto=reviewService.selectOne(map);
-		// 위의 코드는 반드시 여기에 댓글이 있다는 전제 하에 가는 거잖아
-		//좋아요에 댓글이 필수가 아니다
-		
+	
 		ReviewDTO dto=reviewService.noCMNTselectOne(map);
-		//그래서 댓글 없어도 돌아가는 셀렉트 구문 하나 만들음
+
+		//좋아요가 두개 이상이면
 		if(dto.getRvLikeCnt()>=2) {
+			//스탬프 생성 쿼리
 			reviewService.stampCreate(map);
 			profileService.stampEP(map);
 		}
