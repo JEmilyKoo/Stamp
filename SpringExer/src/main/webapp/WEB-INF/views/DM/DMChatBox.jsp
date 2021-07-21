@@ -15,73 +15,93 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
-	<div class="body-container">
-		<%-- <div>
-			<!-- -여기에 팔로워 들어감 -->
-			팔로워들어갈 창 현재 UI적용하려고 기능테스트 중입니다 ${checkDMChatLists }
-			<c:if test="${ empty checkDMChatLists }" var="val">
-		없대
-		</c:if>
-			
-		<div>
-			<!--  여기에 디엠 들어감 --> --%>
-		<div class="main">
+	<div class="body-container" style="border: 1px solid black">
+		<div class="left">
 			<header class="header">
-				<div class="header-items">
-					<img src="${pageContext.request.contextPath}/images/DM/backarrow.svg" alt="" class="back-arrow">
-				</div>
+				<div class="header-items"></div>
 				<div class="header-items user">
-					<img src="${pageContext.request.contextPath}/images/DM/user1.jpg" alt="" class="user-img">
-					<p class="user-name">${getDMToNickName }</p>
+					<p class="user-name" style="text-align: center">${sessionScope.nickName }</p>
 				</div>
-				<div class="header-items">
-					<img src="${pageContext.request.contextPath}/images/DM/video-camera.svg" alt="" class="video-call">
-				</div>
-				<div class="header-items">
-					<img src="${pageContext.request.contextPath}/images/DM/info.svg" alt="" class="info">
-				</div>
+				<div class="header-items"></div>
+				<div class="header-items"></div>
 			</header>
-			<div class="main-window">
-				<c:if test="${empty checkDMChatLists }" var="isEmpty">
-					<div>
-						<!-- checkDMChatLists가 비었으면 "메세지가 없어요 출력" -->
-						<div>메세지가 없어요</div>
-					</div>
-				</c:if>
-				<!-- checkDMChatLists가 비어있지 않으면(값이 있으면) -->
-				<c:if test="${not isEmpty }">
-					<!-- forEach로 checkDMChatLists 안의 데이터를 하나씩 반복해서 꺼내고 그것을 item이라는 var에 저장 -->
-					<c:forEach items="${checkDMChatLists }" var="item" varStatus="loop">
-						<c:if test="${item.DMToNickName == sessionScope.nickName }" var="checkSameID">
-							<div class="l-msg-box">
-								<img src="${pageContext.request.contextPath}/images/DM/user1.jpg" alt="" class="l-user-img">
-								<p class="l-msgs">
-									아이디: ${item.nickName } 내용: ${item.DMCtt } 시간:
-									<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" />
-								</p>
-							</div>
-						</c:if>
-						<c:if test="${not checkSameID }">
-							<div class="r-msg-box">
-								<p class="r-msgs">
-									시간:
-									<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" />
-									내용: ${item.DMCtt } 읽음유무: ${item.DMChecked }
-								</p>
-							</div>
-						</c:if>
-						<!-- dmDate는 yyyy-MM-dd a HH:mm 패턴으로 꺼내도록 포맷지정 -->
+			<c:if test="${empty finalDMLists }" var="isEmpty">
+				<div>
+					<div>메세지가 없어요</div>
+				</div>
+			</c:if>
+			<c:if test="${not isEmpty }">
+				<div>
+					<c:forEach items="${finalDMLists }" var="item" varStatus="loop">
+						<div style="margin-top: 15px; margin-bottom: 15px; margin-left: 1px; margin-right: 1px; border: 1px solid black;">
+							<img src="${pageContext.request.contextPath}/images/DM/smile.svg" alt="" class="profileIcon" style="width: 32px; height: 32px">
+							<a id="enterWServer" href="<c:url value="/DM/DMChatBox.do?nickName=${item.nickName }&DMToNickName=${item.DMToNickName }"/>"> ${item.DMToNickName == sessionScope.nickName?item.nickName:item.DMToNickName }</a>
+							${item.DMCtt } -
+							<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" />
+							-------------- 새로운 메세지 ${item.cntNewDM }
+						</div>
 					</c:forEach>
-				</c:if>
-				
-			</div>
-			<div class="input-container">
-				<div class="input-bar">
-					<img src="${pageContext.request.contextPath}/images/DM/camera.jpg" class="input-bar-items icon-camera">
-					<input type="text" placeholder="메시지를 입력하세요..." id="message" class="input-bar-items input-message">
-					<img src="${pageContext.request.contextPath}/images/DM/microphone.svg" class="input-bar-items icon-microphone"> <img src="${pageContext.request.contextPath}/images/DM/sceneary.svg"
-						class="input-bar-items icon-photo"
-					> <img src="${pageContext.request.contextPath}/images/DM/smile.svg" class="input-bar-items icon-gif">
+				</div>
+			</c:if>
+		</div>
+		<div class="right" style="border-left:1px solid black">
+			<div class="main">
+				<header class="header">
+					<div class="header-items">
+						<img src="${pageContext.request.contextPath}/images/DM/backarrow.svg" alt="" class="back-arrow">
+					</div>
+					<div class="header-items user">
+						<img src="${pageContext.request.contextPath}/images/DM/user1.jpg" alt="" class="user-img">
+						<p class="user-name">${getDMToNickName }</p>
+					</div>
+					<div class="header-items">
+						<img src="${pageContext.request.contextPath}/images/DM/video-camera.svg" alt="" class="video-call">
+					</div>
+					<div class="header-items">
+						<img src="${pageContext.request.contextPath}/images/DM/info.svg" alt="" class="info">
+					</div>
+				</header>
+				<div class="main-window">
+					<c:if test="${empty checkDMChatLists }" var="isEmpty">
+						<div>
+							<!-- checkDMChatLists가 비었으면 "메세지가 없어요 출력" -->
+							<div>메세지가 없어요</div>
+						</div>
+					</c:if>
+					<!-- checkDMChatLists가 비어있지 않으면(값이 있으면) -->
+					<c:if test="${not isEmpty }">
+						<!-- forEach로 checkDMChatLists 안의 데이터를 하나씩 반복해서 꺼내고 그것을 item이라는 var에 저장 -->
+						<c:forEach items="${checkDMChatLists }" var="item" varStatus="loop">
+							<c:if test="${item.DMToNickName == sessionScope.nickName }" var="checkSameID">
+								<div class="l-msg-box">
+									<img src="${pageContext.request.contextPath}/images/DM/user1.jpg" alt="" class="l-user-img">
+									<p class="l-msgs">
+										아이디: ${item.nickName } 내용: ${item.DMCtt } 시간:
+										<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" />
+									</p>
+								</div>
+							</c:if>
+							<c:if test="${not checkSameID }">
+								<div class="r-msg-box">
+									<p class="r-msgs">
+										시간:
+										<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" />
+										내용: ${item.DMCtt } 읽음유무: ${item.DMChecked }
+									</p>
+								</div>
+							</c:if>
+							<!-- dmDate는 yyyy-MM-dd a HH:mm 패턴으로 꺼내도록 포맷지정 -->
+						</c:forEach>
+					</c:if>
+				</div>
+				<div class="input-container">
+					<div class="input-bar">
+						<img src="${pageContext.request.contextPath}/images/DM/camera.jpg" class="input-bar-items icon-camera">
+						<input type="text" placeholder="메시지를 입력하세요..." id="message" class="input-bar-items input-message">
+						<img src="${pageContext.request.contextPath}/images/DM/microphone.svg" class="input-bar-items icon-microphone"> <img src="${pageContext.request.contextPath}/images/DM/sceneary.svg"
+							class="input-bar-items icon-photo"
+						> <img src="${pageContext.request.contextPath}/images/DM/smile.svg" class="input-bar-items icon-gif">
+					</div>
 				</div>
 			</div>
 		</div>

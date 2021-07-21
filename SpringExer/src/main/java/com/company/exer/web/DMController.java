@@ -89,18 +89,22 @@ public class DMController {
 					Object OriginDMToNickName = map.get("DMToNickName");
 					map.put("nickName",finalDMLists.get(i).getNickName());
 					map.put("DMToNickName",finalDMLists.get(i).getDMToNickName());
-					cntNewDMs.add(DMService.cntNewDM(map));
+					cntNewDM = DMService.cntNewDM(map);
+					cntNewDMs.add(cntNewDM);
+					finalDMLists.get(i).setCntNewDM(cntNewDM);
 					map.put("nickName", OriginNickName);
 					map.put("DMToNickName", OriginDMToNickName);
 				}
 				else{
 					map.put("DMToNickName",finalDMLists.get(i).getNickName());
-					cntNewDMs.add(DMService.cntNewDM(map));
+					cntNewDM = DMService.cntNewDM(map);
+					cntNewDMs.add(cntNewDM);
+					finalDMLists.get(i).setCntNewDM(cntNewDM);
 				}
 				
 			}
+			
 			model.addAttribute("finalDMLists",finalDMLists);
-			model.addAttribute("cntNewDMs",cntNewDMs);
 		}
 		//return "/DM/DMBox\";
 		return "/DM/DM";

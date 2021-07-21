@@ -76,6 +76,7 @@
 		SET DMChecked = '1'
 		WHERE nickName= #{nickName} AND  DMToNickName = #{DMToNickName}
 	</update>
+	
 	<select id="cntNewDM"
 		parameterType="com.company.exer.service.DMDTO" resultType="int">
 		
