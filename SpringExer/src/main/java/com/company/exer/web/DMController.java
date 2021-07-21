@@ -136,8 +136,8 @@ public class DMController {
 		model.addAttribute("checkDMChatLists", checkDMChatLists);
 		System.out.println(checkDMChatLists);
 		//model에 "checkDMChatLists"라는 키값으로 정렬된 checkDMChatLists 리스트를 전달
-		//model.addAttribute("getDMToNickName",checkDMChatLists.get(0).getDMToNickName());	//model에 "getDMToNickName"라는 키값으로 checkDMChatLists.get(0).getDMToNickName()를 전달
-		//model.addAttribute("getNickName",checkDMChatLists.get(0).getNickName());	//model에 "getNickName"라는 키값으로 checkDMChatLists.get(0).getNickName()를 전달
+		model.addAttribute("getDMToNickName",checkDMChatLists.get(0).getDMToNickName());	//model에 "getDMToNickName"라는 키값으로 checkDMChatLists.get(0).getDMToNickName()를 전달
+		model.addAttribute("getNickName",checkDMChatLists.get(0).getNickName());	//model에 "getNickName"라는 키값으로 checkDMChatLists.get(0).getNickName()를 전달
 		return "/DM/DMChatBox";
 	}//DMChatList
 
