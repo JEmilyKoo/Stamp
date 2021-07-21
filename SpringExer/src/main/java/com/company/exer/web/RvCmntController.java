@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,21 +23,36 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SessionAttributes({"nickName"})
-@RestController
+@Controller
 public class RvCmntController {
 
 	@Resource(name="rvCmntService")
 	private RvCmntService rvCmntService;
 	
-	@RequestMapping("rvCmntOne.do")
-	public String rvCmntList(Map map) {
+
+
+	@RequestMapping("/rvCmntOne.do")
+	public String rvcInsert(@RequestParam Map map) {
 		
-		String insert = rvCmntService.insert(map);
+		System.out.println("rvc rvNo22:"+map.get("rvNo"));
+		int check = rvCmntService.rvcInsert(map);
+		System.out.println("insert33:"+check);
 		
-		
-		return "/";
+		return "forward:/Review/ForumPost.do";
 	}
 
+	@RequestMapping("/rvcEdit.do")
+	public String rvcEdit(@RequestParam Map map) {
+		int check = rvCmntService.rvcUpdate(map);
+		System.out.println("update - check"+check);
+		return "forward:/Review/ForumPost.do";
+	}
+	
+	@RequestMapping("/rvcDelete")
+	public String rvcdelete(@RequestParam Map map) {
+		rvCmntService.rvcDelete(map);
+		return "forward:/Review/ForumPost.do";
+	}
 	
 	
 	

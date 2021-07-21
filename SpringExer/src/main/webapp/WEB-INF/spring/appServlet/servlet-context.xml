@@ -7,7 +7,12 @@
 	xmlns:websocket="http://www.springframework.org/schema/websocket"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd">
+
+
+
+
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing 
 		infrastructure -->
@@ -26,11 +31,12 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	<!-- 작동 안 되어서 일단 빼둠 <beans:bean id="chatServer" class="com.company.exer.web.WebSocketServer"/> 
-		웹소켓 서버와 클라이언트에서 접속하는 path와 매핑:엔드포인트 설정 <websocket:handlers allowed-origins="*"> 
-		<websocket:mapping handler="StampServer" path="/chat-ws.do"/> </websocket:handlers> -->
-
-
+	<websocket:handlers allowed-origins="*">
+		<websocket:mapping path="/websocket/chat-ws.do"
+			handler="StampServer" />
+	</websocket:handlers>
+	<beans:bean id="StampServer"
+		class="com.company.exer.web.WebSocketServer" />
 	<!-- 파일 -->
 	<context:component-scan
 		base-package="com.company.exer" />

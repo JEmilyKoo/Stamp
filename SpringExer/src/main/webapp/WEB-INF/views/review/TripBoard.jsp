@@ -152,10 +152,16 @@
 														style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
 														<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
 														<!-- 뿌려주는 반복문 필요할거 같다 -->
+														
 														<div class="fl4fR">
-															<a href="<c:url value="#"/>">#${item.rvCategory1} </a> <a
-																href="<c:url value="#"/>">#${item.rvCategory2} </a>
+														<c:if test="${! empty item.rvCategory1 }">
+															<a href="<c:url value="#"/>">#${item.rvCategory1} </a> 
+														</c:if>
+														<c:if test="${! empty item.rvCategory2 }">
+															<a href="<c:url value="#"/>">#${item.rvCategory2} </a>
+														</c:if>
 														</div>
+														
 													</div>
 												</div>
 											</div>
@@ -171,9 +177,9 @@
 													<div class="_60xHi">
 														<div class="MEOqZ post-stats">
 															<!-- 조회 -->
-															<span tabindex="0">조회 0</span>
+															<span tabindex="0"></span>
 															<!-- 댓글 -->
-															<span class="_24h-e">댓글 0</span>
+															<span class="_24h-e"></span>
 														</div>
 													</div>
 

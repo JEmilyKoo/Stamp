@@ -56,55 +56,55 @@ public class StampController {
 	}
 
 	// 관리자페이지용
-	@RequestMapping("AdminStamp.do")
-	public String AdminStamp(Model model, @RequestParam Map map, HttpServletRequest req, @RequestParam(required = false, defaultValue = "1") int nowPage) {
+	@RequestMapping("StampMNG.do")
+	public String StampMNG(Model model, @RequestParam Map map, HttpServletRequest req, @RequestParam(required = false, defaultValue = "1") int nowPage) {
 		// 뷰정보 반환]
 		ListPagingData<StampDTO> dto = stampService.showStampList(map,req, nowPage);
 		model.addAttribute("dto", dto);
 
-		return "/admin/AdminStamp";
+		return "/admin/StampMNG";
 	}/////////////////// Test()
 	
 
-	@RequestMapping("renewAdminStamp.do")
-	public @ResponseBody String extendAdminStamp(@RequestParam Map map, HttpServletRequest req) {
+	@RequestMapping("renewStampMNG.do")
+	public @ResponseBody String renewStampMNG(@RequestParam Map map, HttpServletRequest req) {
 		// 뷰정보 반환]
 		String [] selectedArr = req.getParameterValues("selectedArr");
 		for (String stNo : selectedArr) {
 
 			map.put("stNo", stNo);
 			System.out.println(stNo);
-			stampService.renewAdminStamp(map);
+			stampService.renewStampMNG(map);
 		}
 
-		return "forward:/Stamp/AdminStamp.do";
+		return "forward:/Stamp/StampMNG.do";
 	}/////////////////// Test()
 
-	@RequestMapping("expireAdminStamp.do")
-	public @ResponseBody String expireAdminStamp(@RequestParam Map map, HttpServletRequest req) {
+	@RequestMapping("expireStampMNG.do")
+	public @ResponseBody String expireStampMNG(@RequestParam Map map, HttpServletRequest req) {
 		// 뷰정보 반환]
 		String [] selectedArr = req.getParameterValues("selectedArr");
 		for (String stNo : selectedArr) {
 
 			map.put("stNo", stNo);
 			System.out.println(stNo);
-			stampService.expireAdminStamp(map);
+			stampService.expireStampMNG(map);
 		}
 
-		return "forward:/Stamp/AdminStamp.do";
+		return "forward:/Stamp/StampMNG.do";
 	}/////////////////// Test()
 
-	@RequestMapping("deleteAdminStamp.do")
-	public @ResponseBody String deleteAdminStamp(@RequestParam Map map, HttpServletRequest req) {
+	@RequestMapping("deleteStampMNG.do")
+	public @ResponseBody String deleteStampMNG(@RequestParam Map map, HttpServletRequest req) {
 		// 뷰정보 반환]
 		String [] selectedArr = req.getParameterValues("selectedArr");
 		for (String stNo : selectedArr) {
 
 			map.put("stNo", stNo);
 			System.out.println(stNo);
-			stampService.deleteAdminStamp(map);
+			stampService.deleteStampMNG(map);
 		}
-		return "forward:/Stamp/AdminStamp.do";
+		return "forward:/Stamp/StampMNG.do";
 	}/////////////////// Test()
 
 }

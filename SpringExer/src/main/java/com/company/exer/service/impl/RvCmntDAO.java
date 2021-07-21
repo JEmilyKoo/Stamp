@@ -18,25 +18,31 @@ public class RvCmntDAO {
 	private SqlSessionTemplate sqlMapper;
 	
 	public List<RvCmntDTO> selectList(Map map){
-		return sqlMapper.selectList("",map);
+		return sqlMapper.selectList("rvcSelectList",map);
 	}
 	
-	public int insert(Map map) {
-		sqlMapper.insert("",map);
-		return Integer.parseInt(map.get("rvcNo").toString());
+	public int rvcInsert(Map map) {
+		return sqlMapper.insert("rvcInsert",map);
+		//return Integer.parseInt(map.get("rvcNo").toString());
 	}
 	
 	public String findNameById(String id) {
 		return sqlMapper.selectOne("",id);
 	}
 	
-	public int delete(Map map) {
-		return sqlMapper.delete("",map);
+	public int rvcDelete(Map map) {
+		return sqlMapper.delete("rvcDelete",map);
 	}
 	
-	public int update(Map map) {
-		return sqlMapper.update("",map);
+	public int rvcUpdate(Map map) {
+		return sqlMapper.update("rvcUpdate",map);
 	}
+
+	public int rvcCount(Map map) {
+		return sqlMapper.selectOne("rvcCount",map);
+	}
+
+	
 	
 
 }

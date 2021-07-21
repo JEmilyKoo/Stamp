@@ -376,7 +376,7 @@ body {
 						<!-- 게시물 작성하기 버튼 id값(id=tripBoardCreateButton) 을 받아오면 됨 -->
 						<li><a
 							href="<c:url value="/Review/Write.do?nickName=${sessionScope.nickName}"/>">
-								dd
+								
 								<div class="_3SBFF undefined LTwPD sameS "
 									style="max-width: 140px;">
 									<button id=tripBoardCreateButton  type="submit" 
@@ -501,7 +501,9 @@ body {
 									<c:if test="${fn:contains(param.category,'인천') }">selected</c:if>>인천</option>
 								<option value="경기" name="rvCategory1"
 									<c:if test="${fn:contains(param.category,'경기') }">selected</c:if>>경기</option>
-							</select> <select name="rvCategory2" id="category2">
+							</select> 
+							
+							<select name="rvCategory2" id="category2">
 								<option value="">==여행지 선택==</option>
 								<option value="산" name="rvCategory2"
 									<c:if test="${fn:contains(param.category,'산') }">selected</c:if>>산</option>

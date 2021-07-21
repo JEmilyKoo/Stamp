@@ -19,25 +19,30 @@ public class RvCmntServiceImpl implements RvCmntService {
 
 	@Override
 	public List<RvCmntDTO> selectList(Map map) {
-		int rvCno=dao.insert(map);
-		String nickName=dao.findNameById(map.get("nickName").toString());
+		//int rvCno=dao.insert(map);
+		//String nickName=dao.findNameById(map.get("nickName").toString());
 		return dao.selectList(map);
 	}
 
 	@Override
-	public String insert(Map map) {
-		return null;
+	public int rvcInsert(Map map) {
+		return dao.rvcInsert(map);
 	}
 
 	@Override
-	public int delete(Map map) {
-		return dao.delete(map);
+	public int rvcDelete(Map map) {
+		return dao.rvcDelete(map);
 	}
 
 	@Override
-	public int update(Map map) {
-		return dao.update(map);
+	public int rvcUpdate(Map map) {
+		return dao.rvcUpdate(map);
 	}
-	
+
+	@Override
+	public int rvcCount(Map map) {
+		return dao.rvcCount(map);
+	}
+
 	
 }

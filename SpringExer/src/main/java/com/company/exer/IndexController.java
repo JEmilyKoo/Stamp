@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 /*
 [일반 자바클래스 형태 즉 POJO(Plain Old Java Object)]
 
