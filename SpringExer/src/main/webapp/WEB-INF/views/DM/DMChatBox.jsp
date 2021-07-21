@@ -38,7 +38,11 @@
 							<a id="enterWServer" href="<c:url value="/DM/DMChatBox.do?nickName=${item.nickName }&DMToNickName=${item.DMToNickName }"/>"> ${item.DMToNickName == sessionScope.nickName?item.nickName:item.DMToNickName }</a>
 							${item.DMCtt } -
 							<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" />
-							-------------- 새로운 메세지 ${item.cntNewDM }
+							
+							-------------- 
+							<c:if test="${item.DMToNickName == sessionScope.nickName }">
+								새로운 메세지 ${item.cntNewDM }
+							</c:if>
 						</div>
 					</c:forEach>
 				</div>
@@ -52,7 +56,7 @@
 					</div>
 					<div class="header-items user">
 						<img src="${pageContext.request.contextPath}/images/DM/user1.jpg" alt="" class="user-img">
-						<p class="user-name">${getDMToNickName }</p>
+						<p class="user-name"><%-- ${getDMToNickName } --%></p>
 					</div>
 					<div class="header-items">
 						<img src="${pageContext.request.contextPath}/images/DM/video-camera.svg" alt="" class="video-call">

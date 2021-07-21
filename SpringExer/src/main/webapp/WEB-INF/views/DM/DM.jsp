@@ -39,7 +39,7 @@ div.right {
 			</header>
 			<c:if test="${empty finalDMLists }" var="isEmpty">
 				<div>
-					<div>메세지가 없어요</div>
+					<div>대화상대가 없어요</div>
 				</div>
 			</c:if>
 			<c:if test="${not isEmpty }">
@@ -49,7 +49,10 @@ div.right {
 							<img src="${pageContext.request.contextPath}/images/DM/smile.svg" alt="" class="profileIcon" style="width: 32px; height: 32px">
 							<a id="enterWServer" href="<c:url value="/DM/DMChatBox.do?nickName=${item.nickName }&DMToNickName=${item.DMToNickName }"/>"> ${item.DMToNickName == sessionScope.nickName?item.nickName:item.DMToNickName }</a>
 							${item.DMCtt } -
-							<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /> -------------- 새로운 메세지 ${item.cntNewDM }
+							<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /> -------------- 
+							<c:if test="${item.DMToNickName == sessionScope.nickName }">
+								새로운 메세지 ${item.cntNewDM }
+							</c:if>
 							
 						</div>
 					</c:forEach>
