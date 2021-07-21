@@ -288,8 +288,6 @@ if(list==null) {
 }
 else {
 	model.addAttribute("list",list);
-	System.out.println("listsize:"+list.size());
-	System.out.println("list:getNickName"+list.get(0).toString());
 }
 //뷰정보 반환]
 return "/admin/ReviewMNG";

@@ -166,7 +166,6 @@ public class MemberController {
 	// 멤버 회원탈퇴 시키기
 	@RequestMapping("deleteAdminMember.do")
 	public String deleteAdminMember(@RequestParam Map map) {
-		System.out.println("dsfsadfsdfsfd"+map.get("nickName"));
 		service.deleteAdminMember(map);
 		return "forward:/Member/MemberMNG.do";
 	}
