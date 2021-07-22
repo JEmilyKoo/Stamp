@@ -58,7 +58,9 @@ public class ProfileController {
 		String nickName = session.getAttribute("nickName").toString();
 		
 		List<StampDTO> sDto=stampService.stampMemberList(nickName);
-		System.out.println(sDto.get(0));
+		if(sDto==null) {
+			return "Profile/ProfileMain";
+		}
 		model.addAttribute("sDto", sDto);
 		
 		

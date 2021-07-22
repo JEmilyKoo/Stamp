@@ -97,6 +97,10 @@
 			<div class="stampListContainer"
 				style="text-align: center; display: grid; margin: 0px 0px 40px 0px; gap: 20px; padding: 10px; row-gap: 50px; grid-template-columns: repeat(4, 1fr);">
 				<div>
+				<c:if test="${empty sDto}">
+					<div>등록된 스탬프가 없어요.</div>
+               </c:if>
+               <c:if test="${not empty sDto}">
 					<c:forEach items="${sDto}" var="item">
 						<img
 							src="${pageContext.request.contextPath}/images/stamp/stamp1.png"
@@ -111,6 +115,7 @@
 									보기</span>
 							</a>
 					</c:forEach>		
+				</c:if>
 					</div>
 				</div>
 				
