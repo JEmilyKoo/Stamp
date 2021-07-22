@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +31,7 @@ public class ProfileController {
 // 뷰 선택 체크
 	
 	@RequestMapping(value = "Main.do", method = RequestMethod.GET)
-	public String ProfileMain(HttpSession session) throws Exception {
+	public String ProfileMain(HttpSession session, Model model) throws Exception {
 		session.removeAttribute("userError");
 		//뷰정보 반환]
 		ProfileDTO dto = new ProfileDTO();
@@ -49,6 +50,10 @@ public class ProfileController {
 		}
 		session.setAttribute("profile", dto);
 		session.setAttribute("otherProfile", dto);
+
+		model.addAttribute("profile", dto);
+		model.addAttribute("otherProfile", dto);
+
 		//뿌려주기용 세션: 메인에 뿌려주는 건 이 otherProfile로 굴러간다
 		return "Profile/ProfileMain";
 	}///////////////////ProfileMain() 
@@ -59,7 +64,7 @@ public class ProfileController {
 	}///////////////////ProfileMainPOST()
 	
 	@RequestMapping(value = "Main/NickName.do", method = RequestMethod.GET)
-	public String ProfileMainId(@RequestParam String nickName, HttpSession session) throws Exception {
+	public String ProfileMainId(@RequestParam String nickName, HttpSession session, Model model) throws Exception {
 		ProfileDTO dto = new ProfileDTO();
 		dto.setNickName(nickName);
 		//dto에 아이디를 넘긴다
@@ -69,10 +74,12 @@ public class ProfileController {
 		if(flag==1) {
 			dto=service.selectProfile(dto);
 			session.setAttribute("otherProfile", dto);	
+			model.addAttribute("otherProfile", dto);
 		}
 		else {
 			//해당 KOO를 만들라고 시킨다
 			session.setAttribute("userError", "해당하는 닉네임의 사용자가 없습니다");
+			model.addAttribute("userError", "해당하는 닉네임의 사용자가 없습니다");
 		}
 		//프로필을 다 가져온다
 		//받아온 걸 세션의 남의 프로필칸에 넣는다
@@ -84,10 +91,12 @@ public class ProfileController {
 	}
 	
 	@RequestMapping("Following.do")
-	public String ProfileFollowing(HttpSession session) {
+	public String ProfileFollowing(HttpSession session, Model model) {
 		//뷰정보 반환]
 		
 		session.setAttribute("follow", "follow");
+		model.addAttribute("follow", "follow");
+		
 		return "Profile/ProfileFollowing";
 	}///////////////////ProfileFollowing()
 	
@@ -123,7 +132,7 @@ public class ProfileController {
 	}///////////////////insertProfile()
 	
 	@RequestMapping(value = "Insert.do", method = RequestMethod.POST)
-	public String insertProfilePOST(HttpSession session, ProfileDTO profileDTO) throws Exception  {
+	public String insertProfilePOST(HttpSession session, ProfileDTO profileDTO, Model model) throws Exception  {
 		//뷰정보 반환]
 		
 		System.out.println(profileDTO);
@@ -143,8 +152,9 @@ public class ProfileController {
 		System.out.println("중복된 별명이 아닙니다");
 
 		session.setAttribute("profile", profileDTO);
-
 		session.setAttribute("nickName", profileDTO.getNickName());
+		model.addAttribute("profile", profileDTO);
+		model.addAttribute("nickName", profileDTO.getNickName());
 		}
 		else {	session.setAttribute("error", "이미 존재하는 별명입니다");
 			
@@ -152,9 +162,8 @@ public class ProfileController {
 		}
 		
 		session.removeAttribute("error");
-
 		session.setAttribute("otherProfile", profileDTO);
-		
+		model.addAttribute("otherProfile", profileDTO);
 		return "Profile/ProfileMain";
 	}///////////////////insertProfilePOST()
 	

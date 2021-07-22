@@ -29,7 +29,6 @@
 			
 			<ul class="font_8">
 			
-			
 			<li><a href="<c:url value="/Profile/Main/NickName.do?nickName=KOO"/>">KOO의
 											ProfileMain</a></li>
 			
