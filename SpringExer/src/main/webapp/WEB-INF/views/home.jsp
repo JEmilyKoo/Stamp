@@ -32,9 +32,6 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/component.css" />
 
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/css.css" />
-
 
 <script>
 	document.documentElement.className = 'js';
@@ -82,7 +79,7 @@
 
 									<a target="_top" href="<c:url value="/Profile/Main.do"/>"
 										style="text-decoration: none; vertical-align: top; color: white">
-										<span class="_2iDLv avatar-image "> <!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
+											<span class="_2iDLv avatar-image "> <!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
 											<div class="_1wPNJ fluid-avatar-image topImage"
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
