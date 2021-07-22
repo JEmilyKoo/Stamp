@@ -484,7 +484,6 @@ body {
 	<!-- 네비게이션 끝 -->
 	<!-- 실제 내용 시작 -->
 	
-<<<<<<< HEAD
 	<div class="container">
 		<div class="page-header">
 			<h1>
@@ -544,7 +543,6 @@ body {
 					
 									<div style="max-width:200px; min-width:100px;margin:5px;height:36px"class="w3-button w3-white w3-border w3-border-blue w3-round-large">이미지</div>
 					 <input type="file" id="gdsImg" class="w3-button w3-blue w3-border w3-border-white w3-round-large"
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 						name="file" /> <img src="" id="img" name="rvFile" />
 						
 						 -->
@@ -628,11 +626,13 @@ body {
 	<!-- form data가 이곳으로 이동 -->
 	<!-- <iframe name="iframePhoto"></iframe> -->
 
-	<h2>AJAx File Upload</h2>
+	<!--  <h2>AJAx File Upload</h2>-->
 <!-- 파일을 업로드할 영역 -->
-<div class="fileDrop"></div>
+<!-- <div ondragenter="drop(event)" ondrop="dragEnter(event)" class="fileDrop"></div> -->
 <!-- 업로드된 파일 목록 -->
-<div class="uploadedList"></div>
+<!--  <div class="uploadedList"></div>-->
+
+
 <script>
 /*
 	function addFilePath(msg){
@@ -645,25 +645,31 @@ body {
 //$(".content-wrapper").on("dragenter dragover drop", function (event) { event.preventDefault(); });
 
 	//$(document).ready(function(){
-		$(".fileDrop").on("dragenter dragover", function(event){
+		$(".fileDrop").on("dragover", function(event){
+			event.preventDefault();//기본 효과를 막음
+		});
+		
+		$(".fileDrop").on("dragend", function(event){
 			event.preventDefault();//기본 효과를 막음
 		});
 	//});
-		
-		
-		
-		
-	//JQuery 충돌 처리를한다 (function( $ ) { })( jQuery );
-jQuery.noConflict();
 
-(function( $ ) {
-	$(document).ready(function() {
-		$('#summernote').summernote({
-			tabsize : 2,
-			height : 300
+	
+	
+	
+	
+	
+	//JQuery 충돌 처리를한다 (function( $ ) { })( jQuery );
+	jQuery.noConflict();
+	
+	(function( $ ) {
+		$(document).ready(function() {
+			$('#summernote').summernote({
+				tabsize : 2,
+				height : 300
+			});
 		});
-	});
-})( jQuery );
+	})( jQuery );
 </script>
 
 	
