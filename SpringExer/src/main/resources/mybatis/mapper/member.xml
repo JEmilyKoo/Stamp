@@ -59,14 +59,12 @@
 	<!--  관리자 페이지 -->
 	
 	<select id="adminMemberList" resultType="MemberDTO">
-		SELECT * FROM PROFILE
-		
-		
+		SELECT * FROM profile WHERE 1=1
 	</select>
 	
 	
 	<delete id="deleteAdminMember" parameterType="map">
-		DELETE FROM MEMBER
+		DELETE FROM member
 		WHERE ID = #{ID}
 	</delete>
 	

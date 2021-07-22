@@ -127,7 +127,7 @@
 										</tbody>
 									</table>
 								</c:if>
-								<div class="paging">${dto.pagingString } <button>이동</button></div>
+								<div class="paging">${dto.pagingString } </div>
 							</div>
 						</div>
 					</div>
@@ -139,48 +139,48 @@
 	<jsp:include page="/WEB-INF/views/adminTemplates/Footer.jsp" />
 </body>
 <script type="text/javascript">
-	var selectedArr = [];
-	var nowPage = ${dto.nowPage};
+	var selectedArr = [];																		// 선택된 항목의 값들을 넣을 배열선
+	var nowPage = ${dto.nowPage};																// nowPage는 전달받은 dto 속 nowPage값
 
-	$('#selectAll').click(function() {
-		if ($("input:checkbox[id='selectAll']").prop("checked")) {
-			$("input[type=checkbox]").prop("checked", true);
-			console.log(nowPage);
-		} else {
-			$("input[type=checkbox]").prop("checked", false);
+	$('#selectAll').click(function() {															// id가 selectAll인 것을 클릭했을때
+		if ($("input:checkbox[id='selectAll']").prop("checked")) {								// id가 selectAll인 것이 checked이면
+			$("input[type=checkbox]").prop("checked", true);									// type이 checkbox인 것을 checked로 변경
+		} else {																				// 아니면
+			$("input[type=checkbox]").prop("checked", false);									// type이 checkbox인 것을 체크해제
 		}
 	});
 
 	function checkSelectAll() {
-		/* querySelectorAll("선택자") : 주어진 선택자와 일치하는 모든요소 리스트형태로 반환(변수 지정하면 변수명[인덱스]로 접근하거나, 변수명.length 사용가능 )*/
-		const checkboxes = document.querySelectorAll("input[name ='checkedStamp']");
+		/* querySelectorAll("선택자") : 주어진 선택자와 일치하는 모든요소 리스트형태로 반환
+		(변수 지정하면 변수명[인덱스]로 접근하거나, 변수명.length 사용가능 )*/
+		const checkboxes = document.querySelectorAll("input[name ='checkedStamp']");			//name이 'checkedStamp'인 모든 요소를 리스트형태로 checkboxes에 저장
 
-		const checked = document.querySelectorAll("input[name='checkedStamp']:checked");
+		const checked = document.querySelectorAll("input[name='checkedStamp']:checked");		//name이 'checkedStamp'이고 checked된 모든 요소를 리스트형태로 checked에 저장
 
 		/* querySelector("선택자") : 주어진 선택자와 일치하는 요소 하나 반환*/
-		const selectAll = document.querySelector("input[id='selectAll']");
+		const selectAll = document.querySelector("input[id='selectAll']");						//id가 'selectAll'인 요소를 selectAll에 저장
 
 		/* 전체 박스 개수와 선택된 박스 개수 비교해서 checked속성 변경 */
-		if (checkboxes.length == checked.length) {
-			selectAll.checked = true;
+		if (checkboxes.length == checked.length) { 												//checkboxes와 checked의 length를 비교해서 같은 경우
+			selectAll.checked = true;															//selectAll을 check
 		} else {
-			selectAll.checked = false;
+			selectAll.checked = false;															//아닌 경우 seleckAll의 checked를 해제
 		}
 	}
 
-	function selectBtn() {
-		if ($("select[name=selectFn]").val() === "renewFn") {
-			pushToArr();
-			$.ajax({
-				url : 'renewStampMNG.do',
-				type : 'post',
-				traditional : true,
-				data : {
+	function selectBtn() {																		//selectBtn()함수
+		if ($("select[name=selectFn]").val() === "renewFn") {									//선택된 option의 value값이 renewFn이면
+			pushToArr();																		//pushToArr()함수 실행
+			$.ajax({																			// ajax로 데이터를 보냄
+				url : 'renewStampMNG.do',														// renewStampMNG.do로
+				type : 'post',																	// post방식으로
+				traditional : true,																// traditional은 배열넘길 때 사용
+				data : {																		// 데이터는 {"selectArr":selectArr} 형식
 					"selectedArr" : selectedArr
 				},
-				success : function(data) {
+				success : function(data) {														// 성공하면 아래 주소(location.href)로 이동	
 					console.log("성공");
-					location.href = "<c:url value='/Stamp/StampMNG.do?pageName=StampMNG&nowPage=" + nowPage + "'/>";
+					location.href = "<c:url value='/Stamp/StampMNG.do?pageName=StampMNG&nowPage=" + nowPage + "'/>"; 
 				}
 
 			});
@@ -219,7 +219,7 @@
 		}
 	}
 	function pushToArr() {
-		$("input:checkbox[name=checkedStamp]:checked").each(function() {
+		$("input:checkbox[name=checkedStamp]:checked").each(function() { 							//체크된 항목의 값들을 배열에 넣기
 			selectedArr.push($(this).val());
 		})
 	}

@@ -300,7 +300,6 @@ to {
 	height: 100%; padding : 13px 13px 0 13px;
 	text-decoration: none;
 	padding: 13px 13px 0 13px;
-	/*background: linear-gradient(#E2F8EB, #E2EEF8);*/
 }
 
 .grid__item:nth-child(6n+0) .grid__link {

@@ -58,53 +58,42 @@ public class StampController {
 	// 관리자페이지용
 	@RequestMapping("StampMNG.do")
 	public String StampMNG(Model model, @RequestParam Map map, HttpServletRequest req, @RequestParam(required = false, defaultValue = "1") int nowPage) {
-		// 뷰정보 반환]
 		ListPagingData<StampDTO> dto = stampService.showStampList(map,req, nowPage);
 		model.addAttribute("dto", dto);
-
 		return "/admin/StampMNG";
-	}/////////////////// Test()
+	}																								//StampMNG()
 	
 
 	@RequestMapping("renewStampMNG.do")
 	public @ResponseBody String renewStampMNG(@RequestParam Map map, HttpServletRequest req) {
-		// 뷰정보 반환]
-		String [] selectedArr = req.getParameterValues("selectedArr");
-		for (String stNo : selectedArr) {
-
-			map.put("stNo", stNo);
-			System.out.println(stNo);
-			stampService.renewStampMNG(map);
+		String [] selectedArr = req.getParameterValues("selectedArr");								// "selectedArr"로 넘어온 데이터를 selectedArr 배열에 받아서 저장
+		for (String stNo : selectedArr) {															// 배열 속 stNo 값들을 하나씩 꺼내서
+			map.put("stNo", stNo);																	// map에 "stNo" 값으로 저
+			stampService.renewStampMNG(map);														// 쿼리문을 통해 db 수정
 		}
 
 		return "forward:/Stamp/StampMNG.do";
-	}/////////////////// Test()
+	}																								//renewStampMNG()
 
 	@RequestMapping("expireStampMNG.do")
 	public @ResponseBody String expireStampMNG(@RequestParam Map map, HttpServletRequest req) {
-		// 뷰정보 반환]
 		String [] selectedArr = req.getParameterValues("selectedArr");
 		for (String stNo : selectedArr) {
-
 			map.put("stNo", stNo);
-			System.out.println(stNo);
 			stampService.expireStampMNG(map);
-		}
+		}	
 
 		return "forward:/Stamp/StampMNG.do";
-	}/////////////////// Test()
+	}																								//expireStampMNG
 
 	@RequestMapping("deleteStampMNG.do")
 	public @ResponseBody String deleteStampMNG(@RequestParam Map map, HttpServletRequest req) {
-		// 뷰정보 반환]
 		String [] selectedArr = req.getParameterValues("selectedArr");
 		for (String stNo : selectedArr) {
-
 			map.put("stNo", stNo);
-			System.out.println(stNo);
 			stampService.deleteStampMNG(map);
 		}
 		return "forward:/Stamp/StampMNG.do";
-	}/////////////////// Test()
+	}																								//deleteStampMNG()
 
 }
