@@ -499,23 +499,7 @@ body {
 						<div id="clickLatlng"></div>
 					</fieldset>
 					<!-- 씨큐리티 적용:csrf취약점 방어용 -->
-					<div class="form-group">
-						<label class="col-sm-2 control-label">제목</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" name="rvTitle"
-								placeholder="제목을 입력하세요?">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">내용</label>
-						<!-- 중첩 컬럼 사용 -->
-						<div class="col-sm-10">
-							<div class="row">
-								<div class="col-sm-8">
-									<textarea id="summernote" class="form-control summernote"
-										name="rvCtt" rows="5" placeholder="내용 입력하세요"></textarea>
-								</div>
-							</div>
+					 
 							<select name="rvCategory1" id="category1">
 								<option value="">==지역 선택==</option>
 								<option value="서울" name="rvCategory1"
@@ -667,34 +651,8 @@ body {
 	//});
 		
 		
-		// event : jQuery의 이벤트
-		// originalEvent : javascript의 이벤트
-		/*$(".fileDrop").on("drop", function(event){
-			event.preventDefault();//기본 효과를 막음
-			//드래그된 파일의 정보
-			var files = event.originalEvent.dataTransfer.files;
-			//첫번째 파일
-			var file = files[0];
-			//콘솔에서 파일정보 확인
-			console.log(file);
-			
-			//ajax로 전달할 폼 객체
-			var formData = new FormData();
-			//폼 객체에 파일 추가, append("변수명",값)
-			formData.append("file",file);
-			
-			$.ajax({
-				type: "post",
-				url: "/upload/uploadAjax",
-				data: formData,
-				dataType: "text",
-				processData:false,
-				contentType:false,
-				success: functionc(data{
-					alert(data);
-				}
-			});
-		});*/
+		
+		
 	//JQuery 충돌 처리를한다 (function( $ ) { })( jQuery );
 jQuery.noConflict();
 
