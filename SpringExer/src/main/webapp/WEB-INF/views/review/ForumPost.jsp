@@ -153,9 +153,8 @@
 													aria-haspopup="true" aria-expanded="false" type="button"
 													id="dropdownMenu1" data-toggle="dropdown">
 													<!-- 드롭다운버튼 구현하는 곳 -->
-													<c:if test="${sessionScope.nickName==dto.nickName }">
-														<img
-															src="${pageContext.request.contextPath}/images/svg/moreButton.svg" />
+													<c:if test="${sessionScope.nickName==dto.nickName }" var="noNick">
+														<img src="${pageContext.request.contextPath}/images/svg/moreButton.svg" />
 												</button>
 												<ul class="dropdown-menu" role="menu">
 													<li role="presentation"><a role="menuitem"
@@ -164,6 +163,25 @@
 													<li role="presentation"><a role="menuitem"
 														tabindex="-1"
 														href="<c:url value="/Review/Delete.do?rvNo=${dto.rvNo}"/>">삭제</a></li>
+													<li role="presentation"><a role="menuitem"
+														tabindex="-1"
+														href="<c:url value="#"/>">팔로잉</a></li>
+													<li role="presentation"><a role="menuitem"
+														tabindex="-1"
+														href="<c:url value="#"/>">팔로우</a></li>
+												</ul>
+												</c:if>
+												
+												<c:if test="${not noNick }">
+												<img src="${pageContext.request.contextPath}/iages/svg/moreButton.svg" />
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li role="presentation"><a role="menuitem"
+														tabindex="-1"
+														href="<c:url value="#"/>">팔로잉</a></li>
+													<li role="presentation"><a role="menuitem"
+														tabindex="-1"
+														href="<c:url value="#"/>">팔로우</a></li>
 												</ul>
 												</c:if>
 											</div>
@@ -440,6 +458,7 @@
 						href="https://jemilykoo.wixsite.com/website/profile/userID/profile"
 						class="_1cpII">
 						<div class="_31l-O  _1ccuS avatar">
+						<!-- 댓글 프로필 이미지 -->
 							<span class="_14_Ju _1zT4G _28gI0 avatar-image">
 								<div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div>
 							</span>
@@ -454,8 +473,8 @@
 					action="<c:url value="/rvCmntOne.do?rvNo=${rvNo }"/>">
 					<div class="lineboxContainer">
 						<!--아래 div는 textarea와 같은 역할을 합니다. -->
-						<div class="linebox">
-							<textarea rows="5" cols="30" name="rvCmnt"></textarea>
+						<div >
+							<textarea class="linebox" rows="5" cols="30" name="rvCmnt"></textarea>
 							<input type="hidden" name="nickName" value="${dto.nickName}" />
 							<input type="hidden" name="rvNo" value="${dto.rvNo}" /> <input
 								type="hidden" name="rvcNo" />

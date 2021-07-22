@@ -25,11 +25,6 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-	rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet"
@@ -83,7 +78,7 @@ body {
 
 .navbar-trip li {
 	overflow: hidden;
-	padding: 8px 0px;
+	padding: 0px 0px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
@@ -92,7 +87,10 @@ body {
 	width: 50vw;
 	max-height: 100vw;
 }
-
+.form-inline{
+	
+	 padding-top:15px;
+	}
 @media all and (max-width:920px) {
 	.navbar-right li {
 		padding: 8px 0px;
@@ -113,6 +111,7 @@ body {
 	.navbar-trip li:nth-child(even) {
 		
 	}
+	
 }
 
 @media all and (max-width:768px) {
@@ -125,6 +124,11 @@ body {
 		max-width: 100vw;
 		padding: 0;
 		margin: 0;
+	}
+	
+	.form-inline{
+	
+	 padding-top:0px;
 	}
 }
 </style>
@@ -356,7 +360,7 @@ body {
 
 				<!-- 프로필 그거 그대로 퍼옴 -->
 				<form class="form-inline navbar-trip" method="post"
-					action="<c:url value='/Review/TripBoard.do'/>">
+					action="<c:url value='/Review/TripBoard.do'/>" >
 					<ul class="nav navbar-nav navbar-trip  ">
 
 						<li>

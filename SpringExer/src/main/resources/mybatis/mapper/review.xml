@@ -8,30 +8,26 @@
 <mapper namespace="mybatis.mapper.review">
 
 	<select id="reviewSelectList" resultType="reviewDTO">
-		select *
-		from review 
-		order by rvNo desc
+		SELECT *
+		FROM review 
+		ORDER BY rvNo DESC
 	</select>
 	
 	<insert id="reviewInsert" parameterType="Map">
-	
-		insert into review(rvNo,nickName,rvTitle,rvCtt,rvDate,rvLat,rvLng,rvCategory1,rvCategory2)
-		values(SEQ_review.NEXTVAL,#{nickName},#{rvTitle},#{rvCtt},default,#{rvLat},#{rvLng},#{rvCategory1},#{rvCategory2})
-		
-	
+		INSERT INTO review(rvNo,nickName,rvTitle,rvCtt,rvDate,rvLat,rvLng,rvCategory1,rvCategory2)
+		VALUSES(SEQ_review.NEXTVAL,#{nickName},#{rvTitle},#{rvCtt},default,#{rvLat},#{rvLng},#{rvCategory1},#{rvCategory2})
 	</insert>
 	
 	<select id="reviewSelectOne" parameterType="Map"  resultType="reviewDTO">
-		select *
-		from review
-
-		Where rvNo=#{rvNo}
+		SELECT *
+		FROM review
+		WHERE rvNo=#{rvNo}
 	</select>
 	
 	<select id="reviewNoCMNTSelectOne" parameterType="Map"  resultType="reviewDTO">
-		select *
-		from review 
-		Where rvNo=#{rvNo}
+		SELECT *
+		FROM review 
+		WHERE rvNo=#{rvNo}
 	</select>
 	
 	<update id="reviewUpdate" parameterType="Map">
@@ -40,10 +36,6 @@
 		Where rvNo=#{rvNo}
 	</update>
 	
-	<delete id="reviewDelete" parameterType="Map">
-		delete review
-		Where rvNo=#{rvNo}
-	</delete>
 	
 	<select id="reviewLikeCheck" parameterType="Map" resultType="Int">
 		select count(*)
@@ -75,9 +67,15 @@
 	</insert>
 
 	<select id="reviewMNG" resultType="reviewDTO">
-		select *
-		from review 
-		order by rvNo desc
+		SELECT *
+		FROM review 
+		WHERE 1=1
+		ORDER BY rvNo DESC
 	</select>
+	
+	<delete id="reviewDelete" parameterType="Map">
+		DELETE review
+		WHERE rvNo=#{rvNo}
+	</delete>
 	
 </mapper>
