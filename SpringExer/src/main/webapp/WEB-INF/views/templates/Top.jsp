@@ -318,8 +318,8 @@ body {
             </c:if>
             <!-- -------------------------------------------------- -->
               
-              <li><a href="<c:url value="/Stamp/Test.do"/>">Guide</a></li>
-            <li><a href="<c:url value="/Stamp/guide.do"/>">Test</a></li>
+              <li><a href="<c:url value="/Stamp/Test.do"/>">Test</a></li>
+            <li><a href="<c:url value="/Stamp/guide.do"/>">Guide</a></li>
 
          </ul>
          

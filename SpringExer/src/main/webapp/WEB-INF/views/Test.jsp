@@ -48,35 +48,93 @@
 	}
 </script>
 <body>
+<!-- 만
 
-	<jsp:include page="/WEB-INF/views/templates/TopTripBoard.jsp" />
+1) 이 사람들이 들어가있는지 확인
+SELECT count(*) FROM MEMBER
+		WHERE id = #{id}
+		
+SELECT count(*) FROM MEMBER
+		WHERE id = 'KOO1' or 
+			id = 'LEE23' or 
+			id = 'PARK45' or
+			id = 'SSONG67' or
+			id = 'SANG89' or
+			id =  'BOM0';
+			
+
+
+			
+	멤버 생성 /업데이트 버튼 개장	
+	리뷰 생성 / 업데이트버튼 개장	1001~1006
+	팔로우 생성 / 업데이트 버튼 개장 1001~1030
+	
+	ㅌ
+
+멤버 업데이트 버튼의 쿼리
+
+대충 이런 게 있는데 업뎃을 하면 이렇게 돌아간다
+를 6개
+
+멤버 생성 버튼의 쿼리
+
+대충 이런 걸 첨부터 만든다
+를 6개
+
+팔로우넘버 1001
+
+
+
+
+
+
+
+
+
+
+ -->
+
+
+	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 	<div class="TripBoardContainer">
-		<div style="padding: 0px">
+		<div style="padding: 020px">
 
-			<div class="TitleBoardHeader"
-				style="color: red; margin: auto; position: relative; background-color: green">
-				<img
-					src="${pageContext.request.contextPath}/images/tripboard/header_city1.jpg" />
-				<!--타이틀 이미지 들어감-->
-			</div>
 
 		</div>
 		<div class="TripBoardContent" style="background-color: ivory">
 			
-			<div class="TripBoardMain"
-				style="display: flex; justify-content: center; flex-flow: wrap; gap: 10px; background-color: red">
-				<!-- 메인 -->
-				<div style="width: 300px; height: 300px; background-color: blue">d</div>
-				<div style="width: 300px; height: 300px; background-color: blue">d</div>
-				<div style="width: 300px; height: 300px; background-color: blue">d</div>
-				<div style="width: 300px; height: 300px; background-color: blue">d</div>
-				<div style="width: 300px; height: 300px; background-color: blue">d</div>
-				<div style="width: 300px; height: 300px; background-color: blue">d</div>
-				<!-- 갯수 맞추기 위해 있어야 하는 코드 시작 -->
-				<!-- 갯수 맞추기 위해 있어야 하는 코드 끝 -->
+			
+<button>
+더미데이터를 만드는 버튼
+</button>
 
 
-			</div>
+들어가는 데이터<br/>
+회원 : KOO1 LEE23 PARK45 SSONG67 SANG89 BOM0<br/>
+추천 리뷰 : <br/>
+북한산 등반기 KOO1<br/>
+#서울<br/>
+#산<br/>
+<br/>
+영종도 바다 여행기LEE23<br/>
+#인천<br/>
+#바다<br/>
+<br/>
+임진강에 다녀와서PARK45<br/>
+#경기<br/>
+#강<br/>
+<br/>
+광화문에 가다SSONG67 <br/>
+#서울<br/>
+#유적지<br/>
+<br/>
+차이나 타운 맛집 인정SANG89 <br/>
+#인천<br/>
+#도심<br/>
+<br/>
+서울랜드 야경포인트BOM0<br/>
+#경기<br/>	 
+#야경<br/>
 		</div>
 	</div>
 </body>

@@ -82,4 +82,8 @@
 		WHERE NICKNAME = (SELECT NICKNAME FROM MEMBERSTAMP WHERE rvNO = #{rvNo} and nickName=#{nickName})
 	</update>
 	
+	
+	<!-- 샘플 데이터 생성 -->
+	
+	<sql id=""></sql>
 </mapper>

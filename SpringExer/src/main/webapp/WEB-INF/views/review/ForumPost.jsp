@@ -146,45 +146,83 @@
 										</div>
 										<div class="_1tCTK">
 											<div class="_35gyg">6월 07일</div>
-											<div class="LTwPD more-button dropdown"
-												data-hook="more-button">
-												<button class="dropdown-toggle " aria-label="More actions"
-													id="more-button-60becb4785f7df001562fb6a"
-													aria-haspopup="true" aria-expanded="false" type="button"
-													id="dropdownMenu1" data-toggle="dropdown">
+											<!-- 버튼시작 -->
+											<div class="LTwPD  dropdown" data-hook="more-button">
+												<button class="dropdown-toggle more-button"
+													id="dropdownButton1">
 													<!-- 드롭다운버튼 구현하는 곳 -->
-													<c:if test="${sessionScope.nickName==dto.nickName }" var="noNick">
-														<img src="${pageContext.request.contextPath}/images/svg/moreButton.svg" />
+													<img
+														src="${pageContext.request.contextPath}/images/svg/moreButton.svg" />
 												</button>
-												<ul class="dropdown-menu" role="menu">
-													<li role="presentation"><a role="menuitem"
-														tabindex="-1"
-														href="<c:url value="/Review/Edit.do?rvNo=${dto.rvNo}"/>">수정</a></li>
-													<li role="presentation"><a role="menuitem"
-														tabindex="-1"
-														href="<c:url value="/Review/Delete.do?rvNo=${dto.rvNo}"/>">삭제</a></li>
-													<li role="presentation"><a role="menuitem"
-														tabindex="-1"
-														href="<c:url value="#"/>">팔로잉</a></li>
-													<li role="presentation"><a role="menuitem"
-														tabindex="-1"
-														href="<c:url value="#"/>">팔로우</a></li>
-												</ul>
-												</c:if>
-												
-												<c:if test="${not noNick }">
-												<img src="${pageContext.request.contextPath}/iages/svg/moreButton.svg" />
-												</button>
-												<ul class="dropdown-menu" role="menu">
-													<li role="presentation"><a role="menuitem"
-														tabindex="-1"
-														href="<c:url value="#"/>">팔로잉</a></li>
-													<li role="presentation"><a role="menuitem"
-														tabindex="-1"
-														href="<c:url value="#"/>">팔로우</a></li>
-												</ul>
-												</c:if>
+												<div role="menu" id="ReviewActions" class="actions">
+													<div>
+														<c:if test="${sessionScope.nickName==dto.nickName }" var="noNick">
+															<a
+																href="<c:url value="/Review/Edit.do?rvNo=${dto.rvNo}"/>">
+																<button class="actionButton" role="menuitem">
+																	<div class="postActions">
+																		<img
+																			src="${pageContext.request.contextPath}/images/svg/update.svg" />
+																		<div class="ActionButtonText">수정</div>
+																	</div>
+																</button>
+															</a>
+															<a
+															href="<c:url value="/Review/Delete.do?rvNo=${dto.rvNo}"/>">
+																<button class="actionButton" role="menuitem">
+																	<div class="postActions">
+																		<img
+																			src="${pageContext.request.contextPath}/images/svg/delete.svg" />
+																		<div class="ActionButtonText">삭제</div>
+																	</div>
+																</button>
+															</a>
+														</c:if>
+
+
+
+														<a href="/exer/DM/DMBox.do">
+															<button class="actionButton" role="menuitem">
+																<div class="postActions">
+																	<div class="icon">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24"
+																			height="24" viewBox="0 0 24 24">
+                                          <path
+																				d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"></path></svg>
+																	</div>
+																	<div class="ActionButtonText">DM</div>
+																</div>
+															</button>
+														</a> <a href="#">
+															<button class="actionButton" role="menuitem">
+																<div class="postActions">
+																	<img
+																			src="${pageContext.request.contextPath}/images/svg/follow.svg" />
+																	<div class="ActionButtonText">팔로우</div>
+																</div>
+															</button>
+														</a><a href="#">
+															<button class="actionButton" role="menuitem">
+																<div class="postActions"
+																	data-hook="post-actions__report">
+																	
+																	<img
+																			src="${pageContext.request.contextPath}/images/svg/warning.svg" />
+																	<div class="ActionButtonText">신고하기</div>
+																</div>
+															</button>
+														</a>
+
+													</div>
+
+
+													
+												</div>
 											</div>
+<!-- 버튼 끝 -->
+
+
+
 
 										</div>
 									</div>
@@ -287,74 +325,140 @@
 															<span class="_1dO0B">${item2.rvcDate }</span>
 															<div class="_2RCpN">
 
-																<div class="LTwPD more-button dropdown"
-																	data-hook="more-button">
-																	<button class="dropdown-toggle "
-																		aria-label="More actions"
-																		id="more-button-60becb4785f7df001562fb6a"
-																		aria-haspopup="true" aria-expanded="false"
-																		type="button" id="dropdownMenu1"
-																		data-toggle="dropdown">
-																		<!-- 드롭다운버튼 구현하는 곳 -->
-																		<c:if test="${sessionScope.nickName==item2.nickName }">
-																			<img
-																				src="${pageContext.request.contextPath}/images/svg/moreButton.svg" />
-																	</button>
-																	<ul class="dropdown-menu" role="menu">
-																		<li role="presentation"><a role="menuitem"
-																			tabindex="-1"
-																			href="<c:url value="/rvcEdit.do?rvcNo=${dto.rvcNo}"/>">수정</a></li>
-																		<li role="presentation"><a role="menuitem"
-																			tabindex="-1"
-																			href="<c:url value="/rvcDelete.do?&rvNo=${dto.rvNo }&rvcNo=${item2.rvcNo}"/>">삭제</a></li>
-																	</ul>
-									</c:if>
-								</div>
-							</div>
-
-
-						</div>
-					</div>
-					<div class="_1MbOK comment__content">
-						<div
-							class=" kcuBq _18B2H font_9 c5OF0 cNOAl css-1wg9rnj _2x6sh uatYj _1bYoS gOtux"
-							data-id="rich-content-viewer">
-							<div class="font_9">
-								<div class="_1xs1G">${item2.rvCmnt }</div>
-							</div>
 
 
 
-						</div>
-					</div>
-					<div class="_39-Jn  comment-footer">
-						<span class="_3U6Eq">
-							<button
-								class="KkXMX font_9 button-hover-color forum-icon-fill button-hover-fill"
-								aria-label="userID님에게 댓글">
 
-								<img
-									src="${pageContext.request.contextPath}/images/svg/reply.svg" />
 
-								<span data-hook="comment-footer__reply"
-									class="comment-footer__reply">댓글</span>
-							</button>
-						</span>
-						<div class="_2TIT4">
-							<button class="_2UNF9" actiondetails="[object Object]">
-								<div class="dr0cE" aria-label="좋아요 0개. Is unliked"
-									data-hook="like-button" style="-heart-color: #e84a43;"></div>
-							</button>
-							<span class="_3DfnL post-main-actions__like-count _344s1"
-								data-hook="who-liked-popover-btn">0</span>
-						</div>
-					</div>
-				</div>
-				</article>
-				</c:forEach>
-				<!-- 댓글 끝 -->
 
-				<!--대댓글 컨테이너 시작
+	<!-- 버튼시작 -->
+											<div class="LTwPD  dropdown" data-hook="more-button">
+												<button class="dropdown-toggle more-button"
+													id="dropdownButton1">
+													<!-- 드롭다운버튼 구현하는 곳 -->
+													<img
+														src="${pageContext.request.contextPath}/images/svg/moreButton.svg" />
+												</button>
+												<div role="menu" id="ReviewActions" class="actions">
+													<div>
+														<c:if test="${sessionScope.nickName==item2.nickName }"
+															var="noNick">
+															<a
+																href="<c:url value="/rvcEdit.do?rvcNo=${dto.rvcNo}"/>">
+																<button class="actionButton" role="menuitem">
+																	<div class="postActions">
+																		<img
+																			src="${pageContext.request.contextPath}/images/svg/update.svg" />
+																		<div class="ActionButtonText">수정</div>
+																	</div>
+																</button>
+															</a>
+															<a
+															href="<c:url value="/rvcDelete.do?&rvNo=${dto.rvNo }&rvcNo=${item2.rvcNo}"/>">
+																<button class="actionButton" role="menuitem">
+																	<div class="postActions">
+																		<img
+																			src="${pageContext.request.contextPath}/images/svg/delete.svg" />
+																		<div class="ActionButtonText">삭제</div>
+																	</div>
+																</button>
+															</a>
+														</c:if>
+
+
+
+														<a href="/exer/DM/DMBox.do">
+															<button class="actionButton" role="menuitem">
+																<div class="postActions">
+																	<div class="icon">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24"
+																			height="24" viewBox="0 0 24 24">
+                                          <path
+																				d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"></path></svg>
+																	</div>
+																	<div class="ActionButtonText">DM</div>
+																</div>
+															</button>
+														</a> <a href="#">
+															<button class="actionButton" role="menuitem">
+																<div class="postActions">
+																	<img
+																			src="${pageContext.request.contextPath}/images/svg/follow.svg" />
+																	<div class="ActionButtonText">팔로우</div>
+																</div>
+															</button>
+														</a><a href="#">
+															<button class="actionButton" role="menuitem">
+																<div class="postActions"
+																	data-hook="post-actions__report">
+																	
+																	<img
+																			src="${pageContext.request.contextPath}/images/svg/warning.svg" />
+																	<div class="ActionButtonText">신고하기</div>
+																</div>
+															</button>
+														</a>
+
+													</div>
+
+
+													
+												</div>
+											</div>
+<!-- 버튼 끝 -->
+
+
+
+
+
+
+
+															
+															</div>
+
+
+														</div>
+													</div>
+													<div class="_1MbOK comment__content">
+														<div
+															class=" kcuBq _18B2H font_9 c5OF0 cNOAl css-1wg9rnj _2x6sh uatYj _1bYoS gOtux"
+															data-id="rich-content-viewer">
+															<div class="font_9">
+																<div class="_1xs1G">${item2.rvCmnt }</div>
+															</div>
+
+
+
+														</div>
+													</div>
+													<div class="_39-Jn  comment-footer">
+														<span class="_3U6Eq">
+															<button
+																class="KkXMX font_9 button-hover-color forum-icon-fill button-hover-fill"
+																aria-label="userID님에게 댓글">
+
+																<img
+																	src="${pageContext.request.contextPath}/images/svg/reply.svg" />
+
+																<span data-hook="comment-footer__reply"
+																	class="comment-footer__reply">댓글</span>
+															</button>
+														</span>
+														<div class="_2TIT4">
+															<button class="_2UNF9" actiondetails="[object Object]">
+																<div class="dr0cE" aria-label="좋아요 0개. Is unliked"
+																	data-hook="like-button" style="-heart-color: #e84a43;"></div>
+															</button>
+															<span class="_3DfnL post-main-actions__like-count _344s1"
+																data-hook="who-liked-popover-btn">0</span>
+														</div>
+													</div>
+												</div>
+											</article>
+										</c:forEach>
+										<!-- 댓글 끝 -->
+
+										<!--대댓글 컨테이너 시작
 										<div class="_1vGfV _1yPdA" data-hook="comment">
 											<article id="60d2f28188d0340015ed3abd"
 												class="_3JQ_x font_9  forum-card-border-color comment _3xzB6">
@@ -446,57 +550,60 @@
 
 		대댓글 끝-->
 
-				</c:if>
-			</div>
-			<div class=" lrDj7 _2bKV7" style="border-color: rgba(0, 0, 0, 0.2);"></div>
+									</c:if>
+								</div>
+								<div class=" lrDj7 _2bKV7"
+									style="border-color: rgba(0, 0, 0, 0.2)"></div>
 
-			<!--선긋기-->
+								<!--선긋기-->
 
-			<div style="border-width: 1px; border-color: rgba(0, 0, 0, 0.2);">
-				<div class="kIBre  font_9  comment-form">
-					<a
-						href="https://jemilykoo.wixsite.com/website/profile/userID/profile"
-						class="_1cpII">
-						<div class="_31l-O  _1ccuS avatar">
-						<!-- 댓글 프로필 이미지 -->
-							<span class="_14_Ju _1zT4G _28gI0 avatar-image">
-								<div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div>
-							</span>
-							<div class="-mPAe">
-								<!-- 여기가 댓글작성자 닉네임 -->
-								<div class="_1d5Ko _1_vuc">${sessionScope.nickName}</div>
+								<div
+									style="border-width: 1px; border-color: rgba(0, 0, 0, 0.2);">
+									<div class="kIBre  font_9  comment-form">
+										<a
+											href="https://jemilykoo.wixsite.com/website/profile/userID/profile"
+											class="_1cpII">
+											<div class="_31l-O  _1ccuS avatar">
+												<!-- 댓글 프로필 이미지 -->
+												<span class="_14_Ju _1zT4G _28gI0 avatar-image">
+													<div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div>
+												</span>
+												<div class="-mPAe">
+													<!-- 여기가 댓글작성자 닉네임 -->
+													<div class="_1d5Ko _1_vuc">${sessionScope.nickName}</div>
+												</div>
+											</div>
+										</a>
+									</div>
+									<form class="form-inline" id="frm"
+										action="<c:url value="/rvCmntOne.do?rvNo=${rvNo }"/>">
+										<div class="lineboxContainer">
+											<!--아래 div는 textarea와 같은 역할을 합니다. -->
+											<div>
+												<textarea class="linebox" rows="5" cols="30" name="rvCmnt"></textarea>
+												<input type="hidden" name="nickName" value="${dto.nickName}" />
+												<input type="hidden" name="rvNo" value="${dto.rvNo}" /> <input
+													type="hidden" name="rvcNo" />
+											</div>
+											<div style="height: 50px"></div>
+											<!-- textarea 끝-->
+
+											<!--댓글 게시 시작-->
+											<div class="_1tafc _3g02x ruYrk _2Ysrr _3-clJ">
+												<button class="submitButton" type="submit">게시</button>
+											</div>
+											<!--댓글 게시 끝 -->
+										</div>
+
+									</form>
+								</div>
 							</div>
 						</div>
-					</a>
-				</div>
-				<form class="form-inline" id="frm"
-					action="<c:url value="/rvCmntOne.do?rvNo=${rvNo }"/>">
-					<div class="lineboxContainer">
-						<!--아래 div는 textarea와 같은 역할을 합니다. -->
-						<div >
-							<textarea class="linebox" rows="5" cols="30" name="rvCmnt"></textarea>
-							<input type="hidden" name="nickName" value="${dto.nickName}" />
-							<input type="hidden" name="rvNo" value="${dto.rvNo}" /> <input
-								type="hidden" name="rvcNo" />
-						</div>
-						<div style="height: 50px"></div>
-						<!-- textarea 끝-->
-
-						<!--댓글 게시 시작-->
-						<div class="_1tafc _3g02x ruYrk _2Ysrr _3-clJ">
-							<button class="submitButton" type="submit">게시</button>
-						</div>
-						<!--댓글 게시 끝 -->
 					</div>
+				</div>
+
 			</div>
 		</div>
-	</div>
-	</div>
-	</form>
-	</div>
-
-	</div>
-	</div>
 	</div>
 
 
@@ -507,6 +614,28 @@
 <script type="text/JavaScript"
 	src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script>
+$(function() {
+	//페이지 최초 로드시 내용 숨기기]
+	$(".actions").hide();
+	$(".more-button").click(function(){
+		
+    	console.log($(this).next().css('display'));
+    	//클릭한 제목의 내용이 숨겨져 있다면
+    	if($(this).next().css('display')=='none'){
+    		$(this).next().css({'background-color': 'white'});
+    		$(this).next().fadeOut(200);//열린 모든 내용 숨기기
+    		$(this).next().fadeIn(200);//해당 제목의 내용 보이기
+    		
+    	}
+    	else{
+    		$(this).next().fadeOut(200);
+    	}
+    });
+	
+});
+
+	
+		
             //좋아요 구현 ajax
             	var nickName = "${sessionScope.nickName}"
             	var rvNo = "${dto.rvNo}"
@@ -541,7 +670,7 @@
             
             
             
-            
+          
             
             
 	</script>
