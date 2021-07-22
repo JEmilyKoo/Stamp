@@ -72,7 +72,6 @@ public class StampServiceImpl implements StampService {
 		
 		String nickName = (String) session.getAttribute("nickName");
 		logger.info("StampServiceImpl.procStampInsert nickName :" + nickName);
-		
 		if (nickName != null) { 						// 로그인 되어 있을 경우
 			map.put("nickName", nickName);
 			
@@ -82,17 +81,17 @@ public class StampServiceImpl implements StampService {
 				
 				map.put("rvNo",rvNo);						//글 번호 Map에 넣기
 				
-				int Count = this.stampCheckCount(map); 
-				int CheckGet = this.stampCheckGet(map);
+				int Count = this.stampCheckCount(map); 		//StampCheck테이블에 값 넣기
+				int CheckGet = this.stampCheckGet(map);		//MemberStamp테이블에 값이 있는지 확인
 				
 				if (CheckGet >= 1) {
 					this.stampCheckDelete(map); 			// stampCheck insert한 내용 삭제
 					return 3;
 				}
 				
-				else if (Count >= 5) {							// 30초 동안 스탬프 주변에 있을 경우 스탬프를 얻을 수 있따.
+				else if (Count >= 5) {						// 30초 동안 스탬프 주변에 있을 경우 스탬프를 얻을 수 있다.
 					this.stampGet(map); 					// 멤버 스탬프에 등록
-					profileService.stampAchEP(map); 		//스탬프 경험치
+					profileService.stampAchEP(map); 		// 스탬프 경험치
 					this.stampCheckDelete(map); 			// stampCheck insert한 내용 삭제
 					return 1;
 				}
@@ -105,17 +104,14 @@ public class StampServiceImpl implements StampService {
 				logger.error("lineNumber :: " + ste[0].getLineNumber());
 				logger.error("fileName :: " + ste[0].getFileName());
 			}
-			
 			logger.info("StampServiceImpl.procStampInsert END");
 			return 2;
-		
+			
 		} else {/// 로그인 안되어있다면 아무 일 없다.
 			logger.info("로그인 안되어있음");
 			logger.info("StampServiceImpl.procStampInsert END");
-			
 			return 0;
 		}
-		
 	}
 
 	// 리소스파일(onememo.properties)에서 읽어오기
