@@ -41,7 +41,7 @@
 		<div style="padding-bottom: 30px">
 
 			<div class="TitleBoardHeader"
-				style="color: red; margin: auto; position: relative; background-color: green">
+				style="margin: auto; position: relative; ">
 				<img
 					src="${pageContext.request.contextPath}/images/tripboard/header_city1.jpg" />
 				<!--타이틀 이미지 들어감-->
