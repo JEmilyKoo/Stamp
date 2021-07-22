@@ -454,8 +454,8 @@
 					action="<c:url value="/rvCmntOne.do?rvNo=${rvNo }"/>">
 					<div class="lineboxContainer">
 						<!--아래 div는 textarea와 같은 역할을 합니다. -->
-						<div class="linebox">
-							<textarea rows="5" cols="30" name="rvCmnt"></textarea>
+						<div >
+							<textarea class="linebox" rows="5" cols="30" name="rvCmnt"></textarea>
 							<input type="hidden" name="nickName" value="${dto.nickName}" />
 							<input type="hidden" name="rvNo" value="${dto.rvNo}" /> <input
 								type="hidden" name="rvcNo" />
