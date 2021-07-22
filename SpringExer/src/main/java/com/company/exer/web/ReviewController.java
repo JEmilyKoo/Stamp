@@ -69,11 +69,9 @@ public class ReviewController {
 	
 	
 	/* 로그인 하지 않고 각 컨트롤러 메소드 실행시 오류:@ModelAttribute("id") String id사용시 */
-	//씨큐리티 사용시에는 아래 예외처리 불필요
 	@ExceptionHandler({HttpSessionRequiredException.class})
 	public String notLogin(Model model) {
 		model.addAttribute("NotMember", "로그인후 이용 바람....");
-		//로그인이 안된경우 로그인 페이지로
 		return "forward:/Review/TripBoard.do";
 	}
 	
@@ -106,34 +104,27 @@ public class ReviewController {
 	
 
 	
-	
-	
-	
-	
+
 	
 	//전체게시물
 	@RequestMapping("TripBoard.do")
 	public String TripBoard(Model model) {
-		
 		List<ReviewDTO> list =reviewService.selectList();
 		
 		try {
-		if(list==null) {
-			model.addAttribute("NoBoard","게시글이 없어요");
-			
-		}
-		else {
-			model.addAttribute("list",list);
-			System.out.println("listsize:"+list.size());
-			System.out.println("list:getNickName"+list.get(0).toString());
-			//뷰정보 반환]
-			
-		}
+			if(list==null) {
+				model.addAttribute("NoBoard","게시글이 없어요");
+			}
+		
+			else {
+				model.addAttribute("list",list);
+			}
 		}
 		catch(IndexOutOfBoundsException e){
 			e.getMessage();
 		}
 		
+		//뷰정보 반환]
 		return "/review/TripBoard";
 	}///////////////////TripBoard()
 	
@@ -142,7 +133,6 @@ public class ReviewController {
 	public String ForumPost(@RequestParam Map<String, String> map,
 			Model model,
 			HttpServletRequest req) {
-		
 		//닉네임 있을 때
 		if(req.getSession().getAttribute("nickName")!=null) {
 			String nickName = req.getSession().getAttribute("nickName").toString();
@@ -153,26 +143,21 @@ public class ReviewController {
 
 			//게시물 하나 갖고 오는 쿼리
 			ReviewDTO dto = reviewService.selectOne(map);
-					
 			model.addAttribute("dto",dto);
 				
 			//게시물 댓글 갖고 오는 쿼리
 			List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
 			model.addAttribute("rvcDto",rvcDto);
-		
 			}//if(req.getSession().getAttribute("nickName")!=null)
 			
 		else {//댓글도 없고 세션 닉네임도 없을 경우
-		
 			//게시물 갖고 오는 쿼리
 			ReviewDTO dto = reviewService.noCMNTselectOne(map);
-			
 			model.addAttribute("dto",dto);
 			
 			//댓글 받는 쿼리
 			List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
 			model.addAttribute("rvcDto",rvcDto);
-			
 		}//else(req.getSession().getAttribute("nickName")!=null)
 		
 		//댓글 갯수 가져오는 쿼리
@@ -186,15 +171,14 @@ public class ReviewController {
 	
 	//글 작성페이지
 	@RequestMapping(value="Write.do",method = RequestMethod.GET)
-	public String Write(Model model,@RequestParam Map map,@ModelAttribute("nickName") String nickName) throws IOException {
-		
+	public String Write(Model model,@ModelAttribute("nickName") String nickName) throws IOException {
 		return "review/Write";
 	}
 	
 	//글 작성
 	@RequestMapping(value="Write.do",method = RequestMethod.POST)
 	public String WriteOk(@RequestParam Map map,
-			@ModelAttribute("nickName") String nickName,Model model,HttpServletResponse response) throws IOException {
+			@ModelAttribute("nickName") String nickName,HttpServletResponse response) throws IOException {
 
 		map.put("nickName", nickName);
 		reviewService.insert(map);
@@ -258,13 +242,13 @@ public class ReviewController {
 	public String Edit(@RequestParam Map map,Model model ) {
 		ReviewDTO dto = reviewService.selectOne(map);
 		model.addAttribute("dto",dto);
-		System.out.println("Edit - dto.toString():"+dto.toString());
 		dto.setRvCtt(dto.getRvCtt().replace("<p>","\n"));	
 		dto.setRvCtt(dto.getRvCtt().replace("</p>",""));	
 
 		return "review/Edit";
 	}
 	
+	//글 수정
 	@RequestMapping(value="Edit.do",method = RequestMethod.POST)
 	public String EditOk(@RequestParam Map map,Model model) {
 		ReviewDTO dto = reviewService.selectOne(map);
@@ -314,41 +298,7 @@ public String deleteMNG(@RequestParam Map map) {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	/*
-	@RequestMapping("View.do")
-	public String View(Model model,
-			HttpServletRequest req,
-			@RequestParam Map map
-			) {
-		
-		if(req.getSession().getAttribute("id")!=null) {
-		String id = req.getSession().getAttribute("id").toString();
-		map.put("id", id);
-		int check = reviewService.likeCheck(map);
-		ReviewDTO dto = reviewService.selectOne(map);
-		dto.setRvLikeCheck(check);
-		model.addAttribute("dto",dto);
-		}
-		else {
-			ReviewDTO dto = reviewService.selectOne(map);
-			model.addAttribute("dto",dto);
-		}
-		return "review/View";
-	}
-	
-	
-	
 
-	
-	*/
-	
 	
 }
 
