@@ -177,6 +177,41 @@ body {
 						onclick="w3_close()">카테고리 선택 &times;</button>
 
 
+<<<<<<< HEAD
+
+
+					<select name="rvCategory1" id="category1">
+						<option value="">==지역 선택==</option>
+						<option value="서울" name="rvCategory1"
+							<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</option>
+						<option value="인천" name="rvCategory1"
+							<c:if test="${fn:contains(param.category,'인천') }">selected</c:if>>인천</option>
+						<option value="경기" name="rvCategory1"
+							<c:if test="${fn:contains(param.category,'경기') }">selected</c:if>>경기</option>
+					</select>
+
+
+
+
+<!-- 
+					<div class="w3-white categoryDropDown">
+						<h3 class="   w3-blue categoryDropDown  " style="padding: 10px">지역</h3>
+						<div value="서울" name="rvCategory1"
+							class="w3-bar-item w3-button w3-hover-blue"
+							<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</div>
+						<a href="#" class="w3-bar-item w3-button w3-hover-blue">인천</a> <a
+							href="#" class="w3-bar-item w3-button w3-hover-blue">경기</a>
+					</div>
+					<div class="w3-white categoryDropDown">
+						<h3 class=" categoryDropDown  w3-blue" style="padding: 10px">여행지</h3>
+						<a href="#" class="w3-bar-item w3-button w3-hover-blue">산</a> <a
+							href="#" class="w3-bar-item w3-button w3-hover-blue">바다</a> <a
+							href="#" class="w3-bar-item w3-button w3-hover-blue">강</a> <a
+							href="#" class="w3-bar-item w3-button w3-hover-blue">유적지</a> <a
+							href="#" class="w3-bar-item w3-button w3-hover-blue">도심</a> <a
+							href="#" class="w3-bar-item w3-button w3-hover-blue">야경</a>
+					</div>
+=======
 					
 					
 					
@@ -211,11 +246,12 @@ body {
 							
 					
 					
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 				</div>
 
 				<div class="w3-overlay" onclick="w3_close()" style="cursor: pointer"
 					id="myOverlay"></div>
-
+ -->
 
 
 
@@ -463,9 +499,73 @@ body {
 	<!-- 네비게이션 끝 -->
 	<!-- 실제 내용 시작 -->
 	
+<<<<<<< HEAD
+	<div class="container">
+		<div class="page-header">
+			<h1>
+				여행 리뷰/정보<small>등록 페이지</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+					<fieldset>
+						<div id="map"
+							style="width: 500px; height: 400px; background-color: yellow;"></div>
+						<div id="clickLatlng"></div>
+					</fieldset>
+					<!-- 씨큐리티 적용:csrf취약점 방어용 -->
+					<div class="form-group">
+						<label class="col-sm-2 control-label">제목</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="rvTitle"
+								placeholder="제목을 입력하세요?">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">내용</label>
+						<!-- 중첩 컬럼 사용 -->
+						<div class="col-sm-10">
+							<div class="row">
+								<div class="col-sm-8">
+									<textarea id="summernote" class="form-control summernote"
+										name="rvCtt" rows="5" placeholder="내용 입력하세요"></textarea>
+								</div>
+							</div>
+							<select name="rvCategory1" id="category1">
+								<option value="">==지역 선택==</option>
+								<option value="서울" name="rvCategory1"
+									<c:if test="${fn:contains(param.category1,'서울') }">selected</c:if>>서울</option>
+								<option value="인천" name="rvCategory1"
+									<c:if test="${fn:contains(param.category1,'인천') }">selected</c:if>>인천</option>
+								<option value="경기" name="rvCategory1"
+									<c:if test="${fn:contains(param.category1,'경기') }">selected</c:if>>경기</option>
+							</select> 
+							
+							<select name="rvCategory2" id="category2">
+								<option value="">==여행지 선택==</option>
+								<option value="산" name="rvCategory2"
+									<c:if test="${fn:contains(param.category2,'산') }">selected</c:if>>산</option>
+								<option value="바다" name="rvCategory2"
+									<c:if test="${fn:contains(param.category2,'바다') }">selected</c:if>>바다</option>
+								<option value="강" name="rvCategory2"
+									<c:if test="${fn:contains(param.category2,'강') }">selected</c:if>>강</option>
+								<option value="유적지" name="rvCategory2"
+									<c:if test="${fn:contains(param.category2,'유적지') }">selected</c:if>>유적지</option>
+								<option value="도심" name="rvCategory2"
+									<c:if test="${fn:contains(param.category2,'도심') }">selected</c:if>>도심</option>
+								<option value="야경" name="rvCategory2"
+									<c:if test="${fn:contains(param.category2,'야경') }">selected</c:if>>야경</option>
+							</select>
+						</div>
+					</div>
+
 	<div class="container" style="width:1480px;" >
 			<div
 				style="display: flex; padding-top: 80px">
+
+
+
+					<!-- <label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
 
 				<div style="width: 500px; ">
 					
@@ -475,7 +575,10 @@ body {
 					
 									<div style="max-width:200px; min-width:100px;margin:5px;height:36px"class="w3-button w3-white w3-border w3-border-blue w3-round-large">이미지</div>
 					 <input type="file" id="gdsImg" class="w3-button w3-blue w3-border w3-border-white w3-round-large"
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 						name="file" /> <img src="" id="img" name="rvFile" />
+						
+						 -->
 					<!--request.getRealPath("/")/") %>  -->
 					<input type="hidden" name="rvLat" /> <input type="hidden"
 						name="rvLng" />
@@ -517,6 +620,38 @@ body {
 		</div>
 
 </form>
+
+<style>
+	/* itrame 스타일 설정*/
+	
+	iframe{
+		width: 600px;
+		height: 100px;
+		border: 1px;
+		border-style: solid;
+	}
+	
+</style>
+<!-- target을 지정한 곳으로 form data가 이동 -->
+<form id="form1" target="iframePhoto" action="<c:url value='/upload/uploadForm'/>" method="post" enctype="multipart/form-data">
+	<input type="file" name="file">
+				<input type="submit" value="업로드">
+</form>
+	<!-- form data가 이곳으로 이동 -->
+	<iframe name="iframePhoto"></iframe>
+
+<script>
+	function addFilePath(msg){
+		console.log(msg);//파일명 콘솔 출력
+		document.getElementById("form1").reset();
+		//ifream에 업로드 결과를 출력 후 form에 저장된 데이터 초기화
+	}
+
+	
+</script>
+	
+
+ 
 	<!-- 실제 내용 끝 -->
 	<!--  푸터 시작 -->
 	<jsp:include page="/WEB-INF/views/templates/Footer.jsp" />
