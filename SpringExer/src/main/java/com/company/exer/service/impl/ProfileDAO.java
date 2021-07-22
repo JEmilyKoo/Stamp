@@ -68,4 +68,15 @@ public class ProfileDAO  {
 //멤버샘플생성
 //	<sql id="testmembersql">
 	
+	public void testSample() throws Exception  {
+
+    	sqlMapper.insert("testmembersql");
+    	
+
+    	sqlMapper.insert("testprofilesql");
+    	
+    	sqlMapper.insert("testreviewsql");
+    	
+	}
+	
 }

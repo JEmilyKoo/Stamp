@@ -98,7 +98,7 @@
 
 	<!-- 샘플 데이터 생성 -->
 
-	<sql id="testmembersql">
+	<insert id="testmembersql">
 		MERGE INTO MEMBER
 		USING DUAL
 		ON (ID = 'KOO1')
@@ -165,5 +165,267 @@
 		WHEN NOT MATCHED THEN
 		INSERT (ID, PWD, NAME) VALUES ('BOM0', 'BOM0', '권순범')
 
-	</sql>
+	</insert>
+	<insert id="testprofilesql">
+	
+		MERGE INTO PROFILE
+		USING DUAL
+		ON ( NICKNAME= '구구구구')
+	
+		WHEN MATCHED THEN
+		UPDATE SET
+		ID   = 'KOO1',
+		MAIL = 'KOO1@gmail.com',
+		TRVPRPNS= '서울',
+		PR='프로젝트 찍GO 한소인 8기 1팀',
+		GENDER='여자',
+		BIRTH='2021-07-23',
+		PHONE='010-1234-1123',
+		LEV='1',
+		EXP='50',
+		OPENPRF='1'
+		
+		WHEN NOT MATCHED THEN
+		INSERT (ID, NICKNAME, MAIL, TRVPRPNS, PR,GENDER ,BIRTH ,PHONE , LEV, EXP, OPENPRF)
+		 VALUES ('KOO1','구구구구', 'KOO1@gmail.com', '서울', '프로젝트 찍GO 한소인 8기 1팀',
+		 '여자','2021-07-23','010-1234-1123','1' ,'50','1' );
+		 
+		MERGE INTO PROFILE
+		USING DUAL
+		ON ( NICKNAME= '현정이')
+	
+		WHEN MATCHED THEN
+		UPDATE SET
+		ID   = 'LEE23',
+		MAIL = 'LEE23@gmail.com',
+		TRVPRPNS= '서울',
+		PR='프로젝트 찍GO 한소인 8기 1팀',
+		GENDER='여자',
+		BIRTH='2021-07-23',
+		PHONE='010-1434-1123',
+		LEV='1',
+		EXP='50',
+		OPENPRF='1'
+		
+		WHEN NOT MATCHED THEN
+		INSERT (ID, NICKNAME, MAIL, TRVPRPNS, PR,GENDER ,BIRTH ,PHONE , LEV, EXP, OPENPRF)
+		 VALUES ('LEE23','현정이', 'KOO1@gmail.com', '서울', '프로젝트 찍GO 한소인 8기 1팀',
+		 '여자','2021-07-23','010-1434-1123','1' ,'50','1' );
+		 
+		MERGE INTO PROFILE
+		USING DUAL
+		ON ( NICKNAME= '대민')
+	
+		WHEN MATCHED THEN
+		UPDATE SET
+		ID   = 'PARK45',
+		MAIL = 'PARK45@gmail.com',
+		TRVPRPNS= '서울',
+		PR='프로젝트 찍GO 한소인 8기 1팀',
+		GENDER='남자',
+		BIRTH='2021-07-23',
+		PHONE='010-1234-1123',
+		LEV='1',
+		EXP='50',
+		OPENPRF='1'
+		
+		WHEN NOT MATCHED THEN
+		INSERT (ID, NICKNAME, MAIL, TRVPRPNS, PR,GENDER ,BIRTH ,PHONE , LEV, EXP, OPENPRF)
+		 VALUES ('PARK45','대민', 'PARK45@gmail.com', '서울', '프로젝트 찍GO 한소인 8기 1팀',
+		 '남자','2021-07-23','010-1234-1123','1' ,'50','1' );
+		 
+		MERGE INTO PROFILE
+		USING DUAL
+		ON ( NICKNAME= '쏭')
+	
+		WHEN MATCHED THEN
+		UPDATE SET
+		ID   = 'SSONG67',
+		MAIL = 'SSONG67@gmail.com',
+		TRVPRPNS= '서울',
+		PR='프로젝트 찍GO 한소인 8기 1팀',
+		GENDER='남자',
+		BIRTH='2021-07-23',
+		PHONE='010-1234-8877',
+		LEV='1',
+		EXP='50',
+		OPENPRF='1'
+		
+		WHEN NOT MATCHED THEN
+		INSERT (ID, NICKNAME, MAIL, TRVPRPNS, PR,GENDER ,BIRTH ,PHONE , LEV, EXP, OPENPRF)
+		 VALUES ('SSONG67','쏭', 'SSONG67@gmail.com', '서울', '프로젝트 찍GO 한소인 8기 1팀',
+		 '남자','2021-07-23','010-1234-8877','1' ,'50','1' );
+		 
+		MERGE INTO PROFILE
+		USING DUAL
+		ON ( NICKNAME= '상경')
+	
+		WHEN MATCHED THEN
+		UPDATE SET
+		ID   = 'SANG89',
+		MAIL = 'SANG89@gmail.com',
+		TRVPRPNS= '서울',
+		PR='프로젝트 찍GO 한소인 8기 1팀',
+		GENDER='남자',
+		BIRTH='2021-07-23',
+		PHONE='010-1234-1123',
+		LEV='1',
+		EXP='50',
+		OPENPRF='1'
+		
+		WHEN NOT MATCHED THEN
+		INSERT (ID, NICKNAME, MAIL, TRVPRPNS, PR,GENDER ,BIRTH ,PHONE , LEV, EXP, OPENPRF)
+		 VALUES ('SANG89','상경', 'SANG89@gmail.com', '서울', '프로젝트 찍GO 한소인 8기 1팀',
+		 '남자','2021-07-23','010-1234-1123','1' ,'50','1' );
+		 
+		MERGE INTO PROFILE
+		USING DUAL
+		ON ( NICKNAME= '범이')
+	
+		WHEN MATCHED THEN
+		UPDATE SET
+		ID   = 'BOM0',
+		MAIL = 'BOM0@gmail.com',
+		TRVPRPNS= '서울',
+		PR='프로젝트 찍GO 한소인 8기 1팀',
+		GENDER='남자',
+		BIRTH='2021-07-23',
+		PHONE='010-1234-1123',
+		LEV='1',
+		EXP='50',
+		OPENPRF='1'
+		
+		WHEN NOT MATCHED THEN
+		INSERT (ID, NICKNAME, MAIL, TRVPRPNS, PR,GENDER ,BIRTH ,PHONE , LEV, EXP, OPENPRF)
+		 VALUES ('BOM0','범이', 'BOM0@gmail.com', '서울', '프로젝트 찍GO 한소인 8기 1팀',
+		 '남자','2021-07-23','010-1234-1123','1' ,'50','1' )
+		
+		 
+
+	</insert>	
+	<insert id="testreviewsql">
+	
+		MERGE INTO REVIEW
+		USING DUAL
+		ON (RVNO = '501')
+
+		WHEN MATCHED THEN
+		UPDATE SET
+		NICKNAME = '구구구구',
+RVTITLE = '북한산 등반기',
+RVCTT = '북한산은 좋은 곳이에요 추천합니다',
+RVCATEGORY1 = '서울',
+RVCATEGORY2 = '산',
+RVLAT ='37.65617553233683',
+RVLNG = '126.98005461164077'
+
+
+		WHEN NOT MATCHED THEN
+		INSERT (RVNO, NICKNAME, RVTITLE, RVCTT, RVCATEGORY1,RVCATEGORY2 , RVLAT,RVLNG)
+		 VALUES ('501', '구구구구', '북한산 등반기' ,'북한산은 좋은 곳이에요 추천합니다',  '서울','산',
+		  '37.65617553233683', '126.98005461164077');
+		  
+		  	MERGE INTO REVIEW
+		USING DUAL
+		ON (RVNO = '502')
+
+		WHEN MATCHED THEN
+		UPDATE SET
+		NICKNAME = '현정이',
+RVTITLE = '영종도 바다 여행기',
+RVCTT = '영종도 바다 또 가고 싶어요',
+RVCATEGORY1 = '인천',
+RVCATEGORY2 = '바다',
+RVLAT ='37.47149487824719',
+RVLNG = '126.52588371964785'
+
+
+		WHEN NOT MATCHED THEN
+		INSERT (RVNO, NICKNAME, RVTITLE, RVCTT, RVCATEGORY1,RVCATEGORY2 , RVLAT,RVLNG)
+		 VALUES ('502', '현정이', '영종도 바다 여행기' ,'영종도 바다 또 가고 싶어요',  '인천','바다',
+		  '37.47149487824719', '126.52588371964785');
+		  
+		  	MERGE INTO REVIEW
+		USING DUAL
+		ON (RVNO = '503')
+
+		WHEN MATCHED THEN
+		UPDATE SET
+		NICKNAME = '대민',
+RVTITLE = '임진강에 다녀와서',
+RVCTT = '임진강 따라 카누타기 좋아요 ',
+RVCATEGORY1 = '경기',
+RVCATEGORY2 = '강',
+RVLAT ='37.6623535469732',
+RVLNG = '126.69948004161958'
+
+
+		WHEN NOT MATCHED THEN
+		INSERT (RVNO, NICKNAME, RVTITLE, RVCTT, RVCATEGORY1,RVCATEGORY2 , RVLAT,RVLNG)
+		 VALUES ('503', '대민', '임진강에 다녀와서' ,'임진강 따라 카누타기 좋아요 ',  '경기','강',
+		  '37.6623535469732', '126.69948004161958');
+		  
+		  	MERGE INTO REVIEW
+		USING DUAL
+		ON (RVNO = '504')
+
+		WHEN MATCHED THEN
+		UPDATE SET
+		NICKNAME = '쏭',
+RVTITLE = '광화문에 가다',
+RVCTT = '광화문 해치가 귀여웠네요',
+RVCATEGORY1 = '서울',
+RVCATEGORY2 = '유적지',
+RVLAT ='37.57584283154656',
+RVLNG = '126.97688369873845'
+
+
+		WHEN NOT MATCHED THEN
+		INSERT (RVNO, NICKNAME, RVTITLE, RVCTT, RVCATEGORY1,RVCATEGORY2 , RVLAT,RVLNG)
+		 VALUES ('504', '쏭', '광화문에 가다' ,'광화문 해치가 귀여웠네요',  '서울','유적지',
+		  '37.57584283154656', '126.97688369873845');
+		  
+		  
+		  	MERGE INTO REVIEW
+		USING DUAL
+		ON (RVNO = '505')
+
+		WHEN MATCHED THEN
+		UPDATE SET
+		NICKNAME = '상경',
+RVTITLE = '차이나 타운 맛집 인정',
+RVCTT = '역시 짜장면의 원산지입니다',
+RVCATEGORY1 = '인천',
+RVCATEGORY2 = '도심',
+RVLAT ='37.4748190396328',
+RVLNG = '126.61772783170863'
+
+		  
+		  	WHEN NOT MATCHED THEN
+		INSERT (RVNO, NICKNAME, RVTITLE, RVCTT, RVCATEGORY1,RVCATEGORY2 , RVLAT,RVLNG)
+		 VALUES ('505', '상경', '북한산 등반기' ,'역시 짜장면의 원산지입니다',  '인천','도심',
+		  '37.4748190396328', '126.61772783170863');
+		  
+		  	MERGE INTO REVIEW
+		USING DUAL
+		ON (RVNO = '506')
+
+		WHEN MATCHED THEN
+		UPDATE SET
+		NICKNAME = '범이',
+RVTITLE = '서울랜드 야경포인트',
+RVCTT = '서울랜드는 경기도에 있다는 점',
+RVCATEGORY1 = '경기',
+RVCATEGORY2 = '야경',
+RVLAT ='37.433809063361146',	
+RVLNG = '127.01909530309516'
+
+
+		WHEN NOT MATCHED THEN
+		INSERT (RVNO, NICKNAME, RVTITLE, RVCTT, RVCATEGORY1,RVCATEGORY2 , RVLAT,RVLNG)
+		 VALUES ('506', '범이', '서울랜드 야경포인트' ,'서울랜드는 경기도에 있다는 점',  '경기','야경',
+		  '37.433809063361146', '127.01909530309516')
+	</insert>
+	
+	
 </mapper>
