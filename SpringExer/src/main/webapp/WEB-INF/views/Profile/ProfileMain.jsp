@@ -101,10 +101,10 @@
 					<div>등록된 스탬프가 없어요.</div>
                </c:if>
                <c:if test="${not empty sDto}">
-					<c:forEach items="${sDto}" var="item">
+					<c:forEach items="${sDto}" var="item" varStatus="status">
 					<div>
 						<img
-							src="${pageContext.request.contextPath}/images/stamp/stamp1.png"
+							src="${pageContext.request.contextPath}/images/stamp/stamp${status.count%10 }.png"
 							alt="Client 3"
 							style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
 						<h3 class="profileMainEachName">${item.rvTitle }</h3>
