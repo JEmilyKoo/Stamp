@@ -165,7 +165,6 @@ body {
 						onclick="w3_close()">카테고리 선택 &times;</button>
 
 
-<<<<<<< HEAD
 
 
 					<select name="rvCategory1" id="category1">
@@ -199,7 +198,6 @@ body {
 							href="#" class="w3-bar-item w3-button w3-hover-blue">도심</a> <a
 							href="#" class="w3-bar-item w3-button w3-hover-blue">야경</a>
 					</div>
-=======
 					
 					
 					
@@ -234,7 +232,6 @@ body {
 							
 					
 					
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 				</div>
 
 				<div class="w3-overlay" onclick="w3_close()" style="cursor: pointer"
@@ -487,7 +484,6 @@ body {
 	<!-- 네비게이션 끝 -->
 	<!-- 실제 내용 시작 -->
 	
-<<<<<<< HEAD
 	<div class="container">
 		<div class="page-header">
 			<h1>
@@ -502,23 +498,7 @@ body {
 						<div id="clickLatlng"></div>
 					</fieldset>
 					<!-- 씨큐리티 적용:csrf취약점 방어용 -->
-					<div class="form-group">
-						<label class="col-sm-2 control-label">제목</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" name="rvTitle"
-								placeholder="제목을 입력하세요?">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">내용</label>
-						<!-- 중첩 컬럼 사용 -->
-						<div class="col-sm-10">
-							<div class="row">
-								<div class="col-sm-8">
-									<textarea id="summernote" class="form-control summernote"
-										name="rvCtt" rows="5" placeholder="내용 입력하세요"></textarea>
-								</div>
-							</div>
+					 
 							<select name="rvCategory1" id="category1">
 								<option value="">==지역 선택==</option>
 								<option value="서울" name="rvCategory1"
@@ -563,7 +543,6 @@ body {
 					
 									<div style="max-width:200px; min-width:100px;margin:5px;height:36px"class="w3-button w3-white w3-border w3-border-blue w3-round-large">이미지</div>
 					 <input type="file" id="gdsImg" class="w3-button w3-blue w3-border w3-border-white w3-round-large"
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 						name="file" /> <img src="" id="img" name="rvFile" />
 						
 						 -->
@@ -647,11 +626,13 @@ body {
 	<!-- form data가 이곳으로 이동 -->
 	<!-- <iframe name="iframePhoto"></iframe> -->
 
-	<h2>AJAx File Upload</h2>
+	<!--  <h2>AJAx File Upload</h2>-->
 <!-- 파일을 업로드할 영역 -->
-<div class="fileDrop"></div>
+<!-- <div ondragenter="drop(event)" ondrop="dragEnter(event)" class="fileDrop"></div> -->
 <!-- 업로드된 파일 목록 -->
-<div class="uploadedList"></div>
+<!--  <div class="uploadedList"></div>-->
+
+
 <script>
 /*
 	function addFilePath(msg){
@@ -664,41 +645,31 @@ body {
 //$(".content-wrapper").on("dragenter dragover drop", function (event) { event.preventDefault(); });
 
 	//$(document).ready(function(){
-		$(".fileDrop").on("dragenter dragover", function(event){
+		$(".fileDrop").on("dragover", function(event){
+			event.preventDefault();//기본 효과를 막음
+		});
+		
+		$(".fileDrop").on("dragend", function(event){
 			event.preventDefault();//기본 효과를 막음
 		});
 	//});
-		
-		
-		// event : jQuery의 이벤트
-		// originalEvent : javascript의 이벤트
-		/*$(".fileDrop").on("drop", function(event){
-			event.preventDefault();//기본 효과를 막음
-			//드래그된 파일의 정보
-			var files = event.originalEvent.dataTransfer.files;
-			//첫번째 파일
-			var file = files[0];
-			//콘솔에서 파일정보 확인
-			console.log(file);
-			
-			//ajax로 전달할 폼 객체
-			var formData = new FormData();
-			//폼 객체에 파일 추가, append("변수명",값)
-			formData.append("file",file);
-			
-			$.ajax({
-				type: "post",
-				url: "/upload/uploadAjax",
-				data: formData,
-				dataType: "text",
-				processData:false,
-				contentType:false,
-				success: functionc(data{
-					alert(data);
-				}
-			});
-		});*/
+
 	
+	
+	
+	
+	
+	//JQuery 충돌 처리를한다 (function( $ ) { })( jQuery );
+	jQuery.noConflict();
+	
+	(function( $ ) {
+		$(document).ready(function() {
+			$('#summernote').summernote({
+				tabsize : 2,
+				height : 300
+			});
+		});
+	})( jQuery );
 </script>
 
 	
