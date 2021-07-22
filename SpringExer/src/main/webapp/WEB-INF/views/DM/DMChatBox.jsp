@@ -15,7 +15,7 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
-	<div class="body-container" style="border: 1px solid black">
+	<div class="body-container" style="border: 1px solid #CCCCCC">
 		<div class="left">
 			<header class="header">
 				<div class="header-items"></div>
@@ -33,22 +33,37 @@
 			<c:if test="${not isEmpty }">
 				<div>
 					<c:forEach items="${finalDMLists }" var="item" varStatus="loop">
-						<div style="margin-top: 15px; margin-bottom: 15px; margin-left: 1px; margin-right: 1px; border: 1px solid black;">
-							<img src="${pageContext.request.contextPath}/images/DM/smile.svg" alt="" class="profileIcon" style="width: 32px; height: 32px">
-							<a id="enterWServer" href="<c:url value="/DM/DMChatBox.do?nickName=${item.nickName }&DMToNickName=${item.DMToNickName }"/>"> ${item.DMToNickName == sessionScope.nickName?item.nickName:item.DMToNickName }</a>
-							${item.DMCtt } -
-							<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" />
+					<div
+							style="margin-top: 15px; margin-bottom: 15px; display: flex;margin-left: 1px; margin-right: 1px; ">
+							<img src="${pageContext.request.contextPath}/images/profile/icon/icon${loop.index%3 }.jpg"
+								alt="" class="profileIcon" style="width: 56px; height: 56px;margin-left:40px; margin-right:10px; margin-top:5px;">
 							
-							-------------- 
-							<c:if test="${item.DMToNickName == sessionScope.nickName }">
+							
+							<div style="padding:5px">
+							<a id="enterWServer" href="<c:url value="/DM/DMChatBox.do?nickName=${item.nickName }&DMToNickName=${item.DMToNickName }"/>"> ${item.DMToNickName == sessionScope.nickName?item.nickName:item.DMToNickName }</a>
+							
+							<div style="height:20px; overflow: hidden; text-overflow: ellipsis; ">
+							
+							${item.DMCtt }</div>
+							
+							<div style="color:gray">
+							
+							<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm"  />
+							</div>
+							</div>
+						<c:if test="${item.DMToNickName == sessionScope.nickName }">
 								새로운 메세지 ${item.cntNewDM }
 							</c:if>
+
 						</div>
+						
+						
+						
 					</c:forEach>
 				</div>
 			</c:if>
 		</div>
-		<div class="right" style="border-left:1px solid black">
+		<div class="right" style="border-left:1px solid #CCCCCC">
 			<div class="main">
 				<header class="header">
 					<div class="header-items">
