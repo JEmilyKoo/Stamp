@@ -22,12 +22,15 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/member-likes-page.css">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
 
 
-
+	
+	
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
@@ -695,16 +698,7 @@ body {
 				}
 			});
 		});*/
-	jQuery.noConflict();
-
-(function( $ ) {
-	$(document).ready(function() {
-		$('#summernote').summernote({
-			tabsize : 2,
-			height : 300
-		});
-	});
-})( jQuery );
+	
 </script>
 
 	
