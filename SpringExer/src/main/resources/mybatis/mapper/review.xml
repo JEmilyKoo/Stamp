@@ -15,7 +15,11 @@
 	
 	<insert id="reviewInsert" parameterType="Map">
 		INSERT INTO review(rvNo,nickName,rvTitle,rvCtt,rvDate,rvLat,rvLng,rvCategory1,rvCategory2)
+<<<<<<< HEAD
 		values(SEQ_review.NEXTVAL,#{nickName},#{rvTitle},#{rvCtt},default,#{rvLat},#{rvLng},#{rvCategory1},#{rvCategory2})
+=======
+		VALUES(SEQ_review.NEXTVAL,#{nickName},#{rvTitle},#{rvCtt},default,#{rvLat},#{rvLng},#{rvCategory1},#{rvCategory2})
+>>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 	</insert>
 	
 	<select id="reviewSelectOne" parameterType="Map"  resultType="reviewDTO">

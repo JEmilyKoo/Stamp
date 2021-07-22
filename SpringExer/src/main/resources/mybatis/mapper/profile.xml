@@ -5,85 +5,165 @@
 
 <mapper namespace="mybatis.mapper.profile">
 
-<!-- 생성 -->	
-	<!--  프로필 생성 insertProfile -->
-	<insert id="sqlInsertProfile" parameterType="profileDTO">
-		INSERT INTO PROFILE 
-		(NICKNAME, ID, MAIL, TRVPRPNS, PR, GENDER, BIRTH, PHONE, LEV, EXP, OPENPRF)
-		VALUES
-		(#{nickName}, #{id}, #{mail}, #{trvprpns}, #{pr}, #{gender}, #{birth}, #{phone}, #{lev}, #{exp}, #{openprf})
-	</insert>
+
+	<!-- 생성-->
 	
-<!-- 삭제 -->
+	<!-- 프로필 생성 insertProfile -->
+	<insert id="sqlInsertProfile" parameterType="profileDTO">
+		INSERT INTO PROFILE
+		(NICKNAME, ID, MAIL, TRVPRPNS, PR, GENDER, BIRTH, PHONE, LEV, EXP,
+		OPENPRF)
+		VALUES
+		(#{nickName}, #{id}, #{mail}, #{trvprpns}, #{pr},
+		#{gender}, #{birth}, #{phone}, #{lev}, #{exp}, #{openprf})
+	</insert>
+
+	<!-- 삭제 -->
 	<!-- 프로필 삭제 deleteProfile -->
 	<delete id="sqlDeleteProfile" parameterType="profileDTO">
-		DELETE FROM "STAMP"."PROFILE" WHERE ID=#{id}
-	</delete>	
-	
-<!-- 수정 -->	
+		DELETE FROM
+		"STAMP"."PROFILE" WHERE ID=#{id}
+	</delete>
+
+	<!-- 수정 -->
 	<!-- 프로필 수정 updateProfile -->
 	<update id="sqlUpdateProfile" parameterType="profileDTO">
 		UPDATE "STAMP"."PROFILE" SET
-		MAIL=#{mail}, TRVPRPNS=#{trvprpns}, PR=#{pr},
+		MAIL=#{mail}, TRVPRPNS=#{trvprpns},
+		PR=#{pr},
 		<if test='prfimage != null'>
 			PRIIMAGE=#{prfimage},
 		</if>
-		GENDER=#{gender}, BIRTH=#{birth}, PHONE=#{phone}, LEV=#{lev}, EXP=#{exp}, OPENPRF=#{openprf}
+		GENDER=#{gender}, BIRTH=#{birth}, PHONE=#{phone}, LEV=#{lev},
+		EXP=#{exp}, OPENPRF=#{openprf}
 		WHERE ID = #{id}
 	</update>
 
-<!-- 선택 -->
+	<!-- 선택 -->
 
-	<!-- 해당 닉네임의 프로필 선택 selectProfile-->	
+	<!-- 해당 닉네임의 프로필 선택 selectProfile -->
 	<select id="sqlSelectProfile" parameterType="profileDTO"
 		resultType="profileDTO">
-		SELECT * FROM PROFILE 
+		SELECT * FROM PROFILE
 		WHERE nickName=#{nickName}
 	</select>
 
 	<!-- 해당 멤버-아이디의 프로필 선택 selectProfileFromMember -->
 	<select id="sqlSelectProfileFromMember"
 		parameterType="memberDTO" resultType="profileDTO">
-		select * From PROFILE where id=#{id}
+		select * From PROFILE where
+		id=#{id}
 	</select>
 
-<!-- 체크 -->
-	<!-- // 해당 닉네임의 프로필이 있는지 중복 여부 체크(1이라면 있다/ 0이라면 없다) NickNameCheck
-     -->
-	<select id="sqlNickNameCheck" parameterType="profileDTO" resultType="Int">
+	<!-- 체크 -->
+	<!-- // 해당 닉네임의 프로필이 있는지 중복 여부 체크(1이라면 있다/ 0이라면 없다) NickNameCheck -->
+	<select id="sqlNickNameCheck" parameterType="profileDTO"
+		resultType="Int">
 		SELECT count(*) FROM PROFILE
 		WHERE NICKNAME = #{nickName}
 	</select>
-	
+
 	<!-- 글쓰기 경험치 -->
 	<update id="writeEP" parameterType="map">
 		UPDATE PROFILE
-		SET exp = exp + 10
-		WHERE NICKNAME = #{nickName}	
+		SET exp = exp +
+		10
+		WHERE NICKNAME = #{nickName}
 	</update>
-	
-	<!-- 좋아요 경험치  -->
+
+	<!-- 좋아요 경험치 -->
 	<update id="likeEP" parameterType="map">
 		UPDATE PROFILE
-		SET exp = exp + 5
-		WHERE NICKNAME = (SELECT NICKNAME FROM REVIEW WHERE rvNO = #{rvNo})	
-	</update>
-	
-	<!-- 스탬프 등록 경험치  -->
-	<update id="stampEP" parameterType="map">
-		UPDATE PROFILE
-		SET exp = exp + 20
+		SET exp = exp +
+		5
 		WHERE NICKNAME = (SELECT NICKNAME FROM REVIEW WHERE rvNO = #{rvNo})
 	</update>
-	<!-- 스탬프 획득 경험치  -->
+
+	<!-- 스탬프 등록 경험치 -->
+	<update id="stampEP" parameterType="map">
+		UPDATE PROFILE
+		SET exp = exp +
+		20
+		WHERE NICKNAME = (SELECT NICKNAME FROM REVIEW WHERE rvNO = #{rvNo})
+	</update>
+	<!-- 스탬프 획득 경험치 -->
 	<update id="stampAchEP" parameterType="map">
 		UPDATE PROFILE
-		SET exp = exp + 20
-		WHERE NICKNAME = (SELECT NICKNAME FROM MEMBERSTAMP WHERE rvNO = #{rvNo} and nickName=#{nickName})
+		SET exp =
+		exp + 20
+		WHERE NICKNAME = (SELECT NICKNAME FROM MEMBERSTAMP WHERE rvNO
+		= #{rvNo} and nickName=#{nickName})
 	</update>
-	
-	
+
+
 	<!-- 샘플 데이터 생성 -->
+
+	<sql id="testmembersql">
+		MERGE INTO MEMBER
+		USING DUAL
+		ON (ID = 'KOO1')
 	
-	<sql id=""></sql>
+		WHEN MATCHED THEN
+		UPDATE SET
+		PWD = 'KOO1',
+		NAME = '구정은'
+		WHEN NOT MATCHED THEN
+		INSERT (ID, PWD, NAME) VALUES ('KOO1', 'KOO1', '구정은');
+
+		MERGE INTO MEMBER
+		USING DUAL
+		ON (ID = 'LEE23')
+
+		WHEN MATCHED THEN
+		UPDATE SET
+		PWD = 'LEE23',
+		NAME = '이현정'
+		WHEN NOT MATCHED THEN
+		INSERT (ID, PWD, NAME) VALUES ('LEE23', 'LEE23', '이현정');
+
+		MERGE INTO MEMBER
+		USING DUAL
+		ON (ID = 'PARK45')
+
+		WHEN MATCHED THEN
+		UPDATE SET
+		PWD = 'PARK45',
+		NAME = '박대민'
+		WHEN NOT MATCHED THEN
+		INSERT (ID, PWD, NAME) VALUES ('PARK45', 'PARK45', '박대민');
+
+		MERGE INTO MEMBER
+		USING DUAL
+		ON (ID = 'SSONG67')
+
+		WHEN MATCHED THEN
+		UPDATE SET
+		PWD = 'SSONG67',
+		NAME = '이송호'
+		WHEN NOT MATCHED THEN
+		INSERT (ID, PWD, NAME) VALUES ('SSONG67', 'SSONG67', '이송호');
+
+		MERGE INTO MEMBER
+		USING DUAL
+		ON (ID = 'SANG89')
+
+		WHEN MATCHED THEN
+		UPDATE SET
+		PWD = 'SANG89',
+		NAME = '이상경'
+		WHEN NOT MATCHED THEN
+		INSERT (ID, PWD, NAME) VALUES ('SANG89', 'SANG89', '이상경');
+
+		MERGE INTO MEMBER
+		USING DUAL
+		ON (ID = 'BOM0')
+
+		WHEN MATCHED THEN
+		UPDATE SET
+		PWD = 'BOM0',
+		NAME = '권순범'
+		WHEN NOT MATCHED THEN
+		INSERT (ID, PWD, NAME) VALUES ('BOM0', 'BOM0', '권순범')
+
+	</sql>
 </mapper>

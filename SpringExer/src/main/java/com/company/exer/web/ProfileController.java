@@ -20,7 +20,6 @@ import com.company.exer.service.StampService;
 
 /*
 [일반 자바클래스 형태 즉 POJO(Plain Old Java Object)]
-
 컴파일러에게 "아래 클래스는 사용자 요청을 처리하는 클래스야" 라고
 알려주는 역할]-컨트롤러 클래스
 */
@@ -88,7 +87,6 @@ public class ProfileController {
 		
 		String id;
 		id=session.getAttribute("id").toString();
-
 		mdto.setId(id);
 		dto=service.selectProfileFromMember(mdto);
 		//세션에 프로필이 있는지 확인하고 없으면 새로 삽입
@@ -97,10 +95,8 @@ public class ProfileController {
 		}
 		session.setAttribute("profile", dto);
 		session.setAttribute("otherProfile", dto);
-
 		model.addAttribute("profile", dto);
 		model.addAttribute("otherProfile", dto);
-
 		//뿌려주기용 세션: 메인에 뿌려주는 건 이 otherProfile로 굴러간다
 		return "Profile/ProfileMain";
 	}///////////////////ProfileMain() 
