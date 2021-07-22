@@ -179,20 +179,9 @@ body {
 
 
 
-					<select name="rvCategory1" id="category1">
-						<option value="">==지역 선택==</option>
-						<option value="서울" name="rvCategory1"
-							<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</option>
-						<option value="인천" name="rvCategory1"
-							<c:if test="${fn:contains(param.category,'인천') }">selected</c:if>>인천</option>
-						<option value="경기" name="rvCategory1"
-							<c:if test="${fn:contains(param.category,'경기') }">selected</c:if>>경기</option>
-					</select>
 
 
-
-
-
+<!-- 흑흑 이쁜 카테고리 나중에 해  
 					<div class="w3-white categoryDropDown">
 						<h3 class="   w3-blue categoryDropDown  " style="padding: 10px">지역</h3>
 						<div value="서울" name="rvCategory1"
@@ -210,6 +199,7 @@ body {
 							href="#" class="w3-bar-item w3-button w3-hover-blue">도심</a> <a
 							href="#" class="w3-bar-item w3-button w3-hover-blue">야경</a>
 					</div>
+					-->
 				</div>
 
 				<div class="w3-overlay" onclick="w3_close()" style="cursor: pointer"

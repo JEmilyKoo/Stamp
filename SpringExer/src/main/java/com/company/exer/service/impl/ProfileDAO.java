@@ -65,5 +65,7 @@ public class ProfileDAO  {
 	public int stampAchEP(Map map) {
 		return sqlMapper.update("stampAchEP",map);
 	}
-    
+//멤버샘플생성
+//	<sql id="testmembersql">
+	
 }
