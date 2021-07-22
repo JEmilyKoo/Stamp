@@ -22,23 +22,18 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/member-likes-page.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-	rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<!-- include summernote css/js-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <link rel="stylesheet"
@@ -48,16 +43,6 @@
 		location.replace('<c:url value="/OneMemo/Auth/Logout.do"/>');
 	}
 </script>
-
-
-<!-- 부트스트랩 -->
-<!--  -->
-
-
-<!-- include summernote css/js -->
-<link
-	href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
-	rel="stylesheet">
 
 
 
@@ -623,32 +608,105 @@ body {
 
 <style>
 	/* itrame 스타일 설정*/
-	
-	iframe{
+	/*1번*/
+/*	iframe{
 		width: 600px;
 		height: 100px;
 		border: 1px;
 		border-style: solid;
 	}
+	*/
+	
+	/*2번*/
+	.fileDrop{
+		width:600px;
+		height: 200px;
+		border: 1px dotted blue;
+	}
+	
+	small {
+		margin-left:3px;
+		font-weight: bold;
+		color: gray;
+	}
+	
+	
+	
 	
 </style>
 <!-- target을 지정한 곳으로 form data가 이동 -->
+<!-- 
 <form id="form1" target="iframePhoto" action="<c:url value='/upload/uploadForm'/>" method="post" enctype="multipart/form-data">
 	<input type="file" name="file">
 				<input type="submit" value="업로드">
 </form>
+ -->
 	<!-- form data가 이곳으로 이동 -->
-	<iframe name="iframePhoto"></iframe>
+	<!-- <iframe name="iframePhoto"></iframe> -->
 
+	<h2>AJAx File Upload</h2>
+<!-- 파일을 업로드할 영역 -->
+<div class="fileDrop"></div>
+<!-- 업로드된 파일 목록 -->
+<div class="uploadedList"></div>
 <script>
+/*
 	function addFilePath(msg){
 		console.log(msg);//파일명 콘솔 출력
 		document.getElementById("form1").reset();
 		//ifream에 업로드 결과를 출력 후 form에 저장된 데이터 초기화
 	}
+*/
+//전체 페이지 파일 끌어 놓기 기본 이벤트 방지 : 지정된 영역외에 파일 드래그 드랍시 페이지 이동방지
+//$(".content-wrapper").on("dragenter dragover drop", function (event) { event.preventDefault(); });
 
-	
+	//$(document).ready(function(){
+		$(".fileDrop").on("dragenter dragover", function(event){
+			event.preventDefault();//기본 효과를 막음
+		});
+	//});
+		
+		
+		// event : jQuery의 이벤트
+		// originalEvent : javascript의 이벤트
+		/*$(".fileDrop").on("drop", function(event){
+			event.preventDefault();//기본 효과를 막음
+			//드래그된 파일의 정보
+			var files = event.originalEvent.dataTransfer.files;
+			//첫번째 파일
+			var file = files[0];
+			//콘솔에서 파일정보 확인
+			console.log(file);
+			
+			//ajax로 전달할 폼 객체
+			var formData = new FormData();
+			//폼 객체에 파일 추가, append("변수명",값)
+			formData.append("file",file);
+			
+			$.ajax({
+				type: "post",
+				url: "/upload/uploadAjax",
+				data: formData,
+				dataType: "text",
+				processData:false,
+				contentType:false,
+				success: functionc(data{
+					alert(data);
+				}
+			});
+		});*/
+	jQuery.noConflict();
+
+(function( $ ) {
+	$(document).ready(function() {
+		$('#summernote').summernote({
+			tabsize : 2,
+			height : 300
+		});
+	});
+})( jQuery );
 </script>
+
 	
 
  
