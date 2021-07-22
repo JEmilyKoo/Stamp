@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
@@ -53,9 +55,63 @@ import com.google.gson.JsonObject;
 
 @SessionAttributes({"id","nickName"})
 @Controller
-@RequestMapping("/Review/")
 public class ReviewController {
 
+	
+
+	private static final Logger logger = LoggerFactory.getLogger(ReviewController.class);
+
+	@Resource(name="uploadPath")
+	String uploadPath;
+	
+	@RequestMapping(value="/upload/uploadForm", method=RequestMethod.GET)
+	public String uploadForm() {
+		
+		return "/";
+		//업로드페이지로 포워딩?
+		
+	}
+	@RequestMapping(value="/upload/uploadForm",method=RequestMethod.POST)
+	public ModelAndView uploadForm(MultipartFile file, ModelAndView mav) throws Exception{
+		//파일의 원본이름 저장
+		String savedName = file.getOriginalFilename();
+		
+		logger.info("파일이름 :"+file.getOriginalFilename());
+		logger.info("파일크기 :"+file.getSize());
+		logger.info("컨텐트 타입 :"+file.getContentType());
+		
+		//랜덤생성+파일이름 저장
+		//파일명 랜덤생성 메서드 호출
+		savedName = uploadFile(savedName, file.getBytes());
+		
+		
+		//File target = new File(uploadPath, savedName);
+		//FileCopyUtils.copy(file.getBytes(), target);
+		
+		mav.setViewName("upload/uploadResult");
+		mav.addObject("savedName", savedName);
+		
+		
+		return mav;
+	}
+	
+	private String uploadFile(String originalName, byte[] fileData) throws Exception{
+		//uuid 생성
+		UUID uuid = UUID.randomUUID();
+		
+		//랜덤생성+파일이름 저장
+		String savedName = uuid.toString()+"_"+originalName;
+		File target = new File(uploadPath, savedName);
+		//임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사
+		FileCopyUtils.copy(fileData, target);
+		
+		return savedName;
+	}
+
+	
+	
+	
+	
 	@Resource(name="reviewService")
 	private ReviewService reviewService;
 	
@@ -107,7 +163,7 @@ public class ReviewController {
 
 	
 	//전체게시물
-	@RequestMapping("TripBoard.do")
+	@RequestMapping("/Review/TripBoard.do")
 	public String TripBoard(Model model) {
 		List<ReviewDTO> list =reviewService.selectList();
 		
@@ -129,7 +185,7 @@ public class ReviewController {
 	}///////////////////TripBoard()
 	
 	//상세보기
-	@RequestMapping("ForumPost.do")
+	@RequestMapping("/Review/ForumPost.do")
 	public String ForumPost(@RequestParam Map<String, String> map,
 			Model model,
 			HttpServletRequest req) {
@@ -170,13 +226,13 @@ public class ReviewController {
 	
 	
 	//글 작성페이지
-	@RequestMapping(value="Write.do",method = RequestMethod.GET)
+	@RequestMapping(value="/Review/Write.do",method = RequestMethod.GET)
 	public String Write(Model model,@ModelAttribute("nickName") String nickName) throws IOException {
 		return "review/Write";
 	}
 	
 	//글 작성
-	@RequestMapping(value="Write.do",method = RequestMethod.POST)
+	@RequestMapping(value="/Review/Write.do",method = RequestMethod.POST)
 	public String WriteOk(@RequestParam Map map,
 			@ModelAttribute("nickName") String nickName,HttpServletResponse response) throws IOException {
 
@@ -199,13 +255,13 @@ public class ReviewController {
 	
 	
 	//전체게시물
-		@RequestMapping("TripBoardWrite.do")
+		@RequestMapping("/Review/TripBoardWrite.do")
 		public String TripBoardWrite(Model model) {
 			return "/review/TripBoard";
 		}///////////////////TripBoard()
 		
 
-	@RequestMapping(value="Like.do",produces = "application/json;charset=UTF-8")
+	@RequestMapping(value="/Review/Like.do",produces = "application/json;charset=UTF-8")
 	public @ResponseBody int Like(@RequestParam Map map) throws IOException {
 		//접속유저의 좋아요 여부 체크
 		int check = reviewService.likeCheck(map);
@@ -238,7 +294,7 @@ public class ReviewController {
 		return check;
 	}
 	
-	@RequestMapping(value="Edit.do", method = RequestMethod.GET)
+	@RequestMapping(value="/Review/Edit.do", method = RequestMethod.GET)
 	public String Edit(@RequestParam Map map,Model model ) {
 		ReviewDTO dto = reviewService.selectOne(map);
 		model.addAttribute("dto",dto);
@@ -249,7 +305,7 @@ public class ReviewController {
 	}
 	
 	//글 수정
-	@RequestMapping(value="Edit.do",method = RequestMethod.POST)
+	@RequestMapping(value="/Review/Edit.do",method = RequestMethod.POST)
 	public String EditOk(@RequestParam Map map,Model model) {
 		ReviewDTO dto = reviewService.selectOne(map);
 		model.addAttribute("dto",dto);
@@ -259,7 +315,7 @@ public class ReviewController {
 		return "forward:/Review/ForumPost.do";
 	}
 	
-	@RequestMapping("Delete.do")
+	@RequestMapping("/Review/Delete.do")
 	public String delete(@RequestParam Map map) {
 		reviewService.delete(map);
 		return "forward:/Review/TripBoard.do";
@@ -269,7 +325,7 @@ public class ReviewController {
 	
 	
 /////////////관리자페이지
-@RequestMapping("ReviewMNG.do")
+@RequestMapping("/Review/ReviewMNG.do")
 public String riviewMNG(Model model) {
 
 List<ReviewDTO> list =reviewService.reviewMNG();
@@ -285,7 +341,7 @@ return "/admin/ReviewMNG";
 }
 	
 	
-@RequestMapping("DeleteMNG.do")
+@RequestMapping("/Review/DeleteMNG.do")
 public String deleteMNG(@RequestParam Map map) {
 	reviewService.delete(map);
 	return "forward:/Review/ReviewMNG.do";
