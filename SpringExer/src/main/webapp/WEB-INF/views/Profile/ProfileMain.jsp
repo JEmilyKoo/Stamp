@@ -97,19 +97,21 @@
 				확인하세요</p>
 			<div class="stampListContainer"
 				style="text-align: center; display: grid; margin: 0px 0px 40px 0px; gap: 20px; padding: 10px; row-gap: 50px; grid-template-columns: repeat(4, 1fr);">
-				<div >
-					<img
-						src="${pageContext.request.contextPath}/images/stamp/stamp1.png"
-						alt="Client 3"
-						style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
-					<h3 class="profileMainEachName">대림역 탐방기</h3>
-					<div id="oneButtonId" aria-disabled="false" class="oneButton"
-						style="padding: 10px; height: 30px; justify-content: center">
-						<!-- 누르면 프로필 메인 페이지로 돌아감 -->
-						<a href="<c:url value="/Review/ForumPost.do?rvNo=6"/>"
-							class="oneButtonLinkClass"> <span class="oneButtonSpanClass">상세
-								보기</span>
-						</a>
+				<div>
+					<c:forEach items="${sDto}" var="item">
+						<img
+							src="${pageContext.request.contextPath}/images/stamp/stamp1.png"
+							alt="Client 3"
+							style="width: 220px; height: 280px; object-fit: contain; object-position: center center;">
+						<h3 class="profileMainEachName">${item.rvTitle }</h3>
+						<div id="oneButtonId" aria-disabled="false" class="oneButton"
+							style="padding: 10px; height: 30px; justify-content: center">
+							<!-- 누르면 프로필 메인 페이지로 돌아감 -->
+							<a href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo}"/>"
+								class="oneButtonLinkClass"> <span class="oneButtonSpanClass">상세
+									보기</span>
+							</a>
+					</c:forEach>		
 					</div>
 				</div>
 				

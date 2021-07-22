@@ -114,6 +114,11 @@ public class StampServiceImpl implements StampService {
 		}
 	}
 
+	@Override
+	public List<StampDTO> stampMemberList(String nickName) {
+		return dao.stampMemberList(nickName);
+	}
+
 	// 리소스파일(onememo.properties)에서 읽어오기
 	@Value("${PAGE_SIZE}")
 	private int pageSize;
@@ -164,6 +169,7 @@ public class StampServiceImpl implements StampService {
 		return dao.deleteStampMNG(map);
 	}
 
+	
 
 
 

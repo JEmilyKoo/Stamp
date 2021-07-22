@@ -45,12 +45,21 @@
 		where nickName = #{nickName}
 	</insert>
 
-	<select id="stampCheckGet" parameterType="Map" resultType="Int">
+	<select id="stampCheckGet" parameterType="String" resultType="Int">
 		select count(*)
         From memberstamp m Join stampCheck s ON m.rvNO=s.rvNO
         where m.nickname = #{nickName} and m.rvno =(select distinct rvno
 											from stampcheck
 											where nickName = #{nickName})
+	</select>
+	
+	<select id="stampMemberList" parameterType="String" resultType="stampDTO">
+		SELECT *
+		FROM review
+		WHERE rvno in(
+		        SELECT rvno
+				FROM memberstamp 
+				WHERE nickname=#{nickname})
 	</select>
 
 	

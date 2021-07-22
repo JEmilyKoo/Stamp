@@ -1,9 +1,13 @@
 package com.company.exer.web;
 
+import java.util.List;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.company.exer.service.MemberDTO;
 import com.company.exer.service.ProfileDTO;
 import com.company.exer.service.ProfileService;
+import com.company.exer.service.StampDTO;
+import com.company.exer.service.StampService;
 
 /*
 [일반 자바클래스 형태 즉 POJO(Plain Old Java Object)]
@@ -26,9 +32,49 @@ public class ProfileController {
 	@Inject // 자동 주입
 	ProfileService service;
 
+	//획득한 스탬프 뿌려주기
+	@Resource(name = "stampService")
+	private StampService stampService;
+	
 //ProfileMain에서 쓰이는 컨트롤러
 // 뷰 선택 체크
 	
+	
+	@RequestMapping("Main.do")
+	public String ProfileMain(HttpSession session, Model model) throws Exception {
+		session.removeAttribute("userError");
+		//뷰정보 반환]
+		ProfileDTO dto = new ProfileDTO();
+		//세션으로 처리하지 말고 기존에 같은 데이터가 있는지를 확인해야겠다.
+		//
+		MemberDTO mdto= new MemberDTO();
+		
+		String id;
+		id=session.getAttribute("id").toString();
+
+		mdto.setId(id);
+		dto=service.selectProfileFromMember(mdto);
+		
+		String nickName = session.getAttribute("nickName").toString();
+		
+		List<StampDTO> sDto=stampService.stampMemberList(nickName);
+		System.out.println(sDto.get(0));
+		model.addAttribute("sDto", sDto);
+		
+		
+		//세션에 프로필이 있는지 확인하고 없으면 새로 삽입
+		if(dto==null){
+			return "Profile/ProfileInsert"; 
+		}
+		model.addAttribute("profile", dto);
+		model.addAttribute("otherProfile", dto);
+		//뿌려주기용 세션: 메인에 뿌려주는 건 이 otherProfile로 굴러간다
+		
+		
+		return "Profile/ProfileMain";
+	}///////////////////ProfileMain() 
+	
+	/*
 	@RequestMapping(value = "Main.do", method = RequestMethod.GET)
 	public String ProfileMain(HttpSession session) throws Exception {
 		session.removeAttribute("userError");
@@ -57,7 +103,7 @@ public class ProfileController {
 	public String ProfileMainPOST(HttpSession session) {
 		return "Profile/ProfileMain";
 	}///////////////////ProfileMainPOST()
-	
+	*/
 	@RequestMapping(value = "Main/NickName.do", method = RequestMethod.GET)
 	public String ProfileMainId(@RequestParam String nickName, HttpSession session) throws Exception {
 		ProfileDTO dto = new ProfileDTO();
