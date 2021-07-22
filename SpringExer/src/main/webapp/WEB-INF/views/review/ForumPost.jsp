@@ -180,8 +180,7 @@
 														</c:if>
 
 
-
-														<a href="/exer/DM/DMBox.do">
+														<a href="<c:url value="/DM/DMChatBox.do?DMToNickName=${dto.nickName }"/>">
 															<button class="actionButton" role="menuitem">
 																<div class="postActions">
 																	<div class="icon">
@@ -365,9 +364,9 @@
 															</a>
 														</c:if>
 
+	<a href="<c:url value="/DM/DMChatBox.do?DMToNickName=${item2.nickName }"/>">
+													
 
-
-														<a href="/exer/DM/DMBox.do">
 															<button class="actionButton" role="menuitem">
 																<div class="postActions">
 																	<div class="icon">
