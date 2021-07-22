@@ -165,7 +165,6 @@ body {
 						onclick="w3_close()">카테고리 선택 &times;</button>
 
 
-<<<<<<< HEAD
 
 
 					<select name="rvCategory1" id="category1">
@@ -199,7 +198,6 @@ body {
 							href="#" class="w3-bar-item w3-button w3-hover-blue">도심</a> <a
 							href="#" class="w3-bar-item w3-button w3-hover-blue">야경</a>
 					</div>
-=======
 					
 					
 					
@@ -234,7 +232,6 @@ body {
 							
 					
 					
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 				</div>
 
 				<div class="w3-overlay" onclick="w3_close()" style="cursor: pointer"
@@ -698,7 +695,17 @@ body {
 				}
 			});
 		});*/
-	
+	//JQuery 충돌 처리를한다 (function( $ ) { })( jQuery );
+jQuery.noConflict();
+
+(function( $ ) {
+	$(document).ready(function() {
+		$('#summernote').summernote({
+			tabsize : 2,
+			height : 300
+		});
+	});
+})( jQuery );
 </script>
 
 	
