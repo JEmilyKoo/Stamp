@@ -174,32 +174,43 @@ body {
 					style="display: none; z-index: 5" id="mySidebar">
 
 					<button class="w3-bar-item w3-button w3-xlarge categoryDropDown"
-						onclick="w3_close()">지역 &times;</button>
+						onclick="w3_close()">카테고리 선택 &times;</button>
 
 
-
-
-
-
-<!-- 흑흑 이쁜 카테고리 나중에 해  
-					<div class="w3-white categoryDropDown">
-						<h3 class="   w3-blue categoryDropDown  " style="padding: 10px">지역</h3>
-						<div value="서울" name="rvCategory1"
-							class="w3-bar-item w3-button w3-hover-blue"
-							<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</div>
-						<a href="#" class="w3-bar-item w3-button w3-hover-blue">인천</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">경기</a>
-					</div>
-					<div class="w3-white categoryDropDown">
-						<h3 class=" categoryDropDown  w3-blue" style="padding: 10px">여행지</h3>
-						<a href="#" class="w3-bar-item w3-button w3-hover-blue">산</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">바다</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">강</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">유적지</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">도심</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">야경</a>
-					</div>
-					-->
+					
+					
+					
+					<select name="rvCategory1" id="category1"  class="w3-blue categoryDropDown " style="border:none" >
+					
+					
+								<option value="" class="   w3-blue categoryDropDown  " style="padding: 10px"> 지역별  선택 </option>
+								<option  class="w3-white w3-bar-item w3-button w3-hover-blue" value="서울" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</option>
+								<option  class="w3-white w3-bar-item w3-button w3-hover-blue" value="인천" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'인천') }">selected</c:if>>인천</option>
+								<option  class="w3-white w3-bar-item w3-button w3-hover-blue"value="경기" name="rvCategory1"
+									<c:if test="${fn:contains(param.category,'경기') }">selected</c:if>>경기</option>
+							</select>
+							
+							
+					<select name="rvCategory2" id="category2" class="w3-blue categoryDropDown " style="border:none">
+								<option value="" class="   w3-blue categoryDropDown  " style="padding: 10px" >여행지 선택</option>
+								<option value="산"  class="w3-white w3-bar-item w3-button w3-hover-blue" name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'산') }">selected</c:if>>산</option>
+								<option value="바다"  class="w3-white w3-bar-item w3-button w3-hover-blue"  name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'바다') }">selected</c:if>>바다</option>
+								<option value="강" class="w3-white w3-bar-item w3-button w3-hover-blue"  name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'강') }">selected</c:if>>강</option>
+								<option value="유적지" class="w3-white w3-bar-item w3-button w3-hover-blue"  name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'유적지') }">selected</c:if>>유적지</option>
+								<option value="도심" class="w3-white w3-bar-item w3-button w3-hover-blue"   name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'도심') }">selected</c:if>>도심</option>
+								<option value="야경" class="w3-white w3-bar-item w3-button w3-hover-blue"   name="rvCategory2"
+									<c:if test="${fn:contains(param.category,'야경') }">selected</c:if>>야경</option>
+							</select>		
+							
+					
+					
 				</div>
 
 				<div class="w3-overlay" onclick="w3_close()" style="cursor: pointer"
@@ -349,9 +360,9 @@ body {
 					</span></li>
 					<li onclick="w3_open()"><a href="#">
 
-						<button
+						<div
 						class="w3-button w3-white w3-border w3-border-blue w3-round-large">카테고리
-						선택</button>
+						선택</div>
 
 					</a>
 					</li>
@@ -452,83 +463,58 @@ body {
 	<!-- 네비게이션 끝 -->
 	<!-- 실제 내용 시작 -->
 	
-	<div class="container">
-		<div class="page-header">
-			<h1>
-				여행 리뷰/정보<small>등록 페이지</small>
-			</h1>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-					<fieldset>
-						<div id="map"
-							style="width: 500px; height: 400px; background-color: yellow;"></div>
-						<div id="clickLatlng"></div>
-					</fieldset>
-					<!-- 씨큐리티 적용:csrf취약점 방어용 -->
-					<div class="form-group">
-						<label class="col-sm-2 control-label">제목</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" name="rvTitle"
-								placeholder="제목을 입력하세요?">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">내용</label>
-						<!-- 중첩 컬럼 사용 -->
-						<div class="col-sm-10">
-							<div class="row">
-								<div class="col-sm-8">
-									<textarea id="summernote" class="form-control summernote"
-										name="rvCtt" rows="5" placeholder="내용 입력하세요"></textarea>
-								</div>
-							</div>
-							<select name="rvCategory1" id="category1">
-								<option value="">==지역 선택==</option>
-								<option value="서울" name="rvCategory1"
-									<c:if test="${fn:contains(param.category,'서울') }">selected</c:if>>서울</option>
-								<option value="인천" name="rvCategory1"
-									<c:if test="${fn:contains(param.category,'인천') }">selected</c:if>>인천</option>
-								<option value="경기" name="rvCategory1"
-									<c:if test="${fn:contains(param.category,'경기') }">selected</c:if>>경기</option>
-							</select> 
-							
-							<select name="rvCategory2" id="category2">
-								<option value="">==여행지 선택==</option>
-								<option value="산" name="rvCategory2"
-									<c:if test="${fn:contains(param.category,'산') }">selected</c:if>>산</option>
-								<option value="바다" name="rvCategory2"
-									<c:if test="${fn:contains(param.category,'바다') }">selected</c:if>>바다</option>
-								<option value="강" name="rvCategory2"
-									<c:if test="${fn:contains(param.category,'강') }">selected</c:if>>강</option>
-								<option value="유적지" name="rvCategory2"
-									<c:if test="${fn:contains(param.category,'유적지') }">selected</c:if>>유적지</option>
-								<option value="도심" name="rvCategory2"
-									<c:if test="${fn:contains(param.category,'도심') }">selected</c:if>>도심</option>
-								<option value="야경" name="rvCategory2"
-									<c:if test="${fn:contains(param.category,'야경') }">selected</c:if>>야경</option>
-							</select>
-						</div>
-					</div>
+	<div class="container" style="width:1480px;" >
+			<div
+				style="display: flex; padding-top: 80px">
 
-
-
-					<label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
+				<div style="width: 500px; ">
+					
+					<div id="map"
+						style="width: 500px; height: 400px; "></div>
+					<div id="clickLatlng"></div>
+					
+									<div style="max-width:200px; min-width:100px;margin:5px;height:36px"class="w3-button w3-white w3-border w3-border-blue w3-round-large">이미지</div>
+					 <input type="file" id="gdsImg" class="w3-button w3-blue w3-border w3-border-white w3-round-large"
 						name="file" /> <img src="" id="img" name="rvFile" />
 					<!--request.getRealPath("/")/") %>  -->
 					<input type="hidden" name="rvLat" /> <input type="hidden"
 						name="rvLng" />
-				
-			
+				</div>
+
+
+				<div style= "width: 980px; padding-left:20px; margin:auto 0;  align-items: center;"  >
 					
-			</div>
-			<!-- <form  action="/springBoard/file/upload.do" method="post"  enctype="multipart/form-data">
+					<div class="form-group" style="display:flex; flex:auto">
+						<div style="max-width:200px; min-width:100px;height:36px;margin:5px;"class="w3-button w3-white w3-border w3-border-blue w3-round-large">제목</div>
+						<div style="max-width:700px; min-width:400px; margin:5px;flex:auto ">
+							<input type="text" class="form-control" name="rvTitle"
+								placeholder="제목을 입력하세요">
+						</div>
+					</div>
+					<div class="form-group" style="display:flex; flex:auto">
+						<div style="max-width:200px; min-width:100px;margin:5px;height:36px"class="w3-button w3-white w3-border w3-border-blue w3-round-large">내용</div>
+						<!-- 중첩 컬럼 사용 -->
+						<div style="max-width:700px; min-width:400px;margin:5px;flex:auto" >
+							<textarea id="summernote" class="form-control summernote"
+										name="rvCtt" rows="5" placeholder="내용 입력하세요"></textarea>
+							
+							
+						</div>
+					</div>
+
+
+
+				
+
+
+
+				</div>
+				<!-- <form  action="/springBoard/file/upload.do" method="post"  enctype="multipart/form-data">
              <input type="file" name="file"/>
           -->
 
+			</div>
 		</div>
-	</div>
-
 
 </form>
 	<!-- 실제 내용 끝 -->
