@@ -38,9 +38,6 @@ public class ReviewDAO {
 		return sqlMapper.update("reviewUpdate",map);
 	}
 
-	public int delete(Map map) {
-		return sqlMapper.delete("reviewDelete",map);
-	}
 
 	public int like(Map map) {
 		return sqlMapper.insert("reviewLike",map);
@@ -69,6 +66,9 @@ public class ReviewDAO {
 	}
 
 
+	public int delete(Map map) {
+		return sqlMapper.delete("reviewDelete",map);
+	}
 	
 	
 

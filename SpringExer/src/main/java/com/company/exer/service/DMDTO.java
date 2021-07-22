@@ -13,4 +13,5 @@ public class DMDTO {
 	private String DMCtt;
 	private Timestamp DMDate;
 	private String DMChecked;
+	private int cntNewDM;
 }

@@ -30,13 +30,19 @@ public class RvCmntDAO {
 		return sqlMapper.selectOne("",id);
 	}
 	
-	public int delete(Map map) {
-		return sqlMapper.delete("",map);
+	public int rvcDelete(Map map) {
+		return sqlMapper.delete("rvcDelete",map);
 	}
 	
-	public int update(Map map) {
-		return sqlMapper.update("",map);
+	public int rvcUpdate(Map map) {
+		return sqlMapper.update("rvcUpdate",map);
 	}
+
+	public int rvcCount(Map map) {
+		return sqlMapper.selectOne("rvcCount",map);
+	}
+
+	
 	
 
 }

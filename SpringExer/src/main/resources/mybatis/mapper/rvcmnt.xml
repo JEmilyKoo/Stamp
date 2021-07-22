@@ -20,4 +20,22 @@
 
 </insert>
 
+<select id="rvcCount" parameterType="Map" resultType="Int">
+	select count(*)
+	from rvcmnt
+	where rvno=#{rvNo}
+</select>
+
+<delete id="rvcDelete" parameterType="Map">
+	delete from rvcmnt
+	where rvcno=#{rvcNo}
+</delete>
+
+<update id="rvcUpdate" parameterType="Map">
+	update rvcmnt
+		set rvCmnt=#{rvCmnt}
+		Where rvcNo=#{rvcNo}
+
+</update>
+
 </mapper>
