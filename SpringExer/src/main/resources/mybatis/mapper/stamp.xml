@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mybatis.mapper.stamp">
+
 	<select id="stampList" resultType="stampDTO">
 		select s.*, r.rvTitle,r.rvlat,r.rvlng
 		from stamp s Join review r On s.rvNo=r.rvNo
@@ -16,7 +17,7 @@
 	        from (select #{nickName},r.rvno, CALC_DISTANCE(#{lat},#{lng}, rvlat, rvlng) DISTANCE 
 	        					from review r JOIN stamp s ON r.rvNo=s.rvNo
 	        					where s.stisexpired=1)
-			where DISTANCE <![CDATA[ < ]]> 3 
+			where DISTANCE <![CDATA[ < ]]> 1 
 	</insert>
 	
 		
@@ -31,8 +32,6 @@
 		from stampcheck
 		where nickName=#{nickName}
 	</select>
-	
-
 	
 	<delete id="stampCheckDelete" parameterType="Map">
 		delete from stampcheck
