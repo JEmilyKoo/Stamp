@@ -21,6 +21,8 @@ public interface StampService {
 	int stampGet(Map map);
 	int stampCheckGet(Map map);
 	String stampCheckRvNo(Map map);
+	List<StampDTO> stampMemberList(String nickName);
+
 
 	//관리자페이지
 	ListPagingData<StampDTO> showStampList(Map map,HttpServletRequest req,int nowPage);
