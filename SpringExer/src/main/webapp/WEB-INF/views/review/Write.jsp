@@ -558,17 +558,15 @@ body {
 							</select>
 						</div>
 					</div>
-=======
+
 	<div class="container" style="width:1480px;" >
 			<div
 				style="display: flex; padding-top: 80px">
->>>>>>> branch 'master' of https://github.com/JEmilyKoo/Stamp.git
 
-<<<<<<< HEAD
 
 
 					<!-- <label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
-=======
+
 				<div style="width: 500px; ">
 					
 					<div id="map"
@@ -625,12 +623,14 @@ body {
 
 <style>
 	/* itrame 스타일 설정*/
+	
 	iframe{
 		width: 600px;
 		height: 100px;
 		border: 1px;
 		border-style: solid;
 	}
+	
 </style>
 <!-- target을 지정한 곳으로 form data가 이동 -->
 <form id="form1" target="iframePhoto" action="<c:url value='/upload/uploadForm'/>" method="post" enctype="multipart/form-data">
@@ -646,18 +646,11 @@ body {
 		document.getElementById("form1").reset();
 		//ifream에 업로드 결과를 출력 후 form에 저장된 데이터 초기화
 	}
-</script>
-<!-- 
-	<form action="<c:url value='/upload/uploadForm'/>" method="post" enctype="multipart/form-data">
-				<input type="file" name="file">
-				<input type="submit" value="업로드">
-				</form>
-			
-	파일이 업로드 되었습니다.
-	파일명 : ${savedName }
+
 	
- -->
- 
+</script>
+	
+
  
 	<!-- 실제 내용 끝 -->
 	<!--  푸터 시작 -->
