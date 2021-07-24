@@ -7,7 +7,7 @@
 <!-- 리뷰 좋아요 삽입 -->
 	<insert id="sqlinsertRvLike" parameterType="rvLikeDTO">
 			INSERT INTO RVLIKE
-			(RVLNO, RVNO, NICKNAME, RVDATE)
+			(RVLNO, RVNO, NICKNAME, RVLsDATE)
 			VALUES
 			(#{rvlNo}, #{rvNo}, #{nickName}, #{rvlDate})
 		</insert>

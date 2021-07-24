@@ -26,9 +26,9 @@
 	<!-- 자유게시판 댓글 삽입 insertFBCmnt-->
 	<insert id="sqlinsertFBCmnt" parameterType="fBCmntDTO">
 		INSERT INTO FBCMNT
-		(FBCNO, FBNO, FBCMNT, FBCDATE)
+		(FBCNO, FBNO, FBCMNT, FBCDATE,NICKNAME)
 		VALUES
-		(#{fbcNo}, #{fbNo}, #{fbCmnt}, #{fbcDate})	
+		(#{fbcNo}, #{fbNo}, #{fbCmnt}, #{fbcDate}, #{nickName})	
 	</insert>
 	<!-- 자유게시판 댓글 조회 -->
 	
