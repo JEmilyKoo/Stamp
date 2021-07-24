@@ -39,77 +39,61 @@ public class DMServiceImpl implements DMService {
 
 	@Override
 	public List<DMDTO> finalDMList(Map map, HttpServletRequest req) {
-		String nickName = req.getSession().getAttribute("nickName").toString();
-		map.put("nickName", nickName);
-		int cntNewDM;																			// 새로운 메세지 개수 저장용
-		List<DMDTO> DMLists = this.DMList(map); 												// 인자 map 에는 "nickName"값이 저장돼있음
-		List<String> nickNames = new ArrayList<String>();
-		List<String> DMToNickNames = new ArrayList<String>();
-		List<DMDTO> finalDMLists = new ArrayList<DMDTO>();
-		try {
-			
+		// 1. 멤버변수 선언
+		String nickName = req.getSession().getAttribute("nickName").toString();											// 세션에 저장된 nickName(로그인중인 nickName) 선언
+		map.put("nickName", nickName);																					// map에 "nickName" 으로 저장
+		int cntNewDM; 																									// 새로운 메세지 개수 저장용
+		List<DMDTO> DMLists = this.DMList(map); 																		// nickName의 DM 목록 모두 불러와서 DMLists으로 선언
+		List<String> nickNames = new ArrayList<String>();																// 보낸 사람 저장용 리스트
+		List<String> DMToNickNames = new ArrayList<String>();															// 받는 사람 저장용 리스트
+		List<DMDTO> finalDMLists = new ArrayList<DMDTO>();																// view에 뿌려줄 최종리스트
 		
-			if (DMLists.size() != 0) { 																// DMLists 리스트에 값이 하나라도 들어있으면
-				for (int i = 0; i < DMLists.size(); i++) { 											// DMLists 리스트의 인덱스 0번부터 리스트 끝까지(DMLists.size()) 반복
-					if (nickNames.contains(DMLists.get(i).getNickName()) == false) { 				// nickNames 리스트에 DMLists의 i번째 데이터의 nickName값이 안들어있는 경우
-						nickNames.add(DMLists.get(i).getNickName());								// nickNames 리스트에 해당 nickName값 추가
+		// 2. finalDMLists 도출과정
+		try {
+			if(DMLists.size() != 0) { 																					// DMLists 리스트에 값이 하나라도 들어있으면
+				for(int i = 0; i<DMLists.size();i++) {																	// DMLists.size()만큼 반복해서
+					if(!nickNames.contains(DMLists.get(i).getNickName())) {												// DMLists.get(i).getNickName()값이 nickNames에 들어있지 않은 경우에만
+						nickNames.add(DMLists.get(i).getNickName());													// nickNames에 저장
 					}
-				} // <3-1>
-	
-				for (int i = 0; i < DMLists.size(); i++) {
-					if (DMToNickNames.contains(DMLists.get(i).getDMToNickName()) == false) { 		// DMToNickNames 리스트에 DMLists의 i번째 데이터의 DMToNickName값이 안들어있는 경우
-						DMToNickNames.add(DMLists.get(i).getDMToNickName()); 						// DMToNickNames 리스트에 해당 DMToNickName값 추가
+					if(!DMToNickNames.contains(DMLists.get(i).getDMToNickName())) {										// DMLists.get(i).getDMToNickName()값이 DMToNickNames에 들어있지 않은 경우에만
+						DMToNickNames.add(DMLists.get(i).getDMToNickName());											// DMToNickNames에 저장
 					}
-				} // <3-2>
-	
-				nickNames.removeAll(DMToNickNames); 												// 두 리스트(nickNames, DMToNickNames)의 차집합
-				for (int i = 0; i < DMLists.size(); i++) { 											// DMLists 리스트를 반복하여
-					if (nickName.equals(DMLists.get(i).getDMToNickName()) == false) { 				// 로그인한 아이디와 DMLists 리스트의 i번째 수신자 아이디가 일치하지 않으면
-						map.put("DMToNickName", DMLists.get(i).getDMToNickName()); 					// DMLists 리스트의 i번째 수신자 아이디를 DMToNickName의 키값에 저장
-						finalDMLists.add(this.getDMSendList(map));									// DMService.getDMSendList(map) 메소드로
-					}
-				} // <5>
-	
-	//		
-				if (nickNames.size() != 0) { 														// nickNames안에 값이 하나라도 있으면
-					for (int i = 0; i < nickNames.size(); i++) { 									// nickNames를 반복해서
-						map.put("nickName", nickNames.get(i)); 										// map의 nickName값에 nickNames의 i번째 값을 저장하고
-						map.put("DMToNickName", nickName); 											// map의 DMToNickName값에 현재 로그인한 사용자 nickName를 저장
-						finalDMLists.add(this.getDMSendList(map)); 									// DMService.getDMSendList(map) 메소드로 가장 최근 발신리스트를 finalDMLists에 저장
-					}
-				} // <6>
-	
-				finalDMLists.removeAll(Arrays.asList("", null));									// finalDMLists 속 빈 문자열 제거
-	
-				Collections.sort(finalDMLists, new Comparator<DMDTO>() {							// finalDMLists DMNo 순으로 정렬
-	
+				}
+				
+				nickNames.removeAll(DMToNickNames); 																	// nickNames - DMToNickNames
+				nickNames.addAll(DMToNickNames); 																		// nickNames 와 DMToNickNames의 합집합, 중복제거
+				
+				for(int i = 0; i<nickNames.size();i++) {																// nickNames.size()만큼 반복해서
+					if(!nickName.equals(nickNames.get(i))) {															// nickName과 nickNames속 i번째 요소가 다르면
+						map.put("DMToNickName", nickNames.get(i));														// "DMToNickName"로 map에 저장
+						finalDMLists.add(this.getDMSendList(map));														// 로그인된 nickName과 DMToNickName으로 getDMSendList(map) 가져와서
+					}																									// finalDMLists에 추가
+				}						
+				
+				finalDMLists.removeAll(Arrays.asList("", null));														// finalDMLists 속 빈 문자열 제거
+				Collections.sort(finalDMLists, new Comparator<DMDTO>() { 												// finalDMLists DMNo 순으로 정렬
 					@Override
 					public int compare(DMDTO o1, DMDTO o2) {
-	
 						return Integer.parseInt(o2.getDMNo()) - Integer.parseInt(o1.getDMNo());
 					}
-	
-				});// <8>
-				for (int i = 0; i < finalDMLists.size(); i++) {										//
-					if (!finalDMLists.get(i).getDMToNickName().equals(nickName)) {
-						Object OriginNickName = map.get("nickName");
-						Object OriginDMToNickName = map.get("DMToNickName");
-						map.put("nickName", finalDMLists.get(i).getNickName());
-						map.put("DMToNickName", finalDMLists.get(i).getDMToNickName());
-						cntNewDM = this.cntNewDM(map);
-						finalDMLists.get(i).setCntNewDM(cntNewDM);
-						map.put("nickName", OriginNickName);
-						map.put("DMToNickName", OriginDMToNickName);
-					} else {
-						map.put("DMToNickName", finalDMLists.get(i).getNickName());
-						cntNewDM = this.cntNewDM(map);
-						finalDMLists.get(i).setCntNewDM(cntNewDM);
+				});
+				
+				logger.info("DMServiceImpl.finalDMList()의 finalDMLists : " + finalDMLists + " 최종 대화상대 목록 ");
+				
+				
+		// 3. cntNewDM 도출과정
+				for (int i = 0; i < finalDMLists.size(); i++) { 														// finalDMLists.size()만큼 반복해서
+					if (finalDMLists.get(i).getDMToNickName().equals(nickName)) {										// 받는사람이 NickName인 경우
+						map.put("nickName", finalDMLists.get(i).getNickName());											// "nickName"에 보낸사람을 저장
+						map.put("DMToNickName", finalDMLists.get(i).getDMToNickName());									// "DMToNickName"에 받는사람을 저장
+						cntNewDM = this.cntNewDM(map);																	// cntNewDM 구해서
+						logger.info("DMServiceImpl.finalDMList cntNewDM : " + cntNewDM + " 새 메세지 개수");
+						finalDMLists.get(i).setCntNewDM(cntNewDM);														// finalDMLists의 i번째 cntNewDM으로 저장
 					}
 				}
 			}
-			
-		}
-		catch (Exception e) {
+
+		} catch (Exception e) {
 			StackTraceElement[] ste = e.getStackTrace();
 			logger.error(e.getMessage());
 			logger.error("className :: " + ste[0].getClassName());
