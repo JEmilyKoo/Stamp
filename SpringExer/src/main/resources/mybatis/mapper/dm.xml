@@ -73,7 +73,7 @@
 	<update id="checkDM" parameterType="com.company.exer.service.DMDTO" >
 	
 		UPDATE dm 
-		SET DMChecked = '1'
+		SET DMChecked = '0'
 		WHERE nickName= #{nickName} AND  DMToNickName = #{DMToNickName}
 	</update>
 	

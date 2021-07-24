@@ -44,7 +44,7 @@
 									<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" />
 								</div>
 							</div>
-							<c:if test="${item.DMToNickName == sessionScope.nickName }">
+							<c:if test="${item.cntNewDM != '0' }">
 								새로운 메세지 ${item.cntNewDM }
 							</c:if>
 						</div>
@@ -84,17 +84,23 @@
 								<div class="l-msg-box">
 									<img src="${pageContext.request.contextPath}/images/DM/user1.jpg" alt="" class="l-user-img">
 									<p class="l-msgs">
-										아이디: ${item.nickName } 내용: ${item.DMCtt } 시간:
-										<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" />
+										${item.DMCtt }
+									</p>
+									<p>
+										<span style="font-size:1px;"><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
 									</p>
 								</div>
 							</c:if>
 							<c:if test="${not checkSameID }">
 								<div class="r-msg-box">
+									<p>
+										<span style="font-size:1px;"><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
+										<c:if test="${item.DMChecked == '1'}">
+										<span style="font-size:2px; color:red;">${item.DMChecked }</span>
+										</c:if>
+									</p>
 									<p class="r-msgs">
-										시간:
-										<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" />
-										내용: ${item.DMCtt } 읽음유무: ${item.DMChecked }
+										${item.DMCtt }
 									</p>
 								</div>
 							</c:if>

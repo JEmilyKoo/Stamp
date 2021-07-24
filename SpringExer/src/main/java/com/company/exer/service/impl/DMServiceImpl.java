@@ -39,6 +39,7 @@ public class DMServiceImpl implements DMService {
 
 	@Override
 	public List<DMDTO> finalDMList(Map map, HttpServletRequest req) {
+		logger.info("DMServiceImpl.finalDMList START ");
 		// 1. 멤버변수 선언
 		String nickName = req.getSession().getAttribute("nickName").toString();											// 세션에 저장된 nickName(로그인중인 nickName) 선언
 		map.put("nickName", nickName);																					// map에 "nickName" 으로 저장
@@ -101,6 +102,7 @@ public class DMServiceImpl implements DMService {
 			logger.error("lineNumber :: " + ste[0].getLineNumber());
 			logger.error("fileName :: " + ste[0].getFileName());
 		}
+		logger.info("DMServiceImpl.finalDMList END ");
 		return finalDMLists;
 	}
 
@@ -133,9 +135,12 @@ public class DMServiceImpl implements DMService {
 
 	@Override
 	public List<DMDTO> finalChatList(Map map, HttpServletRequest req) {
+		logger.info("DMServiceImpl.finalChatList START ");
+		// 1. 멤버변수 선언
 		String nickName = req.getSession().getAttribute("nickName").toString();
 		List<DMDTO> checkDMChatLists = new ArrayList<DMDTO>();
-
+		
+		logger.info("DMServiceImpl.finalChatList map : " + map.toString() + " map 확인");
 		if (map.get("nickName") == nickName) { // 이전 페이지(DMBOX)에서 map으로 전달받은 nickName값이 현재 로그인한 nickName와 같으면
 			map.put("nickName", nickName); // map 의 "nickName"키값으로 현재 로그인한 nickName 저장
 		}
@@ -153,7 +158,7 @@ public class DMServiceImpl implements DMService {
 			}
 
 		});// checkDMChatLists리스트 model에 넣기 전 최종 정렬
-
+		logger.info("DMServiceImpl.finalChatList END ");
 		return checkDMChatLists;
 	}
 
