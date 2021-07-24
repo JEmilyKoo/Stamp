@@ -3,6 +3,7 @@ package com.company.exer;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.company.exer.service.ProfileDTO;
+import com.company.exer.service.ProfileService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 /*
 [일반 자바클래스 형태 즉 POJO(Plain Old Java Object)]
@@ -19,7 +22,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 */
 @Controller
 public class IndexController {
-	
+
+	@Inject // 자동 주입
+	ProfileService service;
 	
 	//컨트롤러 메소드]
 	
@@ -95,12 +100,12 @@ public class IndexController {
 	}///////////////////TripBoardReport()
 	
 	@RequestMapping("/Stamp/Test.do")
-	public String Test(HttpSession session) {
+	public String Test(HttpSession session) throws Exception {
 		//뷰정보 반환]
 
-		session.removeAttribute("login");
-		session.removeAttribute("id");
-		session.removeAttribute("error");
+		
+			service.testSample();
+		
 		return "/Test";
 	}///////////////////Test()
 	

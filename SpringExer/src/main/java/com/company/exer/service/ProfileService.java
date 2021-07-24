@@ -35,4 +35,7 @@ public interface ProfileService {
 	public int stampEP(Map map);
 ///스탬프 획득 경험치
 	public int stampAchEP(Map map);
+
+	///스탬프 획득 경험치
+		public void testSample() throws Exception;
 }

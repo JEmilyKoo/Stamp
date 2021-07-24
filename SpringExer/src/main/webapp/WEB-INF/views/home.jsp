@@ -68,7 +68,10 @@
 				<li class="grid__item">
 					<div class="grid__link">
 						<div class="mainImg">
-							<a href="<c:url value="/Review/ForumPost.do"/>"> <img
+							
+<a target="_top" style="text-decoration: none;"
+														href="<c:url value="/Review/ForumPost.do?rvNo=501"/>">
+									 <img
 								class="grid__img" id="imgHover"
 								src="${pageContext.request.contextPath}/images/main/photos/1.jpg" /></a>
 						</div>
@@ -77,14 +80,14 @@
 							<div style="position: relative; bottom: 250px; left: 120px">
 								<div class="_33LjI avatar">
 
-									<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+									<a target="_top" href="<c:url value="/Profile/Main/NickName.do?nickName=구구구구"/>"
 										style="text-decoration: none; vertical-align: top; color: white">
 											<span class="_2iDLv avatar-image "> <!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
 											<div class="_1wPNJ fluid-avatar-image topImage"
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px"></span>
+										style="vertical-align: top; position: relative; left: 10px">구구구</span>
 									</a>
 								</div>
 							</div>
@@ -97,8 +100,8 @@
 
 
 						</div>
-
-							<a href="<c:url value="/Review/ForumPost.do"/>">
+<a target="_top" style="text-decoration: none;" href="<c:url value="/Review/ForumPost.do?rvNo=501"/>">
+													
 								<div class="grid__item-title"
 									style="position: relative; bottom: 35px;">
 									<h2 class="font_11">북한산 등반기</h2>
@@ -121,7 +124,8 @@
 				<li class="grid__item">
 					<div class="grid__link">
 						<div class="mainImg">
-							<a href="<c:url value="/Review/ForumPost.do"/>"> <img
+							<a target="_top" style="text-decoration: none;" href="<c:url value="/Review/ForumPost.do?rvNo=502"/>">
+ <img
 								class="grid__img" id="imgHover"
 								src="${pageContext.request.contextPath}/images/main/photos/2.jpg" /></a>
 						</div>
@@ -130,14 +134,14 @@
 							<div style="position: relative; bottom: 250px; left: 120px">
 								<div class="_33LjI avatar">
 
-									<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+									<a target="_top" href="<c:url value="/Profile/Main/NickName.do?nickName=현정이"/>"
 										style="text-decoration: none; vertical-align: top; color: white">
 										<span class="_2iDLv avatar-image "> <!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
 											<div class="_1wPNJ fluid-avatar-image topImage"
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px"></span>
+										style="vertical-align: top; position: relative; left: 10px">현정이</span>
 									</a>
 								</div>
 							</div>
@@ -151,7 +155,8 @@
 
 						</div>
 
-							<a href="<c:url value="/Review/ForumPost.do"/>">
+					<a target="_top" style="text-decoration: none;" href="<c:url value="/Review/ForumPost.do?rvNo=502"/>">
+
 								<div class="grid__item-title"
 									style="position: relative; bottom: 35px;">
 									<h2 class="font_11">영종도 바다 여행기</h2>
@@ -173,7 +178,8 @@
 				<li class="grid__item">
 					<div class="grid__link">
 						<div class="mainImg">
-							<a href="<c:url value="/Review/ForumPost.do"/>"> <img
+							<a target="_top" style="text-decoration: none;" href="<c:url value="/Review/ForumPost.do?rvNo=503"/>">
+<img
 								class="grid__img" id="imgHover"
 								src="${pageContext.request.contextPath}/images/main/photos/3.jpg" /></a>
 						</div>
@@ -182,14 +188,14 @@
 							<div style="position: relative; bottom: 250px; left: 120px">
 								<div class="_33LjI avatar">
 
-									<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+									<a target="_top" href="<c:url value="/Profile/Main/NickName.do?nickName=대민"/>"
 										style="text-decoration: none; vertical-align: top; color: white">
 										<span class="_2iDLv avatar-image "> <!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
 											<div class="_1wPNJ fluid-avatar-image topImage"
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px"></span>
+										style="vertical-align: top; position: relative; left: 10px">대민</span>
 									</a>
 								</div>
 							</div>
@@ -203,7 +209,8 @@
 
 						</div>
 
-							<a href="<c:url value="/Review/ForumPost.do"/>">
+							<a target="_top" style="text-decoration: none;" href="<c:url value="/Review/ForumPost.do?rvNo=503"/>">
+
 								<div class="grid__item-title"
 									style="position: relative; bottom: 35px;">
 									<h2 class="font_11">임진강에 다녀와서</h2>
@@ -225,7 +232,8 @@
 				<li class="grid__item">
 					<div class="grid__link">
 						<div class="mainImg">
-							<a href="<c:url value="/Review/ForumPost.do"/>"> <img
+							<a target="_top" style="text-decoration: none;" href="<c:url value="/Review/ForumPost.do?rvNo=504"/>">
+ <img
 								class="grid__img" id="imgHover"
 								src="${pageContext.request.contextPath}/images/main/photos/4.jpg" /></a>
 						</div>
@@ -234,14 +242,14 @@
 							<div style="position: relative; bottom: 250px; left: 120px">
 								<div class="_33LjI avatar">
 
-									<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+									<a target="_top" href="<c:url value="/Profile/Main/NickName.do?nickName=쏭"/>"
 										style="text-decoration: none; vertical-align: top; color: white">
 										<span class="_2iDLv avatar-image "> <!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
 											<div class="_1wPNJ fluid-avatar-image topImage"
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px"></span>
+										style="vertical-align: top; position: relative; left: 10px">쏭</span>
 									</a>
 								</div>
 							</div>
@@ -255,7 +263,8 @@
 
 						</div>
 
-							<a href="<c:url value="/Review/ForumPost.do"/>">
+						<a target="_top" style="text-decoration: none;" href="<c:url value="/Review/ForumPost.do?rvNo=504"/>">
+
 								<div class="grid__item-title"
 									style="position: relative; bottom: 35px;">
 									<h2 class="font_11">광화문에 가다</h2>
@@ -277,7 +286,8 @@
 				<li class="grid__item">
 					<div class="grid__link">
 						<div class="mainImg">
-							<a href="<c:url value="/Review/ForumPost.do"/>"> <img
+						<a target="_top" style="text-decoration: none;" href="<c:url value="/Review/ForumPost.do?rvNo=505"/>">
+<img
 								class="grid__img" id="imgHover"
 								src="${pageContext.request.contextPath}/images/main/photos/5.jpg" /></a>
 						</div>
@@ -286,14 +296,14 @@
 							<div style="position: relative; bottom: 250px; left: 120px">
 								<div class="_33LjI avatar">
 
-									<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+									<a target="_top" href="<c:url value="/Profile/Main/NickName.do?nickName=상경"/>"
 										style="text-decoration: none; vertical-align: top; color: white">
 										<span class="_2iDLv avatar-image "> <!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
 											<div class="_1wPNJ fluid-avatar-image topImage"
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px"> </span>
+										style="vertical-align: top; position: relative; left: 10px">상경 </span>
 									</a>
 								</div>
 							</div>
@@ -307,7 +317,8 @@
 
 						</div>
 
-							<a href="<c:url value="/Review/ForumPost.do"/>">
+						<a target="_top" style="text-decoration: none;" href="<c:url value="/Review/ForumPost.do?rvNo=505"/>">
+
 								<div class="grid__item-title"
 									style="position: relative; bottom: 35px;">
 									<h2 class="font_11">차이나 타운 맛집 인정</h2>
@@ -329,7 +340,8 @@
 				<li class="grid__item">
 					<div class="grid__link">
 						<div class="mainImg">
-							<a href="<c:url value="/Review/ForumPost.do"/>"> <img
+							<a target="_top" style="text-decoration: none;" href="<c:url value="/Review/ForumPost.do?rvNo=506"/>">
+ <img
 								class="grid__img" id="imgHover"
 								src="${pageContext.request.contextPath}/images/main/photos/6.jpg" /></a>
 						</div>
@@ -338,14 +350,14 @@
 							<div style="position: relative; bottom: 250px; left: 120px">
 								<div class="_33LjI avatar">
 
-									<a target="_top" href="<c:url value="/Profile/Main.do"/>"
+									<a target="_top" href="<c:url value="/Profile/Main/NickName.do?nickName=범이"/>"
 										style="text-decoration: none; vertical-align: top; color: white">
 										<span class="_2iDLv avatar-image "> <!-- 아래 url 교체하면 프로필에 맞는 프사 획득 가능 -->
 											<div class="_1wPNJ fluid-avatar-image topImage"
 												style=" vertical-align: top; 	background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');">
 											</div>
 									</span><span
-										style="vertical-align: top; position: relative; left: 10px"> </span>
+										style="vertical-align: top; position: relative; left: 10px"> 범이</span>
 									</a>
 								</div>
 							</div>
@@ -359,7 +371,8 @@
 
 						</div>
 
-							<a href="<c:url value="/Review/ForumPost.do"/>">
+							<a target="_top" style="text-decoration: none;" href="<c:url value="/Review/ForumPost.do?rvNo=506"/>">
+">
 								<div class="grid__item-title"
 									style="position: relative; bottom: 35px;">
 									<h2 class="font_11">서울랜드 야경포인트</h2>

@@ -347,7 +347,7 @@ button, input, textarea {
 							<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm"  />
 							</div>
 							</div>
-							<c:if test="${item.DMToNickName == sessionScope.nickName }">
+							<c:if test="${item.cntNewDM != '0' }">
 								새로운 메세지 ${item.cntNewDM }
 							</c:if>
 

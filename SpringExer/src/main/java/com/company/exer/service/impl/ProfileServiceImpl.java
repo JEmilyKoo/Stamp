@@ -77,4 +77,9 @@ public class ProfileServiceImpl implements ProfileService {
 	public int stampAchEP(Map map) {
 		return dao.stampAchEP(map);
 	} 
+	
+	@Override
+	public void testSample() throws Exception {
+		dao.testSample();
+	} 
 }

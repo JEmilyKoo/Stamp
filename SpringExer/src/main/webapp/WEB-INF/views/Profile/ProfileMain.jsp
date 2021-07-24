@@ -29,8 +29,6 @@
 			
 			<ul class="font_8">
 			
-			<li><a href="<c:url value="/Profile/Main/NickName.do?nickName=KOO"/>">KOO의
-											ProfileMain</a></li>
 			
 			<c:if test="${not empty sessionScope.userError }" var="userError">
 				<div style="color:red">해당하는 닉네임의 사용자가 없습니다</div>
