@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.company.exer.service.DMDTO;
 import com.company.exer.service.DMService;
-import com.company.exer.service.impl.DMServiceImpl;
 
 @SessionAttributes({ "nickName" })
 @Controller // @Controller로 컨트롤러라는 걸 명시
@@ -31,31 +30,31 @@ public class DMController {
 
 	// 1. getDMBox
 	@RequestMapping("/DMBox.do")
-	public String getDMBox(@RequestParam Map map, @ModelAttribute("nickName") String nickName, Model model,HttpServletRequest req) {
-	
+	public String getDMBox(@RequestParam Map map, @ModelAttribute("nickName") String nickName, Model model, HttpServletRequest req) {
+
 		List<DMDTO> finalDMLists = DMService.finalDMList(map, req);
-		model.addAttribute("finalDMLists",finalDMLists);
-		
+		model.addAttribute("finalDMLists", finalDMLists);
+
 		return "/DM/DM";
-		
-		
-		
+
 	}// getDMBox
 
 	// 2. DMChatList
 	@RequestMapping(value = "/DMChatBox.do")
 	public String DMChatList(@RequestParam Map map, @ModelAttribute("nickName") String nickName, Model model, HttpServletRequest req) {
-		
+
 		try {
-			List<DMDTO> finalDMLists = DMService.finalDMList(map, req);
-			model.addAttribute("finalDMLists", finalDMLists);
-	
 			List<DMDTO> checkDMChatLists = DMService.finalChatList(map, req);
 			model.addAttribute("checkDMChatLists", checkDMChatLists);
-	
+			
+			List<DMDTO> finalDMLists = DMService.finalDMList(map, req);
+			model.addAttribute("finalDMLists", finalDMLists);
+
+			
+
 			// model에 "checkDMChatLists"라는 키값으로 정렬된 checkDMChatLists 리스트를 전달
-			model.addAttribute("getDMToNickName",checkDMChatLists.get(0).getDMToNickName());	//model에 "getDMToNickName"라는 키값으로 checkDMChatLists.get(0).getDMToNickName()를 전달
-			model.addAttribute("getNickName",checkDMChatLists.get(0).getNickName());	//model에 "getNickName"라는 키값으로 checkDMChatLists.get(0).getNickName()를 전달
+			model.addAttribute("getDMToNickName", checkDMChatLists.get(0).getDMToNickName()); //model에 "getDMToNickName"라는 키값으로 checkDMChatLists.get(0).getDMToNickName()를 전달
+			model.addAttribute("getNickName", checkDMChatLists.get(0).getNickName()); //model에 "getNickName"라는 키값으로 checkDMChatLists.get(0).getNickName()를 전달
 		} catch (Exception e) {
 			StackTraceElement[] ste = e.getStackTrace();
 			logger.error(e.getMessage());
