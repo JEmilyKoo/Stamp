@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.mapper.achlist">
+<!-- 업적 삽입 insertAchList -->
+	<insert id="sqlinsertAchList" parameterType="achListDTO">
+		INSERT INTO ACHLIST
+		(ACHID, NICKNAME, ACHDATE)
+		VALUES
+		(#{achId}, #{nickName}, #{achDate})
+	</insert>
+
+<!-- 업적 조회 -->
+
+<!-- 업적 수정 -->
+
+<!-- 업적 삭제 -->
+</mapper>

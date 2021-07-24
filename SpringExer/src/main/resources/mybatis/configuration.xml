@@ -10,7 +10,14 @@
 		<typeAlias type="com.company.exer.service.RvCmntDTO" alias="rvCmntDTO"/>
 		
 		<typeAlias type="com.company.exer.service.DMDTO" alias="DMDTO"/> 
-	</typeAliases>
+		<typeAlias type="com.company.exer.service.AchListDTO" alias="achListDTO"/> 
+		<typeAlias type="com.company.exer.service.BadgeListDTO" alias="badgeListDTO"/>   
+		<typeAlias type="com.company.exer.service.FavoriteDTO" alias="favoriteDTO"/> 
+		<typeAlias type="com.company.exer.service.FreeBoardDTO" alias="freeBoardDTO"/> 
+		<typeAlias type="com.company.exer.service.FBCmntDTO" alias="fBCmntDTO"/> 
+		<typeAlias type="com.company.exer.service.FBLikeDTO" alias="fBLikeDTO"/> 
+		<typeAlias type="com.company.exer.service.RvLikeDTO" alias="rvLikeDTO"/> 		
+		</typeAliases>
 	<!-- 매퍼파일(SQL쿼리 결과와 자바빈 매핑)의 위치정보 설정 -->
 	<mappers>
 		<mapper resource="mybatis/mapper/member.xml" />
@@ -20,5 +27,11 @@
 		<mapper resource="mybatis/mapper/profile.xml" />
 		<mapper resource="mybatis/mapper/rvcmnt.xml" />
 		<mapper resource="mybatis/mapper/dm.xml" />
+		<mapper resource="mybatis/mapper/achlist.xml" />
+		<mapper resource="mybatis/mapper/badgelist.xml" />
+		<mapper resource="mybatis/mapper/favorite.xml" />
+		<mapper resource="mybatis/mapper/fb.xml" />
+		<mapper resource="mybatis/mapper/rvlike.xml" />
+		
 	</mappers>
 </configuration>
