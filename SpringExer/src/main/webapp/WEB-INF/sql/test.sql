@@ -95,7 +95,7 @@ CREATE TABLE RVLIKE
 	rvlNo number PRIMARY KEY,
 	rvNo number references REVIEW(rvNo) on delete cascade,
 	nickname nvarchar2(15)references profile(nickname) on delete cascade,
-	rvDate date DEFAULT SYSDATE
+	rvlDate date DEFAULT SYSDATE
 );
 
 
@@ -134,6 +134,7 @@ CREATE TABLE FBCMNT
 (
 	fbcNo number PRIMARY KEY,
 	fbNo number references FREEBOARD(fbNo) on delete cascade,
+	nickname nvarchar2(15) references profile(nickname) on delete cascade,
 	fbCmnt clob,
 	fbcDate date DEFAULT SYSDATE
 );
