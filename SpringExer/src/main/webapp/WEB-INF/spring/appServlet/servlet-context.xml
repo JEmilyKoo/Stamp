@@ -63,7 +63,7 @@ http://www.springframework.org/schema/websocket http://www.springframework.org/s
 
 	<!-- 디렉토리 설정 -->
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="D:\LHJ\Workspace\Java\.metadata\.plugins\org.eclipse.wst.server.core\tmp3\wtpwebapps\SpringExer\resources"/>
+		<beans:constructor-arg value="C:\stamp"/>
 	</beans:bean>
 
 
