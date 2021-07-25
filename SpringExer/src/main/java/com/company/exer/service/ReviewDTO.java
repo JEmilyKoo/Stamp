@@ -40,6 +40,9 @@ public class ReviewDTO {
 	//+nickName
 	private Date rvcDate;
 	
+	//file객체들
+	private String fullName;
+	private String rvfdate;
 	
 	
 	

@@ -76,6 +76,13 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.reviewMNG();
 	}
 
+	@Override
+	public int rvFileAdd(Map map) {
+		return dao.rvFileAdd(map);
+	}
+	
+	
+
 	
 
 }

@@ -70,7 +70,9 @@ public class ReviewDAO {
 		return sqlMapper.delete("reviewDelete",map);
 	}
 	
-	
+	public int rvFileAdd(Map map) {
+		return sqlMapper.insert("rvFileAdd",map);
+	}
 
 	
 }
