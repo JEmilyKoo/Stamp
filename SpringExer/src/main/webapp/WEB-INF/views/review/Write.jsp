@@ -38,13 +38,13 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
  <script
 	src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<!--<link
+<link
 	href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css"
 	rel="stylesheet">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"
 	defer></script>
- -->
+ 
 
 <link
  rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -636,16 +636,16 @@ small {
  -->
 
 
-	<div class="uploadedList"></div>
+	<!--<div type="hidden" class="uploadedList"></div>-->
 	<!-- form data가 이곳으로 이동 -->
 	<!-- <iframe name="iframePhoto"></iframe> -->
 
 	<!--  <h2>AJAx File Upload</h2>-->
 	<!-- 파일을 업로드할 영역 -->
-	<div class="fileDrop"></div>
+ 	<!-- <div  type="hidden" class="fileDrop"></div> -->
 	<!-- 업로드된 파일 목록 -->
 	<!--  <div class="uploadedList"></div>-->
-	<div class="test1"></div>
+	
 	<script>
 	
 	
@@ -1024,7 +1024,7 @@ $(document).ready(function() {
 		//여기 아래 부분
 
 		//JQuery 충돌 처리를한다 (function( $ ) { })( jQuery );
-	/*	jQuery.noConflict();
+		jQuery.noConflict();
 
 		(function($) {
 			$(document).ready(function() {
@@ -1034,8 +1034,8 @@ $(document).ready(function() {
 				});
 			});
 		})(jQuery);
-*/
-/*
+
+
 		$('#summernote').summernote(
 				{
 					height : 450,
@@ -1053,7 +1053,7 @@ $(document).ready(function() {
 					}
 
 				});
-*/
+
 		//이미지 업ㄹ로드 구현중
 
 		/*ajax참고용
