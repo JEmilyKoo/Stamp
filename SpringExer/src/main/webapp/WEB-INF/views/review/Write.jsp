@@ -561,7 +561,17 @@ small {
 
 			<div class="container" style="width: 1480px;">
 				<div style="display: flex; padding-top: 80px">
-
+				<c:if test="${! empty noText }">﻿
+		
+					<div class="col-xs-offset-1 col-xs-6 alert alert-warning fade in" style="z-index:50">
+						<button class="close" data-dismiss="alert">
+							<span>×</span>
+						</button>
+						${noText }
+					</div>
+				</div>
+			</c:if>
+	
 
 
 					<!-- <label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
@@ -920,12 +930,7 @@ $(document).ready(function() {
 	});
 	
 
-	
-	
-	
-	
-	
-	
+
 	
 	
 	

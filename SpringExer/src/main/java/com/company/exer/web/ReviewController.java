@@ -24,6 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -255,7 +256,7 @@ public class ReviewController {
 		model.addAttribute("NotMember", "로그인후 이용 바람....");
 		return "forward:/Review/TripBoard.do";
 	}
-	
+
 	
 	public void profileUpload(String email, MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		response.setContentType("text/html;charset=utf-8");
@@ -320,8 +321,10 @@ public class ReviewController {
 			map.put("nickName", nickName);
 
 			//좋아요값 갯수 갖고 오는 쿼리
+			
 			int check = reviewService.likeCheck(map);
-
+			
+			
 			//게시물 하나 갖고 오는 쿼리
 			ReviewDTO dto = reviewService.selectOne(map);
 			model.addAttribute("dto",dto);
@@ -359,11 +362,20 @@ public class ReviewController {
 	//글 작성
 	@RequestMapping(value="/Review/Write.do",method = RequestMethod.POST)
 	public String WriteOk(@RequestParam Map map,
-			@ModelAttribute("nickName") String nickName,HttpServletResponse response) throws IOException {
-
-		map.put("nickName", nickName);
-		reviewService.insert(map);
+			@ModelAttribute("nickName") String nickName,HttpServletResponse response,Model model) throws IOException {
 		
+		map.put("nickName", nickName);
+		
+		try {
+		int check =reviewService.insert(map);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("e:"+e.getMessage());
+			logger.info("테스트");
+			model.addAttribute("noText","글을 입력해주세요.");
+			return "review/Write";
+		}
 		//글쓰기 경험치 얻기
 		profileService.writeEP(map);
 		response.setContentType("text/html; charset=UTF-8");
@@ -379,6 +391,8 @@ public class ReviewController {
 	      //System.out.println("ch:"+ch);
 	     // return "Profile/ProfileMain";
 		///	return "forward:/Review/TripBoardWrite.do";
+		
+		
 	      return "forward:/Review/TripBoard.do";
 	}
 	
