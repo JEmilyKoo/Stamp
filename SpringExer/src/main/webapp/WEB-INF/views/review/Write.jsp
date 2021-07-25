@@ -711,7 +711,7 @@ $(document).ready(function() {
 		//폼 객체에 파일추가, append("변수명",값)
 		formData.append("file", file);
 		
-		
+		  
 		
 		$.ajax({
 			type : "post",
