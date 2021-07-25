@@ -20,6 +20,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/tripboard.css">
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript">
 	var bodyCacheable = true;
 	var exclusionReason = {
@@ -79,14 +80,23 @@
 						<c:forEach items="${list}" var="item">
 
 							<div class="item">
-								<div class="article" style="max-height:450px">
+								<div class="article w3-panel w3-card-2" style="max-height:450px">
 									<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
 									<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
 									<a target="_top"
 										href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">
 										<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
-										  <div   class="cardImage" style="height:200px ;background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
+										<c:if test="${item.rvNo>500 }" var = "recommand">
+										<div class=" cardImage categoryDropDown " style=" height:200px ;margin: -1px -10px -10px 0px;color: white; text-shadow: 1px 1px 5px black;
+background-image: url('${pageContext.request.contextPath}/images/main/photos/${item.rvNo-500 }.jpg');">
+
+<button class="w3-button w3-blue">추천</button></div> 
+										</c:if>
+										<c:if test="${not recommand }">
+										 <div   class="cardImage" style="height:200px ; margin: -1px -10px -10px 0px;background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
 										</div>
+										</c:if>
+										 
 									</a>
 									<!-- 이미지 받아오는 코드 끝-->
 									<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 시작 -->
