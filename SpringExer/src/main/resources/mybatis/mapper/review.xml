@@ -12,12 +12,26 @@
 		VALUES(#{fullName},SEQ_review.CURRVAL,default)
 	
 	</insert>
-
+	<select id="reviewSelectCategoryList" parameterType="Map"  resultType="reviewDTO">
+		SELECT *
+		FROM review 
+		WHERE 1=1
+		<if test="rvCategory1 != null">
+			AND RVCATEGORY1  = #{rvCategory1}
+		</if>
+		<if test="rvCategory2 != null">
+			AND RVCATEGORY2 = #{rvCategory2}	
+		</if>
+		ORDER BY rvNo DESC
+		
+		
+	</select>
+	
 
 	<select id="reviewSelectList" resultType="reviewDTO">
 		SELECT *
 		FROM review 
-		ORDER BY rvNo DESC
+		
 	</select>
 	
 	<insert id="reviewInsert" parameterType="Map">

@@ -290,8 +290,20 @@ public class ReviewController {
 	
 	//전체게시물
 	@RequestMapping("/Review/TripBoard.do")
-	public String TripBoard(Model model) {
+	public String TripBoard(Model model,  @RequestParam Map map) {
 		List<ReviewDTO> list =reviewService.selectList();
+		
+		System.out.println("모델"+model);
+		System.out.println("맵"+map);
+		
+		if((map.get("rvCategory1")!=null) || (map.get("rvCategory2")!=null)) {
+			list =reviewService.selectCategoryList(map);
+				System.out.println("서울로들어옴");
+				model.addAttribute("rvCategory1",map.get("rvCategory1"));
+				model.addAttribute("rvCategory2",map.get("rvCategory2"));
+				
+				
+		}
 		int size = list.size();
 		
 		String var = null;
