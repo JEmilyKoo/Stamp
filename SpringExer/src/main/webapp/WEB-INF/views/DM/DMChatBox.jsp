@@ -19,7 +19,7 @@
 		<div class="left">
 			<header class="header">
 				<div class="header-items"></div>
-				<div class="header-items user">
+				<div class="header-items user" style="display:flex;justify-content:center	">
 					<p class="user-name" style="text-align: center">${sessionScope.nickName }</p>
 				</div>
 				<div class="header-items"></div>
@@ -58,7 +58,7 @@
 						<img src="${pageContext.request.contextPath}/images/DM/backarrow.svg" alt="" class="back-arrow">
 					</div>
 					<div class="header-items user">
-						<img src="${pageContext.request.contextPath}/images/DM/user1.jpg" alt="" class="user-img">
+						<img src="${pageContext.request.contextPath}/images/profile/icon/icon0.jpg" alt="" class="user-img">
 						<p class="user-name">${sessionScope.nickName == getDMToNickName ? getNickName: getDMToNickName}</p>
 					</div>
 					<div class="header-items">
@@ -80,22 +80,22 @@
 						<!-- forEach로 checkDMChatLists 안의 데이터를 하나씩 반복해서 꺼내고 그것을 item이라는 var에 저장 -->
 						<c:forEach items="${checkDMChatLists }" var="item" varStatus="loop">
 							<c:if test="${item.DMToNickName == sessionScope.nickName }" var="checkSameID">
-								<div class="l-msg-box">
-									<img src="${pageContext.request.contextPath}/images/DM/user1.jpg" alt="" class="l-user-img">
+								<div class="l-msg-box" style="display:flex ">
+									<img src="${pageContext.request.contextPath}/images/profile/icon/icon0.jpg" alt="d" class="l-user-img">
 									<p class="l-msgs">
 										${item.DMCtt }
 									</p>
-									<p>
-										<span style="font-size:1px;"><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
+									<p  style="position:relative; bottom:6px" >
+										<span ><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
 									</p>
 								</div>
 							</c:if>
 							<c:if test="${not checkSameID }">
-								<div class="r-msg-box">
-									<p>
-										<span style="font-size:1px;"><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
+			 					<div class="r-msg-box" style="display:flex;	margin: auto 0; margin-left: auto "> 
+									<p style="margin:7px 0px 0px 0px">
+										<span ><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
 										<c:if test="${item.DMChecked == '1'}">
-										<span style="font-size:2px; color:red;">${item.DMChecked }</span>
+										<span style="color:#cccccc;">${item.DMChecked }</span>
 										</c:if>
 									</p>
 									<p class="r-msgs">

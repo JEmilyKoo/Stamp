@@ -3,6 +3,7 @@ package com.company.exer.web;
 import java.io.BufferedReader;
 import java.io.Console;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,11 +19,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FileUtils;import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -50,6 +56,7 @@ import com.company.exer.service.ReviewService;
 import com.company.exer.service.RvCmntDTO;
 import com.company.exer.service.RvCmntService;
 import com.company.exer.service.impl.ReviewServiceImpl;
+import com.company.exer.utils.MediaUtils;
 import com.company.exer.utils.UploadFileUtils;
 import com.google.gson.JsonObject;
 
@@ -58,7 +65,7 @@ import com.google.gson.JsonObject;
 public class ReviewController {
 
 	
-
+/*11
 	private static final Logger logger = LoggerFactory.getLogger(ReviewController.class);
 
 	@Resource(name="uploadPath")
@@ -106,9 +113,128 @@ public class ReviewController {
 		FileCopyUtils.copy(fileData, target);
 		
 		return savedName;
-	}
 
+	}
+*/
 	
+
+
+	//2
+	private static final Logger logger = LoggerFactory.getLogger(ReviewController.class);
+
+	@Resource(name="uploadPath")
+	String uploadPath;
+	
+	//ajax업로드 페이지 매핑
+	@RequestMapping(value="/upload/uploadAjax", method=RequestMethod.GET)
+	public String uploadAjax() {
+		
+		return "/review/Write";
+		//업로드페이지로 포워딩? uploadAjax.jsp로 포워딩
+		
+	}
+	
+	//ajax업로드 처리 매핑
+	@ResponseBody
+	@RequestMapping(value="/upload/uploadAjax",method=RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	public ResponseEntity<String> uploadAjax(MultipartFile file) throws Exception{
+		logger.info("originalName :"+file.getOriginalFilename());
+		logger.info("size :"+file.getSize());
+		logger.info("contentType :"+file.getContentType());
+		//랜덤생성+파일이름 저장
+		//파일명 랜덤생성 메서드 호출
+		//savedName = uploadFile(savedName, file.getBytes());
+		
+		
+		//File target = new File(uploadPath, savedName);
+		//FileCopyUtils.copy(file.getBytes(), target);
+		
+		//mav.setViewName("upload/uploadResult");
+		//mav.addObject("savedName", savedName);
+		
+		
+		return new ResponseEntity<String>(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(),file.getBytes()),HttpStatus.OK);
+	}
+	
+
+	//이미지 표시 매핑
+	@ResponseBody
+	@RequestMapping("/upload/displayFile")
+	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception{
+		System.out.println("들어오니1?");
+		//서버의 파일을 다운로드하기 위한 스트림
+		InputStream in = null; //java.io
+		ResponseEntity<byte[]> entity = null;
+		System.out.println("들어오니2?");
+		try {
+			System.out.println("들어오니3?");
+			// 확장자를 추출하여 formatName에 저장
+			String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
+			//추출한 확장자를 MediaUtils클래스에서 이미지파일여부를 검사하고 리턴받아 mType에 저장
+			MediaType mType = MediaUtils.getMediaType(formatName);
+			//헤더 구성 객체(외부에서 데이터를 주고받을 때에는 header와 body를 구성해야하기 떄문에)
+			HttpHeaders headers = new HttpHeaders();
+			//InputStream 생성
+			in = new FileInputStream(uploadPath + fileName);
+			//이미지 파일이면
+			if (mType != null) {
+				System.out.println("들어오니4?");
+				headers.setContentType(mType);
+				
+			}
+			//이미지가 아니면
+			else {
+				System.out.println("들어오니5?");
+				fileName =fileName.substring(fileName.indexOf("_")+1);
+				//다운로드용 컨텐트 타입
+				headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);;
+				//바이트 배열을 스트링으로
+				//파일의 한글 깨짐 방지
+				headers.add("Content-Disposition", "attachment; filename=\""+new String(fileName.getBytes("utf-8"), "iso-8859-1")+"\"");
+			}
+			//바이트배열, 헤더, HTTP상태코드
+			System.out.println("들어오니6?");
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in),headers,HttpStatus.OK);
+			
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			//HTTP상태 코드()
+			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+			
+		}
+		finally {
+			in.close();//스트림 닫기
+			System.out.println("들어오니7?");
+		}
+		System.out.println("들어오니8?");
+		return entity;
+	}
+	
+	//파일 삭제 매핑
+	@ResponseBody// view가 아닌 데이터 리턴
+	@RequestMapping(value="upload/deleteFile",method=RequestMethod.POST)
+	public ResponseEntity<String> deleteFile(String fileName){
+		//파일의 확장자 추출
+		String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
+		//이미지 파일 여부 검사
+		MediaType mType = MediaUtils.getMediaType(formatName);
+		//이미지의 경우(썸네일 + 원본파일 삭제), 이미지가 아니면 원본파일만 삭제
+		//이미지 파일이면
+		if (mType != null) {
+			//썸네일 이미지 파일 추출
+			String front = fileName.substring(0,12);
+			String end = fileName.substring(14);
+			//썸네일 이미지 삭제
+			new File(uploadPath + (front + end).replace('/', File.separatorChar)).delete();
+			
+		}
+		//원본 파일 삭제
+		new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
+		
+		//데이터와 http 상태 코드 전송
+		return new ResponseEntity<String>("deleted",HttpStatus.OK);
+	}
 	
 	
 	
@@ -130,7 +256,7 @@ public class ReviewController {
 		model.addAttribute("NotMember", "로그인후 이용 바람....");
 		return "forward:/Review/TripBoard.do";
 	}
-	
+
 	
 	public void profileUpload(String email, MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		response.setContentType("text/html;charset=utf-8");
@@ -195,8 +321,10 @@ public class ReviewController {
 			map.put("nickName", nickName);
 
 			//좋아요값 갯수 갖고 오는 쿼리
+			
 			int check = reviewService.likeCheck(map);
-
+			
+			
 			//게시물 하나 갖고 오는 쿼리
 			ReviewDTO dto = reviewService.selectOne(map);
 			model.addAttribute("dto",dto);
@@ -234,11 +362,20 @@ public class ReviewController {
 	//글 작성
 	@RequestMapping(value="/Review/Write.do",method = RequestMethod.POST)
 	public String WriteOk(@RequestParam Map map,
-			@ModelAttribute("nickName") String nickName,HttpServletResponse response) throws IOException {
-
-		map.put("nickName", nickName);
-		reviewService.insert(map);
+			@ModelAttribute("nickName") String nickName,HttpServletResponse response,Model model) throws IOException {
 		
+		map.put("nickName", nickName);
+		
+		try {
+		int check =reviewService.insert(map);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("e:"+e.getMessage());
+			logger.info("테스트");
+			model.addAttribute("noText","글을 입력해주세요.");
+			return "review/Write";
+		}
 		//글쓰기 경험치 얻기
 		profileService.writeEP(map);
 		response.setContentType("text/html; charset=UTF-8");
@@ -248,8 +385,14 @@ public class ReviewController {
 	      out.println("alert('축하드립니다.\r\n 경험치 10 획득했습니다. ');");
 	      out.println("</script>");
 	      out.flush();
+	      
+	      
+	      //int ch=reviewService.rvFileAdd(map);
+	      //System.out.println("ch:"+ch);
 	     // return "Profile/ProfileMain";
 		///	return "forward:/Review/TripBoardWrite.do";
+		
+		
 	      return "forward:/Review/TripBoard.do";
 	}
 	

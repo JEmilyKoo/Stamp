@@ -7,6 +7,13 @@
 <!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
 <mapper namespace="mybatis.mapper.review">
 
+	<insert id="rvFileAdd" parameterType="Map">
+		INSERT INTO rvFileAdd 
+		VALUES(#{fullName},SEQ_review.CURRVAL,default)
+	
+	</insert>
+
+
 	<select id="reviewSelectList" resultType="reviewDTO">
 		SELECT *
 		FROM review 

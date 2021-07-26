@@ -18,4 +18,5 @@ public interface ReviewService {
 	int unlike(Map map);
 	int stampCreate(Map map);
 	List<ReviewDTO> reviewMNG();
+	int rvFileAdd(Map map);
 }
