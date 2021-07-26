@@ -79,6 +79,8 @@
 					<c:if test="${! empty list }" var="val">
 						<c:forEach items="${list}" var="item">
 
+
+
 							<div class="item">
 								<div class="article w3-panel w3-card-2" style="max-height:450px">
 									<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
@@ -93,10 +95,23 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${i
 <button class="w3-button w3-blue">추천</button></div> 
 										</c:if>
 										<c:if test="${not recommand }">
-										 <div   class="cardImage" style="height:200px ; margin: -1px -10px -10px 0px;background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
-										</div>
-										</c:if>
+										
+											<c:if test="${empty item.image}" var ="image">
+											
+											 <div   class="cardImage" style="height:200px ; margin: -1px -10px -10px 0px;background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg')">
+											
+											</div>
+											</c:if>
+											
+											<c:if test="${not image }">
+											 <div   class="cardImage" style="overflow:hidden;height:200px ; margin: -1px -10px -10px 0px;background-image: url('${item.image }');">
+											
+											</div>
+											
+											
+											 </c:if>
 										 
+										  </c:if>
 									</a>
 									<!-- 이미지 받아오는 코드 끝-->
 									<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 시작 -->

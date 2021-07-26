@@ -292,7 +292,21 @@ public class ReviewController {
 	@RequestMapping("/Review/TripBoard.do")
 	public String TripBoard(Model model) {
 		List<ReviewDTO> list =reviewService.selectList();
+		int size = list.size();
 		
+		String var = null;
+		for (int i = 0 ; i < size ; i++) {
+			
+			 StringBuffer sb = new StringBuffer();
+			 sb.append(list.get(i).getRvCtt());
+				
+			 if(sb.indexOf("img") !=-1) {
+
+				String st = sb.substring((sb.indexOf("src")+5),sb.indexOf("data-filename"));
+				list.get(i).setImage(st);
+					
+			}
+		}
 		try {
 			if(list==null) {
 				model.addAttribute("NoBoard","게시글이 없어요");
@@ -365,7 +379,6 @@ public class ReviewController {
 			@ModelAttribute("nickName") String nickName,HttpServletResponse response,Model model) throws IOException {
 		
 		map.put("nickName", nickName);
-		
 		try {
 		int check =reviewService.insert(map);
 		}
@@ -377,6 +390,8 @@ public class ReviewController {
 			return "review/Write";
 		}
 		//글쓰기 경험치 얻기
+		System.out.println("이게 맵이다"+map);
+		System.out.println("맵의"+map.get("rvCtt"));
 		profileService.writeEP(map);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
