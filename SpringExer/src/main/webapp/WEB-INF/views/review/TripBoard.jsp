@@ -43,8 +43,29 @@
 
 			<div class="TitleBoardHeader"
 				style="margin: auto; position: relative; ">
+				
+				
+<c:if test="${not empty rvCategory1 }">
 				<img
-					src="${pageContext.request.contextPath}/images/tripboard/header_city1.jpg" />
+					src="${pageContext.request.contextPath}/images/tripboard/${ rvCategory1 }.jpg" />
+				
+				</c:if>
+
+<c:if test="${not empty rvCategory2 }">
+					<img
+					src="${pageContext.request.contextPath}/images/tripboard/${ rvCategory2 }.jpg" />
+				
+			
+				</c:if>
+
+<c:if test="${ empty rvCategory1  and empty rvCategory2}">
+				<img
+					src="${pageContext.request.contextPath}/images/tripboard/tripboard.jpg" />
+				
+				</c:if>
+				
+				
+				
 				<!--타이틀 이미지 들어감-->
 			</div>
 <c:if test="${! empty NotMember }">﻿
@@ -67,8 +88,6 @@
 				style="display: flex; justify-content: center; flex-flow: wrap; gap: 10px;">
 
 				<!-- 내용물 -->
-
-
 
 				<!-- 게시물 작성하기 버튼 종료  -->
 				<!-- 카드뷰 -->

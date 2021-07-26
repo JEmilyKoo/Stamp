@@ -21,6 +21,12 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.selectList();
 	}
 
+
+	@Override
+	public List<ReviewDTO> selectCategoryList(Map map) {
+		return dao.selectCategoryList(map);
+	}
+	
 	@Override
 	public ReviewDTO selectOne(Map map) {
 		return dao.selectOne(map);
@@ -80,7 +86,7 @@ public class ReviewServiceImpl implements ReviewService{
 	public int rvFileAdd(Map map) {
 		return dao.rvFileAdd(map);
 	}
-	
+
 	
 
 	

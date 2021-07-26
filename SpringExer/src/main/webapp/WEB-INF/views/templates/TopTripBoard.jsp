@@ -188,15 +188,15 @@ body {
 						onclick="w3_close()">카테고리 &times;</button>
 
 					<div class="w3-white">
-						<a href="#" class="w3-bar-item w3-button w3-hover-blue">서울</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">인천</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">경기</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">산</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">바다</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">강</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">유적지</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">도심</a> <a
-							href="#" class="w3-bar-item w3-button w3-hover-blue">야경</a>
+						<a href="<c:url value="/Review/TripBoard.do?rvCategory1=서울"/>" class="w3-bar-item w3-button w3-hover-blue">서울</a> <a
+							href="<c:url value="/Review/TripBoard.do?rvCategory1=인천"/>" class="w3-bar-item w3-button w3-hover-blue">인천</a> <a
+							href="<c:url value="/Review/TripBoard.do?rvCategory1=경기"/>" class="w3-bar-item w3-button w3-hover-blue">경기</a> <a
+							href="<c:url value="/Review/TripBoard.do?rvCategory2=산"/>" class="w3-bar-item w3-button w3-hover-blue">산</a> <a
+							href="<c:url value="/Review/TripBoard.do?rvCategory2=바다"/>" class="w3-bar-item w3-button w3-hover-blue">바다</a> <a
+							href="<c:url value="/Review/TripBoard.do?rvCategory2=강"/>" class="w3-bar-item w3-button w3-hover-blue">강</a> <a
+							href="<c:url value="/Review/TripBoard.do?rvCategory2=유적지"/>" class="w3-bar-item w3-button w3-hover-blue">유적지</a> <a
+							href="<c:url value="/Review/TripBoard.do?rvCategory2=도심"/>" class="w3-bar-item w3-button w3-hover-blue">도심</a> <a
+							href="<c:url value="/Review/TripBoard.do?rvCategory2=야경"/>" class="w3-bar-item w3-button w3-hover-blue">야경</a>
 					</div>
 				</div>
 
