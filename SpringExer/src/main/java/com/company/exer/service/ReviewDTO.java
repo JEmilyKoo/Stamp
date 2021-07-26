@@ -29,6 +29,7 @@ public class ReviewDTO {
 	private String rvFile;
 	private int rvLikeCheck;
 	
+	
 	//rvLike 추가
 	private Date rvlDate;
 	
@@ -44,6 +45,8 @@ public class ReviewDTO {
 	private String fullName;
 	private String rvfdate;
 	
+	//섬네일 날조용
+	private String image;
 	
 	
 }
