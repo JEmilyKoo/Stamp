@@ -68,7 +68,7 @@
 						<img src="${pageContext.request.contextPath}/images/DM/info.svg" alt="" class="info">
 					</div>
 				</header>
-				<div class="main-window">
+				<div class="main-window" id="chatMessage">
 					<c:if test="${empty checkDMChatLists }" var="isEmpty">
 						<div>
 							<!-- checkDMChatLists가 비었으면 "메세지가 없어요 출력" -->
@@ -86,14 +86,14 @@
 										${item.DMCtt }
 									</p>
 									<p style="position:relative; bottom:6px" >
-										<span><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
+										<span><fmt:formatDate value="${item.DMDate }" pattern="a hh:mm" /></span>
 									</p>
 								</div>
 							</c:if>
 							<c:if test="${not checkSameID }">
 			 					<div class="r-msg-box" style="display:flex;	margin: auto 0; margin-left: auto "> 
 									<p style="margin:7px 0px 0px 0px">
-										<span ><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
+										<span ><fmt:formatDate value="${item.DMDate }" pattern="a hh:mm" /></span>
 										<c:if test="${item.DMChecked == '1'}">
 										<span style="color:#cccccc;">${item.DMChecked }</span>
 										</c:if>
@@ -122,14 +122,19 @@
 	<script>
 		//웹소켓 객체 저장용
 		var wsocket;
+		var connectFlag = false;
+		var returnFlag = false;
+		var nickName = '${sessionScope.nickName }';
+		var DMToNickName = '${getDMToNickName ==sessionScope.nickName? getNickName : getDMToNickName }';
+		var DMCtt;
+		
 		$(window).bind("load", function (){
 			
 			// 로딩되기 시작할때 웹소켓 열기
 			wsocket = new WebSocket("ws:${pageContext.request.serverName}:${pageContext.request.serverPort}/websocket/chat-ws.do");
-			
 			console.log('wsocket:', wsocket);
-
-			wsocket.onopen = open(); //open은 function이 저장된 var
+			$("#chatMessage").scrollTop($("#chatMessage").prop('scrollHeight'));
+			wsocket.onopen = open; //open은 function이 저장된 var
 
 			wsocket.addEventListener("message", receiveMessage);
 			
@@ -165,31 +170,54 @@
 		});
 
 		var open = function() {
+			wsocket.send(nickName +'-'+ DMToNickName+' connected');
 			console.log('connected');
 		}
 		var close = function() {
-
+			wsocket.send(nickName +'-'+ DMToNickName+' disconnected');
 			console.log('disconnected');
 		}
 		//메시지를 DIV태그에 뿌려주기 위한 함수]
 
 		 var appendMessage = function(msg) {
-
-			/* $('#').append(msg + "<br/>"); */
+			 $('#chatMessage').append(msg);
+	         //스크롤 맨 아래로 내리기
+			 $("#chatMessage").scrollTop($("#chatMessage").prop('scrollHeight'));
 		};
 		//서버에서 메시지를 받을때마다 호출되는 함수 
 		function receiveMessage(e){
-			console.log(e.data);
+			if(e.data.split("&")[0] == DMToNickName+'-'+nickName){
+				/* e.data.split("&")[0] == 'nickName'+'-'+'DMToNickName' || e.data.split("&")[0] == 'DMToNickName'+'-'+'nickName'  */
+				var today = new Date();
+				var hours = today.getHours();
+				if(hours < 10 ){
+					hours = '오전 '+('0' + today.getHours()).slice(-2);
+				}else if(hours > 12 && hours < 22 ){
+					hours = '오후 '+('0' + (today.getHours()%12)).slice(-2);
+				}else if(hours == 22 || hours == 23 ){
+					hours = '오후 '+ (today.getHours()%12).slice(-2);
+				}else if(hours == 24){
+					hours = '오전 00';
+				}
+	            var minutes = ('0' + today.getMinutes()).slice(-2);
+	            var timeString = hours + ':' + minutes;
+	            DMCtt =  e.data.split("&")[1];
+	            appendMessage('<div class="l-msg-box" style="display:flex "><img src="${pageContext.request.contextPath}/images/profile/icon/icon0.jpg" alt="d" class="l-user-img"><p class="l-msgs">'+DMCtt+'</p><p style="position:relative; bottom:6px" ><span>'+timeString+'</span></p></div>');//서버로부터 받은 메시지를 msg:부분을 제외하고 div에 출력
+			}else{
+				console.log('split값'+e.data.split("&")[0]);
+				console.log('nickName - DMToNickName: '+ nickName +'-'+ DMToNickName);
+				console.log('nickName - DMToNickName: '+ DMToNickName +'-'+ nickName);
+			}
+
+
 		
 		
 		}; 
   
 		//서버로 메시지 전송하는 함수]
 		function sendMessage() {
-			var nickName = '${sessionScope.nickName }';
-			var DMToNickName = '${getDMToNickName ==sessionScope.nickName? getNickName : getDMToNickName }';
-			var DMCtt = $('#message').val();
-			wsocket.send(DMCtt);
+			DMCtt = $('#message').val();
+			wsocket.send(nickName +'-'+ DMToNickName+'&'+ DMCtt);
 			if (DMCtt.trim() == '') {
 				alert('메세지를 입력하세요');
 				return;
@@ -211,7 +239,6 @@
 				},
 				dataType : 'json',
 				success : function(resp) {
-					alert(JSON.stringify(sendData))
 				},
 				error : function(error) {//서버로부터 비정상적인 응답을 받았을때 호출되는 콜백함수
 					console.log('%O:', error);
@@ -232,6 +259,7 @@
 			$('#message').val('');
 			return false;
 		}
+		
 	</script>
 </body>
 </html>
