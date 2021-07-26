@@ -85,8 +85,8 @@
 									<p class="l-msgs">
 										${item.DMCtt }
 									</p>
-									<p  style="position:relative; bottom:6px" >
-										<span ><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
+									<p style="position:relative; bottom:6px" >
+										<span><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
 									</p>
 								</div>
 							</c:if>
@@ -122,24 +122,28 @@
 	<script>
 		//웹소켓 객체 저장용
 		var wsocket;
-		window.onload = function() {
+		$(window).bind("load", function (){
+			
 			// 로딩되기 시작할때 웹소켓 열기
-			var wsocket = new WebSocket("ws:${pageContext.request.serverName}:${pageContext.request.serverPort}/websocket/.");
+			wsocket = new WebSocket("ws:${pageContext.request.serverName}:${pageContext.request.serverPort}/websocket/chat-ws.do");
+			
 			console.log('wsocket:', wsocket);
 
 			wsocket.onopen = open(); //open은 function이 저장된 var
 
-			wsocket.onmessage = onMessage();
-
+			wsocket.addEventListener("message", receiveMessage);
+			
 			//에러처리
 			wsocket.onerror = function(e) {
 				console.log('에러발생:', e)
 			};
 
-		}
+		});
 		$(window).bind('beforeunload', function() {
 			wsocket.onclose = close();
 		});
+		
+		
 
 		//전송버튼 클릭시]
 		/* $('#sendDM').click(function() {
@@ -174,10 +178,9 @@
 			/* $('#').append(msg + "<br/>"); */
 		};
 		//서버에서 메시지를 받을때마다 호출되는 함수 
-		function onMessage(evt){//evt는 message이벤트 객체
-			//서버로부터 받은 데이타는 이벤트객체(e).data속성에 저장되어 있다
-			let receive = evt.data.split(",");
-			console.log(receive);
+		function receiveMessage(e){
+			console.log(e.data);
+		
 		
 		}; 
   
@@ -186,7 +189,7 @@
 			var nickName = '${sessionScope.nickName }';
 			var DMToNickName = '${getDMToNickName ==sessionScope.nickName? getNickName : getDMToNickName }';
 			var DMCtt = $('#message').val();
-
+			wsocket.send(DMCtt);
 			if (DMCtt.trim() == '') {
 				alert('메세지를 입력하세요');
 				return;
@@ -214,11 +217,11 @@
 					console.log('%O:', error);
 					console.log('에러:', error.responseText);
 				}
-
+				
 			})
 
 			//서버로 메시지 전송
-		
+			
 			//DIV(대화영역)에 메시지 출력
 			//appendMessage(DMCtt);
 			//기존 메시지 클리어			
