@@ -183,7 +183,7 @@
 
 
 														<a
-															href="<c:url value="/DM/DMChatBox.do?DMToNickName=${dto.nickName }"/>">
+															href="<c:url value="/DM/DMChatBox2.do?nickName=${nickName }&DMToNickName=${dto.nickName }"/>">
 															<button class="actionButton" role="menuitem">
 																<div class="postActions">
 																	<div class="icon">
