@@ -95,7 +95,7 @@
 									<p style="margin:7px 0px 0px 0px">
 										<span ><fmt:formatDate value="${item.DMDate }" pattern="a hh:mm" /></span>
 										<c:if test="${item.DMChecked == '1'}">
-										<span style="color:#cccccc;">${item.DMChecked }</span>
+										<span id="DMCheck" style="color:#cccccc;">${item.DMChecked }</span>
 										</c:if>
 									</p>
 									<p class="r-msgs">
@@ -127,7 +127,11 @@
 		var nickName = '${sessionScope.nickName }';
 		var DMToNickName = '${getDMToNickName ==sessionScope.nickName? getNickName : getDMToNickName }';
 		var DMCtt;
-		
+		var today = new Date();
+		var hours = today.getHours();
+        var minutes = ('0' + today.getMinutes()).slice(-2);
+        var timeString ;
+        
 		$(window).bind("load", function (){
 			
 			// 로딩되기 시작할때 웹소켓 열기
@@ -187,9 +191,6 @@
 		//서버에서 메시지를 받을때마다 호출되는 함수 
 		function receiveMessage(e){
 			if(e.data.split("&")[0] == DMToNickName+'-'+nickName){
-				/* e.data.split("&")[0] == 'nickName'+'-'+'DMToNickName' || e.data.split("&")[0] == 'DMToNickName'+'-'+'nickName'  */
-				var today = new Date();
-				var hours = today.getHours();
 				if(hours < 10 ){
 					hours = '오전 '+('0' + today.getHours()).slice(-2);
 				}else if(hours > 12 && hours < 22 ){
@@ -199,20 +200,46 @@
 				}else if(hours == 24){
 					hours = '오전 00';
 				}
-	            var minutes = ('0' + today.getMinutes()).slice(-2);
-	            var timeString = hours + ':' + minutes;
+	            timeString = hours + ':' + minutes;
 	            DMCtt =  e.data.split("&")[1];
 	            appendMessage('<div class="l-msg-box" style="display:flex "><img src="${pageContext.request.contextPath}/images/profile/icon/icon0.jpg" alt="d" class="l-user-img"><p class="l-msgs">'+DMCtt+'</p><p style="position:relative; bottom:6px" ><span>'+timeString+'</span></p></div>');//서버로부터 받은 메시지를 msg:부분을 제외하고 div에 출력
-			}else{
-				console.log('split값'+e.data.split("&")[0]);
-				console.log('nickName - DMToNickName: '+ nickName +'-'+ DMToNickName);
-				console.log('nickName - DMToNickName: '+ DMToNickName +'-'+ nickName);
-			}
-
-
-		
+			}/* else if(e.data == ''){
+	            //ajax 비동기 통신으로 대화 읽음 처리
+	            $.ajax({
+	               url:"<c:url value="/DM/UpdateDMChatBox.do" />",
+	               type:"post",
+	               dataType:'text',
+	               data:
+	                  {
+	                     
+	                  },
+	               success:function(data){
+	                  //사용자 UI 상에서도 읽음여부 표시(1) 제거
+	                  $('#DMCheck').remove();
+	                  //상대방 연결 중 확인
+	                  connectFlag = true;
+	               },
+	               error: function(error){}
+	            });
+	            //상대방에게도 현재 접속 중 전달 
+	            if(!returnFlag){
+	               //한번만 전달
+	               returnFlag = true;
+	               //접송 중 전달
+	               open();   
+	            }
+	         }else if(e.data == ''){//현재 채팅방에 상대가 연결 해제되었는지 확인
+	            //상대방 연결 해제 확인
+	            connectFlag = false;
+	            //상대방 접속 시 리턴 하기 위한 flag 초기화
+	            returnFlag = false;
+	         }
+		 */
 		
 		}; 
+
+		
+		
   
 		//서버로 메시지 전송하는 함수]
 		function sendMessage() {
@@ -222,17 +249,12 @@
 				alert('메세지를 입력하세요');
 				return;
 			}
-			var sendData = {
-				nickName : nickName,
-				DMToNickName : DMToNickName,
-				DMCtt : DMCtt
-			};
-			console.log('nickName: %s, DMToNickName: %s, DMCtt: %s', nickName, DMToNickName, DMCtt);
 
 			$.ajax({
 				url : '<c:url value="/DM/sendDM"/>',
 				method : 'POST',
 				data : {
+					read:connectFlag,
 					nickName : nickName,
 					DMToNickName : DMToNickName,
 					DMCtt : DMCtt
@@ -244,8 +266,26 @@
 					console.log('%O:', error);
 					console.log('에러:', error.responseText);
 				}
-				
-			})
+			});
+			
+			if(hours < 10 ){
+				hours = '오전 '+('0' + today.getHours()).slice(-2);
+			}else if(hours > 12 && hours < 22 ){
+				hours = '오후 '+('0' + (today.getHours()%12)).slice(-2);
+			}else if(hours == 22 || hours == 23 ){
+				hours = '오후 '+ (today.getHours()%12).slice(-2);
+			}else if(hours == 24){
+				hours = '오전 00';
+			}
+            timeString = hours + ':' + minutes;
+            
+            if(connectFlag){
+	            appendMessage('<div class="r-msg-box" style="display:flex;	margin: auto 0; margin-left: auto "> <p style="margin:7px 0px 0px 0px"><span >'+timeString+'</span></p><p class="r-msgs”>'+DMCtt+'</p></div>');   
+	         
+			}else{
+	            appendMessage('<div class="r-msg-box" style="display:flex;	margin: auto 0; margin-left: auto "> <p style="margin:7px 0px 0px 0px"><span >'+timeString+'</span><span id="DMCheck" style="color:#cccccc;">1</span></p><p class="r-msgs">'+DMCtt+'</p></div>');
+	         }	
+
 
 			//서버로 메시지 전송
 			
