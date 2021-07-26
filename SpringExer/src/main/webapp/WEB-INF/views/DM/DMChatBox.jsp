@@ -129,8 +129,7 @@
 
 			wsocket.onopen = open(); //open은 function이 저장된 var
 
-			//이벤트리스너 등록, 대상객체.addEventListener(이벤트명, 실행할이벤트리스너)
-			wsocket.addEventListener("message", receiveMessage);
+			wsocket.onmessage = onMessage();
 
 			//에러처리
 			wsocket.onerror = function(e) {
@@ -156,6 +155,7 @@
 			if (keyCode == 13) {//엔터 입력
 				sendMessage();
 				console.log("메세지 입력성공")
+				clearBox();
 			}
 
 		});
@@ -169,21 +169,20 @@
 		}
 		//메시지를 DIV태그에 뿌려주기 위한 함수]
 
-		/* var appendMessage = function(msg) {
+		 var appendMessage = function(msg) {
 
-			$('#chatMessage').append(msg + "<br/>");
+			/* $('#').append(msg + "<br/>"); */
 		};
 		//서버에서 메시지를 받을때마다 호출되는 함수 
-		var receiveMessage = function(e) {//e는 message이벤트 객체
+		function onMessage(evt){//evt는 message이벤트 객체
 			//서버로부터 받은 데이타는 이벤트객체(e).data속성에 저장되어 있다
-			if (e.data.substring(0, 4) == 'msg:')
-				appendMessage(e.data.substring(4));//서버로부터 받은 메시지를 msg:부분을 제외하고 div에 출력
-		};
- */
+			let receive = evt.data.split(",");
+			console.log(receive);
+		
+		}; 
+  
 		//서버로 메시지 전송하는 함수]
 		function sendMessage() {
-			console.log('sendMessage');
-
 			var nickName = '${sessionScope.nickName }';
 			var DMToNickName = '${getDMToNickName ==sessionScope.nickName? getNickName : getDMToNickName }';
 			var DMCtt = $('#message').val();
@@ -198,7 +197,6 @@
 				DMCtt : DMCtt
 			};
 			console.log('nickName: %s, DMToNickName: %s, DMCtt: %s', nickName, DMToNickName, DMCtt);
-			console.log('sendData: %s', sendData);
 
 			$.ajax({
 				url : '<c:url value="/DM/sendDM"/>',
@@ -220,12 +218,16 @@
 			})
 
 			//서버로 메시지 전송
-			/* wsocket.send(DMCtt);//msg:Superman:안녕 */
+		
 			//DIV(대화영역)에 메시지 출력
 			//appendMessage(DMCtt);
 			//기존 메시지 클리어			
 			//포커스 주기
 			$('#message').focus();
+		}
+		function clearBox() {
+			$('#message').val('');
+			return false;
 		}
 	</script>
 </body>
