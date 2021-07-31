@@ -148,4 +148,13 @@ public class DMController {
 		return data;
 	}
 
+	// 4. sendDM
+		@RequestMapping(value = "/checkDM.do")
+		public @ResponseBody int checkDM(Model model, @RequestParam Map map, @ModelAttribute("nickName") String nickName,
+				HttpServletRequest req, HttpSession session) {
+			
+			int data = DMService.checkDM(map);
+			
+			return data;
+		}
 }

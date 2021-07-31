@@ -38,7 +38,7 @@ public class WebSocketServer extends TextWebSocketHandler {
 		System.out.println(session.getId()+"와 통신 장애 발생:"+exception.getMessage());
 	}
 	//클라이언트와 연결이 끊어졌을때 호출되는 콜백 메소드]
-	//-컬렉션에 저장된 클라이언트 삭제
+	//-컬렉션에 저장된 클라이언트 삭제  
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
 		clients.remove(session.getId());

@@ -123,6 +123,7 @@ public class DMServiceImpl implements DMService {
 //	5. 읽음 처리 쿼리문
 	@Override
 	public int checkDM(Map map) {
+		logger.info("DMServiceImpl.checkDM  dao.checkDM(map): "+dao.checkDM(map));
 		return dao.checkDM(map);
 	}
 
