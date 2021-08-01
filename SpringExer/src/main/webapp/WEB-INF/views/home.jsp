@@ -51,7 +51,6 @@
 			<div class="title title--main">
 				<img src="${pageContext.request.contextPath}/images/main/logo.png"
 					width="300px" alt="Some image" />
-
 			</div>
 			<p class="title title--sub">스탬프로 여행하세요</p>
 		</div>
