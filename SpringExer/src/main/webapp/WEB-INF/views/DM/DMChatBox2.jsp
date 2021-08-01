@@ -17,6 +17,8 @@
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 	<div class="body-container" style="border: 1px solid #CCCCCC">
 		<div class="left">
+		
+		
 			<header class="header">
 				<div class="header-items"></div>
 				<div class="header-items user" style="display:flex;justify-content:center	">
@@ -38,8 +40,8 @@
 								style="width: 56px; height: 56px; margin-left: 40px; margin-right: 10px; margin-top: 5px;">
 							<div style="padding: 5px">
 								<a id="enterWServer" href="<c:url value="/DM/DMChatBox.do?nickName=${item.nickName }&DMToNickName=${item.DMToNickName }"/>"> ${item.DMToNickName == sessionScope.nickName?item.nickName:item.DMToNickName }</a>
-								<div style="height: 20px; overflow: hidden; text-overflow: ellipsis;" id="${item.DMToNickName == sessionScope.nickName?item.nickName:item.DMToNickName }DMCtt">${item.DMCtt }</div>
-								<div style="color: gray" id="${item.DMToNickName == sessionScope.nickName?item.nickName:item.DMToNickName }Time">
+								<div style="height: 20px; overflow: hidden; text-overflow: ellipsis;">${item.DMCtt }</div>
+								<div style="color: gray">
 									<fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" />
 								</div>
 							</div>
@@ -68,7 +70,7 @@
 						<img src="${pageContext.request.contextPath}/images/DM/info.svg" alt="" class="info">
 					</div>
 				</header>
-				<div class="main-window" id="chatMessage">
+				<div class="main-window">
 					<c:if test="${empty checkDMChatLists }" var="isEmpty">
 						<div>
 							<!-- checkDMChatLists가 비었으면 "메세지가 없어요 출력" -->
@@ -85,17 +87,17 @@
 									<p class="l-msgs">
 										${item.DMCtt }
 									</p>
-									<p style="position:relative; bottom:6px" >
-										<span><fmt:formatDate value="${item.DMDate }" pattern="a hh:mm" /></span>
+									<p  style="position:relative; bottom:6px" >
+										<span ><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
 									</p>
 								</div>
 							</c:if>
 							<c:if test="${not checkSameID }">
 			 					<div class="r-msg-box" style="display:flex;	margin: auto 0; margin-left: auto "> 
 									<p style="margin:7px 0px 0px 0px">
-										<span ><fmt:formatDate value="${item.DMDate }" pattern="a hh:mm" /></span>
+										<span ><fmt:formatDate value="${item.DMDate }" pattern="a HH:mm" /></span>
 										<c:if test="${item.DMChecked == '1'}">
-										<span id="DMCheck" style="color:#cccccc;">${item.DMChecked }</span>
+										<span style="color:#cccccc;">${item.DMChecked }</span>
 										</c:if>
 									</p>
 									<p class="r-msgs">
@@ -122,36 +124,25 @@
 	<script>
 		//웹소켓 객체 저장용
 		var wsocket;
-		var connectFlag = false;
-		var returnFlag = false;
-		var nickName = '${sessionScope.nickName }';
-		var DMToNickName = '${getDMToNickName ==sessionScope.nickName? getNickName : getDMToNickName }';
-		var DMCtt;
-		var today = new Date();
-		var hours = today.getHours();
-        var minutes = ('0' + today.getMinutes()).slice(-2);
-        var timeString ;
-        
-		$(window).bind("load", function (){
-			
+		window.onload = function() {
 			// 로딩되기 시작할때 웹소켓 열기
-			wsocket = new WebSocket("ws:${pageContext.request.serverName}:${pageContext.request.serverPort}/websocket/chat-ws.do");
-			$("#chatMessage").scrollTop($("#chatMessage").prop('scrollHeight'));
-			wsocket.onopen = open; //open은 function이 저장된 var
+			var wsocket = new WebSocket("ws:${pageContext.request.serverName}:${pageContext.request.serverPort}/websocket/.");
+			console.log('wsocket:', wsocket);
 
+			wsocket.onopen = open(); //open은 function이 저장된 var
+
+			//이벤트리스너 등록, 대상객체.addEventListener(이벤트명, 실행할이벤트리스너)
 			wsocket.addEventListener("message", receiveMessage);
-			
+
 			//에러처리
 			wsocket.onerror = function(e) {
 				console.log('에러발생:', e)
 			};
 
-		});
+		}
 		$(window).bind('beforeunload', function() {
 			wsocket.onclose = close();
 		});
-		
-		
 
 		//전송버튼 클릭시]
 		/* $('#sendDM').click(function() {
@@ -166,158 +157,78 @@
 			var keyCode = e.keyCode ? e.keyCode : e.which;
 			if (keyCode == 13) {//엔터 입력
 				sendMessage();
-				clearBox();
+				console.log("메세지 입력성공")
 			}
 
 		});
 
 		var open = function() {
-			wsocket.send(nickName+'-'+DMToNickName+' connected');
-			
+			console.log('connected');
 		}
 		var close = function() {
-			wsocket.send(nickName+'-'+DMToNickName+' disconnected');
-		
+
+			console.log('disconnected');
 		}
 		//메시지를 DIV태그에 뿌려주기 위한 함수]
 
-		 var appendMessage = function(msg) {
-			 $('#chatMessage').append(msg);
-	         //스크롤 맨 아래로 내리기
-			 $("#chatMessage").scrollTop($("#chatMessage").prop('scrollHeight'));
+		/* var appendMessage = function(msg) {
+
+			$('#chatMessage').append(msg + "<br/>");
 		};
 		//서버에서 메시지를 받을때마다 호출되는 함수 
-		function receiveMessage(e){
-			if(e.data.split("&")[0] == DMToNickName+'-'+nickName){
-				switch(true){
-					case (hours == 0)==true:
-						hours = '오전 00';
-						break;
-					case (hours < 12)==true:
-						hours = '오전 '+('0' + today.getHours()).slice(-2);
-						break;
-					case (hours == 12)==true:
-						hours = '오후 '+ today.getHours().slice(-2);
-						break;
-					case (hours > 12 && hours < 24)==true:
-						hours = '오후 '+('0' + (today.getHours()%12)).slice(-2);
-						break;
-					default:
-						break;
-				}
-	            timeString = hours + ':' + minutes;
-	            DMCtt =  e.data.split("&")[1];
-	            appendMessage('<div class="l-msg-box" style="display:flex "><img src="${pageContext.request.contextPath}/images/profile/icon/icon0.jpg" alt="d" class="l-user-img"><p class="l-msgs">'+DMCtt+'</p><p style="position:relative; bottom:6px" ><span>'+timeString+'</span></p></div>');//서버로부터 받은 메시지를 msg:부분을 제외하고 div에 출력
-	            updateList(DMCtt); 
-			}else if(e.data == DMToNickName+'-'+nickName+' connected'){
-	            //ajax 비동기 통신으로 대화 읽음 처리
-	            $.ajax({
-	               url:"<c:url value="/DM/checkDM.do" />",
-	               type:"post",
-	               dataType:'text',
-	               data:
-	                  {
-	            	   nickName : nickName,
-						DMToNickName : DMToNickName
-	                  },
-	               success:function(data){
-	            	   
-	                  //사용자 UI 상에서도 읽음여부 표시(1) 제거
-	                  $('#DMCheck').remove();
-	                  //상대방 연결 중 확인
-	                  connectFlag = true;
-	                  
-	               },
-	               error: function(error){}
-	            });
-	            //상대방에게도 현재 접속 중 전달 
-	            if(!returnFlag){
-	               //한번만 전달
-	               returnFlag = true;
-	               //접송 중 전달
-	               open();   
-	            }
-	         }else if(e.data == DMToNickName+'-'+nickName+' disconnected'){//현재 채팅방에 상대가 연결 해제되었는지 확인
-	        	
-	        	
-	            //상대방 연결 해제 확인
-	            connectFlag = false;
-	            //상대방 접속 시 리턴 하기 위한 flag 초기화
-	            returnFlag = false;
-	           
-	         } 
-		 
-		
-		}; 
-
-		
-		
-  
+		var receiveMessage = function(e) {//e는 message이벤트 객체
+			//서버로부터 받은 데이타는 이벤트객체(e).data속성에 저장되어 있다
+			if (e.data.substring(0, 4) == 'msg:')
+				appendMessage(e.data.substring(4));//서버로부터 받은 메시지를 msg:부분을 제외하고 div에 출력
+		};
+ */
 		//서버로 메시지 전송하는 함수]
 		function sendMessage() {
-			DMCtt = $('#message').val();
-			wsocket.send(nickName +'-'+ DMToNickName+'&'+ DMCtt);
+			console.log('sendMessage');
+
+			var nickName = '${sessionScope.nickName }';
+			var DMToNickName = '${getDMToNickName ==sessionScope.nickName? getNickName : getDMToNickName }';
+			var DMCtt = $('#message').val();
+
 			if (DMCtt.trim() == '') {
 				alert('메세지를 입력하세요');
 				return;
 			}
+			var sendData = {
+				nickName : nickName,
+				DMToNickName : DMToNickName,
+				DMCtt : DMCtt
+			};
+			console.log('nickName: %s, DMToNickName: %s, DMCtt: %s', nickName, DMToNickName, DMCtt);
+			console.log('sendData: %s', sendData);
 
 			$.ajax({
 				url : '<c:url value="/DM/sendDM"/>',
 				method : 'POST',
 				data : {
-					read:connectFlag,
 					nickName : nickName,
 					DMToNickName : DMToNickName,
 					DMCtt : DMCtt
 				},
 				dataType : 'json',
 				success : function(resp) {
+					alert(JSON.stringify(sendData))
 				},
 				error : function(error) {//서버로부터 비정상적인 응답을 받았을때 호출되는 콜백함수
 					console.log('%O:', error);
 					console.log('에러:', error.responseText);
 				}
-			});
-			
-			switch(true){
-				case (hours == 0)==true:
-					hours = '오전 00';
-					break;
-				case (hours < 12)==true:
-					hours = '오전 '+('0' + today.getHours()).slice(-2);
-					break;
-				case (hours == 12)==true:
-					hours = '오후 '+ today.getHours().slice(-2);
-					break;
-				case (hours > 12 && hours < 24)==true:
-					hours = '오후 '+('0' + (today.getHours()%12)).slice(-2);
-					break;
-				default:
-					break;
-			}
-            timeString = hours + ':' + minutes;
-            updateList(DMCtt);
-            if(connectFlag){
-	            appendMessage('<div class="r-msg-box" style="display:flex;	margin: auto 0; margin-left: auto "> <p style="margin:7px 0px 0px 0px"><span >'+timeString+'</span></p><p class="r-msgs">'+DMCtt+'</p></div>');   
-	         
-			}else{
-	            appendMessage('<div class="r-msg-box" style="display:flex;	margin: auto 0; margin-left: auto "> <p style="margin:7px 0px 0px 0px"><span >'+timeString+'</span><span id="DMCheck" style="color:#cccccc;">1</span></p><p class="r-msgs">'+DMCtt+'</p></div>');
-	         }	
 
-	
+			})
+
+			//서버로 메시지 전송
+			/* wsocket.send(DMCtt);//msg:Superman:안녕 */
+			//DIV(대화영역)에 메시지 출력
+			//appendMessage(DMCtt);
+			//기존 메시지 클리어			
 			//포커스 주기
 			$('#message').focus();
 		}
-		function clearBox() {
-			$('#message').val('');
-			return false;
-		}
-		function updateList(msg) {
-			$('#${sessionScope.nickName == getDMToNickName ? getNickName: getDMToNickName}DMCtt').text(msg);
-			$('#${sessionScope.nickName == getDMToNickName ? getNickName: getDMToNickName}Time').text('지금');
-		}
-		
 	</script>
 </body>
 </html>

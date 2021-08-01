@@ -6,6 +6,9 @@ import java.util.Map;
 public interface ReviewService {
 
 	List<ReviewDTO> selectList();
+	//카테고리별
+	List<ReviewDTO> selectCategoryList(Map map);
+	
 	ReviewDTO selectOne(Map map);
 
 	ReviewDTO noCMNTselectOne(Map map);

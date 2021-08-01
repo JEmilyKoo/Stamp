@@ -27,9 +27,11 @@
 	</form>
 	<div class="nav-wrapper">
 		<ul class="nav flex-column">
-			<li id="analysisPage" class="nav-item active"><a class="nav-link " href="#">
-					<i class="material-icons">edit</i> <span>분석</span>
-				</a></li>
+			<a class="navbar-brand" href="<c:url value="/"/>"> 
+             <img
+               src="${pageContext.request.contextPath}/images/main/logo.png"
+               width="auto" height="40px" />
+            </a>
 			<li id="MemberMNG" class="nav-item active"><a class="nav-link " href="#">
 					<i class="material-icons">person</i><span>회원정보 관리</span>
 				</a></li>

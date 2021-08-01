@@ -14,6 +14,11 @@ public interface MemberService {
     int followCheck(MemberDTO memberDTO) throws Exception;
     int followCnt(MemberDTO memberDTO) throws Exception;
     int followerCnt(MemberDTO memberDTO) throws Exception;
+    
+    //안드로이드
+    MemberDTO Login(Map map);
+    int join(Map map);
+    int joinCheck(Map map);
 
 	
     //관리자 페이지

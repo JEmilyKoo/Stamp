@@ -20,6 +20,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/tripboard.css">
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript">
 	var bodyCacheable = true;
 	var exclusionReason = {
@@ -42,8 +43,29 @@
 
 			<div class="TitleBoardHeader"
 				style="margin: auto; position: relative; ">
+				
+				
+<c:if test="${not empty rvCategory1 }">
 				<img
-					src="${pageContext.request.contextPath}/images/tripboard/header_city1.jpg" />
+					src="${pageContext.request.contextPath}/images/tripboard/${ rvCategory1 }.jpg" />
+				
+				</c:if>
+
+<c:if test="${not empty rvCategory2 }">
+					<img
+					src="${pageContext.request.contextPath}/images/tripboard/${ rvCategory2 }.jpg" />
+				
+			
+				</c:if>
+
+<c:if test="${ empty rvCategory1  and empty rvCategory2}">
+				<img
+					src="${pageContext.request.contextPath}/images/tripboard/tripboard.jpg" />
+				
+				</c:if>
+				
+				
+				
 				<!--타이틀 이미지 들어감-->
 			</div>
 <c:if test="${! empty NotMember }">﻿
@@ -67,8 +89,6 @@
 
 				<!-- 내용물 -->
 
-
-
 				<!-- 게시물 작성하기 버튼 종료  -->
 				<!-- 카드뷰 -->
 <!-- 갯수 맞추기 위해 있어야 하는 코드 시작 -->
@@ -78,15 +98,39 @@
 					<c:if test="${! empty list }" var="val">
 						<c:forEach items="${list}" var="item">
 
+
+
 							<div class="item">
-								<div class="article" style="max-height:450px">
+								<div class="article w3-panel w3-card-2" style="max-height:450px">
 									<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
 									<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
 									<a target="_top"
 										href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">
 										<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
-										  <div   class="cardImage" style="height:200px ;background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg');">
-										</div>
+										<c:if test="${item.rvNo>500 }" var = "recommand">
+										<div class=" cardImage categoryDropDown " style=" height:200px ;margin: -1px -10px -10px 0px;color: white; text-shadow: 1px 1px 5px black;
+background-image: url('${pageContext.request.contextPath}/images/main/photos/${item.rvNo-500 }.jpg');">
+
+<button class="w3-button w3-blue">추천</button></div> 
+										</c:if>
+										<c:if test="${not recommand }">
+										
+											<c:if test="${empty item.image}" var ="image">
+											
+											 <div   class="cardImage" style="height:200px ; margin: -1px -10px -10px 0px;background-image: url('${pageContext.request.contextPath}/images/review/review1.jpg')">
+											
+											</div>
+											</c:if>
+											
+											<c:if test="${not image }">
+											 <div   class="cardImage" style="overflow:hidden;height:200px ; margin: -1px -10px -10px 0px;background-image: url('${item.image }');">
+											
+											</div>
+											
+											
+											 </c:if>
+										 
+										  </c:if>
 									</a>
 									<!-- 이미지 받아오는 코드 끝-->
 									<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 시작 -->

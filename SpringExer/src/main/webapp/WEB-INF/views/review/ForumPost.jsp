@@ -17,6 +17,7 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
 <title>${dto.rvTitle }|찍GO</title>
@@ -25,8 +26,8 @@
 	<jsp:include page="/WEB-INF/views/templates/Top.jsp" />
 
 	<div class="TripBoardContainer">
-		<div class="TitleBoardSearch"
-			style="background-color: #FFA8A5; padding-bottom: 10px;">
+		<div class="TitleBoardSearch w3-panel w3-card-2"
+			style=" padding-bottom: 10px;">
 			<!-- 여행 정보 > 여행 게시판  V 검색-->
 			<div class="_3B7XB">
 				<nav class="_3xObj font_9 breadcrumbs-text-color">
@@ -83,8 +84,8 @@
 			<!-- 여행정보 여행게시판 검색 -->
 		</div>
 		<div class="TripBoardContent">
-			<div class="TripBoardSideBar _1laFb "
-				style="border-color: #CD5C5C; border-width: 1px;">
+			<div class="TripBoardSideBar _1laFb  w3-panel w3-card-2"
+				style="border-color: #CCCCCC; border-width: 1px;">
 
 				<!-- 사이드 바 -->
 				<span class="_2Qq4e">카테고리</span> <a
@@ -115,16 +116,16 @@
 					class="button-color" bilocation="post_sidebar">전체 카테고리 보기</a>
 
 			</div>
-			<div class="TripBoardMain" style="width: 780px">
+			<div class="TripBoardMain" style="width: 780px; border-color:#CCCCCC">
 				<!-- 메인 -->
 
 				<!--여기서부터 게시글 시작-->
-				<div class="" style="width: 780px">
+				<div class="" style="width: 780px ; border-color:#CCCCCC;border:none">
 					<div
-						class="_1W1_h _1AA4r _2cpHr font_9 forum-card-background-color forum-card-border-colo _36m3S">
+						class="_1W1_h _1AA4r font_9 forum-card-background-color forum-card-border-colo _36m3S">
 						<div class="GNZwK ">
 							<main class="_1zsKH hHz9Y forum-card-border-color "
-								style="border-width: 1px;">
+								style="border-width: 0px; ">
 								<div class="eGv_z">
 									<div class="_2uwD1 xsS9i ">
 										<div class="Nrvl9">
@@ -134,7 +135,7 @@
 												<div class="_31l-O  _1ccuS avatar">
 													<span class="_14_Ju _1zT4G _28gI0">
 														<div class="_2LXiY"
-															style="background-image: url(&quot;https://lh3.googleusercontent.com/a-/AOh14GhTeL0915-lV5Hrbbsy8QHOVa-2nq-15HUSPapm%3Ds96-c&quot;); background-size: cover;"></div>
+															style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg'); background-size: cover;"></div>
 													</span>
 													<div class=" _1_vuc">
 														${dto.nickName }<img
@@ -156,7 +157,8 @@
 												</button>
 												<div role="menu" id="ReviewActions" class="actions">
 													<div>
-														<c:if test="${sessionScope.nickName==dto.nickName }" var="noNick">
+														<c:if test="${sessionScope.nickName==dto.nickName }"
+															var="noNick">
 															<a
 																href="<c:url value="/Review/Edit.do?rvNo=${dto.rvNo}"/>">
 																<button class="actionButton" role="menuitem">
@@ -168,7 +170,7 @@
 																</button>
 															</a>
 															<a
-															href="<c:url value="/Review/Delete.do?rvNo=${dto.rvNo}"/>">
+																href="<c:url value="/Review/Delete.do?rvNo=${dto.rvNo}"/>">
 																<button class="actionButton" role="menuitem">
 																	<div class="postActions">
 																		<img
@@ -180,7 +182,8 @@
 														</c:if>
 
 
-														<a href="<c:url value="/DM/DMChatBox.do?DMToNickName=${dto.nickName }"/>">
+														<a
+															href="<c:url value="/DM/DMChatBox2.do?nickName=${nickName }&DMToNickName=${dto.nickName }"/>">
 															<button class="actionButton" role="menuitem">
 																<div class="postActions">
 																	<div class="icon">
@@ -196,7 +199,7 @@
 															<button class="actionButton" role="menuitem">
 																<div class="postActions">
 																	<img
-																			src="${pageContext.request.contextPath}/images/svg/follow.svg" />
+																		src="${pageContext.request.contextPath}/images/svg/follow.svg" />
 																	<div class="ActionButtonText">팔로우</div>
 																</div>
 															</button>
@@ -204,9 +207,9 @@
 															<button class="actionButton" role="menuitem">
 																<div class="postActions"
 																	data-hook="post-actions__report">
-																	
+
 																	<img
-																			src="${pageContext.request.contextPath}/images/svg/warning.svg" />
+																		src="${pageContext.request.contextPath}/images/svg/warning.svg" />
 																	<div class="ActionButtonText">신고하기</div>
 																</div>
 															</button>
@@ -215,10 +218,10 @@
 													</div>
 
 
-													
+
 												</div>
 											</div>
-<!-- 버튼 끝 -->
+											<!-- 버튼 끝 -->
 
 
 
@@ -227,15 +230,35 @@
 									</div>
 
 									<!--본문 제목 시작-->
-									<h1 class="_2FqU5 _2-LCm post-title forum-title-classic-font">
-										<div class="_33VI0 _3N7Rh">${dto.rvTitle }</div>
-									</h1>
+<c:if test="${dto.rvNo>500 }" var="recommand">
 
+										<button
+											class="w3-button w3-blue w3-border w3-border-white w3-round-large"
+											style="padding: 1px 1px 1px 1px; position: relative; right:12px;top:28px">추천</button>
+									</c:if>
+									<div class="_2FqU5 _2-LCm categoryDropDown"
+										style="fontsize: 18px">
+										<div>${dto.rvTitle }</div>
+
+
+									</div>
+									
 									<!--본문 제목 끝-->
 
 									<!--본문의 내용 시작-->
 									<article class="font_9">
-										<div class="_1xs1G">${dto.rvCtt }</div>
+										<div class="_1xs1G">
+											<c:if test="${dto.rvNo>500 }" var="recommand">
+												<div class=" cardImage categoryDropDown "
+													style="height:400px;color: white; text-shadow: 1px 1px 5px black;
+background-image: url('${pageContext.request.contextPath}/images/main/photos/${dto.rvNo-500 }.jpg');"></div>
+											</c:if>
+											<c:if test="${not recommand }">
+										
+											</c:if>
+
+											${dto.rvCtt }
+										</div>
 									</article>
 									<!--본문의 내용 끝-->
 
@@ -330,81 +353,83 @@
 
 
 
-	<!-- 버튼시작 -->
-											<div class="LTwPD  dropdown" data-hook="more-button">
-												<button class="dropdown-toggle more-button"
-													id="dropdownButton1">
-													<!-- 드롭다운버튼 구현하는 곳 -->
-													<img
-														src="${pageContext.request.contextPath}/images/svg/moreButton.svg" />
-												</button>
-												<div role="menu" id="ReviewActions" class="actions">
-													<div>
-														<c:if test="${sessionScope.nickName==item2.nickName }"
-															var="noNick">
-															<a
-																href="<c:url value="/rvcEdit.do?rvcNo=${dto.rvcNo}"/>">
-																<button class="actionButton" role="menuitem">
-																	<div class="postActions">
+																<!-- 버튼시작 -->
+																<div class="LTwPD  dropdown" data-hook="more-button">
+																	<button class="dropdown-toggle more-button"
+																		id="dropdownButton1">
+																		<!-- 드롭다운버튼 구현하는 곳 -->
 																		<img
-																			src="${pageContext.request.contextPath}/images/svg/update.svg" />
-																		<div class="ActionButtonText">수정</div>
-																	</div>
-																</button>
-															</a>
-															<a
-															href="<c:url value="/rvcDelete.do?&rvNo=${dto.rvNo }&rvcNo=${item2.rvcNo}"/>">
-																<button class="actionButton" role="menuitem">
-																	<div class="postActions">
-																		<img
-																			src="${pageContext.request.contextPath}/images/svg/delete.svg" />
-																		<div class="ActionButtonText">삭제</div>
-																	</div>
-																</button>
-															</a>
-														</c:if>
+																			src="${pageContext.request.contextPath}/images/svg/moreButton.svg" />
+																	</button>
+																	<div role="menu" id="ReviewActions" class="actions">
+																		<div>
+																			<c:if
+																				test="${sessionScope.nickName==item2.nickName }"
+																				var="noNick">
+																				<a
+																					href="<c:url value="/rvcEdit.do?rvcNo=${dto.rvcNo}"/>">
+																					<button class="actionButton" role="menuitem">
+																						<div class="postActions">
+																							<img
+																								src="${pageContext.request.contextPath}/images/svg/update.svg" />
+																							<div class="ActionButtonText">수정</div>
+																						</div>
+																					</button>
+																				</a>
+																				<a
+																					href="<c:url value="/rvcDelete.do?&rvNo=${dto.rvNo }&rvcNo=${item2.rvcNo}"/>">
+																					<button class="actionButton" role="menuitem">
+																						<div class="postActions">
+																							<img
+																								src="${pageContext.request.contextPath}/images/svg/delete.svg" />
+																							<div class="ActionButtonText">삭제</div>
+																						</div>
+																					</button>
+																				</a>
+																			</c:if>
 
-	<a href="<c:url value="/DM/DMChatBox.do?DMToNickName=${item2.nickName }"/>">
-													
+																			<a
+																				href="<c:url value="/DM/DMChatBox.do?DMToNickName=${item2.nickName }"/>">
 
-															<button class="actionButton" role="menuitem">
-																<div class="postActions">
-																	<div class="icon">
-																		<svg xmlns="http://www.w3.org/2000/svg" width="24"
-																			height="24" viewBox="0 0 24 24">
+
+																				<button class="actionButton" role="menuitem">
+																					<div class="postActions">
+																						<div class="icon">
+																							<svg xmlns="http://www.w3.org/2000/svg"
+																								width="24" height="24" viewBox="0 0 24 24">
                                           <path
-																				d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"></path></svg>
+																									d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"></path></svg>
+																						</div>
+																						<div class="ActionButtonText">DM</div>
+																					</div>
+																				</button>
+																			</a> <a href="#">
+																				<button class="actionButton" role="menuitem">
+																					<div class="postActions">
+																						<img
+																							src="${pageContext.request.contextPath}/images/svg/follow.svg" />
+																						<div class="ActionButtonText">팔로우</div>
+																					</div>
+																				</button>
+																			</a><a href="#">
+																				<button class="actionButton" role="menuitem">
+																					<div class="postActions"
+																						data-hook="post-actions__report">
+
+																						<img
+																							src="${pageContext.request.contextPath}/images/svg/warning.svg" />
+																						<div class="ActionButtonText">신고하기</div>
+																					</div>
+																				</button>
+																			</a>
+
+																		</div>
+
+
+
 																	</div>
-																	<div class="ActionButtonText">DM</div>
 																</div>
-															</button>
-														</a> <a href="#">
-															<button class="actionButton" role="menuitem">
-																<div class="postActions">
-																	<img
-																			src="${pageContext.request.contextPath}/images/svg/follow.svg" />
-																	<div class="ActionButtonText">팔로우</div>
-																</div>
-															</button>
-														</a><a href="#">
-															<button class="actionButton" role="menuitem">
-																<div class="postActions"
-																	data-hook="post-actions__report">
-																	
-																	<img
-																			src="${pageContext.request.contextPath}/images/svg/warning.svg" />
-																	<div class="ActionButtonText">신고하기</div>
-																</div>
-															</button>
-														</a>
-
-													</div>
-
-
-													
-												</div>
-											</div>
-<!-- 버튼 끝 -->
+																<!-- 버튼 끝 -->
 
 
 
@@ -412,7 +437,7 @@
 
 
 
-															
+
 															</div>
 
 

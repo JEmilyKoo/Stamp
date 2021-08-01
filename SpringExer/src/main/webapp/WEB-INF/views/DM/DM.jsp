@@ -313,8 +313,8 @@ button, input, textarea {
 		<div class="left">
 			<header class="header">
 				<div class="header-items"></div>
-				<div class="header-items user" style="display:flex;margin:0 auto">
-					<p class="user-name" style="text-align: center;margin:0 auto">${sessionScope.nickName }</p>
+				<div class="header-items user" style="display:flex;justify-content:center	">
+					<p class="user-name" style="text-align: center;">${sessionScope.nickName }</p>
 				</div>
 				<div class="header-items"></div>
 				<div class="header-items"></div>

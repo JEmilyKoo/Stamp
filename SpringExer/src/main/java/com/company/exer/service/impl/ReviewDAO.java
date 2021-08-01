@@ -20,6 +20,10 @@ public class ReviewDAO {
 		return sqlMapper.selectList("reviewSelectList");
 	}
 
+	public List<ReviewDTO> selectCategoryList(Map map) {
+		return sqlMapper.selectList("reviewSelectCategoryList",map);
+
+	}
 
 	public ReviewDTO selectOne(Map map) {
 		return sqlMapper.selectOne("reviewSelectOne",map);
@@ -73,6 +77,8 @@ public class ReviewDAO {
 	public int rvFileAdd(Map map) {
 		return sqlMapper.insert("rvFileAdd",map);
 	}
+
+
 
 	
 }

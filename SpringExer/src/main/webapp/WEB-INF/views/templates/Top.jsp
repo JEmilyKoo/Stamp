@@ -77,7 +77,55 @@ body {
    text-align: left;
    line-height: 1.875em;
 }
+
+
+
+
+
+
+
+
+   .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+    
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%; /* Could be more or less, depending on screen size */
+            height: 50%;                          
+        }
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+
 </style>
+
+
 
 <script>
    $(function() {
@@ -141,6 +189,88 @@ body {
 
                <li><a href="<c:url value="/Stamp/MapSearch.do"/>">지도 검색</a></li>
 
+               <li><button id="myBtn">모달-챗봇</button>
+               
+               </li>
+    		
+    
+
+                 <!-- The Modal -->
+    <div id="myModal" class="modal">
+ 
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>                                                               
+        <div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="col-md-8 col-sm-12 mx-auto">
+                <div class="h-100 justify-content-center">
+                    <div class="chat-container" style="overflow: auto; max-height: 80vh">
+
+                        <div class="chat-message col-md-5 bot-message" style="margin-bottom:50px">
+                          안녕하세요 챗봇 도우미입니다
+                        </div>
+
+
+
+                    </div>
+                    <input class="input" type="text"  placeholder="내용을 입력하세요!!" id="query"/>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script>
+    function sendMessage(message) {
+        console.log('입력메시지:',message)
+		
+
+        $.ajax({url:"https://8782999142f4.ngrok.io/message",data:{'message': message,'session_id':'<%=session.getId()%>'},type:'post',success:receiveResponse})
+
+        //flask서버로부터 응답을 받으면 receiveResponse콜백함수가 호출됨
+        function receiveResponse(data) {//data는 flask로부터 받은 응답 {'message':'다이얼로그플로우가 보내준값'}
+          //chat-container에 bot의 응답 추가
+          $('.chat-container').append('<div class="chat-message col-md-5 bot-message">'+data.message+'</div>')
+          //스크롤바 아래로
+          $(".chat-container").scrollTop($(".chat-container")[0].scrollHeight);
+
+             console.log('받은 메시지:',data)
+        }
+    }
+	$("#query").on('keypress',function(e) {
+
+    if (e.keyCode == 13){
+        //e.preventDefault();
+        var query = $(this).val()
+        console.log(query)
+        if (!query) {//텍스트를 입력하지 않는 경우
+          return
+        }
+        //chat-container에 사용자의 응답 추가
+        $('.chat-container').append('<div class="chat-message col-md-5 offset-md-7 human-message">'+query+'</div>')
+        // 입력창 클리어
+        $('#query').val('')
+        //스크롤바 아래로
+        $(".chat-container").scrollTop($(".chat-container")[0].scrollHeight);
+        //메시지 전송
+        sendMessage(query)
+    }
+});
+    
+    
+    
+    
+    </script>
+      </div>
+ 
+    </div>
+               
+    
+    
+  
                <c:if test="${not empty sessionScope.id }" var="isLogin">
                   <!-- 프로필 사진 시작 -->
                   <div class="_33LjI avatar">
@@ -151,7 +281,7 @@ body {
                            <div class="_1wPNJ fluid-avatar-image topImage"
                               style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon${profile.openprf}.jpg');">
                            </div>
-                     </span> d
+                     </span> 
                      </a>
                   </div>
 
@@ -328,9 +458,36 @@ body {
       </div>
    </nav>
 
+<script >
+		
+		// Get the modal
+		var modal = document.getElementById('myModal');
+		
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+		
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];                                          
+		
+		// When the user clicks on the button, open the modal 
+		btn.onclick = function() {
+		    modal.style.display = "block";
+		}
+		
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		    modal.style.display = "none";
+		}
+		
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		}
 
 
-
+</script>
 
 
 </body>

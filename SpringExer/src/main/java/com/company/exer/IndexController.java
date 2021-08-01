@@ -28,6 +28,12 @@ public class IndexController {
 	
 	//컨트롤러 메소드]
 	
+		
+	@RequestMapping("/Bot.do")
+	public String Bot() {
+		//뷰정보 반환]
+		return "/templates/Bot";
+	}///////////////////Badge()
 	
 	@RequestMapping("/Stamp/Badge.do")
 	public String Badge() {

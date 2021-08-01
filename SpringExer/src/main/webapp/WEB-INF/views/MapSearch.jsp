@@ -145,7 +145,7 @@ var positions = [
 	            '        </div>' + 
 	            '        <div class="body">' + 
 	            '            <div class="img">' +
-	            '                <img src="" width="73" height="70">' +
+	            '                <img src="<c:url value="/images/main/photos/1.jpg"/>" width="100" height="100">' +
 	            '           </div>' + 
 	            '        </div>' + 
 	            '    </div>' +    
