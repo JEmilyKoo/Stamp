@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import com.company.exer.service.MemberDTO;
+import com.company.exer.service.MemberService;
 
 
 @Repository("memberDAO")
@@ -54,6 +55,20 @@ public class MemberDAO {
 		return sqlMapper.selectOne("followerCnt",memberDTO);
 	}
 	
+	//안드로이드 로그인
+	public MemberDTO Login(Map map) {
+		return sqlMapper.selectOne("login",map);
+	}
+	
+	//안드로이드 회원가입
+	public int join(Map map) {
+		return sqlMapper.insert("join",map);
+	}
+	
+	//안드로이드 회원가입 체크
+	public int joinCheck(Map map) {
+		return sqlMapper.selectOne("joinCheck",map);
+	}
 	
 	///////////관리자 페이지
 	public List adminMemberList() {
@@ -63,4 +78,7 @@ public class MemberDAO {
 	public int deleteAdminMember(Map map) {
 		return sqlMapper.delete("deleteAdminMember",map);
 	}
+
+
+
 }

@@ -38,6 +38,24 @@
         WHERE id = #{id}
         AND pwd = #{pwd}
     </select>
+    
+    <!-- 안드로이드 로그인 -->
+    <select id="login" parameterType="Map"  resultType="memberDTO">
+    		SELECT * FROM member WHERE id=#{id} AND pwd = #{pwd}
+    </select>
+    
+  
+    <!-- 안드로이드 회원가입 체크 -->
+    <select id="joinCheck" parameterType="Map" resultType="Int">
+    	SELECT count(*) FROM member WHERE id=#{id}
+    </select>
+    
+    <!-- 안드로이드 회원가입 -->
+    <insert id="join" parameterType="Map">
+    		insert into member
+    		values(#{id},#{pwd},#{name},default)
+    </insert>
+    
  
  	<select id="followCheck" parameterType="memberDTO" resultType="Int">
 		SELECT * FROM FOLLOW

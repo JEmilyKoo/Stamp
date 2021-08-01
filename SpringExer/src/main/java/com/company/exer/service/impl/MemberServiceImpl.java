@@ -62,4 +62,24 @@ public class MemberServiceImpl implements MemberService {
 	public int deleteAdminMember(Map map) {
 		return dao.deleteAdminMember(map);
 	}
+
+	//안드로이드 로그인
+	@Override
+	public MemberDTO Login(Map map) {
+		return dao.Login(map);
+	}
+
+	//안드로이드 회원가입
+	@Override
+	public int join(Map map) {
+		// TODO Auto-generated method stub
+		return dao.join(map);
+	}
+	
+	@Override
+	public int joinCheck(Map map) {
+		// TODO Auto-generated method stub
+		return dao.joinCheck(map);
+	}
+	
 }
