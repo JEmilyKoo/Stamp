@@ -19,6 +19,8 @@
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+<!-- 부가적인 테마 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <style>
 
 .link-icon { position: relative; display: inline-block; width: auto;    font-size: 14px; font-weight: 500; color: #333; margin-right: 10px; padding-top: 50px; }
@@ -289,30 +291,36 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${d
 
 										</div>
 										<div class="KkXMX" id="likecount">${dto.rvLikeCnt}</div>
-										<div>
-										<!--<button class="A9boD">
+										
+											<!--<button class="A9boD">
 											<img
 												src="${pageContext.request.contextPath}/images/review/icon-facebook.png" />
 											<span class="_2HBxV">공유</span>
 										</button>
 										</div>-->
-<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
-<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>
+											<div class="KkXMX" style="max-width: 1000px; height: 15px">
+												<c:if test="${true}">
+													<img id="scrap"
+														style="height: 15px; position: relative; top: 30px"
+														src="../images/review/Star1.png">
+												</c:if>
+												<c:if test="${false}">
+													<img id="scrap" style="height: 15px;"
+														src="../images/review/Star2.png">
+												</c:if>
+<div  id="scrapcount"
+												style="position: relative; top: 30px">0</div>
+										
+											</div>
 
-<div>
-											<c:if test="${true}">
-												<img id="scrap" src="../images/review/Star1.png">
-											</c:if>
-											<c:if test="${false}">
-												<img id="scrap" src="../images/review/Star2.png">
-											</c:if>
-</div>    
-									</div>
-<div class="KkXMX" id="scrapcount">0</div>
+											
+<div style="position:relative;left:400px;top:10px;">
+										<a id="btnTwitter" class="link-icon twitter"  style="text-decoration:none; width:50px" href="javascript:shareTwitter();" data-toggle="tooltip" data-placement="top" title="트위터">&nbsp</a>
+<a id="btnFacebook" class="link-icon facebook"  style="text-decoration:none; width:50px"href="javascript:shareFacebook();" data-toggle="tooltip" data-placement="top" title="페이스북">&nbsp</a>
 
 									<!-- 댓글(1) 좋아요 공유 끝-->
 
-
+</div>
 
 								</div>
 							</main>
