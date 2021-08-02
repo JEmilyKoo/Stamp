@@ -78,6 +78,18 @@ public class ReviewDAO {
 		return sqlMapper.insert("rvFileAdd",map);
 	}
 
+	public int rvScrapCheck(Map map) {
+		return sqlMapper.selectOne("rvScrapCheck",map);
+	}
+
+	public int rvScrapAdd(Map map) {
+		return sqlMapper.insert("rvScrapAdd",map);
+	}
+
+	public int unScrap(Map map) {
+		return sqlMapper.delete("unScrap",map);
+	}
+
 
 
 	
