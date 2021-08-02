@@ -19,6 +19,14 @@
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+<style>
+
+.link-icon { position: relative; display: inline-block; width: auto;    font-size: 14px; font-weight: 500; color: #333; margin-right: 10px; padding-top: 50px; }
+.link-icon.twitter { background-image: url(${pageContext.request.contextPath}/images/review/icon-twitter.png); background-repeat: no-repeat; }
+.link-icon.facebook { background-image: url(${pageContext.request.contextPath}/images/review/icon-facebook.png); background-repeat: no-repeat; } 
+.link-icon.kakao { background-image: url(../images/review/icon-kakao.png); background-repeat: no-repeat; }
+
+</style>
 
 <title>${dto.rvTitle }|찍GO</title>
 </head>
@@ -281,13 +289,27 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${d
 
 										</div>
 										<div class="KkXMX" id="likecount">${dto.rvLikeCnt}</div>
-										<button class="A9boD">
+										<div>
+										<!--<button class="A9boD">
 											<img
-												src="${pageContext.request.contextPath}/images/svg/shareViaLink.svg" />
+												src="${pageContext.request.contextPath}/images/review/icon-facebook.png" />
 											<span class="_2HBxV">공유</span>
 										</button>
-
+										</div>
+										<button class="A9boD">
+											<img
+												src="${pageContext.request.contextPath}/images/review/icon-twitter.png" />
+											<span class="_2HBxV">공유</span>
+										</button>-->
+<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
+<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>    
 									</div>
+<c:if test="${dto.rvLikeCheck != 1 }">
+												<img id="like" src="../images/review/beanH.png">
+											</c:if>
+											<c:if test="${dto.rvLikeCheck == 1 }">
+												<img id="like" src="../images/review/fullH.png">
+											</c:if>
 
 									<!-- 댓글(1) 좋아요 공유 끝-->
 
@@ -692,7 +714,20 @@ $(function() {
             //댓글 구현중
             
             
+       //트위터 공유 구현하기
+		        
+		function shareTwitter() {
+		    var sendText = "${dto.rvTitle}"; // 전달할 텍스트
+		    var sendUrl = "http://localhost:9090/exer/Review/ForumPost.do?rvNo=${dto.rvNo}"; // 전달할 URL
+		    window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
+		}
             
+            //페이스북 공유 구현하기
+	    function shareFacebook() {
+			var sendUrl = "http://localhost:9090/exer/Review/ForumPost.do?rvNo=${dto.rvNo}"; // 전달할 URL
+			window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+		}
+
             
           
             
