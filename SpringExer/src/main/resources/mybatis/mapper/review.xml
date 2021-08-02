@@ -36,11 +36,8 @@
 		WHERE rvNo 
 		IN (SELECT rvno 
 		FROM scrap
-		WHERE nickName=#{nickName})
-				
+		WHERE nickName=#{nickName})	
 	</select>
-	
-	
 	
 
 	<insert id="rvFileAdd" parameterType="Map">

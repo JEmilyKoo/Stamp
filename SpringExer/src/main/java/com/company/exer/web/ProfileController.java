@@ -272,28 +272,21 @@ public class ProfileController {
 	
 	@RequestMapping("Like.do")
 	public String ProfileScrapLike(@RequestParam Map map,Model model,HttpSession session) {
-		
-		System.out.println("프로필 Map확인 : "+map);
-		String nickName;
-		nickName = session.getAttribute("nickName").toString();
+
+		String nickName = session.getAttribute("nickName").toString();
 		map.put("nickName", nickName);
-		//테스트
-		System.out.println("프로필 nickName : "+nickName);
 		int check =reviewService.rvScrapCount(map);
 		if(check>=1) {
-			//글번호랑 제목만 가져오자 일단
 			List<ReviewDTO> list = reviewService.rvScrapBring(map);
-			System.out.println("좋아요한 list"+list);
 			model.addAttribute("list",list);
 		}
 		else {
 			model.addAttribute("noScrap","스크랩한 글이 없어요");
 		}
-		
-		
-		
+
 		//뷰정보 반환]
 		return "Profile/ProfileLike";
+		
 	}///////////////////ProfileLike()
 	
 //ProfileAlarm에서 쓰이는 컨트롤러
