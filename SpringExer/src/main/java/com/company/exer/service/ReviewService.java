@@ -25,4 +25,6 @@ public interface ReviewService {
 	int rvScrapCheck(Map map);
 	int rvScrapAdd(Map map);
 	int unScrap(Map map);
+	int rvScrapCount(Map map);
+	List<ReviewDTO> rvScrapBring(Map map);
 }

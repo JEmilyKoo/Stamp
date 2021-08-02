@@ -90,7 +90,13 @@ public class ReviewDAO {
 		return sqlMapper.delete("unScrap",map);
 	}
 
+	public int rvScrapCount(Map map) {
+		return sqlMapper.selectOne("rvScrapCount",map);
+	}
 
+	public List<ReviewDTO> rvScrapBring(Map map) {
+		return sqlMapper.selectList("rvScrapBring",map);
+	}
 
 	
 }

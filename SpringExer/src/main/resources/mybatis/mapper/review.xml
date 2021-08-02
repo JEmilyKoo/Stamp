@@ -23,6 +23,25 @@
 		where rvNo=#{rvNo} and nickName=#{nickName}
 	</delete>
 	
+	<select id="rvScrapCount" parameterType="Map" resultType="Int">
+		select count(*)
+		from scrap
+		where nickName=#{nickName}
+	</select>
+	
+	
+	<select id="rvScrapBring" parameterType="Map" resultType="reviewDTO">
+		SELECT * 
+		FROM review 
+		WHERE rvNo 
+		IN (SELECT rvno 
+		FROM scrap
+		WHERE nickName=#{nickName})
+				
+	</select>
+	
+	
+	
 
 	<insert id="rvFileAdd" parameterType="Map">
 		INSERT INTO rvFileAdd 
