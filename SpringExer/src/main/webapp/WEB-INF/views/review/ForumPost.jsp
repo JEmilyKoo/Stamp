@@ -295,21 +295,20 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${d
 												src="${pageContext.request.contextPath}/images/review/icon-facebook.png" />
 											<span class="_2HBxV">공유</span>
 										</button>
-										</div>
-										<button class="A9boD">
-											<img
-												src="${pageContext.request.contextPath}/images/review/icon-twitter.png" />
-											<span class="_2HBxV">공유</span>
-										</button>-->
+										</div>-->
 <a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
-<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>    
+<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>
+
+<div>
+											<c:if test="${true}">
+												<img id="scrap" src="../images/review/Star1.png">
+											</c:if>
+											<c:if test="${false}">
+												<img id="scrap" src="../images/review/Star2.png">
+											</c:if>
+</div>    
 									</div>
-<c:if test="${dto.rvLikeCheck != 1 }">
-												<img id="like" src="../images/review/beanH.png">
-											</c:if>
-											<c:if test="${dto.rvLikeCheck == 1 }">
-												<img id="like" src="../images/review/fullH.png">
-											</c:if>
+<div class="KkXMX" id="scrapcount">0</div>
 
 									<!-- 댓글(1) 좋아요 공유 끝-->
 
@@ -728,7 +727,34 @@ $(function() {
 			window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
 		}
 
+          
+            //스크랩 구현
+            //스크랩 구현 ajax
+            	//var nickName = "${sessionScope.nickName}"
+            	//var rvNo = "${dto.rvNo}"
+            	//var scrapcount = Number.parseInt($("#scrapcount").html())
             
+            	$("#scrap").click(function(){
+            		$.ajax({
+            			url:"<c:url value="/Review/Scrap.do"/>",
+            			type:"post",
+            			data:{nickName, rvNo},
+            			dataType:"text",
+            			success:function(data){
+            				if(data==0){
+            					$("#scrap").attr("src","../images/review/Star1.png");
+            					$("#scrapcount").html(++scrapcount);
+            				}
+            				else{
+            					$("#scrap").attr("src","../images/review/Star2.png");
+            					$("#scrapcount").html(--scrapcount);
+            				}
+            			},
+            			error:function(){
+            				alert("잘못된 접근입니다.");
+            			}
+            		});
+            	});
           
             
             

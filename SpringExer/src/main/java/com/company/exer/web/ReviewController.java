@@ -455,6 +455,52 @@ public class ReviewController {
 		return check;
 	}
 	
+	
+	
+	//스크랩 체크
+	@RequestMapping(value="/Review/Scrap.do",produces = "application/json;charset=UTF-8")
+	public @ResponseBody int scrap(@RequestParam Map map) throws IOException {
+		//접속유저의 스크랩 여부 체크
+		System.out.println("스크랩여부체크");
+		int check = reviewService.rvScrapCheck(map);
+		System.out.println("스크랩여부체크후");
+		if(check==0) {
+			//좋아요 갯수가 0이면 하나 추가한다
+			System.out.println("들어왔다");
+			int scrapAdd = reviewService.rvScrapAdd(map);
+			//좋아요 받은 게시글의 작성자에게 경험치 부여
+			//profileService.likeEP(map);
+			System.out.println("들어와서나간다");
+		}
+		else if(check==1){
+			//좋아요가 1이면 없앤다
+			reviewService.unScrap(map); 
+		}
+		//좋아요 갯수 체크
+		//reviewService.likeCount(map);
+	
+		//게시글 불러오기
+		System.out.println("게시글 불러온다");
+		ReviewDTO dto=reviewService.noCMNTselectOne(map);
+		System.out.println("게시글 불러왔다");
+		//좋아요가 두개 이상이면
+		//if(dto.getRvLikeCnt()>=2) {
+			//스탬프 생성 쿼리
+			//reviewService.stampCreate(map);
+			//스탬프생성 경험치 
+			//profileService.stampEP(map);
+		//}
+		 
+		return check;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping(value="/Review/Edit.do", method = RequestMethod.GET)
 	public String Edit(@RequestParam Map map,Model model ) {
 		ReviewDTO dto = reviewService.selectOne(map);
