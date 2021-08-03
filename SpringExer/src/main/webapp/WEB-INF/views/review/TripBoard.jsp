@@ -264,6 +264,8 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${i
 			</div>
 		</div>
 	</div>
+	
+	
 </body>
 
 </html>

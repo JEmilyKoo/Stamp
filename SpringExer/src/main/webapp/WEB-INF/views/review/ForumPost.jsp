@@ -19,6 +19,16 @@
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+<!-- 부가적인 테마 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<style>
+
+.link-icon { position: relative; display: inline-block; width: auto;    font-size: 14px; font-weight: 500; color: #333; margin-right: 10px; padding-top: 50px; }
+.link-icon.twitter { background-image: url(${pageContext.request.contextPath}/images/review/icon-twitter.png); background-repeat: no-repeat; }
+.link-icon.facebook { background-image: url(${pageContext.request.contextPath}/images/review/icon-facebook.png); background-repeat: no-repeat; } 
+.link-icon.kakao { background-image: url(../images/review/icon-kakao.png); background-repeat: no-repeat; }
+
+</style>
 
 <title>${dto.rvTitle }|찍GO</title>
 </head>
@@ -281,17 +291,36 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${d
 
 										</div>
 										<div class="KkXMX" id="likecount">${dto.rvLikeCnt}</div>
-										<button class="A9boD">
+										
+											<!--<button class="A9boD">
 											<img
-												src="${pageContext.request.contextPath}/images/svg/shareViaLink.svg" />
+												src="${pageContext.request.contextPath}/images/review/icon-facebook.png" />
 											<span class="_2HBxV">공유</span>
 										</button>
+										</div>-->
+											<div class="KkXMX" style="max-width: 1000px; height: 15px">
+												<c:if test="${true}">
+													<img id="scrap"
+														style="height: 15px; position: relative; top: 30px"
+														src="../images/review/Star1.png">
+												</c:if>
+												<c:if test="${false}">
+													<img id="scrap" style="height: 15px;"
+														src="../images/review/Star2.png">
+												</c:if>
+<div  id="scrapcount"
+												style="position: relative; top: 30px">0</div>
+										
+											</div>
 
-									</div>
+											
+<div style="position:relative;left:400px;top:10px;">
+										<a id="btnTwitter" class="link-icon twitter"  style="text-decoration:none; width:50px" href="javascript:shareTwitter();" data-toggle="tooltip" data-placement="top" title="트위터">&nbsp</a>
+<a id="btnFacebook" class="link-icon facebook"  style="text-decoration:none; width:50px"href="javascript:shareFacebook();" data-toggle="tooltip" data-placement="top" title="페이스북">&nbsp</a>
 
 									<!-- 댓글(1) 좋아요 공유 끝-->
 
-
+</div>
 
 								</div>
 							</main>
@@ -692,8 +721,48 @@ $(function() {
             //댓글 구현중
             
             
+       //트위터 공유 구현하기
+		        
+		function shareTwitter() {
+		    var sendText = "${dto.rvTitle}"; // 전달할 텍스트
+		    var sendUrl = "http://localhost:9090/exer/Review/ForumPost.do?rvNo=${dto.rvNo}"; // 전달할 URL
+		    window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
+		}
             
+            //페이스북 공유 구현하기
+	    function shareFacebook() {
+			var sendUrl = "http://localhost:9090/exer/Review/ForumPost.do?rvNo=${dto.rvNo}"; // 전달할 URL
+			window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+		}
+
+          
+            //스크랩 구현
+            //스크랩 구현 ajax
+            	//var nickName = "${sessionScope.nickName}"
+            	//var rvNo = "${dto.rvNo}"
+            	//var scrapcount = Number.parseInt($("#scrapcount").html())
             
+            	$("#scrap").click(function(){
+            		$.ajax({
+            			url:"<c:url value="/Review/Scrap.do"/>",
+            			type:"post",
+            			data:{nickName, rvNo},
+            			dataType:"text",
+            			success:function(data){
+            				if(data==0){
+            					$("#scrap").attr("src","../images/review/Star1.png");
+            					$("#scrapcount").html(++scrapcount);
+            				}
+            				else{
+            					$("#scrap").attr("src","../images/review/Star2.png");
+            					$("#scrapcount").html(--scrapcount);
+            				}
+            			},
+            			error:function(){
+            				alert("잘못된 접근입니다.");
+            			}
+            		});
+            	});
           
             
             

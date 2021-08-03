@@ -87,6 +87,36 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.rvFileAdd(map);
 	}
 
+
+	@Override
+	public int rvScrapCheck(Map map) {
+		return dao.rvScrapCheck(map);
+	}
+
+
+	@Override
+	public int rvScrapAdd(Map map) {
+		return dao.rvScrapAdd(map);
+	}
+
+
+	@Override
+	public int unScrap(Map map) {
+		return dao.unScrap(map);
+	}
+
+
+	@Override
+	public int rvScrapCount(Map map) {
+		return dao.rvScrapCount(map);
+	}
+
+
+	@Override
+	public List<ReviewDTO> rvScrapBring(Map map) {
+		return dao.rvScrapBring(map);
+	}
+
 	
 
 	

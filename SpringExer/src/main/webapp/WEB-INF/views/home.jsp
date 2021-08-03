@@ -405,7 +405,7 @@
 					d="M159.875,174.481L306.945,27.41c2.93-2.929,2.93-7.678,0-10.606L292.803,2.661c-1.406-1.407-3.314-2.197-5.303-2.197c-1.989,0-3.896,0.79-5.303,2.197L154.572,130.287L26.946,2.661c-1.406-1.407-3.314-2.197-5.303-2.197c-1.989,0-3.897,0.79-5.303,2.197L2.197,16.804C0.733,18.269,0,20.188,0,22.107s0.732,3.839,2.197,5.303l147.071,147.071C152.197,177.411,156.945,177.411,159.875,174.481L159.875,174.481z" />
 				</svg>
 		</button>
-
+	
 	</div>
 	<!-- /view -->
 	<script src="${pageContext.request.contextPath}/js/classie.js"></script>
@@ -413,6 +413,8 @@
 	<script
 		src="${pageContext.request.contextPath}/js/imagesloaded.pkgd.min.js"></script>
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
+	
+
 	
 </body>	
 </html>

@@ -161,13 +161,10 @@ public class ReviewController {
 	@ResponseBody
 	@RequestMapping("/upload/displayFile")
 	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception{
-		System.out.println("들어오니1?");
 		//서버의 파일을 다운로드하기 위한 스트림
 		InputStream in = null; //java.io
 		ResponseEntity<byte[]> entity = null;
-		System.out.println("들어오니2?");
 		try {
-			System.out.println("들어오니3?");
 			// 확장자를 추출하여 formatName에 저장
 			String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
 			//추출한 확장자를 MediaUtils클래스에서 이미지파일여부를 검사하고 리턴받아 mType에 저장
@@ -178,13 +175,11 @@ public class ReviewController {
 			in = new FileInputStream(uploadPath + fileName);
 			//이미지 파일이면
 			if (mType != null) {
-				System.out.println("들어오니4?");
 				headers.setContentType(mType);
 				
 			}
 			//이미지가 아니면
 			else {
-				System.out.println("들어오니5?");
 				fileName =fileName.substring(fileName.indexOf("_")+1);
 				//다운로드용 컨텐트 타입
 				headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);;
@@ -193,7 +188,6 @@ public class ReviewController {
 				headers.add("Content-Disposition", "attachment; filename=\""+new String(fileName.getBytes("utf-8"), "iso-8859-1")+"\"");
 			}
 			//바이트배열, 헤더, HTTP상태코드
-			System.out.println("들어오니6?");
 			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in),headers,HttpStatus.OK);
 			
 		}
@@ -205,9 +199,7 @@ public class ReviewController {
 		}
 		finally {
 			in.close();//스트림 닫기
-			System.out.println("들어오니7?");
 		}
-		System.out.println("들어오니8?");
 		return entity;
 	}
 	
@@ -392,12 +384,11 @@ public class ReviewController {
 		
 		map.put("nickName", nickName);
 		try {
-		int check =reviewService.insert(map);
+			int check =reviewService.insert(map);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("e:"+e.getMessage());
-			logger.info("테스트");
 			model.addAttribute("noText","글을 입력해주세요.");
 			return "review/Write";
 		}
@@ -463,6 +454,36 @@ public class ReviewController {
 		 
 		return check;
 	}
+	
+	
+	
+	//스크랩 체크
+	@RequestMapping(value="/Review/Scrap.do",produces = "application/json;charset=UTF-8")
+	public @ResponseBody int scrap(@RequestParam Map map) throws IOException {
+		//접속유저의 스크랩 여부 체크
+		int check = reviewService.rvScrapCheck(map);
+		if(check==0) {
+			//스크랩 갯수가 0이면 하나 추가한다
+			int scrapAdd = reviewService.rvScrapAdd(map);
+
+		}
+		else if(check==1){
+			//스크랩이 1이면 없앤다
+			reviewService.unScrap(map); 
+		}
+
+		//게시글 불러오기
+		ReviewDTO dto=reviewService.noCMNTselectOne(map);
+
+		return check;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value="/Review/Edit.do", method = RequestMethod.GET)
 	public String Edit(@RequestParam Map map,Model model ) {

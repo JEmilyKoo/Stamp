@@ -22,4 +22,9 @@ public interface ReviewService {
 	int stampCreate(Map map);
 	List<ReviewDTO> reviewMNG();
 	int rvFileAdd(Map map);
+	int rvScrapCheck(Map map);
+	int rvScrapAdd(Map map);
+	int unScrap(Map map);
+	int rvScrapCount(Map map);
+	List<ReviewDTO> rvScrapBring(Map map);
 }

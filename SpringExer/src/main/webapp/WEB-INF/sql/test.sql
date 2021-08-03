@@ -9,31 +9,127 @@ DROP TABLE FBCMNT CASCADE CONSTRAINTS;
 DROP TABLE FBLIKE CASCADE CONSTRAINTS;
 DROP TABLE FOLLOW CASCADE CONSTRAINTS;
 DROP TABLE FREEBOARD CASCADE CONSTRAINTS;
-DROP TABLE MEMBER CASCADE CONSTRAINTS;
-DROP TABLE MEMBERSTAMP CASCADE CONSTRAINTS;
-DROP TABLE PROFILE CASCADE CONSTRAINTS;
-DROP TABLE REVIEW CASCADE CONSTRAINTS;
+DROP TABLE memberStamp CASCADE CONSTRAINTS;
 DROP TABLE RVCMNT CASCADE CONSTRAINTS;
 DROP TABLE RVLIKE CASCADE CONSTRAINTS;
+DROP TABLE SCRAP CASCADE CONSTRAINTS;
 DROP TABLE STAMP CASCADE CONSTRAINTS;
 DROP TABLE stampCheck CASCADE CONSTRAINTS;
+DROP TABLE REVIEW CASCADE CONSTRAINTS;
+DROP TABLE PROFILE CASCADE CONSTRAINTS;
+DROP TABLE MEMBER CASCADE CONSTRAINTS;
+
 
 
 
 /* Create Tables */
 
+CREATE TABLE ACHLIST
+(
+	achId nvarchar2(20) NOT NULL,
+	nickname nvarchar2(15) NOT NULL UNIQUE,
+	achDate date DEFAULT SYSDATE,
+	PRIMARY KEY (achId)
+);
+
+
+CREATE TABLE BADGELIST
+(
+	bgId nvarchar2(20) NOT NULL,
+	nickname nvarchar2(15) NOT NULL UNIQUE,
+	bgTitle nvarchar2(20),
+	bgContent nvarchar2(100),
+	bgDate date DEFAULT SYSDATE,
+	PRIMARY KEY (bgId)
+);
+
+
+CREATE TABLE DM
+(
+	dmNo number NOT NULL,
+	nickname nvarchar2(15) NOT NULL UNIQUE,
+	dmToNickname nvarchar2(15) NOT NULL UNIQUE,
+	dmCtt nvarchar2(100),
+	dmDate date DEFAULT SYSDATE,
+	dmChecked number DEFAULT 1,
+	PRIMARY KEY (dmNo)
+);
+
+
+CREATE TABLE FAVORITE
+(
+	favoriteNo number NOT NULL,
+	rvNo number NOT NULL,
+	FavoriteRegiDate date DEFAULT SYSDATE,
+	PRIMARY KEY (favoriteNo)
+);
+
+
+CREATE TABLE FBCMNT
+(
+	fbcNo number NOT NULL,
+	fbNo number NOT NULL,
+	nickname nvarchar2(15) NOT NULL UNIQUE,
+	fbCmnt clob,
+	fbcDate date DEFAULT SYSDATE,
+	PRIMARY KEY (fbcNo)
+);
+
+
+CREATE TABLE FBLIKE
+(
+	fblNo number NOT NULL,
+	nickname nvarchar2(15) NOT NULL UNIQUE,
+	fbNo number NOT NULL,
+	fblDate date DEFAULT SYSDATE,
+	PRIMARY KEY (fblNo)
+);
+
+
+CREATE TABLE FOLLOW
+(
+	followNo number NOT NULL,
+	followerNickname nvarchar2(15) NOT NULL UNIQUE,
+	followIdNickname nvarchar2(15) NOT NULL UNIQUE,
+	PRIMARY KEY (followNo)
+);
+
+
+CREATE TABLE FREEBOARD
+(
+	fbNo number NOT NULL,
+	nickname nvarchar2(15) NOT NULL UNIQUE,
+	fbTitle nvarchar2(20),
+	fbCtt clob,
+	fbDate date DEFAULT SYSDATE,
+	fbVisitCnt number DEFAULT 0,
+	fbCategory nvarchar2(8),
+	fbLikeCnt number DEFAULT 0,
+	PRIMARY KEY (fbNo)
+);
+
+
 CREATE TABLE MEMBER
 (
-	id varchar2(50) PRIMARY KEY,
+	id varchar2(50) NOT NULL,
 	pwd varchar2(10) NOT NULL,
 	name nvarchar2(10) NOT NULL,
-	regiDate date DEFAULT SYSDATE
+	regiDate date DEFAULT SYSDATE,
+	PRIMARY KEY (id)
 );
+
+
+CREATE TABLE memberStamp
+(
+	nickname nvarchar2(15) NOT NULL UNIQUE,
+	rvNo number NOT NULL
+);
+
 
 CREATE TABLE PROFILE
 (
-	nickname nvarchar2(15) PRIMARY KEY,
-	id varchar2(50) references member(id) on delete cascade,
+	nickname nvarchar2(15) NOT NULL UNIQUE,
+	id varchar2(50) NOT NULL,
 	mail nvarchar2(100),
 	trvPrpns nvarchar2(20),
 	pr nvarchar2(100),
@@ -41,15 +137,17 @@ CREATE TABLE PROFILE
 	gender nvarchar2(8),
 	birth nvarchar2(15),
 	phone nvarchar2(15),
-	lev number DEFAULT 1,
+	lev number DEFAULT 0,
 	exp number DEFAULT 0,
-	openPrf number DEFAULT 1
+	openPrf number DEFAULT 1,
+	PRIMARY KEY (nickname)
 );
+
 
 CREATE TABLE REVIEW
 (
-	rvNo number PRIMARY KEY,
-	nickname nvarchar2(15) references profile(nickname) on delete cascade,
+	rvNo number NOT NULL,
+	nickname nvarchar2(15) NOT NULL UNIQUE,
 	rvTitle nvarchar2(20) NOT NULL,
 	rvCtt clob,
 	rvLikeCnt number DEFAULT 0,
@@ -60,134 +158,64 @@ CREATE TABLE REVIEW
 	rvLng number,
 	rvVisitCnt number DEFAULT 0,
 	rvFile clob,
-	rvLikeCheck number DEFAULT 0
+	rvLikeCheck number DEFAULT 0,
+	PRIMARY KEY (rvNo)
 );
 
-CREATE TABLE ACHLIST
-(
-	achId nvarchar2(20) PRIMARY KEY,
-	nickname nvarchar2(15) references profile(nickname) on delete cascade,
-	achDate date DEFAULT SYSDATE
-);
-
-
-CREATE TABLE BADGELIST
-(
-	bgId nvarchar2(20) PRIMARY KEY,
-	nickname nvarchar2(15) references profile(nickname) on delete cascade,
-	bgTitle nvarchar2(20),
-	bgContent nvarchar2(100),
-	bgDate date DEFAULT SYSDATE
-);
 
 CREATE TABLE RVCMNT
 (
-	rvcNo number PRIMARY KEY,
-	rvNo number references REVIEW(rvNo) on delete cascade,
-	nickname nvarchar2(15) references profile(nickname) on delete cascade,
+	rvcNo number NOT NULL,
+	rvNo number NOT NULL,
+	nickname nvarchar2(15) NOT NULL UNIQUE,
 	rvCmnt clob,
-	rvcDate date DEFAULT SYSDATE
+	rvcDate date DEFAULT SYSDATE,
+	PRIMARY KEY (rvcNo)
 );
 
 
 CREATE TABLE RVLIKE
 (
-	rvlNo number PRIMARY KEY,
-	rvNo number references REVIEW(rvNo) on delete cascade,
-	nickname nvarchar2(15)references profile(nickname) on delete cascade,
-	rvlDate date DEFAULT SYSDATE
+	rvlNo number NOT NULL,
+	rvNo number NOT NULL,
+	nickname nvarchar2(15) NOT NULL UNIQUE,
+	rvlDate date DEFAULT SYSDATE,
+	PRIMARY KEY (rvlNo)
 );
 
 
-CREATE TABLE DM
+CREATE TABLE SCRAP
 (
-	dmNo number PRIMARY KEY,
-	nickname nvarchar2(15) references profile(nickname) on delete cascade,
-	dmToNickname nvarchar2(15) references profile(nickname) on delete cascade,
-	dmCtt nvarchar2(100),
-	dmDate date DEFAULT SYSDATE,
-	dmChecked number DEFAULT 1
+	rvsNo number NOT NULL,
+	rvNo number NOT NULL,
+	nickname nvarchar2(15) NOT NULL,
+	rvsDate date DEFAULT SYSDATE,
+	PRIMARY KEY (rvsNo)
 );
-
-CREATE TABLE FREEBOARD
-(
-	fbNo number PRIMARY KEY,
-	nickname nvarchar2(15) references profile(nickname) on delete cascade,
-	fbTitle nvarchar2(20),
-	fbCtt clob,
-	fbDate date DEFAULT SYSDATE,
-	fbVisitCnt number DEFAULT 0,
-	fbCategory nvarchar2(8),
-	fbLikeCnt number DEFAULT 0
-);
-
-
-CREATE TABLE FAVORITE
-(
-	favoriteNo number PRIMARY KEY,
-	rvNo number references REVIEW(rvNo) on delete cascade,
-	FavoriteRegiDate date DEFAULT SYSDATE
-);
-
-
-CREATE TABLE FBCMNT
-(
-	fbcNo number PRIMARY KEY,
-	fbNo number references FREEBOARD(fbNo) on delete cascade,
-	nickname nvarchar2(15) references profile(nickname) on delete cascade,
-	fbCmnt clob,
-	fbcDate date DEFAULT SYSDATE
-);
-
-
-CREATE TABLE FBLIKE
-(
-	fblNo number PRIMARY KEY,
-	nickname nvarchar2(15) references profile(nickname) on delete cascade,
-	fbNo number references FREEBOARD(fbNo) on delete cascade,
-	fblDate date DEFAULT SYSDATE
-);
-
-
-CREATE TABLE FOLLOW
-(
-	followNo number PRIMARY KEY,
-	followerNickname nvarchar2(15) references profile(nickname) on delete cascade,
-	followIdNickname nvarchar2(15) references profile(nickname) on delete cascade
-);
-
-
-
-CREATE TABLE memberStamp
-(
-	nickname nvarchar2(15) references profile(nickname) on delete cascade,
-	rvNo number references REVIEW(rvNo) on delete cascade
-);
-
-
-
 
 
 CREATE TABLE STAMP
 (
-	stNo number PRIMARY KEY,
-	rvNo number references REVIEW(rvNo) on delete cascade,
+	stNo number NOT NULL,
+	rvNo number NOT NULL,
 	stDate date DEFAULT SYSDATE,
 	stIsExpired number DEFAULT 1,
-	STEXPIREDDATE date default Sysdate + 7
+	STEXPIREDDATE date DEFAULT sysdate+7,
+	PRIMARY KEY (stNo)
 );
 
 
 CREATE TABLE stampCheck
 (
-	nickname nvarchar2(15) references profile(nickname) on delete cascade,
-	rvNo number references REVIEW(rvNo) on delete cascade,
+	nickname nvarchar2(15) NOT NULL UNIQUE,
+	rvNo number NOT NULL,
 	DISTANCE number
 );
 
 
 
-/* Create Foreign Keys 
+/* Create Foreign Keys */
+
 ALTER TABLE FBCMNT
 	ADD FOREIGN KEY (fbNo)
 	REFERENCES FREEBOARD (fbNo)
@@ -230,6 +258,12 @@ ALTER TABLE DM
 ;
 
 
+ALTER TABLE FBCMNT
+	ADD FOREIGN KEY (nickname)
+	REFERENCES PROFILE (nickname)
+;
+
+
 ALTER TABLE FBLIKE
 	ADD FOREIGN KEY (nickname)
 	REFERENCES PROFILE (nickname)
@@ -237,13 +271,13 @@ ALTER TABLE FBLIKE
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (followerNickname)
+	ADD FOREIGN KEY (followIdNickname)
 	REFERENCES PROFILE (nickname)
 ;
 
 
 ALTER TABLE FOLLOW
-	ADD FOREIGN KEY (followIdNickname)
+	ADD FOREIGN KEY (followerNickname)
 	REFERENCES PROFILE (nickname)
 ;
 
@@ -273,6 +307,12 @@ ALTER TABLE RVCMNT
 
 
 ALTER TABLE RVLIKE
+	ADD FOREIGN KEY (nickname)
+	REFERENCES PROFILE (nickname)
+;
+
+
+ALTER TABLE SCRAP
 	ADD FOREIGN KEY (nickname)
 	REFERENCES PROFILE (nickname)
 ;
@@ -308,6 +348,12 @@ ALTER TABLE RVLIKE
 ;
 
 
+ALTER TABLE SCRAP
+	ADD FOREIGN KEY (rvNo)
+	REFERENCES REVIEW (rvNo)
+;
+
+
 ALTER TABLE STAMP
 	ADD FOREIGN KEY (rvNo)
 	REFERENCES REVIEW (rvNo)
@@ -319,6 +365,5 @@ ALTER TABLE stampCheck
 	REFERENCES REVIEW (rvNo)
 ;
 
-*/
 
 

@@ -32,6 +32,8 @@ pageEncoding="UTF-8"%>
     
     <div><div class="cSnEi"><div><div ><div><div><div class="tFJNO">
    
+   <div>${noScrap }</div>
+   
    <div class="container"
 												style="display: grid; max-width: 980px; grid-template-columns: 1fr 1fr 1fr; row-gap: 30px; column-gap: 10px;">
 												<!-- 갯수 맞추기 위해 있어야 하는 코드 시작 -->

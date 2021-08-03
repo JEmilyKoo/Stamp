@@ -1,6 +1,7 @@
 package com.company.exer.web;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.company.exer.service.MemberDTO;
 import com.company.exer.service.ProfileDTO;
 import com.company.exer.service.ProfileService;
+import com.company.exer.service.ReviewDTO;
+import com.company.exer.service.ReviewService;
 import com.company.exer.service.StampDTO;
 import com.company.exer.service.StampService;
 
@@ -34,6 +37,10 @@ public class ProfileController {
 	//획득한 스탬프 뿌려주기
 	@Resource(name = "stampService")
 	private StampService stampService;
+	
+	@Resource(name="reviewService")
+	private ReviewService reviewService;
+	
 	
 //ProfileMain에서 쓰이는 컨트롤러
 // 뷰 선택 체크
@@ -264,9 +271,22 @@ public class ProfileController {
 // 뷰 선택 -> 리뷰 컨트롤러 필요
 	
 	@RequestMapping("Like.do")
-	public String ProfileLike() {
+	public String ProfileScrapLike(@RequestParam Map map,Model model,HttpSession session) {
+
+		String nickName = session.getAttribute("nickName").toString();
+		map.put("nickName", nickName);
+		int check =reviewService.rvScrapCount(map);
+		if(check>=1) {
+			List<ReviewDTO> list = reviewService.rvScrapBring(map);
+			model.addAttribute("list",list);
+		}
+		else {
+			model.addAttribute("noScrap","스크랩한 글이 없어요");
+		}
+
 		//뷰정보 반환]
 		return "Profile/ProfileLike";
+		
 	}///////////////////ProfileLike()
 	
 //ProfileAlarm에서 쓰이는 컨트롤러
