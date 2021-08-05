@@ -4,11 +4,15 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.ReviewService;
+import com.company.exer.utils.ListPagingData;
+import com.company.exer.utils.RvPagingUtil;
 
 @Service("reviewService")
 public class ReviewServiceImpl implements ReviewService{
@@ -21,6 +25,51 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.selectList();
 	}
 
+	//리소스파일(review.properties)에서 읽어오기
+	//@Value("${PAGE_SIZE}")
+	//private int pageSize;
+	//@Value("${BLOCK_PAGE}")
+	//private int blockPage;
+	
+	//PAGE_SIZE = 10
+	//BLOCK_PAGE = 2
+	
+	
+	@Override
+	public ListPagingData selectListPage(Map map, HttpServletRequest req, int nowPage) {
+		System.out.println("안들어와?");
+		int pageSize=6;
+		int blockPage=2;
+		
+		//페이징을 위한 로직 시작]
+		//전체 레코드수	
+		int totalRecordCount=dao.getTotalRecord(map);		
+		//전체 페이지수
+		int totalPage =(int)Math.ceil((double)totalRecordCount/pageSize);		
+		//시작 및 끝 ROWNUM구하기
+		int start = (nowPage -1)*pageSize+1;
+		int end = nowPage * pageSize;	
+		//페이징을 위한 로직 끝]
+		System.out.println("start:"+start);
+		map.put("start", start);
+		map.put("end", end);
+		System.out.println("map start : "+map.get("start"));
+		
+		//글 전체 목록 얻기
+		List lists=dao.selectListPage(map);		
+		String pagingString=RvPagingUtil.pagingBootStrapStyle(totalRecordCount,pageSize, blockPage, nowPage,req.getContextPath()+"/Review/TripBoard.do?");
+		
+		ListPagingData<ReviewDTO> listPagingData = 
+				ListPagingData.builder()
+					.lists(lists)
+					.nowPage(nowPage)
+					.pageSize(pageSize)
+					.pagingString(pagingString)
+					.TotalRecordCount(totalRecordCount)
+					.build();
+		
+		return listPagingData;
+	}
 
 	@Override
 	public List<ReviewDTO> selectCategoryList(Map map) {
@@ -116,6 +165,14 @@ public class ReviewServiceImpl implements ReviewService{
 	public List<ReviewDTO> rvScrapBring(Map map) {
 		return dao.rvScrapBring(map);
 	}
+
+	@Override
+	public int updatereviewcnt(Map map) throws Exception {
+		return dao.updatereviewcnt(map);
+	}
+
+
+
 
 	
 

@@ -107,12 +107,12 @@
 					href="https://jemilykoo.wixsite.com/website/forum/kategori1-san"
 					class="_2niiD  forum-link-hover-color" bilocation="post_sidebar"><div
 						class="_3Rzd4">
-						<span class="_1QEV9"> [카테고리1:산]</span>
+						<span class="_1QEV9"> [카테고리1:${dto.rvCategory2 }]</span>
 					</div></a> <a
 					href="https://jemilykoo.wixsite.com/website/forum/kategori2-seoul"
 					class="_2niiD  forum-link-hover-color" bilocation="post_sidebar"><div
 						class="_3Rzd4">
-						<span class="_1QEV9"> [카테고리2:서울]</span>
+						<span class="_1QEV9"> [카테고리2:${dto.rvCategory1 }]</span>
 					</div></a> <a
 					href="https://jemilykoo.wixsite.com/website/forum/cuceonyeohaengjeongbo"
 					class="_2niiD  forum-link-hover-color" bilocation="post_sidebar"><div

@@ -7,11 +7,47 @@
 <!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
 <mapper namespace="mybatis.mapper.review">
 
+
+<select id="reviewSelectListPage" parameterType="Map" resultType="reviewDTO">
+		SELECT * FROM
+		(SELECT r.*,ROWNUM R FROM review r
+		
+		<if test="searchWord !=null">
+			WHERE ${searchColumn} LIKE '%' || #{searchWord} || '%'
+		</if>	
+		
+		ORDER BY rvNo DESC)
+		WHERE R BETWEEN #{start} AND #{end} 
+	</select>
+	
+	<select id="reviewTotalCount" parameterType="Map" resultType="Int">
+		SELECT COUNT(*) FROM review
+		<if test="searchWord !=null">
+			WHERE ${searchColumn} LIKE '%' || #{searchWord} || '%'
+		</if>
+	</select>
+
+
+	<update id="updatereviewcnt" parameterType="Map">
+		update review 
+		set rvViews = rvViews +1 
+		WHERE rvNo=#{rvNo}
+	</update>
+
+
+
+
+
+
+
+
+
 	<select id="rvScrapCheck" parameterType="Map" resultType="Int">
 		select count(*)
 		from scrap
 		where rvNo=#{rvNo} and nickName=#{nickName}
 	</select>
+	
 	
 	<insert id="rvScrapAdd" parameterType="Map">
 		INSERT INTO scrap

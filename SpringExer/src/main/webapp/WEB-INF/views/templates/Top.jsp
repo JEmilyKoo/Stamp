@@ -195,14 +195,20 @@ body {
 											<div class="chat-container"
 												style="overflow: auto; max-height: 80vh">
 
+												
 												<div class="chat-message col-md-5 bot-message"
-													style="margin-bottom: 50px">안녕하세요 챗봇 도우미입니다</div>
+													style="margin-bottom: 50px"><h4>&lt;안녕하세요 챗봇 도우미입니다.<br/>
+													필요한 서비스를 입력해주세요.&gt;</h4><br/>
+													1. 예약<br/>
+													2. 여행지 추천<br/>
+													<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+												</div>
 
 
 
 											</div>
-											<input class="input" type="text" placeholder="내용을 입력하세요!!"
-												id="query" />
+											<input class="input" type="text" placeholder="내용을 입력해주세요."
+												id="query" /> 
 
 										</div>
 									</div>

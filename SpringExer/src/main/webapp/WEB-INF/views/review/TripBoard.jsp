@@ -91,12 +91,13 @@
 
 				<!-- 게시물 작성하기 버튼 종료  -->
 				<!-- 카드뷰 -->
-<!-- 갯수 맞추기 위해 있어야 하는 코드 시작 -->
-					<!-- 갯수 맞추기 위해 있어야 하는 코드 끝 -->
+
+
 
 					<!-- 아이템을 받아와서 반복하면 됨-->
-					<c:if test="${! empty list }" var="val">
-						<c:forEach items="${list}" var="item">
+					<c:if test="${! empty listPagingData }" var="val">
+						<c:forEach items="${listPagingData.lists }" var="item"
+						varStatus="loop">
 
 
 
@@ -105,7 +106,7 @@
 									<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
 									<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
 									<a target="_top"
-										href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">
+										href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }&nowPage="/><c:out value="${param.nowPage}" default="1"/>">
 										<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
 										<c:if test="${item.rvNo>500 }" var = "recommand">
 										<div class=" cardImage categoryDropDown " style=" height:200px ;margin: -1px -10px -10px 0px;color: white; text-shadow: 1px 1px 5px black;
@@ -173,6 +174,7 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${i
 
 
 
+
 										<!-- 프사/닉네임/누르면 프로필 나오고 날짜 누르면 리뷰페이지 나오는 부분 코드 끝-->
 										<!-- 제목과 누르면 리뷰페이지 나오는 부분 코드 시작 -->
 										<!-- 리뷰에 맞게 페이지 링크 수정해야 -->
@@ -221,7 +223,7 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${i
 													<div class="_60xHi">
 														<div class="MEOqZ post-stats">
 															<!-- 조회 -->
-															<span tabindex="0"></span>
+															<span tabindex="0">조회 : ${item.rvViews }</span>
 															<!-- 댓글 -->
 															<span class="_24h-e"></span>
 														</div>
@@ -258,12 +260,35 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${i
 
 					</c:if>
 
-					<!-- 여기까지 -->
-					
+					<!-- 여기까지 --> <div style="height=40px; width=100vw">&nbsp;<br/> </div>
+					<div class="row">
+		<div class="col-md-12 text-center">${listPagingData.pagingString}</div>
+	</div>
 					
 			</div>
 		</div>
+		<!-- 검색용 UI -->
+	<div class="row">
+		<div class="text-center">
+			<form class="form-inline" method="post"
+				action="<c:url value='/Review/TripBoard.do'/>">
+				<div class="form-group">
+					<select name="searchColumn" class="form-control">
+						<option value="rvTitle">제목</option>
+						<option value="nickName">작성자</option>
+						<option value="rvCtt">내용</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input type="text" name="searchWord" class="form-control" />
+				</div>
+				<button type="submit" class="btn btn-primary">검색</button>
+			</form>
+		</div>
 	</div>
+</div>
+	</div>
+	
 	
 	
 </body>
