@@ -32,7 +32,7 @@ public class RestAPIController {
 
 	@Autowired
 	MemberService service;
-
+	
 	@Resource(name = "reviewService") 
 	private ReviewService reviewService;
 
@@ -63,8 +63,8 @@ public class RestAPIController {
 		@PostMapping("/member/join")
 		public int join(@RequestParam Map map) {
 			map.put("id", map.get("id").toString().replaceAll("\"",""));
-			map.put("pwd", map.get("id").toString().replaceAll("\"",""));
-			map.put("name", map.get("id").toString().replaceAll("\"",""));
+			map.put("pwd", map.get("pwd").toString().replaceAll("\"",""));
+			map.put("name", map.get("name").toString().replaceAll("\"",""));
 			if(service.joinCheck(map)==1) {
 				return 0;
 			}
@@ -73,6 +73,21 @@ public class RestAPIController {
 				return 1;
 			}
 		}
+		
+		
+		// 회원가입 
+		@CrossOrigin
+		@PostMapping("/profile")
+		public int profile(@RequestParam Map map) {
+			map.put("nickName", map.get("nickName").toString().replaceAll("\"",""));
+			map.put("pr", map.get("pr").toString().replaceAll("\"",""));
+			map.put("openprf", map.get("openprf").toString().replaceAll("\"",""));
+			map.put("id", map.get("id").toString().replaceAll("\"",""));
+			int affected = profileService.profile(map);
+			return affected;
+		}
+				
+		
 		
 		
 		@CrossOrigin
@@ -87,11 +102,8 @@ public class RestAPIController {
 		//스탬프 획득
 		@CrossOrigin
 		@PostMapping("/stamp/check")
-		public @ResponseBody int stampCheck(@RequestParam Map map, HttpSession session) throws Exception {
-			String nickName = (String) session.getAttribute("nickName");
-			if (nickName != null) { 						// 로그인 되어 있을 경우
-				map.put("nickName", nickName);
-				
+		public int stampCheck(@RequestParam Map map) throws Exception {
+					map.put("nickName", map.get("nickName").toString().replaceAll("\"",""));
 					stampService.stampCheck(map); 						// 실시간 위치를 가지고 3km이내 스탬프가 있으면 stampCheck 닉네임, 글 번호 5초마다 insert해줌
 					String rvNo = stampService.stampCheckRvNo(map);		//글 번호 얻어오기 경험치를 얻기 위함
 					
@@ -114,9 +126,6 @@ public class RestAPIController {
 					
 				return 2;
 				
-			} else {/// 로그인 안되어있다면 아무 일 없다.
-				return 0;
-			}
 			
 		}
 		@CrossOrigin

@@ -81,5 +81,10 @@ public class ProfileServiceImpl implements ProfileService {
 	@Override
 	public void testSample() throws Exception {
 		dao.testSample();
+	}
+
+	@Override
+	public int profile(Map map) {
+		return dao.profile(map);
 	} 
 }

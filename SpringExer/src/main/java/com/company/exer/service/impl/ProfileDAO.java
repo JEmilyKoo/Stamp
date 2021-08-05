@@ -79,4 +79,8 @@ public class ProfileDAO  {
     	
 	}
 	
+	public int profile(Map map) {
+		return sqlMapper.insert("profile",map);
+	}
+	
 }
