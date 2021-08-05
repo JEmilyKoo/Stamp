@@ -39,14 +39,15 @@
 <script
 	src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 
-<!-- <link
+
+ <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css"
 	rel="stylesheet">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"
 	defer></script>
 
-  -->
+  
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -159,6 +160,7 @@ body {
 	*/
 
 /*2번*/
+/*
 .fileDrop {
 	width: 600px;
 	height: 200px;
@@ -170,6 +172,7 @@ small {
 	font-weight: bold;
 	color: gray;
 }
+*/
 </style>
 </head>
 <body>
@@ -569,15 +572,15 @@ small {
 	<!-- form data가 이곳으로 이동 -->
 	<!-- <iframe name="iframePhoto"></iframe> -->
 
-	  <h2>AJAx File Upload</h2>
+	 <!--  <h2>AJAx File Upload</h2> -->
 	<!-- 파일을 업로드할 영역 -->
 
- 	 <div class="fileDrop"></div> 
+<!--  	 <div class="fileDrop"></div> --> 
 
 	<!-- <div  type="hidden" class="fileDrop"></div> -->
 	<!-- 업로드된 파일 목록 -->
-	<div class="uploadedList"></div>
-	
+<!-- 	<div class="uploadedList"></div>
+	--> 
 	<script>
 	
 	
@@ -642,6 +645,8 @@ small {
 		 */
 
 		//파일업로드 썸네일 올린 거 뿌려주는거
+		
+		/*임시주석11111111111111111111111111222312414
 		$(document)
 				.ready(
 						function() {
@@ -721,7 +726,7 @@ small {
 			var idx = fileName.indexOf("_") + 1;
 			return fileName.substr(idx);
 		}
-
+		
 		//업로드된 파일이 이미지가 아닐 경우 업로드 파일 목록에 파일명을 출력해주기 위한 함수
 		//이미지 파일 링크 - 클릭하면 원본 이미지를 출력해주기 위해
 		function getImageLink(fileName) {
@@ -745,7 +750,17 @@ small {
 			var pattern = /jpg|gif|png|jpeg/i; //정규표현식
 			return fileName.match(pattern);//규칙이 맞으면 true
 		}
-
+		*/
+		
+		
+		
+		
+		/////////////////////여기까지 파일업로드 임시주석
+		
+		
+		
+		
+		
 		/*
 
 		 //업로드 파일 정보
@@ -858,6 +873,7 @@ small {
 
 		//5번째거
 		//파일삭제요청 처리
+		/*임시주석1234135135
 		$("#uploadedList").on("click", "span", function(event) {
 			alert("이미지 삭제")
 			var that = $(this); //여기서 this는 선택한 span태그
@@ -876,6 +892,7 @@ small {
 				}
 			});
 		});
+*///12412351235
 
 		/*
 		 function addFilePath(msg){
@@ -971,7 +988,7 @@ small {
 		//여기 아래 부분
 
 		//JQuery 충돌 처리를한다 (function( $ ) { })( jQuery );
-/*		jQuery.noConflict();
+		jQuery.noConflict();
 
 		(function($) {
 			$(document).ready(function() {
@@ -999,7 +1016,7 @@ small {
 					}
 
 				});
-*/
+
 		//이미지 업ㄹ로드 구현중
 
 		/*ajax참고용
