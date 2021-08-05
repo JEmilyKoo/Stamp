@@ -49,7 +49,7 @@ public class RestAPIController {
 			MemberDTO dto = service.Login(map);
 			System.out.println("회원 여부:"+dto);
 			if(dto ==null) {
-				dto = new MemberDTO(null, null, null, 0, null, null, null, null, null, null, null);
+				dto = new MemberDTO(null, null, null, 0,null ,null, null, null, null, null, null, null,null);
 			}
 			return dto;
 		}

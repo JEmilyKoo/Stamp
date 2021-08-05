@@ -41,7 +41,9 @@
     
     <!-- 안드로이드 로그인 -->
     <select id="login" parameterType="Map"  resultType="memberDTO">
-    		SELECT * FROM member WHERE id=#{id} AND pwd = #{pwd}
+    		SELECT m.*,p.nickname,p.pr,p.openprf
+    		FROM member m JOIN profile p ON m.id = p.id 
+    		WHERE m.id=#{id} AND m.pwd = #{pwd}
     </select>
     
   
