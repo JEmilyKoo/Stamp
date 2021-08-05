@@ -19,6 +19,22 @@ public class ReviewDAO {
 	public List<ReviewDTO> selectList() {
 		return sqlMapper.selectList("reviewSelectList");
 	}
+	
+	
+public int getTotalRecord(Map map) {
+	return sqlMapper.selectOne("reviewTotalCount",map);
+}
+
+
+
+public List selectListPage(Map map) {
+	return sqlMapper.selectList("reviewSelectListPage",map);
+}
+
+
+
+
+
 
 	public List<ReviewDTO> selectCategoryList(Map map) {
 		return sqlMapper.selectList("reviewSelectCategoryList",map);
@@ -97,6 +113,7 @@ public class ReviewDAO {
 	public List<ReviewDTO> rvScrapBring(Map map) {
 		return sqlMapper.selectList("rvScrapBring",map);
 	}
+
 
 	
 }

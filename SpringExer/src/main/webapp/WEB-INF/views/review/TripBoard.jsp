@@ -91,12 +91,13 @@
 
 				<!-- 게시물 작성하기 버튼 종료  -->
 				<!-- 카드뷰 -->
-<!-- 갯수 맞추기 위해 있어야 하는 코드 시작 -->
-					<!-- 갯수 맞추기 위해 있어야 하는 코드 끝 -->
+
+
 
 					<!-- 아이템을 받아와서 반복하면 됨-->
-					<c:if test="${! empty list }" var="val">
-						<c:forEach items="${list}" var="item">
+					<c:if test="${! empty listPagingData }" var="val">
+						<c:forEach items="${listPagingData.lists }" var="item"
+						varStatus="loop">
 
 
 
@@ -105,7 +106,7 @@
 									<!-- 리뷰 파일 이미지 받아오는 코드  시작-->
 									<!-- 아래 url 교체하면 리뷰 링크로 갈 수 있음 -->
 									<a target="_top"
-										href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }"/>">
+										href="<c:url value="/Review/ForumPost.do?rvNo=${item.rvNo }&nowPage="/><c:out value="${param.nowPage}" default="1"/>">
 										<!-- 아래 url을 교체하면 리뷰페이지에 맞는 이미지 획득 가능 -->
 										<c:if test="${item.rvNo>500 }" var = "recommand">
 										<div class=" cardImage categoryDropDown " style=" height:200px ;margin: -1px -10px -10px 0px;color: white; text-shadow: 1px 1px 5px black;
@@ -170,6 +171,7 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${i
 												</div>
 											</div>
 										</div>
+
 
 
 
@@ -259,7 +261,9 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${i
 					</c:if>
 
 					<!-- 여기까지 -->
-					
+					<div class="row">
+		<div class="col-md-12 text-center">${listPagingData.pagingString}</div>
+	</div>
 					
 			</div>
 		</div>

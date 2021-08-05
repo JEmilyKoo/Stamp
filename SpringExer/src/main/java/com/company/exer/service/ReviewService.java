@@ -3,6 +3,10 @@ package com.company.exer.service;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.company.exer.utils.ListPagingData;
+
 public interface ReviewService {
 
 	List<ReviewDTO> selectList();
@@ -27,4 +31,5 @@ public interface ReviewService {
 	int unScrap(Map map);
 	int rvScrapCount(Map map);
 	List<ReviewDTO> rvScrapBring(Map map);
+	ListPagingData selectListPage(Map map, HttpServletRequest req, int nowPage);
 }

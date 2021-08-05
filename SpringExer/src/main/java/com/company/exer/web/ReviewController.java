@@ -56,6 +56,7 @@ import com.company.exer.service.ReviewService;
 import com.company.exer.service.RvCmntDTO;
 import com.company.exer.service.RvCmntService;
 import com.company.exer.service.impl.ReviewServiceImpl;
+import com.company.exer.utils.ListPagingData;
 import com.company.exer.utils.MediaUtils;
 import com.company.exer.utils.UploadFileUtils;
 import com.google.gson.JsonObject;
@@ -282,7 +283,10 @@ public class ReviewController {
 	
 	//전체게시물
 	@RequestMapping("/Review/TripBoard.do")
-	public String TripBoard(Model model,  @RequestParam Map map) {
+	public String TripBoard(Model model,  
+			@RequestParam Map map,
+			@RequestParam(required = false,defaultValue = "1") int nowPage,
+			HttpServletRequest req) {
 		List<ReviewDTO> list =reviewService.selectList();
 		
 		System.out.println("모델"+model);
@@ -323,6 +327,18 @@ public class ReviewController {
 		catch(IndexOutOfBoundsException e){
 			e.getMessage();
 		}
+		
+		
+		
+		
+		System.out.println("1111111111111111");
+		//서비스 호출]
+		ListPagingData listPagingData= reviewService.selectListPage(map,req,nowPage);
+				//데이타 저장]
+		model.addAttribute("listPagingData", listPagingData);
+		System.out.println("22222222222222");
+		
+		
 		
 		//뷰정보 반환]
 		return "/review/TripBoard";
