@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.company.exer.service.MemberService;
 import com.company.exer.service.ProfileService;
+import com.company.exer.service.ReviewDTO;
+import com.company.exer.service.ReviewService;
 import com.company.exer.service.StampDTO;
 import com.company.exer.service.StampService;
 import com.company.exer.service.MemberDTO;
@@ -30,7 +32,9 @@ public class RestAPIController {
 
 	@Autowired
 	MemberService service;
-	
+
+	@Resource(name = "reviewService") 
+	private ReviewService reviewService;
 
 	@Resource(name = "stampService")
 	private StampService stampService;
@@ -115,6 +119,88 @@ public class RestAPIController {
 			}
 			
 		}
-		
+		@CrossOrigin
+		@GetMapping("/review/tripBoard")
+		public List<ReviewDTO> TripBoard() {
+			System.out.println("들어는 갔다");
+			List<ReviewDTO> list =reviewService.selectList();
+			
+			/*
+			if((map.get("rvCategory1")!=null) || (map.get("rvCategory2")!=null)) {
+				list =reviewService.selectCategoryList(map);
+					model.addAttribute("rvCategory1",map.get("rvCategory1"));
+					model.addAttribute("rvCategory2",map.get("rvCategory2"));
+					
+					
+			}
+			*/
+			int size = list.size();
+			
+			String var = null;
+			for (int i = 0 ; i < size ; i++) {
+				
+				 StringBuffer sb = new StringBuffer();
+				 sb.append(list.get(i).getRvCtt());
+					
+				 if(sb.indexOf("img") !=-1) {
 
+					String st = sb.substring((sb.indexOf("src")+5),sb.indexOf("data-filename"));
+					list.get(i).setImage(st);
+						
+				}
+			}
+			
+			
+			return list;
+		}///////////////////TripBoard()
+		/*
+		
+		@CrossOrigin
+		@GetMapping("/review/post")
+		public ReviewDTO, RVLike, List<RvCmntDTO> post(String rvNo) {
+			
+			ReviewDTO post = reviewService ..stampList();
+			return stampList;
+			
+			
+			
+				//닉네임 있을 때
+				if(req.getSession().getAttribute("nickName")!=null) {
+					String nickName = req.getSession().getAttribute("nickName").toString();
+					map.put("nickName", nickName);
+
+					//좋아요값 갯수 갖고 오는 쿼리
+					
+					int check = reviewService.likeCheck(map);
+					
+					
+					//게시물 하나 갖고 오는 쿼리
+					ReviewDTO dto = reviewService.selectOne(map);
+					model.addAttribute("dto",dto);
+						
+					//게시물 댓글 갖고 오는 쿼리
+					List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
+					model.addAttribute("rvcDto",rvcDto);
+					}//if(req.getSession().getAttribute("nickName")!=null)
+					
+				else {//댓글도 없고 세션 닉네임도 없을 경우
+					//게시물 갖고 오는 쿼리
+					ReviewDTO dto = reviewService.noCMNTselectOne(map);
+					model.addAttribute("dto",dto);
+					
+					//댓글 받는 쿼리
+					List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
+					model.addAttribute("rvcDto",rvcDto);
+				}//else(req.getSession().getAttribute("nickName")!=null)
+				
+				//댓글 갯수 가져오는 쿼리
+				int num =rvCmntService.rvcCount(map);
+				model.addAttribute("num",num);
+
+				//뷰정보 반환]
+				return "/review/ForumPost";
+		}
+*/
 }
+
+
