@@ -12,13 +12,20 @@
 		SELECT * FROM
 		(SELECT T.*,ROWNUM R FROM (SELECT r.* FROM
 		PROFILE p JOIN review r ON p.nickname= r.nickname
+		
+		<if test="searchWord !=null">
+			WHERE ${searchColumn} LIKE '%' || #{searchWord} || '%'
+		</if>	
+		
 		ORDER BY rvNo DESC) T)
 		WHERE R BETWEEN #{start} AND #{end} 
 	</select>
 	
 	<select id="reviewTotalCount" parameterType="Map" resultType="Int">
 		SELECT COUNT(*) FROM review r JOIN profile p ON r.nickname=p.nickname
-
+		<if test="searchWord !=null">
+			WHERE ${searchColumn} LIKE '%' || #{searchWord} || '%'
+		</if>
 	</select>
 
 

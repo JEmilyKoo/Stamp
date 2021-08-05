@@ -267,7 +267,28 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${i
 					
 			</div>
 		</div>
+		<!-- 검색용 UI -->
+	<div class="row">
+		<div class="text-center">
+			<form class="form-inline" method="post"
+				action="<c:url value='/Review/TripBoard.do'/>">
+				<div class="form-group">
+					<select name="searchColumn" class="form-control">
+						<option value="rvTitle">제목</option>
+						<option value="nickName">작성자</option>
+						<option value="rvCtt">내용</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input type="text" name="searchWord" class="form-control" />
+				</div>
+				<button type="submit" class="btn btn-primary">검색</button>
+			</form>
+		</div>
 	</div>
+</div>
+	</div>
+	
 	
 	
 </body>
