@@ -10,19 +10,18 @@
 
 <select id="reviewSelectListPage" parameterType="Map" resultType="reviewDTO">
 		SELECT * FROM
-		(SELECT T.*,ROWNUM R FROM (SELECT r.* FROM
-		PROFILE p JOIN review r ON p.nickname= r.nickname
+		(SELECT r.*,ROWNUM R FROM review r
 		
 		<if test="searchWord !=null">
 			WHERE ${searchColumn} LIKE '%' || #{searchWord} || '%'
 		</if>	
 		
-		ORDER BY rvNo DESC) T)
+		ORDER BY rvNo DESC)
 		WHERE R BETWEEN #{start} AND #{end} 
 	</select>
 	
 	<select id="reviewTotalCount" parameterType="Map" resultType="Int">
-		SELECT COUNT(*) FROM review r JOIN profile p ON r.nickname=p.nickname
+		SELECT COUNT(*) FROM review
 		<if test="searchWord !=null">
 			WHERE ${searchColumn} LIKE '%' || #{searchWord} || '%'
 		</if>

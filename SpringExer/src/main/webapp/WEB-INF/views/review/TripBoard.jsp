@@ -260,7 +260,7 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${i
 
 					</c:if>
 
-					<!-- 여기까지 -->
+					<!-- 여기까지 --> <div style="height=40px; width=100vw">&nbsp;<br/> </div>
 					<div class="row">
 		<div class="col-md-12 text-center">${listPagingData.pagingString}</div>
 	</div>
