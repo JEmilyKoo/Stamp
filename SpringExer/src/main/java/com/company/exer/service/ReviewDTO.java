@@ -48,6 +48,8 @@ public class ReviewDTO {
 	//섬네일 날조용
 	private String image;
 	
+	//조회수용
+	private String rvViews;
 	
 	
 }

@@ -166,6 +166,11 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.rvScrapBring(map);
 	}
 
+	@Override
+	public int updatereviewcnt(Map map) throws Exception {
+		return dao.updatereviewcnt(map);
+	}
+
 
 
 

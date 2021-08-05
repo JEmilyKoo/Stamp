@@ -28,6 +28,11 @@
 	</select>
 
 
+	<update id="updatereviewcnt" parameterType="Map">
+		update review 
+		set rvViews = rvViews +1 
+		WHERE rvNo=#{rvNo}
+	</update>
 
 
 

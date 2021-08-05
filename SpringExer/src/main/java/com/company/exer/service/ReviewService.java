@@ -32,4 +32,5 @@ public interface ReviewService {
 	int rvScrapCount(Map map);
 	List<ReviewDTO> rvScrapBring(Map map);
 	ListPagingData selectListPage(Map map, HttpServletRequest req, int nowPage);
+	int updatereviewcnt(Map map) throws Exception;
 }

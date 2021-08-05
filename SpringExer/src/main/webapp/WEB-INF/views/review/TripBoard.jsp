@@ -223,7 +223,7 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${i
 													<div class="_60xHi">
 														<div class="MEOqZ post-stats">
 															<!-- 조회 -->
-															<span tabindex="0"></span>
+															<span tabindex="0">조회 : ${item.rvViews }</span>
 															<!-- 댓글 -->
 															<span class="_24h-e"></span>
 														</div>

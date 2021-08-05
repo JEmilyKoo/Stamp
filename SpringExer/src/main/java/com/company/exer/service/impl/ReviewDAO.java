@@ -114,6 +114,8 @@ public List selectListPage(Map map) {
 		return sqlMapper.selectList("rvScrapBring",map);
 	}
 
+	public int updatereviewcnt(Map map) throws Exception {
+		return sqlMapper.update("updatereviewcnt",map);
+	}
 
-	
 }
