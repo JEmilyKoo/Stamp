@@ -38,7 +38,7 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public ListPagingData selectListPage(Map map, HttpServletRequest req, int nowPage) {
 		System.out.println("안들어와?");
-		int pageSize=10;
+		int pageSize=6;
 		int blockPage=2;
 		
 		//페이징을 위한 로직 시작]
