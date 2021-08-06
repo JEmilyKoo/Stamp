@@ -238,7 +238,7 @@ public class ProfileController {
 	}///////////////////ProfileDeleteProfile()
 	
 //ProfileStampList에서 쓰이는 컨트롤러
-// 뷰 선택 체크 -> 스탬프 컨트롤러 필요
+// 뷰 선택 체크 -> 스탬프 컨트롤러 필요 
 
 	@RequestMapping("StampList.do")
 	public String ProfileStampList() {
@@ -253,7 +253,20 @@ public class ProfileController {
 // 뷰 선택 -> 리뷰 컨트롤러 필요
 	
 	@RequestMapping("Review.do")
-	public String ProfileRiview() {
+	public String ProfileRiview(Map map,Model model,HttpSession session) {
+		String nickName = session.getAttribute("nickName").toString();
+		map.put("nickName", nickName);
+		
+		int check = reviewService.rvMySelectCheck(map);
+		
+		if(check==0) {
+			model.addAttribute("noMyList","작성한 글이 없어요.");
+		}
+		else {
+			List<ReviewDTO> list = reviewService.rvMySelect(map);
+			model.addAttribute("list",list);
+		}
+		
 		//뷰정보 반환]
 		return "Profile/ProfileReview";
 	}///////////////////ProfilePost()

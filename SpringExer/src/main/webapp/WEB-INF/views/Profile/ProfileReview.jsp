@@ -57,6 +57,13 @@
 										<div>
 											<div>
 												<div>
+												
+												
+												<c:if test="${empty list}" var="myList">
+													${noMyList}
+												</c:if>
+												<c:if test="${! myList}">
+												<c:forEach items="${list }" var="item">
 													<div class="_2Cz6Q">
 														<div
 															class="_9wT8F HSoPg forum-content-classic-font forum-text-color forum-card-background-color forum-card-border-color post-list-item"
@@ -76,27 +83,35 @@
 																			<div class="_2W9fe">
 																				<span
 																					class="_2NGa1 forum-text-color forum-link-hover-color"
-																					data-hook="avatar__name">userID</span>
+																					data-hook="avatar__name">${item.nickName }</span>
 																			</div>
 																			<span class="trQTR" data-hook="quick-user-info"><span
 																				class="_1LhGv">대시</span><span
-																				class="_3uT17 _2Sbm- time-ago" data-hook="time-ago">6월
-																					23일</span></span>
+																				class="_3uT17 _2Sbm- time-ago" data-hook="time-ago">${item.rvDate }</span></span>
 																		</div>
 																	</div></a><span class="ZVwdW"><div class="_1fFV8"></div></span><span
 																	class="NoBT7"></span>
 																<div class="igysc">
 																	<div class="_3VHHm more-button" data-hook="more-button">
-																		<button
+																			<!--
+																			
+																			<button
 																			class="_3VtFf button-hover-fill forum-icon-fill"
 																			id="more-button-60d2f33a126c2b00487266ac"
 																			aria-label="More actions" aria-haspopup="true"
 																			aria-expanded="false">
+																			
+																			
+																			
+																		 드롭다운 구현시켜줘ㅜㅜ
+																			
+																			
+																			
 																			<svg xmlns="http://www.w3.org/2000/svg" width="19"
 																				viewBox="0 0 19 19" role="img">
 																				<path
 																					d="M17.444 6A1.5 1.5 0 1 1 19 4.5 1.528 1.528 0 0 1 17.444 6zm0 5A1.5 1.5 0 1 1 19 9.5a1.528 1.528 0 0 1-1.556 1.5zm0 5A1.5 1.5 0 1 1 19 14.5a1.528 1.528 0 0 1-1.556 1.5z"></path></svg>
-																		</button>
+																		</button> -->
 																	</div>
 																</div>
 															</div>
@@ -110,14 +125,14 @@
 																		<object type="communities/link">
 																			<a style="color: inherit"
 																				href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/ddeoneun-geosdo-eoryeobda"
-																				target="_top">떼오는 것도 어렵다</a>
+																				target="_top">${item.rvTitle }</a>
 																		</object>
 																	</div>
 																</h2>
 																<div class="_1MXGV">
 																	<div class="_19wh5 _39XLG" data-hook="post-description">
 																		<div>
-																			<div class="l0h59">이왜진</div>
+																			<div class="l0h59">${item.rvCtt }</div>
 																		</div>
 																	</div>
 																</div> </a> <a tabindex="-1"
@@ -132,15 +147,15 @@
 																					class="zkXTz forum-text-color forum-link-hover-color"
 																					data-hook="post-list-item__comment-count"
 																					href="https://jemilykoo.wixsite.com/website/forum/yeohaeng-gesipan/ddeoneun-geosdo-eoryeobda"
-																					target="_top">댓글 0개</a>
+																					target="_top"></a>
 																			</object>
 																			<div class="_2cFfG _3fUVF post-list-item__view-count"
-																				data-hook="post-list-item__view-count">조회수 1회</div>
+																				data-hook="post-list-item__view-count">조회수 ${item.rvViews }</div>
 																		</div>
 																		<div class="_3b0-N">
 																			<span class="Cg6Mq forum-text-color"
 																				data-hook="post-list-item__like-count"
-																				aria-hidden="true">0개</span>
+																				aria-hidden="true">좋아요 ${item.rvLikeCnt}개</span>
 																			<button class="_2rJzt" aria-live="assertive"
 																				data-hook="post-list-item__like-button">
 																				<div class="_3hDG4" aria-label="좋아요 0개 Is unliked"
@@ -169,6 +184,11 @@
 															</div>
 														</div>
 													</div>
+													
+													</c:forEach>
+													</c:if>
+													
+													
 												</div>
 											</div>
 										</div>

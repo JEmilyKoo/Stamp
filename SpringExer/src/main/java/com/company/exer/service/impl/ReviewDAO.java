@@ -118,4 +118,14 @@ public List selectListPage(Map map) {
 		return sqlMapper.update("updatereviewcnt",map);
 	}
 
+
+	public int rvMySelectCheck(Map map) {
+		return sqlMapper.selectOne("rvMySelectCheck",map);
+	}
+
+
+	public List<ReviewDTO> rvMySelect(Map map) {
+		return sqlMapper.selectList("rvMySelect",map);
+	}
+
 }

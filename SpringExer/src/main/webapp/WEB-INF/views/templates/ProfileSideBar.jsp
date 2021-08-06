@@ -100,15 +100,15 @@
 				style="font: var(--font_7)">업적 </a></li>
 			<li><a href="<c:url value="/Profile/Review.do"/>"
 				target="_self" class=" XOxx5  _3Cpo0 _16rQy _3VyKd"
-				style="font: var(--font_7)">올린 리뷰<span class="_3JSHe">(1)</span>
+				style="font: var(--font_7)">올린 리뷰<span class="_3JSHe"></span>
 			</a></li>
 			<li><a href="<c:url value="/Profile/Comment.do"/>"
 				target="_self" class="XOxx5  _3Cpo0_16rQy _3VyKd"
-				style="font: var(--font_7)">올린 댓글<span class="_3JSHe">(2)</span>
+				style="font: var(--font_7)">올린 댓글<span class="_3JSHe"></span>
 			</a></li>
 			<li><a href="<c:url value="/Profile/Like.do"/>"
 				target="_self" class=" XOxx5 _3Cpo0 _16rQy  _3VyKd"
-				style="font: var(--font_7)">즐겨찾기<span class="_3JSHe">(1)</span>
+				style="font: var(--font_7)">즐겨찾기<span class="_3JSHe"></span>
 			</a></li>
 
 

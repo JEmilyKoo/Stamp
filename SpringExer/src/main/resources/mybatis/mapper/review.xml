@@ -39,6 +39,20 @@
 
 
 
+	<select id="rvMySelectCheck" parameterType="Map" resultType="Int">
+		SELECT COUNT(*)
+		FROM review
+		WHERE nickName=#{nickName}
+	
+	</select>
+	
+	<select id="rvMySelect" parameterType="Map" resultType="reviewDTO">
+		SELECT *
+		FROM review
+		WHERE nickName=#{nickName}
+		ORDER BY rvNo DESC
+	</select>
+
 
 
 

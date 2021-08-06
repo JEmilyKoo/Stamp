@@ -33,4 +33,6 @@ public interface ReviewService {
 	List<ReviewDTO> rvScrapBring(Map map);
 	ListPagingData selectListPage(Map map, HttpServletRequest req, int nowPage);
 	int updatereviewcnt(Map map) throws Exception;
+	int rvMySelectCheck(Map map);
+	List<ReviewDTO> rvMySelect(Map map);
 }

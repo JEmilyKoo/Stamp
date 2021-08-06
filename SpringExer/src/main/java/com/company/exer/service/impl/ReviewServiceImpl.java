@@ -171,6 +171,16 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.updatereviewcnt(map);
 	}
 
+	@Override
+	public int rvMySelectCheck(Map map) {
+		return dao.rvMySelectCheck(map);
+	}
+
+	@Override
+	public List<ReviewDTO> rvMySelect(Map map) {
+		return dao.rvMySelect(map);
+	}
+
 
 
 
