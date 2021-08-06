@@ -26,6 +26,9 @@ public interface ProfileService {
 ////*체크*
 	int	 NickNameCheck(ProfileDTO profileDTO) throws Exception;
 	// 해당 닉네임의 프로필이 있는지 중복 여부 체크(1이라면 있다/ 0이라면 없다) NickNameCheck
+	
+	//안드로이드 프로필 생성
+	public int profile(Map map);
     
 ///글쓰기 경험치
 	public int writeEP(Map map);

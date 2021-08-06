@@ -96,6 +96,11 @@
 	</update>
 
 
+	<!-- 안드로이드 프로필 생성 -->
+	<insert id="profile" parameterType="map">
+		insert into profile(nickName,id,pr,openprf)
+		values (#{nickName},#{id},#{pr},#{openprf})		
+	</insert>
 	<!-- 샘플 데이터 생성 -->
 
 	<insert id="testmembersql">

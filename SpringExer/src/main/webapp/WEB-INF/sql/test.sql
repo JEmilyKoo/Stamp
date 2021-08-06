@@ -159,6 +159,7 @@ CREATE TABLE REVIEW
 	rvVisitCnt number DEFAULT 0,
 	rvFile clob,
 	rvLikeCheck number DEFAULT 0,
+	rvviews number default 0,
 	PRIMARY KEY (rvNo)
 );
 
