@@ -295,14 +295,16 @@ public class ProfileController {
 		
 		
 		List<ReviewDTO> list=reviewService.rvMyCmnt(map);
+		System.out.println("list:"+list.size());
 		
-		
-		if(list==null) {
+		if(list.size()==0) {
 			model.addAttribute("noCmnt", "댓글이 없어요.");
+			System.out.println("댓글이 없어요");
 		}
 		
 		else {
 			model.addAttribute("list",list);
+			System.out.println("댓글 있어?");
 		}
 		//게시물 댓글 갖고 오는 쿼리
 		//List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);

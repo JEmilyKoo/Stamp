@@ -32,8 +32,6 @@
 </div>
 
 
-${noCmnt } 
-
 
 
 <div id="root"><div id="direction-provider-wrapper"><div dir="ltr">
@@ -77,6 +75,8 @@ ${noCmnt }
 
 </c:forEach>
 </c:if>
+
+${noCmnt } 
 
 
  
