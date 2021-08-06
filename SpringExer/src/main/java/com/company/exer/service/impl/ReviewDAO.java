@@ -128,4 +128,9 @@ public List selectListPage(Map map) {
 		return sqlMapper.selectList("rvMySelect",map);
 	}
 
+
+	public List<ReviewDTO> rvMyCmnt(Map map) {
+		return sqlMapper.selectList("rvMyCmnt",map);
+	}
+
 }

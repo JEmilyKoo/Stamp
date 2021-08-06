@@ -123,7 +123,12 @@ pageEncoding="UTF-8"%>
 																				style="overflow: hidden; text-overflow: ellipsis; -moz-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">
 																				<!-- 태그는 태그를 누르면 각 태그의 검색결과가 뜨는 걸로 수정해야 -->
 																				<!-- 뿌려주는 반복문 필요할거 같다 -->
-																				<div class="fl4fR"><a href="<c:url value=""/>">#사용자가 설정한 태그 #검색결과뜨게</a></div>
+																				<div class="fl4fR"><a href="<c:url value=""/>"><c:if test="${! empty item.rvCategory1 }">
+															<a href="<c:url value="#"/>">#${item.rvCategory1} </a> 
+														</c:if>
+														<c:if test="${! empty item.rvCategory2 }">
+															<a href="<c:url value="#"/>">#${item.rvCategory2} </a>
+														</c:if></a></div>
 																			</div>
 																		</div>
 																	</div>
@@ -139,25 +144,17 @@ pageEncoding="UTF-8"%>
 																			<div class="_60xHi">
 																				<div class="MEOqZ post-stats">
 																					<!-- 조회 -->
-																					<span tabindex="0">조회 0</span>
+																					<span tabindex="0">조회 ${item.rvViews }</span>
 																					<!-- 댓글 -->
-																					<span class="_24h-e">댓글 0</span>
+																					<span class="_24h-e"></span>
 																				</div>
 																			</div>
 
 																			<div class="vP6YT">
 																				<button class="_3Bdxz post-footer__like-button">
-																					<span class="_3BTGY"> <span class="_8J1xw">0</span>
+																					<span class="_3BTGY"> <span class="_8J1xw">좋아요 ${item.rvLikeCnt }</span>
 																						<!-- 하트 아이콘 시작 -->
-																						<div class="like-button _7QZoA _1eKPZ"
-																							aria-label="1 좋아요 좋아요로 표시된 게시물" role="button">
-																							<a href="<c:url value="/Review/Like.do?rvno=${item.rvNo}"/>"><img src="../images/review/beanH.png" /></a>
-
-																							<svg xmlns="http://www.w3.org/2000/svg"
-																								width="19" viewBox="0 0 19 19" role="img">
-
-                                        </svg>
-																						</div> <!-- 하트 아이콘 끝 -->
+																						<!-- 하트 아이콘 끝 -->
 																					</span>
 																				</button>
 																			</div>

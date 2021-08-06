@@ -77,7 +77,7 @@
 																		<div class="A61te">
 																			<div data-hook="mcl-showable-content"></div>
 																			<span class="gLbMq avatar-image"><div
-																					class="B9z5- fluid-avatar-image"></div></span>
+																					class="B9z5- fluid-avatar-image" style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');"></div></span>
 																		</div>
 																		<div class="_2Xl4Q">
 																			<div class="_2W9fe">
@@ -173,9 +173,7 @@
 																						<div class="_2d2bJ"></div>
 																					</div>
 																					<div class="_2qAdm"></div>
-																					<svg width="18" viewBox="0 0 19 19">
-																						<path id="a"
-																							d="M17.234 5.47a3.919 3.919 0 0 0-2.315-2.263c-2.022-.6-4.21.137-5.424 1.827C8.291 3.38 6.15 2.646 4.152 3.207a3.76 3.76 0 0 0-2.405 2.35 4.94 4.94 0 0 0 .57 4.264c1.603 2.698 6.76 5.927 6.938 6.092a.454.454 0 0 0 .534 0c.267-.174 5.343-3.229 6.938-6.092a5.16 5.16 0 0 0 .507-4.352z"></path></svg>
+																					
 																				</div>
 																			</button>
 																		</div>

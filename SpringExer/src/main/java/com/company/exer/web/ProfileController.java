@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,8 @@ import com.company.exer.service.ProfileDTO;
 import com.company.exer.service.ProfileService;
 import com.company.exer.service.ReviewDTO;
 import com.company.exer.service.ReviewService;
+import com.company.exer.service.RvCmntDTO;
+import com.company.exer.service.RvCmntService;
 import com.company.exer.service.StampDTO;
 import com.company.exer.service.StampService;
 
@@ -40,6 +43,9 @@ public class ProfileController {
 	
 	@Resource(name="reviewService")
 	private ReviewService reviewService;
+	
+	@Resource(name="rvCmntService")
+	private RvCmntService rvCmntService;
 	
 	
 //ProfileMain에서 쓰이는 컨트롤러
@@ -274,11 +280,43 @@ public class ProfileController {
 //ProfileComment에서 쓰이는 컨트롤러
 // 뷰 선택 -> 리뷰 컨트롤러 필요
 	
+	
 	@RequestMapping("Comment.do")
-	public String ProfileComment() {
+	public String ProfileComment(@RequestParam Map map,
+			Model model,
+			HttpServletRequest req) {
+		
+		String nickName = req.getSession().getAttribute("nickName").toString();
+		map.put("nickName", nickName);
+
+	
+		//닉네임에 일치하는 글 목록 가져옴
+		
+		
+		
+		List<ReviewDTO> list=reviewService.rvMyCmnt(map);
+		
+		
+		if(list==null) {
+			model.addAttribute("noCmnt", "댓글이 없어요.");
+		}
+		
+		else {
+			model.addAttribute("list",list);
+		}
+		//게시물 댓글 갖고 오는 쿼리
+		//List<RvCmntDTO> rvcDto= rvCmntService.selectList(map);
+		//model.addAttribute("rvcDto",rvcDto);
+		
+		
 		//뷰정보 반환]
+		
 		return "Profile/ProfileComment";
 	}///////////////////ProfileComment()
+	
+	
+	
+	
 	
 //ProfileLike에서 쓰이는 컨트롤러
 // 뷰 선택 -> 리뷰 컨트롤러 필요

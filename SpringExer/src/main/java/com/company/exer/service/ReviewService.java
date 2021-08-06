@@ -35,4 +35,5 @@ public interface ReviewService {
 	int updatereviewcnt(Map map) throws Exception;
 	int rvMySelectCheck(Map map);
 	List<ReviewDTO> rvMySelect(Map map);
+	List<ReviewDTO> rvMyCmnt(Map map);
 }

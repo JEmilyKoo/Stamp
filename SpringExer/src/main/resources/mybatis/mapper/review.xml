@@ -53,8 +53,20 @@
 		ORDER BY rvNo DESC
 	</select>
 
-
-
+ 
+	<select id="rvMyCmnt" parameterType="Map" resultType="reviewDTO">
+		SELECT * 
+		FROM rvCmnt 
+		WHERE nickName IN (SELECT nickName FROM rvcmnt WHERE nickName=#{nickName})
+	</select>
+<!-- 
+	<select id="rvMyCmntList" parameterType="Map" resultType="reviewDTO">
+		SELECT * 
+		FROM rvCmnt 
+		WHERE nickName IN (SELECT nickName FROM rvcmnt WHERE nickName=#{nickName})
+		 
+	</select>
+ -->
 
 	<select id="rvScrapCheck" parameterType="Map" resultType="Int">
 		select count(*)

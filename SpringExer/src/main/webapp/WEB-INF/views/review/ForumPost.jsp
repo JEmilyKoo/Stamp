@@ -246,7 +246,8 @@
 											class="w3-button w3-blue w3-border w3-border-white w3-round-large"
 											style="padding: 1px 1px 1px 1px; position: relative; right:12px;top:28px">추천</button>
 									</c:if>
-									<div class="_2FqU5 _2-LCm categoryDropDown"
+									<div class="_2FqU5 _2-LCm 
+DropDown"
 										style="fontsize: 18px">
 										<div>${dto.rvTitle }</div>
 
@@ -302,14 +303,14 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${d
 												<c:if test="${true}">
 													<img id="scrap"
 														style="height: 15px; position: relative; top: 30px"
-														src="../images/review/Star1.png">
+														src="../images/review/Star2.png">
 												</c:if>
 												<c:if test="${false}">
 													<img id="scrap" style="height: 15px;"
-														src="../images/review/Star2.png">
+														src="../images/review/Star1.png">
 												</c:if>
 <div  id="scrapcount"
-												style="position: relative; top: 30px">0</div>
+												style="position: relative; top: 30px"></div>
 										
 											</div>
 
@@ -361,8 +362,11 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${d
 																	<div class="_2jNAb _2cJkC">
 																		<span class="_14_Ju _28gI0 avatar-image">
 																			<div class="_2LXiY fluid-avatar-image"
-																				aria-hidden="true"></div>
+																				aria-hidden="true" 
+																				style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');"
+																				></div>
 																		</span>
+																	
 																		<div class="_1uKCP ">
 																			<div class="_1xqeV">
 																				<!-- 댓글 목록1 -->
@@ -619,7 +623,7 @@ background-image: url('${pageContext.request.contextPath}/images/main/photos/${d
 											<div class="_31l-O  _1ccuS avatar">
 												<!-- 댓글 프로필 이미지 -->
 												<span class="_14_Ju _1zT4G _28gI0 avatar-image">
-													<div class="_2LXiY fluid-avatar-image" aria-hidden="true"></div>
+													<div class="_2LXiY fluid-avatar-image" aria-hidden="true" style="background-image: url('${pageContext.request.contextPath}/images/profile/icon/icon1.jpg');"></div>
 												</span>
 												<div class="-mPAe">
 													<!-- 여기가 댓글작성자 닉네임 -->
