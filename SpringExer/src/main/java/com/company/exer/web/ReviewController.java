@@ -283,7 +283,7 @@ public class ReviewController {
 	
 	//전체게시물
 	@RequestMapping("/Review/TripBoard.do")
-	public String TripBoard(Model model,  
+	public <T> String TripBoard(Model model,  
 			@RequestParam Map map,
 			@RequestParam(required = false,defaultValue = "1") int nowPage,
 			HttpServletRequest req) throws Exception {
@@ -304,12 +304,12 @@ public class ReviewController {
 		
 		String var = null;
 		for (int i = 0 ; i < size ; i++) {
-			
+			System.out.println("sb가왔는지");
 			 StringBuffer sb = new StringBuffer();
 			 sb.append(list.get(i).getRvCtt());
 				
 			 if(sb.indexOf("img") !=-1) {
-
+				System.out.println("들어는 오셨는지");
 				String st = sb.substring((sb.indexOf("src")+5),sb.indexOf("data-filename"));
 				list.get(i).setImage(st);
 					
@@ -331,8 +331,34 @@ public class ReviewController {
 		
 		System.out.println("1111111111111111");
 		//서비스 호출]
-		ListPagingData listPagingData= reviewService.selectListPage(map,req,nowPage);
+		ListPagingData<T> listPagingData= reviewService.selectListPage(map,req,nowPage);
 				//데이타 저장]
+		List<T> t = listPagingData.getLists();
+		size = t.size();
+		
+		var = null;
+		for (int i = 0 ; i < size ; i++) {
+			System.out.println("sb2가왔는지");
+			 StringBuffer sb = new StringBuffer();
+			 sb.append(((ReviewDTO) t.get(i)).getRvCtt());
+				
+			 if(sb.indexOf("img") !=-1) {
+				System.out.println("들어는 오셨는지");
+				String st = sb.substring((sb.indexOf("src")+5),sb.indexOf("data-filename"));
+				((ReviewDTO) t.get(i)).setImage(st);
+					
+			}
+		}
+		
+		System.out.println("listPagingData"+listPagingData.getPageSize());
+		System.out.println("listrecordcount"+listPagingData.getTotalRecordCount());
+		System.out.println("listPagingDatagetlist"+listPagingData.getLists());
+
+		System.out.println("listPagingDatagetblockpage"+listPagingData.getBlockPage());
+
+		System.out.println("listPagingDatagetnowpage"+listPagingData.getNowPage());
+		System.out.println("getLists"+listPagingData.getLists().get(3));
+
 		model.addAttribute("listPagingData", listPagingData);
 		System.out.println("22222222222222");
 

@@ -46,7 +46,37 @@ body {
 	padding-top: 50px;
 	text-decoration: none;
 }
+.input{
 
+
+    border: 2px solid #CCCCCC;
+
+    border-radius: 2em;
+}
+.humanchat{
+
+background-color:#CCCCCC;
+border-top-left-radius:2em;
+position:relative;
+left:170px;
+margi-left:auto;
+border-top-right-radius:2em;
+border-bottom-left-radius:2em;
+padding:10px;
+min-width:100px;
+color:#3696FC;
+
+}
+.modalchat{
+background-color:#3696FC;
+border-top-left-radius:2em;
+
+border-top-right-radius:2em;
+
+border-bottom-right-radius:2em;
+padding:10px;
+color:#FFFFFF;
+}
 .navbar-default {
 	min-height: 80px;
 	max-height: 80px;
@@ -178,7 +208,7 @@ body {
 
 					<li><a href="<c:url value="/Stamp/MapSearch.do"/>">지도 검색</a></li>
 
-					<li><button id="myBtn">모달-챗봇</button></li>
+					<li><a href="#"><button id="myBtn" >모달-챗봇</button></a></li>
 
 
 
@@ -191,24 +221,33 @@ body {
 							<div class="container h-100">
 								<div class="row align-items-center h-100">
 									<div class="col-md-8 col-sm-12 mx-auto">
-										<div class="h-100 justify-content-center">
-											<div class="chat-container"
-												style="overflow: auto; max-height: 80vh">
-
-												
-												<div class="chat-message col-md-5 bot-message"
-													style="margin-bottom: 50px"><h4>&lt;안녕하세요 챗봇 도우미입니다.<br/>
-													필요한 서비스를 입력해주세요.&gt;</h4><br/>
+										<div class="h-100 justify-content-center" style="display:flex;  overflow:hidden;flex-direction: row;">
+											<div class="left-container" style=" max-height: 80vh;">
+												<div class="chat-message bot-message font_9"
+													style="margin-bottom: 50px;width:250px;display:flex;flex-direction:column">
+													<div class ="modalchat">
+													<h4>&nbsp;&nbsp;안녕하세요, 챗봇 도우미입니다.
+													필요한 서비스를 입력해주세요.</h4></div>
+													<br/>
 													1. 예약<br/>
 													2. 여행지 추천<br/>
-													<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+													<div style="
+  margin-top: auto; ">
+<input class="input" type="text" style="margin:10px;padding:5px; width:230px "placeholder="내용을 입력해주세요."
+												id="query" /> </div>
 												</div>
+											</div>
+											<div class="chat-container" style="display:flex;flex-direction:column; 	height:300px; overflow:auto;min-width:300px;" >
+
+												
+												
+
+
 
 
 
 											</div>
-											<input class="input" type="text" placeholder="내용을 입력해주세요."
-												id="query" /> 
+											
 
 										</div>
 									</div>
@@ -222,11 +261,12 @@ body {
 							<script>
 							    function sendMessage(message) {
 							        console.log('입력메시지:',message)
-							        $.ajax({url:"https://8782999142f4.ngrok.io/message",data:{'message': message,'session_id':'<%=session.getId()%>'},type:'post',success:receiveResponse})
+							        $.ajax({url:"https://ab5de021e55e.ngrok.io/message",
+							        	data:{'message': message,'session_id':'<%=session.getId()%>'},type:'post',success:receiveResponse})
 							        //flask서버로부터 응답을 받으면 receiveResponse콜백함수가 호출됨
 							        function receiveResponse(data) {//data는 flask로부터 받은 응답 {'message':'다이얼로그플로우가 보내준값'}
 							          //chat-container에 bot의 응답 추가
-							          $('.chat-container').append('<div class="chat-message col-md-5 bot-message">'+data.message+'</div>')
+							          $('.chat-container').append('<div class="chat-message col-md-5 modalchat bot-message">'+data.message+'</div>')
 							          //스크롤바 아래로
 							          $(".chat-container").scrollTop($(".chat-container")[0].scrollHeight);
 							          console.log('받은 메시지:',data)
@@ -243,7 +283,7 @@ body {
 								        	return
 								        }
 								        //chat-container에 사용자의 응답 추가
-								        $('.chat-container').append('<div class="chat-message col-md-5 offset-md-7 human-message">'+query+'</div>')
+								        $('.chat-container').append('<div class="chat-message col-md-5 offset-md-7 humanchat human-message">'+query+'</div>')
 								        // 입력창 클리어
 								        $('#query').val('')
 								        //스크롤바 아래로
